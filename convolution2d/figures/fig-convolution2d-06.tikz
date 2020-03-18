@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+%\usetikzlibrary{matrix}
+\usetikzlibrary{backgrounds}
+
+\matrix (A) [matrix of math nodes,nodes in empty cells,
+             left delimiter  = (,
+             right delimiter = ),align=center,text depth=.5ex,text height=2ex,text width=1.9em] at (0,0)
+{%
+m_{11} & m_{12}  & m_{13}  \\
+m_{21} & m_{22}  & m_{23}  \\
+m_{31} & m_{32}  & m_{33}  \\
+};
+
+\matrix (B) [matrix of math nodes,nodes in empty cells,
+             left delimiter  = (,
+             right delimiter = ),align=center,text depth=.5ex,text height=2ex,text width=1.9em] at (7,0)
+{%
+m_{33} & m_{32}  & m_{31}  \\
+m_{23} & m_{22}  & m_{21}  \\
+m_{13} & m_{12}  & m_{11}  \\
+};
+
+
+% \draw[->,>=latex,line width = 4pt,blue!30] (2,0) to[bend left=90] ++(3,0);
+\draw[->,>=latex,line width = 3pt,blue!30,scale=0.5,xshift=4cm,yshift=-0.2cm]   (0.5,-0.5) .. controls (9,2) and (-2,2) .. (6.5,-0.5);
+
+ 
+\node at (0,-1.5) {\bf Motif de taille $3\times 2$};
+\node at (7,-1.5) {\bf Motif retourné};
+
+
+ \begin{scope}[on background layer]
+ \fill[green!30,opacity=0.5] (A-2-2.north west) rectangle (A-2-2.south east);
+ \fill[green!30,opacity=0.5] (B-2-2.north west) rectangle (B-2-2.south east);
+\end{scope}
+
+
+\end{tikzpicture}

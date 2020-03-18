@@ -1,0 +1,21 @@
+\begin{tikzpicture}[scale=0.5]
+
+\begin{scope}
+\draw[thick,fill=black!10] (0,0) circle (3);
+\draw[-<,>=latex,ultra thick]  (150:3) -- (150:8) node[left] {entr\'ee 1};
+\draw[-<,>=latex,ultra thick]  (180:3) -- (180:8) node[left] {entr\'ee 2};
+\draw[-<,>=latex,ultra thick]  (210:3) -- (210:8) node[left] {entr\'ee 3};
+\draw[->,>=latex,ultra thick] (0:3) --  (8,0) node[right] {sortie};
+\node at (0,0) {neurone};
+\end{scope}
+
+\begin{scope}[xshift=24cm]
+\draw[thick,fill=black!10] (0,0) circle (3);
+\draw[-<,>=latex,ultra thick]  (150:3) -- (150:8) node[left] {$e_1$};
+\draw[-<,>=latex,ultra thick]  (180:3) -- (180:8) node[left] {$e_2$};
+\draw[-<,>=latex,ultra thick]  (210:3) -- (210:8) node[left] {$e_3$};
+\draw[->,>=latex,ultra thick] (0:3) --  (8,0) node[right] {$s = 0$ ou $s = 1$};
+\node[scale=0.8] at (0,0) {$[p_1,p_2,p_3]$};
+\end{scope}
+
+\end{tikzpicture}  

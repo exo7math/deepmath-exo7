@@ -1,0 +1,10 @@
+\begin{tikzpicture}[scale=0.5]
+
+\draw[thick,fill=black!10] (0,0) circle (3);
+\draw[ultra thick]  (150:3) -- (150:8)node[pos=0.2,above]{$a$} node[left]{$x$};
+\draw[ultra thick]  (180:3) -- (180:8)node[pos=0.2,above]{$b$} node[left]{$y$};
+\draw[-o,ultra thick]  (210:3) -- (210:8) node[pos=0.2,below]{$c$};
+\draw[->,>=latex,ultra thick] (0:3) --  (8,0) node[right] {$F(x,y)$};
+\node[below right] at (-15:3) {$H$};
+
+\end{tikzpicture}  

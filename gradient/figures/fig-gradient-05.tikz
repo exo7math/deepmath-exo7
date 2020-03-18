@@ -1,0 +1,92 @@
+\begin{tikzpicture}[scale=1.5]
+     \draw[->,>=latex,thick, gray] (-2.5,0)--(2.5,0) node[below,black] {$x$};
+     \draw[->,>=latex,thick, gray] (0,-2.5)--(0,2.5) node[right,black] {$y$};
+
+\begin{scope} 
+
+\clip (-2,-2) rectangle (2,2);
+
+
+% Several levels
+\foreach \k in {-3,-2.5,...,3}{    
+   \draw [thick, color=lightgray,samples=25,smooth, domain=-2.5:2.5] 
+            plot( 
+                      {\x} ,
+                      {sin(deg(\x-0.4*\k-0.5))+\k+0.1} 
+                    );    
+   };
+
+% Chosen level
+\def\k{-0.5};
+   \draw [very thick, color=red,samples=25,smooth, domain=-2.5:2.5] 
+            plot( 
+                      {\x} ,
+                      {sin(deg(\x-0.4*\k-0.5))+\k+0.1} 
+                    ); 
+
+
+% Chosen level
+\def\k{+1};
+   \draw [very thick, color=red,samples=25,smooth, domain=-2.5:2.5] 
+            plot( 
+                      {\x} ,
+                      {sin(deg(\x-0.4*\k-0.5))+\k+0.1} 
+                    );
+
+ 
+% 1st gradient
+\def\k{-0.5}
+\pgfmathsetmacro\x{-1} 
+\pgfmathsetmacro\y{sin(deg(\x-0.4*\k-0.5))+\k+0.1} 
+\pgfmathsetmacro\dx{1}
+\pgfmathsetmacro\dy{cos(deg(\x-0.4*\k-0.5))}
+
+\draw[very thick, blue] (\x,\y) to[bend left=8] ++(0.1,1.5);
+
+
+%\draw[->,>=latex, thick] (\x,\y)--++(-0.4*\dy,0.4*\dx) node[right]{grad $f((x_0,y_0)$};
+\fill (\x,\y) circle (1pt) node[below] {$(x_0,y_0)$};
+
+
+
+% 2nd gradient
+\def\k{0}
+\pgfmathsetmacro\x{-1} 
+\pgfmathsetmacro\y{sin(deg(\x-0.4*\k-0.5))+\k+0.1} 
+\pgfmathsetmacro\dx{1}
+\pgfmathsetmacro\dy{cos(deg(\x-0.4*\k-0.5))}
+\draw[->,>=latex,thick] (\x,\y)--++(-0.4*\dy,0.4*\dx); %node[above]{grad $f((x_0,y_0)$};
+
+% 3th gradient
+\def\k{0.5}
+\pgfmathsetmacro\x{-1} 
+\pgfmathsetmacro\y{sin(deg(\x-0.4*\k-0.5))+\k+0.1} 
+\pgfmathsetmacro\dx{1}
+\pgfmathsetmacro\dy{cos(deg(\x-0.4*\k-0.5))}
+\draw[->,>=latex, thick] (\x,\y)--++(-0.4*\dy,0.4*\dx);
+
+
+
+% The pa	th
+\def\k{-0.5}
+\pgfmathsetmacro\x{-1} 
+\pgfmathsetmacro\y{sin(deg(\x-0.4*\k-0.5))+\k+0.1} 
+
+
+%\fill (\x,\y) circle (1pt) node[below] {$(x_0,y_0)$};
+
+\end{scope}
+
+\node at (2,0.6)[right,red]{$f=a$};
+\node at (2,2)[right,red]{$f=b$};
+
+% For the outside node gradient
+\def\k{-0.5}
+\pgfmathsetmacro\x{-1} 
+\pgfmathsetmacro\y{sin(deg(\x-0.4*\k-0.5))+\k+0.1} 
+\pgfmathsetmacro\dx{1}
+\pgfmathsetmacro\dy{cos(deg(\x-0.4*\k-0.5))}
+
+\draw[->,>=latex, thick] (\x,\y)--++(-0.4*\dy,0.4*\dx) node[left]{grad $f(x_0,y_0)$};
+
+\end{tikzpicture}

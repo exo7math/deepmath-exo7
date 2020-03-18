@@ -1,0 +1,27 @@
+% Figure after Kjell Magne Fauske
+% http://www.texample.net/tikz/examples/neural-network/
+\begin{tikzpicture}[scale=1.5]
+   \def\layersep{1.5cm}
+    \tikzstyle{every pin edge}=[thick]
+    \tikzstyle{neuron}=[circle,fill=black!25,minimum size=12pt,inner sep=0pt]
+    \tikzstyle{entree}=[];
+    \tikzstyle{input neuron}=[neuron, fill=green!50];
+    \tikzstyle{output neuron}=[neuron, fill=red!50];
+    \tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+    \tikzstyle{annot} = [text width=4em, text centered]
+
+% Entree
+\node[entree,blue] (E) at (-\layersep,0) {$x$};
+
+% Premiere couche
+\node[input neuron] (I) at (0,0) {};
+\node[below right=0.8ex,scale=0.7] at (I) {$H$};
+\draw[-o,thick] (I) to node[midway,below right,scale=0.7]{$-1$} ++ (-120:0.8);
+
+% Arrete et poids
+ \path[thick] (E) edge node[pos=0.8,above,scale=0.7]{$-b$} (I) ;
+
+% Sortie
+ \draw[->,thick] (I)-- ++(1,0) node[right,blue]{$F(x)$};
+
+\end{tikzpicture}  

@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+
+ \begin{scope}[rotate=-5]
+
+ 
+ \draw[ultra thick, black!50,rotate=25,xshift=1.95cm] (0.5,-2) to[out=150,in=-110] (0,0) to[out=70,in=-150] (2,2.2)
+ node[above,black] {ligne de niveau $c_k$};
+
+ \draw[ultra thick, black!50,rotate=20,xshift=4.2cm] (0.5,-2) to[out=150,in=-110] (0,0) to[out=70,in=-170] (1.5,1)
+ node[above,black] {$c_{k+1}<c_k$};
+% \fill (0,0) circle (0.5ex) node[below]{$P_{k-1}$};
+\fill (2,0) circle (0.5ex) node[left]{$P_{k}$};
+\fill (4,1) circle (0.5ex) node[right]{$P_{k+1}$};
+
+ %\draw[->,>=latex,ultra thick,blue,shorten >=3pt,shorten <=3pt] (0,0) -- (2,0);
+ \draw[->,>=latex,ultra thick,red,shorten >=3pt,shorten <=3pt] (2,0) -- (4,1) node[scale=0.7,midway, above=2ex]{$-\delta_k \grad f(P_k)$};
+ 
+
+\end{scope}
+
+\end{tikzpicture}

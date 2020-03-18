@@ -1,0 +1,39 @@
+\begin{tikzpicture}[scale=1]
+
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (0,0,7) node[below]{$x$};
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (5,0,0) node[right]{$y$};
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (0,5,0) node[left]{$z$};
+
+
+% Partie 2 - Plan y=cst
+\draw[red] (2.5,0,4) -- ++(0,5,0) -- ++(0,0,-4) -- ++(0,-5,0) -- cycle;
+
+\draw[red, very thick] (2.5,3,4)  to[out=-70,in=-120] (2.5,2,+2) ;
+\draw[red, thick] (2.5,2,2)  to[out=50,in=-90] ++(0,1,-1.5) ;
+\fill [red] (2.5,2,2) circle (3pt);
+
+\draw[dashed] (2.5,2,2)--(2.5,0,2) node[below]{$x_1$};
+% \fill [blue] (4.5,4.5,4) circle (3pt);
+
+\draw[<-,>=latex,thick] (4.1,3.1,4) to[in=190,out=-10] (5,2,0) node[right] {plan $(y=y_0)$};
+\draw[<-,>=latex,thick] (3.5,3,4) to[in=180,out=-30] (5,1,0) node[right] {tranche à $(y=x_0)$};
+
+
+% Partie 1 - Plan x=cst
+\draw[blue] (0,0,4) -- ++(5,0,0) -- ++(0,5,0) -- ++(-5,0,0) -- cycle;
+\draw[blue, very thick] (2.5,3,4)  to[out=0,in=-120] ++(2,1.5,0) ;
+\draw[blue, very thick] (2.5,3,4)  to[out=180,in=-20] ++(-2,1.5,0) ;
+\fill [blue] (2.5,3,4) circle (3pt);
+
+% \draw[dashed] (2.5,3,4)--(2.5,0,4) node[below]{$y_0$};
+
+\draw[<-,>=latex,thick] (5.1,4.5,4) to[in=170,out=10] (5,4,0) node[right] {plan $(x=x_0)$};
+\draw[<-,>=latex,thick] (4.3,4,4) to[in=170,out=-30] (5,3,0) node[right] {tranche à $(x=x_0)$};
+
+\node[left] at (0,0,4) {$x_0$};
+\node[above right] at (2.5,0,0) {$y_0$};
+
+
+
+
+\end{tikzpicture}

@@ -1,0 +1,22 @@
+\begin{tikzpicture}[scale=1.5]
+
+\draw[->,>=latex, gray] (-0.5,0)--(5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,3.2) node[left] {$y$};
+
+\draw[-o,shorten >=-4pt,shorten <=-4pt,ultra thick,red] (-0.5,0) -- (2,0);
+\draw[*-*,shorten >=-4pt,shorten <=-4pt,ultra thick,red] (2,2.5) -- (3,2.5);
+\draw[o-,shorten >=-4pt,shorten <=-4pt,ultra thick,red] (3,0) -- (4.5,0) node[above]{$F(x)$};
+
+\fill[black] (0,1) circle (1pt);
+
+\node at (0,0) [below left] {$0$};
+\node at (0,1) [above left] {$1$};
+
+
+\node at (2,0) [below left] {$\frac1a$};
+\node at (3,0) [below right] {$\frac1b$};
+
+\draw[dashed] (2,2.5)--(0,2.5) node[left]{$k$};
+\draw[dashed] (2,0)--(2,2.5);
+\draw[dashed] (3,0)--(3,2.5);
+\end{tikzpicture}

@@ -1,0 +1,10 @@
+% after https://nilesjohnson.net/tikz-demo.html 
+ \begin{tikzpicture}[scale=.8, z={(.707,.3)}]
+    \draw (6,5,2) -- (0,0,0) --node[below]{$a$} (4,0,0) --node[below right]{$b$}  (4,0,4) -- (6,5,2) 
+      -- (4,0,0);
+    \draw[color=gray, style=dashed] (6,5,2) -- (0,0,4) 
+      -- (0,0,0);
+    \draw[color=gray, style=dashed] (0,0,4) -- (4,0,4);
+    \draw[|-|] (6.5,5,2) -- node[right] {$h$} (6.5,0,2);
+
+  \end{tikzpicture}

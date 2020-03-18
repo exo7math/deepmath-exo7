@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+
+\draw[very thick]  (0,0) grid ++(8,1);
+\node[scale=2.5] (C) at (9,0.5) {$\star$};
+\draw[very thick]  (10,0) grid ++(3,1);
+\node[scale=2] at (14,0.4) {$=$};
+\draw[very thick]  (15,0) grid ++(8,1);
+
+\node at (4,-1) {\bf Liste d'entrée};
+\node at (11.5,-1) {\bf Motif};
+\node at (19,-1) {\bf Liste de sortie};
+
+\draw [<-,>=latex,ultra thick,blue!70] (C.south) to[bend right] (11,-3) node[right]{produit de convolution};
+\end{tikzpicture}

@@ -1,0 +1,11 @@
+\begin{tikzpicture}[node distance=4cm, every edge/.style={draw,thick,->}]
+     \node(E){$t \in \Rr$};
+     \node[right of=E](F){$(u(t),v(t)) = (x,y) \in \Rr^2$};
+     \node[right of=F](G){$f(x,y)\in\Rr$};
+
+     \draw (E) edge[|->] (F);
+     \draw (E.north) edge[red, bend left=45] node[above]{$(u,v)$} (F.north);
+     \draw (F) edge[|->] (G);
+     \draw (F.north) edge[red, bend left=45] node[above]{$f$} (G.north);
+     \draw (E.south) edge[red, bend right] node[below]{$F$} (G.south);       
+\end{tikzpicture}

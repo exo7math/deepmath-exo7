@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+
+
+ \node at (0,0) {$e$};
+%\fill (0,0) circle (0.5ex);
+\fill (4,0) circle (0.5ex);
+\fill (8,0) circle (0.5ex);
+\fill (12,0) circle (0.5ex);
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto \ln(x)$} ;
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto y^3+1$} ;
+ \draw[->,>=latex,ultra thick,red] (8.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$z \mapsto e^z$} ;
+
+\end{tikzpicture}

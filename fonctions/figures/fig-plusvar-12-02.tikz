@@ -1,0 +1,15 @@
+\begin{tikzpicture}[scale=0.7]
+
+
+\draw[->,>=latex,thick, gray] (-1,0)--(5.5,0) node[below,black] {$x$};
+\draw[->,>=latex,thick, gray] (0,-0.7)--(0,4.5) node[right,black] {$y$};
+
+\draw[red,thick,dashed,fill=red!10,fill opacity=0.5] (3,2) circle (1.5-0.01);
+
+\draw[<->,>=latex,thick,red] (3,2)--++(20:1.5) node[midway,above] {$r$};
+
+\fill[blue] (3,2) circle (2pt) node[black, below] {$(x_0,y_0)$};
+
+\node[red] at (3,4) {$B_r(x_0,y_0)$};
+
+\end{tikzpicture}

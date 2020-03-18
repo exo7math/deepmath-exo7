@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+
+\fill (0,2) circle (0.5ex);
+\fill (0,-2) circle (0.5ex);
+\fill (6,0) circle (0.5ex);
+
+% \node at (0,2) {$x_0$};
+% \node at (0,-2) {$y_0$};
+% \node at (6,0) {$f(x_0,y_0)$};
+%\node[blue,left] at (3,1) {$[\partial_y f]$};
+%\node[blue,left] at (3,-1) {$[\partial_y f]$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$f$} ;
+
+\end{tikzpicture}

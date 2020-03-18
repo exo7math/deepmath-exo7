@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+
+\draw[->,>=latex, ultra thick, blue] (0,0)--++(1,-5) node[above right] {une itération classique};
+
+\draw[->,>=latex, ultra thick, red] (0,0) -- (0.5,-1);
+\draw[->,>=latex, ultra thick, red]  (0.5,-1) -- (0,-2.5) ;
+\draw[->,>=latex, ultra thick, red]  (0,-2.5) -- (1,-2.2);
+\draw[->,>=latex, ultra thick, red]  (1,-2.2) -- (-0.5,-4) node[above left] {des itérations stochastiques};
+\draw[->,>=latex, ultra thick, red]  (-0.5,-4) -- (-0.2,-5.2);
+
+\fill (0,0) circle(3pt);
+
+\draw [->,>=latex,black!10,line width=10pt] (0.25,-5.5) -- ++(0,-2.5) node[below, black]{vers le minimum};
+\end{tikzpicture}

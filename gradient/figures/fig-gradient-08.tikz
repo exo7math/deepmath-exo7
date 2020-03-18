@@ -1,0 +1,31 @@
+\begin{tikzpicture}[scale=2]
+
+  % Axes
+  \draw[->,>=latex, gray] (0,0)--++(-1,-1) node[right,black] {$x$};
+  \draw[->,>=latex, gray] (0,0)--(4,0) node[below,black] {$y$};
+  \draw[->,>=latex, gray] (0,0)--(0,2.5) node[right,black] {$z$};
+
+  % Pseudo surface
+  \draw [fill=red, draw=red, thick, opacity=0.5] (0.1,0.65) to[bend right=10] ++(3.5,0) to [bend right=50] cycle;
+
+  \draw [dashed, draw=red, thick,  opacity=0.5] (0.1,0.65) to[bend left=10] ++(3.5,0);
+
+  % Plan tangent
+  \draw [fill=blue, thick, draw=blue, opacity=0.5] (0.5,1.1)--++(2.5,-0.7)--++(1,1)--++(-2.5,0.7)--cycle;
+
+
+% (x_0,y_0)
+\fill (2.25,-0.5) circle (1pt) node[below] {$(x_0,y_0)$};
+\fill (2.25,1.2) circle (1pt);
+\draw[dashed, thick] (2.25,-0.5)--++(0,1.7);
+
+
+\draw[dashed, thick] (2.25,1.2)--(0,1.2+0.3);
+\fill (0,1.2+0.3) circle (1pt) node[left]{$z_0$};
+
+
+\node at (0.6,0.4) {$\mathcal{G}_f$};
+
+
+
+\end{tikzpicture}

@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+
+\def\r{4};
+\def\n{15};
+
+% \draw[gray,ultra thick] (0,0) circle(\r cm);
+ 
+\foreach \i in {1,...,\n}{
+\foreach \j in {\i,...,\n}{
+\ifthenelse{\not\equal{\i}{2} \and \not\equal{\j}{2} 
+\and \not\equal{\i}{5} \and \not\equal{\j}{5}
+\and \not\equal{\i}{6} \and \not\equal{\j}{6}
+\and \not\equal{\i}{11} \and \not\equal{\j}{11}
+\and \not\equal{\i}{13} \and \not\equal{\j}{13}
+\and \not\equal{\i}{9} \and \not\equal{\j}{9}
+\and \not\equal{\i}{14} \and \not\equal{\j}{14}
+}
+  {\draw[blue, very thick]  (\i*360/\n:\r) -- (\j*360/\n:\r);}{}
+}}
+
+\foreach \i in {1,...,\n}{
+  \fill[red] (\i*360/\n:\r) circle(4pt);
+  \node at  (\i*360/\n:\r+0.7) {\bf \i};
+}
+
+
+\end{tikzpicture}

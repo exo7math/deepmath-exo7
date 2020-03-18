@@ -1,0 +1,35 @@
+\begin{tikzpicture}[scale=2,yscale=1.1]
+
+  %    \draw[gray!50] (-0.25,-0.25) grid (4.25,3.25);
+      \draw[->,>=latex, gray] (-0.5,0)--(4,0) node[below,black] {$x$};
+      \draw[->,>=latex, gray] (0,-0.5)--(0,2.5) node[right,black] {$y$};
+
+      \draw[ultra thick, color=red,domain=0:3,samples=100] plot (\x,{sqrt(\x)})node[right] {$y=\sqrt{x}$};
+      \draw[thick, color=blue,domain=-0.25:3] plot (\x,{0.55*(\x-1)+1.02})  node[right] {$T$};
+
+
+\def\h{0.5}
+
+\fill (0,0) circle (1pt);
+\node at (0,0) [below left] {$0$};
+\fill (1,0) circle (1pt) node[below] {$1$};
+\fill (1,1) circle (1.5pt);
+\draw[dashed, thick] (1,0)--(1,1);
+
+\fill (1+\h,0) circle (1pt) node[below] {$1+h$};
+
+
+\fill ({1+\h},{sqrt(1+\h)-0.02}) circle (1pt);
+\fill ({1+\h},{0.55*\h+1.03}) circle (1pt);
+
+\fill (0,{sqrt(1+\h)-0.02}) circle (1pt);
+\fill (0,{0.55*\h+1.03}) circle (1pt);
+
+\draw[dashed, thick] (1+\h,0)--(1+\h,{sqrt(1+\h)});
+\draw[dashed, thick] (1+\h,{sqrt(1+\h)})--(0,{sqrt(1+\h)}) node[below left] {\scriptsize$\sqrt{1+h}$};
+\draw[dashed, thick] (1+\h,{0.55*\h+1.03})--(0,{0.55*\h+1.03}) node[above left] {\scriptsize $1+h/2$};
+
+
+
+
+\end{tikzpicture}

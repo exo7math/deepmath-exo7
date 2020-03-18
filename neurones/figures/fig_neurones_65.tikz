@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+
+\def\poly{ (0,0) -- (4,0)  -- (6,1) -- (5,4) --(2,3)--(1,5) -- (-2,3)--cycle}
+
+\begin{scope}[rotate=10,scale=0.8]
+
+\draw[red,ultra thick] \poly;
+ \fill[red!20,opacity=0.5] \poly;
+\coordinate (A) at (0.5,1.5);
+\coordinate (B) at (3,1.6);
+
+\begin{scope}[thick]
+\draw (A) -- (B);
+\draw (A) -- (0,0);
+\draw (B) -- (0,0);
+\draw (B) -- (4,0);
+\draw (B) -- (6,1);
+\draw (B) -- (5,4);
+\draw (B) -- (2,3);
+\draw (A) -- (2,3);
+\draw (2,3) -- (-2,3);
+\draw (A) -- (-2,3);
+\end{scope}
+
+\end{scope}
+
+
+
+
+\end{tikzpicture}

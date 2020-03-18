@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+
+  \node (A) at (0,0) {$f$ est $\mathcal{C}^1$};
+  \node[text width=3cm,text centered] (B) at (0,-3) {$f$ a des d\'eriv\'ees partielles continues};
+  \node (C) at (4,0) {$f$ est diff\'erentiable};
+  \node[text width=3cm,text centered] (D) at (4,-3) {$f$ admet un DL \`a l'ordre $1$};
+  \node (E) at (8,2) {$f$ est continue};
+  \node[text width=3cm,text centered] (F) at (8,-2) {$f$ a des d\'eriv\'ees partielles (et directionnelles)};
+
+
+ 
+  \draw[<->,>=stealth,double distance=1.4pt,thick] (A)--(B) node[midway,right]{\small def.};
+  \draw[<->,>=stealth,double distance=1.4pt,thick] (C)--(D) node[midway,right]{\small def.};
+
+  \draw[->,>=stealth,double distance=1.4pt,thick] (A)--(C);
+  \draw[->,>=stealth,double distance=1.4pt,thick] (C.north east)--(E.south west);
+  \draw[->,>=stealth,double distance=1.4pt,thick] (C.south east)--(F);
+\end{tikzpicture}

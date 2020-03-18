@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+\def\layersep{2cm}
+\tikzstyle{neuron}=[circle,fill=red!50,minimum size=12pt,inner sep=0pt]
+
+% Entree
+\node[blue] (E) at (-\layersep,0) {$x=2$};
+
+% Neurone F
+\node[neuron] (F) at (0,0) {};
+\node[above right=0.8ex,scale=0.8] at (F) {$100$};
+% \node[below right=0.8ex,scale=0.8] at (F) {$[20]$};
+\node[above left=1ex,scale=0.8,red] at (F) {$\{\{2/5\}\}$};
+\node[below=4ex,scale=0.8,red] at (F) {$\{\{1/5\}\}$};
+ \path[thick] (E) edge node[pos=0.8,above,scale=0.8]{$a=3$} (F);
+ \draw[-o,thick] (F) to node[pos=0.2,below right,scale=0.8]{$b=4$} ++ (-130:1.3) node[below,blue] (FF) {};
+
+% Neurone G
+\node[neuron] (G) at (\layersep,0) {};
+\node[above right=0.8ex,scale=0.8] at (G) {$\ln500$};
+%\node[below right=0.8ex,scale=0.8] at (G) {$[1/500]$};
+\node[below=1.5ex,scale=0.8,red] at (G) {$\{\{1/5\}\}$};
+\path[thick] (F) edge node[pos=0.8,above,scale=0.8]{$c=5$} (G);
+
+
+
+\draw[->,>=latex,thick] (G)-- ++(2,0) node[right,blue]{$F(2,3,4,5)$};
+\node[below=1.5ex,scale=0.8,red] at (E) {$\{\{3/5\}\}$};
+
+
+\end{tikzpicture}  

@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+
+ \fill (-3.5,0) circle (0.5ex);
+ \fill (0,2) circle (0.5ex);
+ \fill (0,-2) circle (0.5ex);
+ \fill (6,0) circle (0.5ex);
+ \fill (11,0) circle (0.5ex);
+
+\draw[ultra thick,red] (-0.5,2) -- (-3,0.1) node[midway, above left,black]{$e^t$};
+\draw[ultra thick,red] (-0.5,-2) -- (-3,-0.1) node[midway, below left,black]{$\sin t$};
+
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+
+ \draw[ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$x  y$} ;
+ \draw[->,>=latex,ultra thick,red] (7,0) -- ++(3,0) node[midway,above,black,scale=1]{$\sqrt{z}$} ;
+\end{tikzpicture}

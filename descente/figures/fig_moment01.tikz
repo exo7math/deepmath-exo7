@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+
+ \begin{scope}[rotate=10]
+
+\coordinate (A1) at (1,0);
+\coordinate (A2) at (0,-1); 
+\coordinate (A3) at (1,-3); 
+\coordinate (A4) at (0,-3.5);
+\coordinate (A5) at (-1,-3.7);
+\coordinate (A6) at (0.5,-4.5);
+\coordinate (A7) at (-0.5,-5);
+
+\foreach \i in {1,...,6}{
+\pgfmathsetmacro\ii{\i +1}
+\pgfmathresult{\ii}{\i+1}
+\draw [->,>=latex,ultra thick,red,shorten >=1pt,shorten <=1pt] (A\i) -- (A\ii);
+}
+
+\end{scope}
+
+\end{tikzpicture}

@@ -1,0 +1,19 @@
+\begin{tikzpicture}[scale=0.2]
+
+% Grille
+
+\draw (0,0) grid ++(28,28);
+
+\draw (50,15) grid ++(1,15);
+\draw (50,-5) grid ++(1,15);
+\draw[dashed] (50.5,10.5) -- ++(0,4);
+
+\draw[->,>=latex,green!70!black!20,line width=8pt] (30,15)  to[bend left=10]++(17,0)  ;
+
+\node at (15,-5) {Tableau $28\times28$};
+\node at (15,-7) {valeurs de $0$ à $255$};
+
+\node at (65,15) {Vecteur de taille $784$};
+\node at (65,12) {valeurs de $0$ à $1$};
+
+\end{tikzpicture}

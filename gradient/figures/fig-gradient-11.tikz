@@ -1,0 +1,21 @@
+\begin{tikzpicture}[scale=1.5]
+
+\pgfmathsetmacro\x{0} 
+\pgfmathsetmacro\y{0} 
+\pgfmathsetmacro\h{3}
+\pgfmathsetmacro\k{1.5}
+
+\draw[ultra thick, red] (\x,\y)--++(\h,\k);
+
+\draw[->,>=latex,ultra thick, blue] (\x,\y+0.3)--++(\h,\k) node[above,midway]{$(h,k)$};
+
+\draw [black, thick] plot [smooth cycle] coordinates {(-2,0) (1,2) (6,2) (2,0) (1,-2)};
+
+\fill (\x,\y) circle (2pt) node[below] {$a=(x_0,y_0)$};
+
+\fill (\x+\h,\y+\k) circle (2pt) node[above right] {$b=(x_0+h,y_0+k)$};
+
+\fill (\x+0.7*\h,\y+0.7*\k) circle (2pt) node[below right] {$c=a + \theta b$};
+
+
+\end{tikzpicture}

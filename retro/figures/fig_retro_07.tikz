@@ -1,0 +1,21 @@
+\begin{tikzpicture}[yscale=2]
+
+\draw[->,>=latex, gray] (-0.5,0)--(8.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,2.0) node[left] {$y$};
+
+\draw[ultra thick,blue] (0,0) -- (2,0);
+\draw[ultra thick,red] (3,1) -- (5,1);
+\draw[ultra thick,blue] (6,0) -- (8,0);
+
+\node at (0,0) [below left] {$0$};
+\node at (0,1) [left=5pt] {$1$};
+\draw (-0.1,1)--++(0.2,0);
+
+\foreach \x/\xx in {1,...,8}{
+  \draw (\x,-0.1)--++(0,0.2);
+  \node[below=5pt] at (\x,0) {$\xx$};
+}
+% \draw[ultra thick, color=blue,domain=-1.5:3.,smooth] plot (\x,{-1+0.12*(\x+2)^2});
+
+%\node at (-2,1.2) {\bf Fonction \og{}marche\fg{}};
+\end{tikzpicture}

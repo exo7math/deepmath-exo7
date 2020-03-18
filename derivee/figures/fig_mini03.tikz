@@ -1,0 +1,29 @@
+\begin{tikzpicture}[scale=0.1]
+
+\draw[->,>=latex, gray] (-10,0)--(45,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-10)--(0,50) node[left] {$y$};
+
+%\draw[ultra thick,red] (-3,0) -- (0,0) -- (2,2);
+
+\draw[ultra thick, color=red,domain=-1:4,smooth] plot (10*\x,{6*\x*\x - 22*\x+ 27}) node[above]{$y=E(x)$};
+
+\fill[] (0,0) circle (10pt);
+\node at (0,0) [below left] {$0$};
+
+\foreach \i in {1,2,3,4}{
+  \fill[] (10*\i,0) circle (10pt);
+  \node at (10*\i,0) [below] {$\i$};
+}
+\foreach \j in {10,20,30,40}{
+  \fill[] (0,\j) circle (10pt);
+  \node at (0,\j) [left] {$\j$};
+}
+
+\def\x{1.83}
+\pgfmathsetmacro{\y}{6*\x*\x - 22*\x+ 27};
+\node at (10*\x,-5) [below] {$x_0$};
+\node at (-5,\y) [left] {$y_0=E(x_0)$};
+\draw[] (10*\x,-5)--(10*\x,\y) -- (-5,\y);
+
+
+\end{tikzpicture}

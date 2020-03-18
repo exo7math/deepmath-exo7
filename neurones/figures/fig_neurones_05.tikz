@@ -1,0 +1,31 @@
+\begin{tikzpicture}[scale=0.5]
+
+\foreach \name / \y in {-3,3}{
+  \draw[-<,>=latex,ultra thick] (0,0)--(-6,\y);
+}
+
+\node[blue] at (-3,2) {$2$};
+\node[blue] at (-3,-2) {$3$};
+
+%\node[left,red] at (-6,3) {$x$};
+%\node[left,red] at (-6,-3) {$y$};
+
+%\node[red,scale=0.8] at (4,0.5) {$2 x + 3y$};
+
+\draw[thick,fill=black!10] (-2,-2) rectangle ++ (4,4);
+\draw[ultra thick] (2,0) --  (8,0);
+\draw[thick,fill=black!10] (8,-1) rectangle ++ (2,2);
+\draw[->,>=latex,ultra thick] (10,0) -- ++ (3,0); 
+% node[right,red] {$ 
+% \left\{\begin{array}{ll}
+% 1 &  \mathrm{ si } \ \ 2x+3y \ge 0 \\
+% 0  & \mathrm{ sinon} \\
+% \end{array}\right.$};
+
+% \node[blue,scale=1.2] at (0,0) {$f$};
+\node[blue,scale=1.2] at (9,0) {$H$};
+%\node at (-8,0) {entr\'ees};
+%\node at (1,-4) {fonction lin\'eaire};
+%\node[text width=2cm,align=center] at (8,-2.5) {fonction d'activation};
+
+\end{tikzpicture}  

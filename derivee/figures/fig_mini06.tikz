@@ -1,0 +1,40 @@
+\begin{tikzpicture}[scale=1]
+
+\draw[->,>=latex, gray] (-9,0)--(9,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-1)--(0,8.5) node[left] {$y$};
+
+%\draw[ultra thick,red] (-3,0) -- (0,0) -- (2,2);
+
+\draw[ultra thick, color=red,domain=-1.7:2,smooth] plot (4*\x,{\x*\x*\x*\x - 3*\x*\x - 2*\x + 5}) node[above]{$y=f(x)$};
+
+\fill[] (0,0) circle (2pt);
+\node at (0,0) [below left] {$0$};
+
+\foreach \i in {-2,-1,1,2}{
+  \fill[] (4*\i,0) circle (2pt);
+  \node at (4*\i,0) [below] {$\i$};
+}
+\foreach \j in {2,4,6}{
+  \fill[] (0,\j) circle (2pt);
+  \node at (0,\j) [left] {$\j$};
+}
+
+\def\x{-1}
+\pgfmathsetmacro{\y}{\x*\x*\x*\x - 3*\x*\x - 2*\x + 5};
+\node at (4*\x,0) [above  left] {$x_1$};
+\draw[dashed] (4*\x,0)--(4*\x,\y);
+
+\def\x{-0.36}
+\pgfmathsetmacro{\y}{\x*\x*\x*\x - 3*\x*\x - 2*\x + 5};
+\node at (4*\x,0) [below ] {$x_2$};
+\draw[dashed] (4*\x,0)--(4*\x,\y);
+
+
+
+\def\x{1.36}
+\pgfmathsetmacro{\y}{\x*\x*\x*\x - 3*\x*\x - 2*\x + 5};
+\node at (4*\x,0) [below] {$x_3$};
+\draw[dashed] (4*\x,0)--(4*\x,\y);
+
+
+\end{tikzpicture}

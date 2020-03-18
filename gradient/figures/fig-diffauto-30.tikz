@@ -1,0 +1,40 @@
+\begin{tikzpicture}
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=5pt] (11,-1.75) to ++(-1.5,0) to node[midway,blue,scale=1.2]{$\times$} ++(-3,-1.5) to ++(-2,0) to ++(-5.5,1) to ++(-2.5,1) ;
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=5pt] (11,-1) to ++(-1.5,0) to node[midway,blue,scale=1.2]{$\times$} ++(-2.7,1.5) to ++(-4,0) to ++(-3,-2) to ++(-2.5,0.5); 
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=5pt] (11,-0.5) to ++(-1.5,0) to node[midway,blue,scale=1.2]{$\times$} ++(-2.7,1.5) to ++(-4,0) to ++(-2.5,1.5) to ++(-1,0) to ++(-2.5,-3); 
+
+\node at (-3.5,0) {$t$};
+\node at (0,2) {$x=t^2$};
+\node at (0,-2) {$y=\ln t$};
+\node at (6,0) {$z_1 = x\cdot y$};
+\node at (6,-3) {$z_2 =\ln y$};
+
+
+\node[red] at (-3.5,-1) {$\{\{F'(t)\}\}$};
+
+
+
+
+\node at (11.5,-1.5) {$F(t)$};
+
+
+\draw[ultra thick,red] (-0.6,2) -- (-3,0.1);
+\draw[ultra thick,red] (-0.7,-2) -- (-3,-0.1);
+\draw[ultra thick,red]  (0.6,2) -- (3,0);
+\draw[ultra thick,red] (0.7,-2) -- (3,0);
+
+\draw[ultra thick,red] (0.7,-2) -- (5,-3);
+
+ \draw[ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+
+\draw[ultra thick,red] (7,-0) -- (9,-1.5);
+\draw[ultra thick,red]  (6.8,-3) -- (9,-1.5);
+ \draw[->,>=latex,ultra thick,red] (9,-1.5) -- ++(2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+
+
+ 
+
+\end{tikzpicture}

@@ -1,0 +1,59 @@
+\begin{tikzpicture}[scale=1]
+
+% Esperance
+    \def\mymu{4};
+
+% variance
+    \def\mysigma{2};
+
+% Fonction
+   %\def\fonction{ 1/(sqrt(2*3.14*\sigmadeux)) * exp{-1/2*1/\sigmadeux*(\x-\mu)*(\x-\mu)} };
+   \def\fonction{ 10* (exp{-0.5*ln(2*pi*\mysigma*\mysigma)}) * (exp{-1/2*1/(\mysigma*\mysigma)*(\x-\mymu)*(\x-\mymu)}) };
+   
+% intervalle
+    \def\a{5}; 
+
+
+% Axes
+    \draw[->,>=latex,thick, gray] (-\a,0)--(\a+0.5,0) node[below,black] {$x$};
+    \draw[->,>=latex,thick, gray] (0,-0.2)--(0,5) node[right,black] {$f(x)$};  
+
+
+
+
+\def\mymu{0};
+\def\mysigma{1};
+
+% Graphe et aire
+%  \fill[black!20] (0,0) -- plot[domain=-\a:\a,variable=\x,smooth] ({\x},{\fonction}) -- (\a,0) -- cycle;
+   \draw[ultra thick, color=blue,domain=-\a:\a,samples=40,variable=\x,smooth] plot ( {\x} , {\fonction} );
+
+
+\draw (\mymu,0.2) -- ++(0,-0.4) node[below] {$0$};
+\draw (\mymu+\mysigma,0.2) -- ++(0,-0.4) node[below] {$1$};
+\draw (\mymu-\mysigma,0.2) -- ++(0,-0.4) node[below] {$-1$};
+
+\def\x{\mymu-\mysigma};
+\pgfmathparse{ 10* (exp{-0.5*ln(2*pi*\mysigma*\mysigma)}) * (exp{-1/2*1/(\mysigma*\mysigma)*(\x-\mymu)*(\x-\mymu)}) };
+\node (I) at  (\x,\pgfmathresult) {};
+
+\def\x{\mymu+\mysigma};
+\pgfmathparse{ 10* (exp{-0.5*ln(2*pi*\mysigma*\mysigma)}) * (exp{-1/2*1/(\mysigma*\mysigma)*(\x-\mymu)*(\x-\mymu)}) };
+\node (II) at  (\x,\pgfmathresult) {};
+
+\fill (I) circle (2pt);
+\fill (II) circle (2pt);
+
+
+
+ \node[below] at (4,2) {\bf Cas $\mu=0$, $\sigma = 1$};
+
+% \node[below, inner sep=10pt] at (0.5,0) {\vphantom{$n=10$}};
+
+
+% % Labels
+\foreach \y/\ytext in {1/0.1, 2/0.2, 3/0.3, 4/0.4} {
+  \draw (0.2,\y) -- (-0.2,\y) node[left,scale=0.8] {$\ytext$};
+}
+
+\end{tikzpicture}

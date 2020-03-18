@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+\def\layersep{2cm}
+\tikzstyle{neuron}=[circle,fill=red!50,minimum size=12pt,inner sep=0pt]
+
+\begin{scope}
+\node(E) at (-\layersep,0) {};
+
+% Neurone F
+\node[neuron,green!70!black] (F) at (0,0) {};
+\node[above right=0.8ex,scale=0.8] at (F) {$f_1$};
+% \path[thick] (E) edge (F);
+
+% Neurone G
+\node[neuron,red!70] (G) at (\layersep,0) {};
+\node[above right=0.8ex,scale=0.8] at (G) {$g_1$};
+%\node[below right=0.8ex,scale=0.8] at (G) {$[g']$};
+ \path[thick] (F) edge node[pos=0.8,above,scale=0.8]{$a$} (G);
+ \draw[] (G)  to ++ (130:1.3);
+ \draw[] (G) to ++ (-130:1.3);
+
+% Sortie
+ \draw[thick] (G) --  (3,0);
+\end{scope}
+
+\begin{scope}[yshift=-2.5cm]
+\node(E) at (-\layersep,0) {};
+
+% Neurone F
+\node[neuron,green!70!black] (F) at (0,0) {};
+\node[above right=0.8ex,scale=0.8] at (F) {$f_2$};
+% \path[thick] (E) edge (F);
+
+% Neurone G
+\node[neuron,red!70] (G) at (\layersep,0) {};
+\node[above right=0.8ex,scale=0.8] at (G) {$g_2$};
+%\node[below right=0.8ex,scale=0.8] at (G) {$[g']$};
+ \path[thick] (F) edge node[pos=0.8,above,scale=0.8]{$a$} (G);
+ \draw[] (G)  to ++ (130:1.3);
+ \draw[] (G) to ++ (-130:1.3);
+
+% Sortie
+ \draw[thick] (G) --  (3,0);
+\end{scope}
+\end{tikzpicture}  

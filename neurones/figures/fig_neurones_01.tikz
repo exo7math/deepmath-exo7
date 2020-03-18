@@ -1,0 +1,18 @@
+\begin{tikzpicture}[scale=0.5]
+
+\foreach \name / \y in {-5,-3,...,5}{
+  \draw[-<,>=latex,ultra thick] (0,0)--(-6,\y);
+}
+
+\draw[thick,fill=black!10] (-2,-2) rectangle ++ (4,4);
+\draw[ultra thick] (2,0) --  (7,0);
+\draw[thick,fill=black!10] (8-1,-1) rectangle ++ (2,2);
+\draw[->,>=latex,ultra thick] (9,0) -- ++ (3,0) node[right] {sortie};
+
+
+\node at (-8,0) {entr\'ees};
+\node at (0.5,-3.5) {fonction lin\'eaire};
+\node[text width=2cm,align=center] at (8,-2.5) {fonction d'activation};
+
+
+\end{tikzpicture}  

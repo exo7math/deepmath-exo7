@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+\def\layersep{2cm}
+\tikzstyle{neuron}=[circle,fill=red!50,minimum size=12pt,inner sep=0pt]
+
+\node(E) at (-\layersep,0) {};
+
+% Neurone F
+\node[neuron,green!70!black] (F) at (0,0) {};
+\node[above right=0.8ex,scale=0.8] at (F) {$f$};
+ \path[thick] (E) edge (F);
+
+% Neurone G
+\node[neuron,red!70] (G) at (\layersep,0) {};
+\node[above right=0.8ex,scale=0.8] at (G) {$g$};
+\node[below right=0.8ex,scale=0.8] at (G) {$[g']$};
+ \path[thick] (F) edge node[pos=0.8,above,scale=0.8]{$a$} (G);
+
+% Sortie
+\draw[->,>=latex,thick] (G) -- ++(2,0) node[right,blue]{$F$};
+
+\draw[blue,line width=5pt,opacity=0.5] (F.east)  to[bend right=30] ++(2,-0.5) ;
+
+\end{tikzpicture}  

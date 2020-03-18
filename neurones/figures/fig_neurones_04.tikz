@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=1.5]
+
+\draw[->,>=latex, gray] (-3,0)--(3.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,2.0) node[left] {$y$};
+
+\draw[-o,shorten >=-4pt,shorten <=-4pt,ultra thick,red] (-2.5,0) -- (-0,0);
+\draw[*-,shorten >=-4pt,shorten <=-4pt,ultra thick,red] (0,1) -- (3,1) node[above]{$H(x)$};
+
+% \fill[red] (,1) circle (1pt);
+
+\node at (0,0) [below left] {$0$};
+\node at (0,1) [left] {$1$};
+
+% \draw[ultra thick, color=blue,domain=-1.5:3.,smooth] plot (\x,{-1+0.12*(\x+2)^2});
+
+%\node at (-2,1.2) {\bf Fonction \og{}marche\fg{}};
+\end{tikzpicture}

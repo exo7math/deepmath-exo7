@@ -1,0 +1,5 @@
+\begin{tikzpicture}[scale=2]
+\draw[->,>=latex,very thick, blue] (0,0)--+(0:3) node[midway, below,black]{$\|u\|$} node[below,black]{$u$};
+\draw[->,>=latex,very thick, blue] (0,0)--+(30:2.5) node[midway, above,black]{$\|v\|$} node[above,black]{$v$};
+\draw[->, >=latex] (0:1) arc(0:30:1) node[midway,right]  {$\theta$};
+\end{tikzpicture}

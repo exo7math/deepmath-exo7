@@ -1,0 +1,46 @@
+\begin{tikzpicture}[scale=1.5,x={(1.2cm,0.6cm)},y={(-1cm,0.7cm)},z={(0cm,0.5cm)}]
+
+    \draw (0,0,0) --+ (0,0,2);
+    \draw (0,2,0) --+ (0,0,2);
+    \draw (2,0,0) --+ (0,0,1.72);
+    \draw[dashed] (2,2,0) --+ (0,0,2.18);
+    \draw[dashed] (2,0,0) --+ (0,2,0);
+    \draw[dashed] (0,2,0) --+ (2,0,0);  
+       
+   % \filldraw[color=myred,pattern=north east lines,pattern color=myred] (0,1,0) -- plot[domain=0:2] (\x,1,{2+sin(3*\x r)*cos(2*1 r))}) -- (2,1,0) -- cycle;  
+ 
+ %   \filldraw[color=myred,pattern=vertical lines,pattern color=myred] (0,0,0) -- plot[domain=0:2] (\x,0,{2+sin(3*\x r)*cos(2*0 r))}) -- (2,0,0) -- cycle; 
+
+   \def\k{1.25}
+
+    \filldraw[color=green!70!black,pattern=north east lines,pattern color=green!70!black] (\k,0,0) -- plot[domain=0:2] (\k,\x,{2+sin(3*\k r)*cos(2*\x r))}) -- (\k,2,0) -- cycle; 
+
+    
+\foreach \k in {0,0.25,...,2}{    
+    \draw[domain=0:2,thick,green!70!black] plot (\k,\x,{2+sin(3*\k r)*cos(2*\x r))}); 
+   
+   };    
+
+  	
+    \draw[domain=0:2,thick] plot (\x,0,{2+sin(3*\x r)*cos(2*0 r))}); 
+    \draw[domain=0:2,thick] plot (\x,2,{2+sin(3*\x r)*cos(2*2 r))}); 
+    \draw[domain=0:2,thick] plot (0,\x,{2+sin(3*0 r)*cos(2*\x r))}); 
+    \draw[domain=0:2,thick] plot (2,\x,{2+sin(3*2 r)*cos(2*\x r))});
+   
+    
+    \draw[->] (-0.2,0,0) -- (2.5,0,0) node[right] {$x$};
+	\draw[->] (0,-0.2,0) -- (0,2.5,0) node[left] {$y$};
+
+% 	\draw (0,0,0) --+ (0,-0.1,0) node[below right] {$\alpha$};
+% 	\draw (2,0,0) --+ (0,-0.1,0) node[below right] {$\beta$};
+% 	\draw (0,0,0) --+ (-0.1,0,0) node[below left] {$a$};
+% 	\draw (0,2,0) --+ (-0.1,0,0) node[below left] {$b$};	
+    
+
+    \def\x{1.25}
+    \def\k{1.25}
+    \draw[->,>=latex,ultra thick,blue] (\x,\k,{2+sin(3*\x r)*cos(2*\k r))})--++(0,0.7,0.8);
+   
+ \draw[->,>=latex,ultra thick,brown] (0,0,0)--++(0,1,0) node[midway,below left]{$v=(0,1)$};
+  
+\end{tikzpicture}

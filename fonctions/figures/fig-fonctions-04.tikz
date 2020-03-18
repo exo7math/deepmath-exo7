@@ -1,0 +1,18 @@
+\begin{tikzpicture}[scale=0.8]
+
+	\draw[->,>=latex,gray] (-6,0) -- (6,0) node[above] {$x$};
+	\draw[->,>=latex, gray] (0,-4) -- (0,4.5) node[left] {$y$};
+
+	\draw[domain=-5:5, red,very thick,samples=100, smooth] plot (\x,{\x*cos(\x r)}) node[above] {graphe de $f$};
+% node[above] {$x\cos x$};
+
+% 	\fill (0,0) circle (1.5pt) node[below right] {$(0,0)$};
+
+   \def\x{3};
+   \pgfmathsetmacro\y{\x*cos(\x r)};
+
+ 	\fill[blue] (\x,\y) circle (4pt) node[below left] {$(x,f(x))$}; 
+
+   \draw[dashed] (\x,\y) -- (\x,0) node[above] {$x$};
+   \draw[dashed] (\x,\y) -- (0,\y) node[left] {$f(x)$};
+\end{tikzpicture}

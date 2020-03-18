@@ -1,0 +1,19 @@
+\begin{tikzpicture}[xscale=1.2,scale=1.5]
+
+	\draw[->,>=latex, gray, very thin] (-0.5,0) -- (3,0) node[below]{$x$};
+	\draw[->,>=latex, gray, very thin] (0,-0.5) -- (0,3.5) node[left]{$y$};
+  
+    \node[below left] at (0,0) {$0$};
+    \draw (1,0.1)--(1,-0.1) node[below]{$1$};
+    \draw (0.1,1)--(-0.1,1) node[left]{$1$};
+
+    \draw[domain=-0.2:2, blue,very thick,smooth] plot (\x,{\x*\x-sin(\x r)+1});
+
+    \pgfmathsetmacro\x{0.47};
+    \pgfmathsetmacro\y{\x*\x-sin(\x r)+1};
+    \fill[red] (\x,0) circle (1pt);
+    \fill[red] (\x,\y) circle (1pt);
+    \draw[dashed] (\x,\y)--(\x,0) node[below]{$\ell$};
+    \draw[dashed] (\x,\y)--(0,\y) node[left]{$g(\ell)$};
+ 
+\end{tikzpicture}

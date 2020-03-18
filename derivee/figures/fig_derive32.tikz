@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+
+ \node at (0,0) {$x$};
+ \node at (4,0) {$y=f(x)$};
+\node[blue] at (4,-0.5) {$[\frac{d f}{d x}]$};
+\node at (8.5,0) {$z=g(y)$};
+\node[blue] at (8.5,-0.5) {$[\frac{d g}{d y}]$};
+\node at (13,0) {$t=h(z)$};
+\node[blue] at (13,-0.5) {$[\frac{d h}{d z}]$};
+
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(2.5,0) node[midway,above,black,scale=0.8]{$f$};
+ \draw[->,>=latex,ultra thick,red] (5,0) -- ++(2.5,0) node[midway,above,black,scale=0.8]{$g$};
+ \draw[->,>=latex,ultra thick,red] (9.5,0) -- ++(2.5,0) node[midway,above,black,scale=0.8]{$h$};
+
+
+ \node[red] at (0,-1.5) {$\{\{\frac{d F}{d x} \}\}$};
+ \node[red] at (4,-1.5) {$\{\{\frac{d F}{d y} \}\}$};
+ \node[red] at (8.5,-1.5) {$\{\{\frac{d F}{d z}\}\}$};
+ \node[red] at (13,-1.5) {$\{\{\frac{d F}{d t} = 1 \}\}$};
+\end{tikzpicture}

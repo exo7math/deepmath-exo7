@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+
+\draw[->,>=latex,thick, gray] (-1.5,0)--(6,0);
+\draw[->,>=latex,thick, gray] (0,-1)--(0,3.5);
+
+
+\begin{scope}[xshift=3cm,yshift=1cm]
+\draw[thick,red] (30:-3) -- (0,0) -- (30:3) node[above] {$\mathcal{D}$};
+
+\coordinate (M) at (120:2);
+\fill[blue] (M) circle (2pt) node[black, right] {$M(x_0,y_0)$};
+\draw[thick,black] (0,0) -- (M) node[midway,below left] {$d(M,\mathcal{D})$};
+
+\end{scope}
+
+
+\end{tikzpicture}

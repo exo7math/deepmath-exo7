@@ -1,0 +1,59 @@
+% Figure after Kjell Magne Fauske 
+% http://www.texample.net/tikz/examples/neural-network/
+\begin{tikzpicture}[shorten >=1pt,->,draw=black!50, node distance=3.3cm]
+   \def\layersep{3.5cm}
+    \tikzstyle{every pin edge}=[<-,shorten <=1pt,thick]
+    \tikzstyle{neuron}=[circle,fill=black!25,minimum size=12pt,inner sep=0pt]
+    \tikzstyle{entree}=[];
+    \tikzstyle{input neuron}=[neuron, fill=green!50];
+    \tikzstyle{output neuron}=[neuron, fill=red!50];
+    \tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+    \tikzstyle{annot} = [text width=4em, text centered]
+
+    % Entree
+    \foreach \name / \y in {1,...,5}
+    % This is the same as writing \foreach \name / \y in {1/1,2/2,3/3,4/4}
+        \node[entree] (E-\name) at (-\layersep,-\y) {$$};
+
+\node[entree] at (E-1.west) {$x_1$};
+\node[entree] at (E-2.west) {$x_2$};
+\node[entree] at (E-3.west) {$\vdots$};
+\node[entree] at (E-4.west) {$\vdots$};
+\node[entree] at (E-5.west) {$x_n$};
+
+    % Premiere couche
+    \foreach \name / \y in {1,...,5}
+    % This is the same as writing \foreach \name / \y in {1/1,2/2,3/3,4/4}
+        \node[input neuron] (I-\name) at (0,-\y) {};
+
+    %Seconde couche
+    \foreach \name / \y in {1,...,5}
+        \path[yshift=0cm]
+            node[hidden neuron] (H-\name) at (\layersep,-\y cm) {};
+
+    % Troisieme couche
+    \node[output neuron,pin={[pin edge={->}]right:$z=F(x_1,\ldots,x_n)$}, right of=H-3] (O) {};
+
+    % Connect every node in the input layer with every node in the
+    % hidden layer.
+    \foreach \source in {1,...,5}
+        \foreach \dest in {1,...,5}
+            \path[thick] (E-\source) edge (I-\dest);
+
+    % Connect every node in the input layer with every node in the
+    % hidden layer.
+    \foreach \source in {1,...,5}
+        \foreach \dest in {1,...,5}
+            \path[thick] (I-\source) edge (H-\dest);
+
+    % Connect every node in the hidden layer with the output layer
+    \foreach \source in {1,...,5}
+        \path[thick] (H-\source) edge (O);
+
+    % Annotate the layers
+	\node[annot,above of=E-1, node distance=1cm] {Entr\'ee};
+    \node[annot,above of=H-1, node distance=1cm] (hl) {Seconde couche};
+    \node[annot,above of=I-1, node distance=1cm] {Premi\`ere couche};
+    \node[annot,above of=O, node distance=1cm] {Troisi\`eme couche};
+	\node[annot,below right of=O, node distance=1cm] {Sortie};
+\end{tikzpicture}  

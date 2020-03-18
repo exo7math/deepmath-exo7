@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+
+
+\tikzstyle{rouge} = [fill,rectangle,red,scale=1.2];
+\tikzstyle{bleu} = [fill,circle,blue] ;
+
+\draw[->,>=latex, very thick,gray] (-4.5,0)--(5,0) node[below] {$x$};
+\draw[->,>=latex, very thick, gray] (0,-4.1)--(0,5) node[left] {$y$};
+
+\begin{scope}[even odd rule]
+\clip (-4,-4) rectangle (4,4);
+\draw[red,ultra thick] (-1,4) -- (4,-3);
+\fill[red!50,opacity=0.5] (-1,4) -- (6,4) --(6,-4)--(4,-3) -- cycle;
+\fill[blue!20,opacity=0.5] (-1,4) -- (-6,4) --(-6,-4) --(4,-4) -- (4,-3) -- cycle;
+
+\end{scope}
+
+\node[scale=1,red] at (2,2.5) {$ax+by+c\ge0$};
+\node[scale=1,blue] at (-2,2.5) {$ax+by+c<0$};
+\node[red,above] at (-1.3,4) {$ax+by+c=0$};
+
+\end{tikzpicture}

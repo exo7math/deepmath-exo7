@@ -1,0 +1,8 @@
+\begin{tikzpicture}[node distance=2cm, every edge/.style={draw,thick,->}]
+     \node(E){$\Rr$};
+     \node[right of=E](F){$\Rr$};
+     \node[right of=F](G){$\Rr$};
+     \draw (E) edge (F);\draw (E) edge[myred, bend left=45] node[above]{$f$} (F);
+     \draw (F) edge (G);\draw (F) edge[myred, bend left=45] node[above]{$g$} (G);
+     \draw (E) edge[myred, bend right] node[below]{$g\circ f$} (G);       
+\end{tikzpicture}

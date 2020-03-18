@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=0.5]
+
+\draw[thick,fill=black!10] (0,0) circle (3);
+\draw[ultra thick]  (150:3) -- (150:8)node[pos=0.2,above]{$a_1$};
+\draw[ultra thick]  (170:3) -- (170:8)node[pos=0.2,above]{$a_2$} ;
+\draw[ultra thick]  (210:3) -- (210:8) node[pos=0.2,below]{$a_n$};
+\draw[ultra thick,dotted]  (178:5)--++(0,-2.5);
+\draw[->,>=latex,ultra thick] (0:3) --  (8,0) node[right] {};
+\node[below right] at (-15:3) {$\phi$};
+
+
+\end{tikzpicture}  

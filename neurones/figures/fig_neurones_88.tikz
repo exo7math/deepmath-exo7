@@ -1,0 +1,26 @@
+\begin{tikzpicture}[scale=3]
+
+\draw[->,>=latex, gray] (-0.1,0)--(2,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.1)--(0,0.9) node[left] {$y$};
+
+\pgfmathparse{0}
+\let\j\pgfmathresult
+\pgfmathparse{0}
+\let\xold\pgfmathresult
+  \foreach \x/\y in {0.15/0.5,0.22/0.2,0.5/0.1,0.6/0.3,0.72/0.6,0.87/0.7,1/ 0.5}
+  {
+	\draw[thin,dashed,gray]  (0.5+\xold,0) rectangle (0.5+\x,\y);
+   \draw[red,ultra thick] (0.5+\xold,\y) -- (0.5+\x,\y);
+
+   \pgfmathparse{\x}
+   \global\let\xold\pgfmathresult
+  }
+
+
+
+\node at (1.5,0.7) [right,red]{$F(x)$};
+\node at (0.5,0) [below] {$a$};
+\node at (1.5,0) [below] {$b$};
+
+
+\end{tikzpicture}

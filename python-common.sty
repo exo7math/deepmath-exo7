@@ -1,0 +1,270 @@
+% \mainfolder est ../ si compilation d'un chapitre, sinon c'est vide
+\ProvidesPackage{\mainfolder python-common}
+% --------------------------------------------------------------------
+
+% ===================================================================
+% La partie commune aux options : minimal, screen, print, test
+% ----------------------------------------------------------------------
+% Pour différencier pdflatex, lualatex, xelatex
+\usepackage{iftex}
+% ----------------------------------------------------------------------
+% Pour les encodages en utf8 et l'utilisation dans les pdf des polices avec accents
+\ifPDFTeX % PDFLaTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\else % LuaLaTeX & XeLaTeX
+  \usepackage{fontspec}
+  % pour éliminer "! LaTeX Error: Command \nobreakspace unavailable in encoding T1."
+  \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+\fi
+% ----------------------------------------------------------------------
+% Pour la francisation du LaTeX
+\usepackage[french]{babel}   % 'french' au lieu de 'francais'
+  % Pour ne pas modifier les espacements standard dans les listes et les retraits
+  %\frenchbsetup{StandardLayout=true}
+  \frenchbsetup{ReduceListSpacing=true}
+  %\frenchbsetup{IndentFirst=false}
+  \renewcommand{\Frlabelitemi}{\raisebox{-0.2ex}{\textbullet}}
+  \setlength{\listindentFB}{0pt}
+
+% ----------------------------------------------------------------------
+% Principaux packages de math (mathtools charge amsmath, amssymb charge amsfonts)
+\usepackage{mathtools}
+\usepackage{amssymb}
+% ----------------------------------------------------------------------
+% Ensembles : entiers, réels, complexes (en deux versions \X et \Xx)
+\def\N{\mathbb{N}} \let\Nn\N
+\def\Z{\mathbb{Z}} \let\Zz\Z
+\def\Q{\mathbb{Q}} \let\Qq\Q
+\def\R{\mathbb{R}} \let\Rr\R
+\def\C{\mathbb{C}} \let\Cc\C
+\def\K{\mathbb{K}} \let\Kk\K
+
+% Modifications de symboles (\let est plus rapide que \renewcommand)
+%\let\epsilon\varepsilon
+\let\ge\geqslant
+\let\geq\geqslant
+\let\le\leqslant
+\let\leq\leqslant
+
+\newcommand{\todo}[1]{TODO -- #1}
+
+% Fonctions usuelles
+\newcommand{\dd}{\mathrm{d}}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Fr}{Fr}
+
+% Deepmath
+\newcommand{\conv}{\star}
+\newcommand{\mystar}{\star}
+
+%\DeclareMathOperator{\ii}{i}
+%\let\Re\undefined\DeclareMathOperator{\Re}{Re} % redéfinition
+%\let\Im\undefined\DeclareMathOperator{\Im}{Im} % redéfinition
+%\DeclareMathOperator{\ch}{ch}
+%\DeclareMathOperator{\sh}{sh}
+%\let\tanh\undefined\DeclareMathOperator{\tanh}{th} % redéfinition
+%\DeclareMathOperator{\cotan}{cotan}
+%\DeclareMathOperator{\Arcsin}{Arcsin}
+%\DeclareMathOperator{\Arccos}{Arccos}
+%\DeclareMathOperator{\Arctan}{Arctan}
+%\DeclareMathOperator{\Argsh}{Argsh}
+%\DeclareMathOperator{\Argch}{Argch}
+%\DeclareMathOperator{\Argth}{Argth}
+%\DeclareMathOperator{\pgcd}{pgcd}
+%\DeclareMathOperator{\ppcm}{ppcm}
+%\DeclareMathOperator{\Ker}{Ker}
+%\DeclareMathOperator{\id}{id}
+%\DeclareMathOperator{\Card}{Card}
+%\DeclareMathOperator{\Vect}{Vect}
+%\DeclareMathOperator{\Mat}{Mat}
+%\DeclareMathOperator{\rg}{rg}
+%\DeclareMathOperator{\tr}{tr}
+
+% Le moins phantome pour alignement dans les matrices
+%\newcommand{\ms}{\phantom{-}}
+% ----------------------------------------------------------------------
+% Pour l'inclusion des chapitres
+\usepackage{import}
+% ----------------------------------------------------------------------
+% Pour inclure des images
+\usepackage{graphicx}
+\usepackage{float}
+% ----------------------------------------------------------------------
+% Pour l'index
+\usepackage{imakeidx}
+\makeindex[columns=2, intoc] % title = Indice
+
+% ----------------------------------------------------------------------
+% Pour l'utilisation des couleurs
+\ifincolor\relax\else
+  % impression en gris
+  \PassOptionsToPackage{gray}{xcolor}  % Kroum 
+\fi
+\usepackage[usenames,x11names,table]{xcolor}
+% ----------------------------------------------------------------------
+% Pour les images
+\usepackage{tikz}
+\usetikzlibrary{calc,shadows,arrows,shapes,patterns,matrix}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{fadings}
+\usetikzlibrary{external}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{backgrounds}
+\newcommand{\tikzinput}[1]{%
+  %\tikzsetnextfilename{\import@path tikzcach/#1\cachsuffix}%
+  \input{figures/#1.tikz}%
+}
+% --- les figures avec échelle éventuel
+\newcommand{\myfigure}[2]{% entrée : échelle, fichier(s) figure à inclure
+\begin{center}\small
+\tikzstyle{every picture}=[scale=1.1*#1]% mise en échelle + 10% (automatiquement annulé à la fin du groupe)
+#2
+\end{center}}
+% --- pour les dessins des fonctions
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+% --- Logo Exo7
+\definecolor{myred}{rgb}{0.93,0.26,0}
+\definecolor{myorange}{rgb}{0.97,0.58,0}
+\definecolor{myyellow}{rgb}{1,0.86,0}
+
+\newcommand{\LogoExoSept}[1]{  % input : échelle
+{\usefont{U}{cmss}{bx}{n}
+\begin{tikzpicture}[scale=0.1*#1,transform shape]
+  \fill[color=myorange] (0,0)--(4,0)--(4,-4)--(0,-4)--cycle;
+  \fill[color=myred] (0,0)--(0,3)--(-3,3)--(-3,0)--cycle;
+  \fill[color=myyellow] (4,0)--(7,4)--(3,7)--(0,3)--cycle;
+  \node[scale=5] at (3.5,3.5) {Exo7};
+\end{tikzpicture}}
+}
+% --- les styles pour les images
+%\usepackage{\mainfolder exo7tikz}
+% ----------------------------------------------------------------------
+% Double page blanche pour debut chapitre
+\makeatletter
+\newcommand*{\clearemptydoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+\hbox{}%
+\thispagestyle{empty}%
+\newpage%
+\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+% ----------------------------------------------------------------------
+% Multi colonnes
+\usepackage{multicol}
+\setlength{\columnseprule}{0.2mm}
+
+% ----------------------------------------------------------------------
+% Pour insérer des codes
+
+% Récuperer le repertoire du chapitre en cours
+\makeatletter
+  \def\chapterpath{\import@path}
+\makeatother
+
+
+
+
+% définition de \myinputlisting
+\ifPDFTeX
+  \usepackage{listingsutf8}
+  \newcommand{\myinputlisting}[1] {
+    \lstinputlisting[inputencoding=utf8/latin1]{\chapterpath #1}
+  }
+\else
+  \usepackage{listings}
+  \newcommand{\myinputlisting}[1] {
+    \lstinputlisting{\chapterpath #1}
+  }
+\fi
+
+%% les languages de programation utilisés
+\newcommand{\Python}{\textsl{Python}}
+\newcommand{\numpy}{\textsl{numpy}}
+\newcommand{\tensorflow}{\textsl{tensorflow}}
+\newcommand{\keras}{\textsl{keras}}
+\newcommand{\matplotlib}{\textsl{matplolib}}
+
+%\newcommand{\Sage}{\texttt{Sage}}
+%% personalisations pour Python et Sage
+%% la package 'textcomp' est necessaire pour 'upquote=true' (il est automatiquement chargé par fancybox, mais fancybox arrive plus tard)
+\usepackage{textcomp}
+\lstset{
+  language=Python,
+  upquote=true,
+  columns=flexible,
+  keepspaces=true,
+  basicstyle=\ttfamily,
+  commentstyle=\color{gray},
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  inputencoding=utf8,
+  literate={à}{{\`a}}1 {â}{{\^a}}1 {è}{{\`e}}1 {ê}{{\^e}}1 {é}{{\'e}}1 {î}{{\^i}}1,
+  tabsize=4,
+}
+
+% \makeatletter
+% \def\lst@outputspace{\lst@bkgcolor\empty\color{white}}
+% \makeatother
+
+%\makeatletter
+%\def\lst@outputspace{{\ifx\lst@bkgcolor\empty\color{white}\else
+%\lst@bkgcolor\fi\lst@visiblespace}}
+%\lst@keepspacestrue
+%\lst@keepspacestrue 
+%\makeatother
+
+% ----------------------------------------------------------------------
+% Unités
+%\usepackage{siunitx}
+%\sisetup{locale = FR,detect-all,per-mode = symbol}
+% ----------------------------------------------------------------------
+% Commandes anti-beamer
+%\newcommand{\pause}{}  % permet de mettre des \pause dans beamer pas dans poly
+%\newcommand{\beameronly}[1]{}
+% ----------------------------------------------------------------------
+% Faire passer une ligne si un environnement commence par une liste
+\newcommand{\sauteligne}{\leavevmode\vspace{-\baselineskip}}
+% ----------------------------------------------------------------------
+% % Numerotationdes equation par chapitre
+\renewcommand\theequation{\arabic{equation}}
+% ----------------------------------------------------------------------
+% Titre
+\usepackage[explicit,pagestyles]{titlesec}
+\def\optS{S} % Fiche Scratch
+\def\optE{E} % Fiche énigmes
+\def\optF{F} % Activités sur feuille
+\def\optP{P} % Pour les porfs
+\newcommand{\titre}[2][]{
+%\setcounter{exemple}{0}
+\setcounter{activite}{0}
+\setcounter{enigme}{0}
+\def\opt{#1}
+\ifx \opt \optS \renewcommand{\chaptertitlename}{Scratch}\else\fi
+\ifx \opt \optE \renewcommand{\chaptertitlename}{Énigmes}\else\fi
+\ifx \opt \optF \renewcommand{\chaptertitlename}{Feuille}\else\fi
+\ifx \opt \optP \renewcommand{\chaptertitlename}{Profs}\else\fi
+\chapter{#2}
+\renewcommand{\chaptertitlename}{\chaptername}
+}
+% ----------------------------------------------------------------------
+% Commandes spécifiques à certaines fiches Python
+
+% Mise en relief
+\newcommand{\mot}[1]{\textbf{#1}}
+
+% Indentation pour code
+\newcommand{\indentation}{\hspace*{2em}}
+
+% Pour euro
+\usepackage{textcomp}
+
+% Pour symbole \Plane dans chapitre pythonconv
+\usepackage{bbding}
+
+% Convolution étendue
+\newcommand \fullconv{\mathbin{\widetilde \conv}}

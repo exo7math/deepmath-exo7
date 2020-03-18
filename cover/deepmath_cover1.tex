@@ -1,0 +1,252 @@
+%
+% A compiler avec xelatex !
+% xelatex -output-driver="xdvipdfmx" deepmath_cover1.tex
+%
+\documentclass[tikz,border=0mm]{standalone}
+\usetikzlibrary{calc}
+% =====================================================
+% For the Python logo (that was in SVG)
+% =====================================================
+\usetikzlibrary{svg.path}
+% =====================================================
+% For the Hilbert curve
+% =====================================================
+\usetikzlibrary{shadings}
+
+% =====================================================
+% The font
+% =====================================================
+\usepackage{fontspec}
+\newfontfamily\titlefont{AlteDin1451Mittelschrift.ttf}
+\newfontfamily\roboto{Roboto}
+\setmainfont{Roboto}
+%\newfontfamily\authorfont{Times New Roman}
+%\newfontfamily\authorfont{Roboto}
+\newfontfamily\authorfont{AlteDin1451Mittelschrift.ttf}
+
+% =====================================================
+% The colors
+% =====================================================
+\definecolor{scratchgreen}{rgb}{.43000793,.78393555,.27934265}
+\definecolor{scratchviolet}{rgb}{.50601196,.10708618,.55937195}
+
+\definecolor{goldleaf}{HTML}{D1B280}
+% 16 Day & Night
+\definecolor{darknavy}{HTML}{011A27}
+\definecolor{blueberry}{HTML}{073852}
+\definecolor{tangerine}{HTML}{F0810F}
+\definecolor{daffodil}{HTML}{E7DF44}
+
+% Arnaud
+\definecolor{hazelnut}{HTML}{B99A77}
+\definecolor{aquablue}{HTML}{31A9B9}
+\definecolor{tomato}{HTML}{CF3721}
+\definecolor{avocado}{HTML}{258039}
+
+\definecolor{cayenne}{HTML}{AF4425}
+\definecolor{cinnamon}{HTML}{662E1C}
+\definecolor{caramel}{HTML}{C9A66B}
+
+% Style marron
+%\definecolor{coulfond}{HTML}{DDC5A2}
+%\definecolor{coulup}{HTML}{301B28}
+%\definecolor{couldown}{HTML}{B6452C}
+%\definecolor{coulreste}{HTML}{523634}
+
+% Couleur épreuve
+\definecolor{coulfond}{HTML}{CCCCCC}
+\definecolor{coulup}{HTML}{D01A55}
+\definecolor{couldown}{HTML}{C1D208}
+\definecolor{coulreste}{HTML}{666666}
+
+% Colors by function
+\colorlet{background}{coulfond}
+\tikzset{
+  hilbert/.style = {bottom color=black, top color=white, draw=black, opacity=.14},
+  spine/.style = {fill, opacity=.1}
+}
+
+\colorlet{author}{black}
+
+\colorlet{pythonlogoup}{coulup}
+\colorlet{pythonlogodown}{couldown}
+\colorlet{titlepython}{white}
+\colorlet{titleau}{coulreste}
+\colorlet{titlelycee}{white}
+
+\colorlet{subtitlealgo}{coulreste}
+
+\colorlet{spinepython}{coulup}
+\colorlet{spineau}{couldown}
+\colorlet{spinelycee}{coulup}
+\colorlet{spinealgo}{white}
+
+
+%=======================================================
+% The cover size
+%=======================================================
+% Calculate the splin
+\def\numPages{274}
+\newlength{\thickCream}\setlength{\thickCream}{0.0025 in}
+\newlength{\thickWhite}\setlength{\thickWhite}{0.002252 in}
+\newlength{\SpineW}\setlength{\SpineW}{\numPages\thickWhite} % 236*0.0025 = 0.59 (cream),  262*0.002252 = 0.590024 (white)
+% The standard bleed
+\newlength{\Bleed}\setlength{\Bleed}{.125 in}
+% Set the page size
+\newlength{\PageW}\setlength{\PageW}{7.5 in}
+\newlength{\PageH}\setlength{\PageH}{9.25 in}
+% Calculate the total dimensions
+\newlength{\TrimW}\setlength{\TrimW}{\dimexpr 2\PageW + \SpineW \relax}
+\newlength{\TrimH}\setlength{\TrimH}{\PageH}
+\newlength{\CropW}\setlength{\CropW}{\dimexpr \TrimW + 2\Bleed \relax}
+\newlength{\CropH}\setlength{\CropH}{\dimexpr \TrimH + 2\Bleed \relax}
+\newlength{\LineW}\setlength{\LineW}{2\Bleed}
+%=======================================================
+% Some PDF specials
+%=======================================================
+\special{pdf: docinfo <<
+/Author (Exo7)
+/Title (Python au Lycée - Algorithmes et programmation)
+/Keywords (Python, Lycée)
+/Subject (manuel de programmation en Python)
+>>}
+\edef\pwpt{\the\numexpr \dimexpr0.996264009963\CropW\relax/65536 \relax} %paper width in PS points
+\edef\phpt{\the\numexpr \dimexpr0.996264009963\CropH\relax/65536 \relax} %paper height in PS points
+\expandafter\special\expandafter{pdf: put @thispage <<
+  /MediaBox [0 0 \pwpt\space\phpt]
+  /BleedBox [0 0 \pwpt\space\phpt]
+  /CropBox [0 0 \pwpt\space\phpt]
+  /TrimBox [0 0 \pwpt\space\phpt]>>}
+%=======================================================
+% for test
+%=======================================================
+\usepackage{blindtext}
+\newif\ifshowborders\showbordersfalse % to display the security zone (Bleed)
+%\showborderstrue
+
+\tikzset{
+  frame/.style 2 args={inner sep=0, outer sep=0, minimum width=#1, minimum height=#2, node contents=}
+}
+
+\begin{document}%
+  \begin{tikzpicture}
+    % Clip
+    \clip (-.5*\CropW,-\Bleed) rectangle +(\CropW,\CropH);
+    % Set nodes for anchors : Cover, Back, Front and Spine
+    \path
+      (0,-\Bleed) node[name=Cover,above,fill=background,frame={\CropW}{\CropH}]
+      (-\SpineW/2,0) node[name=Back,above left,frame={\PageW}{\PageH}]
+      (\SpineW/2,0)  node[name=Front,above right,frame={\PageW}{\PageH}]
+      (0,0)  node[name=Spine,above,spine,frame={\SpineW}{\PageH}];
+    % ---------------------------------------------------
+    % Background
+    % ---------------------------------------------------
+
+    % ---------------------------------------------------
+    % Python logo and title
+    % ---------------------------------------------------
+    \begin{scope}[scale=0.7,transform canvas ={yshift=21mm}]
+      % ---------------------------------------------------
+      \path[every node/.style={scale=5, font=\titlefont, outer sep=0, inner sep=0}]
+        (Front.center) +(21mm,21mm) node[titlepython]{PYTHON}
+        (Front.center) +(-21mm,-21mm) node
+          {\textcolor{titleau}{AU}\textcolor{titlelycee}{LYCÉE}};
+      
+      \path (Cover.east) +(55mm,-125mm) node[left,scale=1.8,text width=.40\PageW,align=left,fill=white,text=subtitlealgo,inner sep=.3em,font=\authorfont,rounded corners=10pt]{\bf ~~Algorithmes et programmation~~\vphantom{\Large t}};
+
+      \path (Cover.east) +(55mm,-145mm) node[left,scale=1.8,text width=.20\PageW,align=left,fill=white,text=subtitlealgo,inner sep=.4em,font=\authorfont,rounded corners=10pt]{\bf ~~tome 1~~\vphantom{.}};
+      
+    \end{scope}
+    % ---------------------------------------------------
+    % Auteur
+    % ---------------------------------------------------
+    \path (Front.north) +(0,-21mm) node[author,text=subtitlealgo,scale=2,font=\authorfont]{\bf Arnaud Bodin -- François Recher};
+    % ---------------------------------------------------
+    % Spine
+    % ---------------------------------------------------
+    \begin{scope}[transform canvas ={yshift=21mm}]
+      \node[rotate=90,scale=1.8] (tranche) at (Spine.center)
+        {\textcolor{spinepython}{PYTHON}\textcolor{spineau}{AU}\textcolor{spinelycee}{LYCÉE}\textcolor{spinealgo}{~~~\textemdash~~tome 1}\vphantom{\large y}};
+    \end{scope}
+    % ---------------------------------------------------
+    %  Logos Exo7
+    % ---------------------------------------------------
+    \path (Spine.south) +(0,14mm) node{\includegraphics[width=11mm]{exo7_logo_white}};
+    \path (Front.south) +(0,14mm) node{\includegraphics[width=19mm]{exo7_logo_white}};
+    % ---------------------------------------------------
+    % Back
+    % ---------------------------------------------------
+    \path (Back.center) node[scale=1.6,text width=10.5cm,fill=white,fill opacity=.5,text opacity=.77,align = center]{
+  \vspace*{2ex}    
+ 
+  \footnotesize
+  
+  \hyphenchar\font=-1  % pas de césure
+  
+ 
+    
+ \emph{Python} est le langage idéal pour apprendre la programmation.
+C'est un langage puissant qui vous plongera dans le monde des algorithmes. 
+
+\bigskip
+
+Ce livre vous guide pas à pas à travers des activités mathématiques et informatiques originales adaptées au lycée. Il se complète par des ressources en ligne : tous les codes \emph{Python}, des vidéos et des fiches en couleurs. 
+Vous avez tout en main pour réussir !   
+
+\bigskip
+\scriptsize
+
+\begin{center}
+\begin{minipage}{0.49\textwidth}
+\begin{itemize}
+\setlength{\itemsep}{-1pt}%
+\item Premiers pas
+\item Tortue (Scratch avec Python)
+\item Si ... alors ...
+\item Fonctions
+\item Arithmétique -- Boucle tant que -- I
+\item Chaînes de caractères% - Analyse d'un texte
+\item Listes I
+\item Statistique -- Visualisation de données
+\item Fichiers
+\item Arithmétique -- Boucle tant que -- II
+\item Binaire I
+\item Listes II
+\item Binaire II
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+\begin{itemize}
+\setlength{\itemsep}{0pt}%
+\item Probabilités -- Paradoxe de Parrondo
+\item Chercher et remplacer
+\item Calculatrice polonaise -- Piles
+\item Visualiseur de texte -- Markdown
+\item L-système
+\item Images dynamiques
+\item Jeu de la vie
+\item Graphes et combinatoire de Ramsey
+\item Bitcoin
+\item Constructions aléatoires
+\end{itemize}
+\end{minipage}
+\end{center}    
+
+ \vspace*{3ex}   
+    
+    };
+    % ---------------------------------------------------
+    \ifshowborders
+      % --- security zone
+      \begin{scope}[line width=\LineW,red,opacity=.35]
+        \draw (-.5*\TrimW,0) rectangle +(\TrimW,\TrimH);
+        \draw (-.5*\SpineW-\Bleed/3,0) rectangle +(\SpineW+2\Bleed/3,\TrimH);
+      \end{scope}
+      % --- guides
+      \begin{scope}[dashed]
+        \draw (-.5*\TrimW,0) rectangle +(\TrimW,\TrimH);
+        \draw (-.5*\SpineW,0) rectangle +(\SpineW,\TrimH);
+      \end{scope}
+    \fi
+  \end{tikzpicture}%
+\end{document}

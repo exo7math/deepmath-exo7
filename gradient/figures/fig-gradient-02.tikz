@@ -1,0 +1,42 @@
+\begin{tikzpicture}[scale=1.5]
+     \draw[->,>=latex,thick, gray] (-2.5,0)--(2.5,0) node[below,black] {$x$};
+     \draw[->,>=latex,thick, gray] (0,-2.5)--(0,2.5) node[right,black] {$y$};
+
+\begin{scope} 
+
+\clip (-2,-2) rectangle (2,2);
+
+
+% Several levels
+\foreach \k in {-3,-2.5,...,3}{    
+   \draw [thick, color=lightgray,samples=25,smooth, domain=-2.5:2.5] 
+            plot( 
+                      {\x} ,
+                      {sin(deg(\x-0.4*\k+0.5))+\k+0.1} 
+                    );    
+   };
+
+% Chosen level
+\def\k{-0.5};
+   \draw [very thick, color=red,samples=25,smooth, domain=-2.5:2.5] 
+            plot( 
+                      {\x} ,
+                      {sin(deg(\x-0.4*\k+0.5))+\k+0.1} 
+                    ); 
+
+ 
+\def\k{-0.5}
+\pgfmathsetmacro\x{1} 
+\pgfmathsetmacro\y{sin(deg(\x-0.4*\k+0.5))+\k+0.1} 
+\pgfmathsetmacro\dx{1}
+\pgfmathsetmacro\dy{cos(deg(\x-0.4*\k+0.5))}
+
+\draw[->,>=latex,ultra thick, blue] (\x,\y)--++(-0.8*\dy,0.8*\dx) node[above]{grad $f(x_0,y_0)$};
+
+\draw[->,>=latex,ultra thick, green!50!black] (\x,\y)--++(0.8*\dx,0.8*\dy) node[above] {$v$};
+
+\draw[thick, green!70!black] (\x,\y)--++(2*\dx,2*\dy)--++(-4*\dx,-4*\dy) node[left] {$T$};
+\fill (\x,\y) circle (2pt) node[below] {$(x_0,y_0)$};
+
+\end{scope}
+\end{tikzpicture}

@@ -1,0 +1,75 @@
+%\documentclass[tikz]{standalone}
+%\begin{document}
+\begin{tikzpicture}[scale=1,yscale=1.3,xscale=0.9,yslant=.35,nodes={font=},z={([yslant=-.5]1,0)}]
+
+%\begin{tikzpicture}[scale=0.5,yscale=1.3,xscale=0.9,yslant=.35,nodes={font=\bfseries\sffamily\huge},z={([yslant=-.5]1,0)}]
+
+\xdef\filtersep{0.25};  % distance between two filter
+
+%%%%%%%%%%%%%%%%%%
+% Entrée
+%%%%%%%%%%%%%%%%%%
+\xdef\position{0};
+\xdef\size{4};   % instead of 28x28
+\xdef\numfilter{6};
+
+\foreach \i in {1,...,\numfilter}{ 
+  % \filldraw[thick, fill=gray] (-\halfsize,-\halfsize,\position+2*\i*\filtersep) rectangle (\halfsize,\halfsize,\position+2*\i*\filtersep);
+  \filldraw[thick, fill=blue!20] (-\size/2,-\size/2,{\position+(2*\i+1)*\filtersep}) rectangle (\size/2,\size/2,{\position+(2*\i+1)*\filtersep});
+}
+
+% \fill[red] (-\size/2,-\size/2,\position+3*\filtersep) rectangle ++(1,1,0);
+%\node[below=3ex] (A) at (-\size/2,-\size/2,1) {$A$};
+%\node[below right=0ex]  at (0,-\size/2,1)  {$(28,28,1)$};
+
+% Arrow
+%\draw[->, >=latex, gray!30, line width=4] (\size/2,\size/2,\position+2)  -- ++(0,0,5) node[midway, above=2ex, black,scale=0.8]{Convolution 32 couches};
+
+\node[below=3ex] (A1) at (-\size/2,-\size/2,\position+1*\filtersep) {$A_1$};
+\node[below=3ex] (A2) at (-\size/2,-\size/2,\position+12*\filtersep) {$A_k$};
+\draw[thick,dotted] (A1) -- (A2) node[midway,below=2ex]{$\mathcal{A}$};
+
+%%%%%%%%%%%%%%%%%%
+% Motif.s
+%%%%%%%%%%%%%%%%%%
+\xdef\position{5};
+\xdef\size{2};
+\xdef\numfilter{8};
+
+\foreach \i in {1,...,\numfilter}{ 
+  %\filldraw[thick, fill=green!80!blue!20] (-\size/2,-\size/2,\position+2*\i*\filtersep) rectangle (\size/2,\size/2,\position+2*\i*\filtersep);
+  \filldraw[thick, fill=green!60!black!60] (-\size/2,-\size/2,{\position+(2*\i+1)*\filtersep}) rectangle (\size/2,\size/2,{\position+(2*\i+1)*\filtersep});
+}
+
+%\node[below=5ex] (MM1) at (-\size/2,-\size/2,\position+1*\filtersep) {$M_1$};
+%\node[below=5ex] (MM2) at (-\size/2,-\size/2,\position+16*\filtersep) {$M_{8}$};
+\node[below=3ex] (MM1) at (-\size/2,-\size/2,\position+1*\filtersep) {$M_1$};
+\node[below=3ex] (MM2) at (-\size/2,-\size/2,\position+16*\filtersep) {$M_{\ell}$};
+\draw[thick,dotted] (MM1) -- (MM2);
+
+
+%%%%%%%%%%%%%%%%%%
+% Sortie
+%%%%%%%%%%%%%%%%%%
+\xdef\position{12};
+\xdef\size{4};
+\xdef\numfilter{8};
+
+\foreach \i in {1,...,\numfilter}{ 
+  %\filldraw[thick, fill=red!80!blue!20] (-\size/2,-\size/2,\position+2*\i*\filtersep) rectangle (\size/2,\size/2,\position+2*\i*\filtersep);
+  \filldraw[thick, fill=red!60] (-\size/2,-\size/2,{\position+(2*\i+1)*\filtersep}) rectangle (\size/2,\size/2,{\position+(2*\i+1)*\filtersep});
+}
+
+\node[below=3ex] (M1) at (-\size/2,-\size/2,\position+1*\filtersep) {$\mathcal{A} \star M_1$};
+\node[below=3ex] (M2) at (-\size/2,-\size/2,\position+16*\filtersep) {$\mathcal{A} \star M_{\ell}$};
+\draw[thick,dotted] (M1) -- (M2);
+
+%\node[below right=1ex] at (0,-\size/2, \position+2*\numfilter*\filtersep) {$(28,28,32)$};
+
+ \end{tikzpicture}
+
+
+
+
+%\end{document}
+

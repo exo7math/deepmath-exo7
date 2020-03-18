@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+
+ \begin{scope}[rotate=0]
+
+
+
+\draw[ultra thick, black] (0.5,-2) to[out=150,in=-110] (0,0) to[out=70,in=-150] (2,2)
+node[above] {ligne de niveau};
+
+ \draw[->,>=latex,very thick,gray,shorten >=3pt,shorten <=3pt] (0,0.1) -- (-9,3.1) node[scale=0.8, pos=0.9, right,black]{$- \grad f(a_k,b_k)$};
+
+\fill[red] (0,0) circle (0.9ex) node[right]{$(a_k,b_k)$};
+\fill[red] (-3,1) circle (0.9ex) node[above right]{$(a_{k+1},b_{k+1})$};
+
+
+ \draw[->,>=latex,ultra thick,orange,shorten >=3pt,shorten <=3pt] (0,0) -- (-3,1) node[scale=0.8,midway, below left]{$- \delta \grad f(a_k,b_k)$};
+
+
+\end{scope}
+
+\end{tikzpicture}

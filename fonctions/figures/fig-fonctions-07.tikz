@@ -1,0 +1,33 @@
+\begin{tikzpicture}[scale=1]
+
+\draw[->,>=latex, gray] (-1,0)--(7.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-1)--(0,6.5) node[left] {$y$};
+\draw[gray] (0,0) grid (7,6);
+
+\coordinate (A) at (1,2);
+\coordinate (B) at (3,5);
+\coordinate (C) at (6,1);
+
+\fill[blue] (A) circle (2pt) node[below left]{$A$};
+\fill[blue] (B) circle (2pt) node[above left]{$B$};
+\fill[blue] (C) circle (2pt) node[above right]{$C$};
+
+\draw (A)--(B)--(C)--cycle;
+
+% Vraie solution CDG de ABC
+\def\x{10/3}
+\def\y{8/3}
+
+% Exemple
+% \def\x{4.5}
+% \def\y{2.5}
+
+\coordinate (M) at (\x,\y);
+\fill[red] (M) circle (2pt) node[right]{$M$};
+\draw[thick] (A)--(M);
+\draw[thick]  (B)--(M);
+\draw[thick]  (C)--(M);
+
+\draw[dashed] (M)--(\x,0) node[below]{$x_0$};
+\draw[dashed] (M)--(0,\y) node[left]{$y_0$};
+\end{tikzpicture}

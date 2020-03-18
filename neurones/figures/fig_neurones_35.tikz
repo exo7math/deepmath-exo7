@@ -1,0 +1,36 @@
+\begin{tikzpicture}[scale=1]
+
+\tikzstyle{rouge} = [fill,rectangle,red,scale=1.2];
+\tikzstyle{bleu} = [fill,circle,blue] ;
+
+\pgfmathsetmacro{\cubex}{5}
+\pgfmathsetmacro{\cubey}{5}
+\pgfmathsetmacro{\cubez}{5}
+\draw[thick] (0,0,0) -- ++(\cubex,0,0) -- ++(0,\cubey,0) -- ++(-\cubex,0,0) -- cycle;
+\draw[thick] (0,0,0) -- ++(0,0,\cubez) -- ++(0,\cubey,0) -- ++(0,0,-\cubez) -- cycle;
+\draw[thick] (0,0,0) -- ++(\cubex,0,0) -- ++(0,0,\cubez) -- ++(-\cubex,0,0) -- cycle;
+
+\draw[thick] (0,5,0) -- ++(\cubex,0,0) -- ++(0,0,\cubez) -- ++(-\cubex,0,0) -- cycle;
+\draw[thick] (5,0,0) -- ++(0,0,\cubez) -- ++(0,\cubey,0) -- ++(0,0,-\cubez) -- cycle;
+
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (0,0,7) node[below]{$x$};
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (6.5,0,0) node[right]{$y$};
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (0,6.5,0) node[above]{$z$};
+
+\node[bleu] at (0,0,0) {};
+\node[rouge] at (5,0,0) {};
+\node[rouge] at (0,0,5) {};
+\node[rouge] at (0,5,0) {};
+\node[rouge] at (5,5,5) {};
+\node[rouge] at (5,0,5) {};
+\node[rouge] at (5,5,0) {};
+\node[rouge] at (0,5,5) {};
+
+\node[left] at (0,0,0) {$(0,0,0)$};
+\node[above right] at (5,0,0) {$(0,1,0)$};
+\node[left] at (0,0,5) {$(1,0,0)$};
+\node[above left] at (0,5,0) {$(0,0,1)$};
+
+% \draw[fill=red!20,opacity=0.5] (5,0,0) -- (0,0,5) -- (0,5,0) -- cycle;
+
+\end{tikzpicture}

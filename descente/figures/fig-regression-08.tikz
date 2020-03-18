@@ -1,0 +1,27 @@
+\begin{tikzpicture}[scale=1]
+
+\tikzstyle{rouge} = [fill,rectangle,red!60,scale=1];
+\tikzstyle{bleu} = [fill,circle,blue] ;
+
+
+
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (0,0,4) node[below]{$x$};
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (4,0,0) node[right]{$y$};
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (0,3.5,0) node[above]{$z$};
+
+
+
+\node[bleu] at (1,0,0) {};
+\node[bleu] at (0,1,5) {};
+\node[bleu] at (2,1,1) {};
+\node[bleu] at (1,2,0) {};
+\node[bleu] at (2,2,3) {};
+
+\def\a{-1.22}
+\def\b{0.77}
+\def\c{2.33}
+\draw[fill=red!20,opacity=0.7] (0,0,0*\a+0*\b+\c) --(3,0,3*\a+0*\b+\c) --(3,3,3*\a+3*\b+\c)-- (0,3,0*\a+3*\b+\c)   -- cycle;
+
+
+
+\end{tikzpicture}

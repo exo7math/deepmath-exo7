@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+
+
+\draw[domain=-2:2, blue,very thick,smooth] plot (\x,{0.5*\x*\x});
+\node at (0,-1) {fonction convexe, $f''(x)>0$};
+ 
+ 
+\begin{scope}[xshift=7cm]
+\draw[domain=-2:2, blue,very thick,smooth] plot (\x,{-0.5*\x*\x+2});
+\node at (0,-1) {fonction concave, $f''(x)<0$};
+\end{scope}
+\end{tikzpicture}

@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+
+\fill (0,0) circle (0.5ex);
+ \node at (3,0) {\bf ?};
+ \node at (6,0) {\bf ?};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(2,0) node[midway,above,black,scale=0.8]{au carr\'e} ;
+ \draw[->,>=latex,ultra thick,red] (3.5,0) -- ++(2,0) node[midway,above,black,scale=0.8]{ajouter $1$} ;
+\node at (-2,0)[left] {\bf Chasse au tr\'esor};
+
+\begin{scope}[yshift=-1.5cm]
+ \node at (0,0) {$2$};
+ \node at (3,0) {$4$};
+ \node at (6,0) {$5$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(2,0) node[midway,above,black,scale=0.8]{au carr\'e} ;
+ \draw[->,>=latex,ultra thick,red] (3.5,0) -- ++(2,0) node[midway,above,black,scale=0.8]{ajouter $1$} ;
+\node at (-2,0)[left] {\bf En partant de $2$};
+\end{scope}
+
+\begin{scope}[yshift=-3cm]
+ \node at (0,0) {$x_0$};
+ \node at (3,0) {$x_0^2$};
+ \node at (6,0) {$x_0^2+1$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(2,0) node[midway,above,black,scale=0.8]{au carr\'e} ;
+ \draw[->,>=latex,ultra thick,red] (3.5,0) -- ++(2,0) node[midway,above,black,scale=0.8]{ajouter $1$} ;
+\node at (-2,0)[left] {\bf En partant de $x_0$};
+\end{scope}
+
+\begin{scope}[yshift=-4.5cm]
+\fill (0,0) circle (0.5ex);
+\fill (3,0) circle (0.5ex);
+\fill (6,0) circle (0.5ex);
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(2,0) node[midway,above,black,scale=0.8]{$x \mapsto x^2$} ;
+ \draw[->,>=latex,ultra thick,red] (3.5,0) -- ++(2,0) node[midway,above,black,scale=0.8]{$x \mapsto x+1$} ;
+\node at (-2,0)[left] {\bf Notre notation};
+\end{scope}
+
+\end{tikzpicture}

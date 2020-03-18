@@ -1,0 +1,45 @@
+\begin{tikzpicture}
+%\usetikzlibrary{matrix}
+\usetikzlibrary{backgrounds}
+
+\matrix (A) [matrix of math nodes,nodes in empty cells,
+             left delimiter  = (,
+             right delimiter = ),align=center,text depth=.5ex,text height=2ex,text width=1em] at (0,0)
+{%
+1 & 2  \\
+3 & 4 \\
+};
+
+\matrix (B) [matrix of math nodes,nodes in empty cells,
+             left delimiter  = (,
+             right delimiter = ),align=center,text depth=.5ex,text height=2ex,text width=1em] at (5,0)
+{%
+0 & 0 & 0 \\
+0 & 1 & 2  \\
+0 & 3 & 4  \\
+};
+
+\matrix (C) [matrix of math nodes,nodes in empty cells,
+             left delimiter  = (,
+             right delimiter = ),align=center,text depth=.5ex,text height=2ex,text width=1em] at (10,0)
+{%
+4 & 3 & 0 \\
+2 & 1 & 0  \\
+0 & 0 & 0  \\
+};
+% \draw[->,>=latex,line width = 4pt,blue!30] (2,0) to[bend left=90] ++(3,0);
+\draw[->,>=latex,line width = 3pt,blue!30]   (1.4,0) -- ++(2,0);
+\draw[->,>=latex,line width = 3pt,blue!30,xshift=5.75cm,scale=0.5]   (1.5,-0.5) .. controls (9,2) and (-2,2) .. (5.5,-0.5);
+% \draw[->,>=latex,line width = 3pt,blue!30]   (6.5,0) -- ++(2,0);
+ 
+\node at (0,-1.5) {\bf Motif de taille $2\times 2$};
+\node at (5,-1.5) {\bf Motif augmenté};
+\node at (10,-1.5) {\bf Motif retourné};
+
+ \begin{scope}[on background layer]
+ \fill[green!30,opacity=0.5] (B-1-1.north west) rectangle (B-1-3.south east);
+ \fill[green!30,opacity=0.5] (B-1-1.south west) rectangle (B-3-1.south east);
+\end{scope}
+
+
+\end{tikzpicture}

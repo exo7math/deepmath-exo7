@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+ \fill (0,2) circle (0.5ex);
+ \fill (0,-2) circle (0.5ex);
+ \fill (6,0) circle (0.5ex);
+ \fill (11,0) circle (0.5ex);
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
+\draw[->,>=latex,ultra thick,red] (7,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$g$};
+\end{tikzpicture}

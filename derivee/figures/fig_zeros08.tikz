@@ -1,0 +1,29 @@
+\begin{tikzpicture}[xscale=1.3,scale=1]
+
+	\draw[->,>=latex, gray, very thin] (-0.5,0) -- (3.3,0);
+	\draw[->,>=latex, gray, very thin] (0,-1.5) -- (0,3.5);
+
+%	\draw[domain=-0.25:2.5,black,thick,smooth] plot (\x,{0.6+0.4*\x+0.6*cos(4*\x r)});
+
+    \draw[domain=-0.2:2.4, blue,very thick,smooth] plot (1*\x,{0.3*\x*\x*\x-1});
+
+    \fill[red] (2.2,0) circle (1.5pt);
+    \fill(2.2,2.2) circle (1.5pt);
+   \def \x{2.2}
+    \draw[green!60!black,thick] (2.23,2.2)--+(0.3,{0.3*(0.9*\x*\x)})  node[right]{tangente en $x_0$};
+    \draw[green!60!black,thick] (2.23,2.2)--+(-0.7,{-0.7*(0.9*\x*\x)}) ;
+    \draw[dashed] (2.2,2.2)--(2.2,0) node[below right]{$x_0$};
+
+    \fill[red] (1.72,0) circle (1.5pt);
+ %   \fill(1.72,0.54) circle (1.5pt);
+
+   \def \x{1.72}
+ %  \draw[green!60!black,thick] (1.75,0.54)--+(0.5,{0.5*(0.9*\x*\x)}) ;
+ %   \draw[green!60!black,thick] (1.75,0.54)--+(-0.7,{-0.7*(0.9*\x*\x)}) ;
+
+  \node[below right] at  (1.72,0){$x_1$};
+
+
+    \fill[red] (1.48,0) circle (1.5pt) node[above,black]{$\ell$};
+
+\end{tikzpicture}

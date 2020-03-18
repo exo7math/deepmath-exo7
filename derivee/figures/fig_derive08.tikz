@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+ %\node at (0,0) {$x_0$};
+ %\node at (4,0) {$f(x_0)$};
+\fill (0,0) circle (0.5ex);
+\fill (4,0) circle (0.5ex);
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto f(x)$} ;
+\end{tikzpicture}

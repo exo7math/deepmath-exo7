@@ -1,0 +1,30 @@
+\begin{tikzpicture}[scale=1]
+
+\def\N{10}
+
+\begin{scope}
+\draw (0,0) grid (\N,\N);
+
+\foreach \i in{0,...,\N}{
+\foreach \j in{0,...,\N}{
+  \fill[blue] (\i,\j) circle (4pt);
+}
+}
+
+\node at (\N/2,-1) {grille $N\times N$};
+
+\draw[<->,>=latex] (0,-0.5) -- ++ (1,0) node[midway,below]{$\epsilon$};
+\end{scope}
+
+\begin{scope}[xshift=15cm]
+\draw (0,0) grid (\N,\N);
+
+\foreach \i/\j  in {1/2, 5/8, 9/3, 5/4, 1/9, 6/2, 6/3, 7/8,  2/6,  0/4, 8/0} {
+  \fill[blue] (\i,\j) circle (4pt);
+}
+
+\node at (\N/2,-1) {points au hasard};
+\end{scope}
+
+
+\end{tikzpicture}

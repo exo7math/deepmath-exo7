@@ -1,0 +1,35 @@
+\begin{tikzpicture}[scale=1]
+
+
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (0,0,7) node[below]{$x$};
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (5,0,0) node[right]{$y$};
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (0,5,0) node[left]{$z$};
+
+\pgfmathsetmacro{\cubex}{3}
+\pgfmathsetmacro{\cubey}{4}
+\pgfmathsetmacro{\cubez}{5}
+
+\draw[thin] (0,0,0) -- ++(\cubex,0,0) -- ++(0,\cubey,0) -- ++(-\cubex,0,0) -- cycle;
+\draw[thin] (0,0,0) -- ++(0,0,\cubez) -- ++(0,\cubey,0) -- ++(0,0,-\cubez) -- cycle;
+\draw[thin] (0,\cubey,0) -- ++(\cubex,0,0) -- ++(0,0,\cubez) -- ++(-\cubex,0,0) -- cycle;
+\draw[thin] (\cubex,0,0) -- ++(0,0,\cubez) -- ++(0,\cubey,0) -- ++(0,0,-\cubez) -- cycle;
+
+\draw[thick] (0,0,0) -- ++(\cubex,0,0) -- ++(0,0,\cubez) -- ++(-\cubex,0,0) -- cycle;
+\draw[thick] (\cubex,0,\cubez) -- ++(0,\cubey,0);
+
+%\draw[dashed] (\cubex,\cubey,\cubez) -- (0,\cubey,0);
+
+
+\draw[fill=red,opacity=.4,very thin,line join=round] (\cubex,\cubey,\cubez) ++ (-1,-0.5,0) to[in=-100] ++(0.5,1,0) to ++ (2,0,0) to[out=-60] ++(-0.5,-1,0) --cycle ;
+
+
+\draw[<-,>=latex,thick] (\cubex+0.2,\cubey-0.1,\cubez) to[in=170,out=-30] (5,1,0) node[right] {point $(x,y,f(x,y))$};
+\draw[<-,>=latex,thick] (\cubex+0.75,\cubey+0.25,\cubez) to[in=190,out=50] (5,2,0) node[right] {portion du graphe de $f$};
+
+\node[circle,fill=red,inner sep=-2] at  (\cubex,\cubey,\cubez){};a
+\node[circle,fill=blue,inner sep=-2] at  (\cubex,0,\cubez){};
+\node[below right] at  (\cubex,0,\cubez){$(x,y)$};
+
+
+
+\end{tikzpicture}

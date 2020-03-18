@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+\def\layersep{2cm}
+\tikzstyle{neuron}=[circle,fill=red!50,minimum size=12pt,inner sep=0pt]
+
+% Entree
+\node[blue] (E) at (-\layersep,0) {$x$};
+
+% Neurone F
+\node[neuron,green!70!black] (F) at (0,0) {};
+\node[above right=0.8ex,scale=0.7] at (F) {$f$};
+\node[below right=0.8ex,scale=0.7] at (F) {$[f']$};
+ \path[thick] (E) edge node[pos=0.8,above,scale=0.7]{$a$} (F);
+
+% Neurone G
+\node[neuron] (G) at (\layersep,0) {};
+\node[above right=0.8ex,scale=0.7] at (G) {$g$};
+\node[below right=0.8ex,scale=0.7] at (G) {$[g']$};
+ \path[thick] (F) edge node[pos=0.8,above,scale=0.7]{$b$} (G);
+ \draw[-o,thick] (G) to node[midway,below right,scale=0.7]{$b$} ++ (-130:1.3);
+
+% Neurone H
+\node[neuron] (H) at (2*\layersep,0) {};
+\node[above right=0.8ex,scale=0.7] at (H) {$h$};
+\node[below right=0.8ex,scale=0.7] at (H) {$[h']$};
+ \path[thick] (G) edge node[pos=0.8,above,scale=0.7]{$c$} (H);
+
+% Sortie
+\node (K) at (2.5*\layersep,0) {};
+ \path[thick] (H) edge (K);
+\draw[thick,dotted] (K)+(-0.5,0) -- ++(1,0);
+\draw[->,>=latex,thick] (K)+(1,0)-- ++(2,0) node[right,blue]{$F(x)$};
+
+\end{tikzpicture}  

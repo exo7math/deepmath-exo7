@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+
+\draw[->,>=latex,thick, gray] (-1.5,0)--(4,0);
+\draw[->,>=latex,thick, gray] (0,-1)--(0,3);
+
+\draw[thick,red] (0,0)--++(20:3) node[midway,above] {$\| (x,y) \|$};
+
+\fill[blue] (0,0) circle (2pt) node[black, below left] {$(0,0)$};
+
+\fill[blue] (20:3) circle (2pt) node[black, right] {$(x,y)$};
+
+\end{tikzpicture}

@@ -1,0 +1,68 @@
+\begin{tikzpicture}[scale=1]
+ 
+\filldraw[fill=red!20, draw=red, rounded corners=5pt] (0,2) rectangle ++ (1,2);
+
+\filldraw[fill=blue!20, draw=blue] (3,0) rectangle ++ (1,6);
+
+\filldraw[fill=blue!20, draw=blue] (6,0) rectangle ++ (1,6);
+
+\filldraw[fill=blue!20, draw=blue] (9,0) rectangle ++ (1,6);
+
+\filldraw[fill=blue!20, draw=blue] (12,2.5) rectangle ++ (1,1);
+
+\filldraw[fill=red!20, draw=red, rounded corners=5pt] (15,2.5) rectangle ++ (1,1);
+
+\node at (0.5,8.5) {\bf Entrée $(x,y)$};
+
+\node at (3.5,8) {\bf Couche 1};
+\node at (3.5,7.5) {$10$ neurones};
+\node at (3.5,7) {(activation : ReLU)};
+
+\node at (6.5,8) {\bf Couche 2};
+\node at (6.5,7.5) {$10$ neurones};
+\node at (6.5,7) {(ReLU)};
+
+\node at (9.5,8) {\bf Couche 3};
+\node at (9.5,7.5) {$10$ neurones};
+\node at (9.5,7) {(ReLU)};
+
+\node at (12.5,8) {\bf Couche 4};
+\node at (12.5,7.5) {$1$ neurone};
+\node at (12.5,7) {(identité)};
+
+\node at (15.5,8.5) {\bf  Sortie $z$};
+
+\node at (0.5,3.25) {$x$};
+\node at (0.5,2.5) {$y$};
+
+\node at (15.5,3) {$z$};
+
+
+\foreach \y in {0,...,9}{
+  \draw[gray, thick] (1,3.25)--(3,0.5+0.55*\y);
+}
+\foreach \y in {0,...,9}{
+  \draw[gray, thick] (1,2.5)--(3,0.5+0.55*\y);
+}
+
+\foreach \y in {0,...,9}{
+  \draw[gray, thick] (4,5.5)--(6,0.5+0.55*\y);
+}
+\foreach \y in {0,...,9}{
+  \draw[gray, thick] (4,0.5)--(6,0.5+0.55*\y);
+}
+
+\foreach \y in {0,...,9}{
+  \draw[gray, thick] (7,5.5)--(9,0.5+0.55*\y);
+}
+\foreach \y in {0,...,9}{
+  \draw[gray, thick] (7,0.5)--(9,0.5+0.55*\y);
+}
+
+\foreach \y in {0,...,9}{
+  \draw[gray, thick] (10,0.5+0.55*\y)--(12,3);
+}
+
+  \draw[gray, thick] (13,3)-- ++(2,0);
+
+\end{tikzpicture}  

@@ -1,0 +1,42 @@
+\begin{tikzpicture}
+
+\draw[->,>=latex, very thick, black] (0,0)--(17,0) node[below] {$x$};
+\draw[->,>=latex, very thick, black] (0,-3)--(0,11) node[left] {$y$};
+\draw[gray] (0,-3) grid (16,10);
+
+\coordinate (A) at (4,1);
+\coordinate (B) at (7,3);
+\coordinate (C) at (8,3);
+\coordinate (D) at (10,6);
+\coordinate (E) at (12,7);
+
+
+% \def\a{3/4}
+% \def\b{-2}
+% \draw[red,thick] (0,\b) -- ++(16,16*\a) node[black, right]{$y=ax+b$};
+% 
+% \def\a{0.78}
+% \def\b{-2.46}
+% \draw[blue,ultra thick] (0,\b) -- ++(16,16*\a) node[black, right]{$y=ax+b$};
+
+\fill[blue] (A) circle (3pt) node[above  left]{$A_1$};
+\fill[blue] (B) circle (3pt) node[below right]{$A_2$};
+\fill[blue] (C) circle (3pt) node[below right]{$A_3$};
+\fill[blue] (D) circle (3pt) node[above left]{$A_4$};
+\fill[blue] (E) circle (3pt) node[below right]{$A_5$};
+
+% \coordinate (F) at (6,6*\a+\b);
+% \fill[black] (F) circle (2pt) node[below right]{$Q$};
+
+\foreach \i in {0,2,...,14}
+{\node[scale=0.7, below right] at (\i,0) {$\i$};}
+
+\foreach \j in {-2,0,...,10}
+{\node[scale=0.7, left] at (0,\j) {$\j$};}
+
+% \draw[ultra thick, blue] (A)--(1,1.6);
+% \draw[ultra thick, blue] (B)--(3,2.7);
+% \draw[ultra thick, blue] (C)--(5,3.8);
+% \draw[ultra thick, blue] (D)--(6,4.4);
+
+\end{tikzpicture}

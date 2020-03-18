@@ -1,0 +1,135 @@
+p = 3, 79 poids
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 193
+Pourcentage de réussite : 34
+Nb de données dans le test : 570
+Nb de données prédite correctement : 151
+Pourcentage de réussite : 26
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 196
+Pourcentage de réussite : 34
+Nb de données dans le test : 570
+Nb de données prédite correctement : 189
+Pourcentage de réussite : 33
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 257
+Pourcentage de réussite : 45
+Nb de données dans le test : 570
+Nb de données prédite correctement : 215
+Pourcentage de réussite : 38
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 279
+Pourcentage de réussite : 49
+Nb de données dans le test : 570
+Nb de données prédite correctement : 249
+Pourcentage de réussite : 44
+
+
+p = 5, 11 neurones, 141 poids
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 515
+Pourcentage de réussite : 90
+Nb de données dans le test : 570
+Nb de données prédite correctement : 456
+Pourcentage de réussite : 80
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 442
+Pourcentage de réussite : 78
+Nb de données dans le test : 570
+Nb de données prédite correctement : 396
+Pourcentage de réussite : 69
+
+Evaluation p = 5
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 478
+Pourcentage de réussite : 84
+Nb de données dans le test : 570
+Nb de données prédite correctement : 423
+Pourcentage de réussite : 74
+
+p = 7, 15 neurones, 211 poids
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 481
+Pourcentage de réussite : 84
+Nb de données dans le test : 570
+Nb de données prédite correctement : 422
+Pourcentage de réussite : 74
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 503
+Pourcentage de réussite : 88
+Nb de données dans le test : 570
+Nb de données prédite correctement : 418
+Pourcentage de réussite : 73
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 520
+Pourcentage de réussite : 91
+Nb de données dans le test : 570
+Nb de données prédite correctement : 483
+Pourcentage de réussite : 85
+
+
+p = 10, 21 neurones, 331 poids
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 534
+Pourcentage de réussite : 94
+Nb de données dans le test : 570
+Nb de données prédite correctement : 461
+Pourcentage de réussite : 81
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 560
+Pourcentage de réussite : 98
+Nb de données dans le test : 570
+Nb de données prédite correctement : 506
+Pourcentage de réussite : 89
+
+
+p = 15, 36 neurones, 571 poids
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 561
+Pourcentage de réussite : 98
+Nb de données dans le test : 570
+Nb de données prédite correctement : 485
+Pourcentage de réussite : 85
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 566
+Pourcentage de réussite : 99
+Nb de données dans le test : 570
+Nb de données prédite correctement : 501
+Pourcentage de réussite : 88
+
+
+p = 20, 41 neurones, 861 poids
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 567
+Pourcentage de réussite : 99
+Nb de données dans le test : 570
+Nb de données prédite correctement : 487
+Pourcentage de réussite : 85
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 570
+Pourcentage de réussite : 100
+Nb de données dans le test : 570
+Nb de données prédite correctement : 480
+Pourcentage de réussite : 84
+
+Nb de données d'apprentissage : 570
+Nb de données prédite correctement : 570
+Pourcentage de réussite : 100
+Nb de données dans le test : 570
+Nb de données prédite correctement : 470
+Pourcentage de réussite : 82

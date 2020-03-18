@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=1]
+\begin{scope}[even odd rule]
+\clip (0,0) rectangle (5,5);
+\draw[red,ultra thick] (0,2) -- (5,4);
+\fill[red!50,opacity=0.5] (0,0) -- (0,2) --(5,4) -- (5,0)-- cycle;
+\fill[blue!20,opacity=0.5] (0,5) -- (0,2) --(5,4) -- (5,5) -- cycle;
+
+\node[scale=0.8,red] at (3,1.5) {$F(x,y)\ge\frac12$};
+\node[scale=0.8,blue] at (2,4) {$F(x,y)\le\frac12$};
+\end{scope}
+
+\node[red,right] at (5,4) {$ax+by+c=0$};
+
+\draw[->,>=latex, very thick,gray] (-0.5,0)--(5.5,0) node[below] {$x$};
+\draw[->,>=latex, very thick, gray] (0,-0.5)--(0,5.5) node[left] {$y$};
+\draw[gray,thin] (0,0) grid (5,5);
+\end{tikzpicture}

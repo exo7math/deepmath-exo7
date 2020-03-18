@@ -1,0 +1,47 @@
+\begin{tikzpicture}
+\fill[gray!30,opacity=0.5] (0,-4) rectangle ++(5,6);
+
+\begin{scope}
+\draw[very thick,dashed,gray]  (-2.5,0) grid ++(0.5,1);
+\draw[very thick,dashed,gray]  (-2,0) grid ++(2,1);
+\node[scale=1.2,gray] at (-0.5,0.5) {$0$};
+\node[scale=1.2,gray] at (-1.5,0.5) {$0$};
+
+\draw[very thick,dashed,gray]  (6,0) grid ++(1.5,1);
+\draw[very thick,dashed]  (5,0) grid ++(1,1);
+\node[scale=1.2,gray] at (5.5,0.5) {$0$};
+
+
+%\fill[blue!20] (1,0) rectangle ++(1,1);
+\draw[very thick]  (0,0) grid ++(5,1);
+
+\node[scale=1.2] at (0.5,0.5) {$1$};
+\node[scale=1.2] at (1.5,0.5) {$0$};
+\node[scale=1.2] at (2.5,0.5) {$3$};
+\node[scale=1.2] at (3.5,0.5) {$5$};
+\node[scale=1.2] at (4.5,0.5) {$1$};
+
+\node[right] at (8,0.5){\bf Liste d'entrée};
+\end{scope}
+
+
+\begin{scope}[yshift=-3cm]
+\draw[very thick,dashed,gray]  (-2.5,0) grid ++(2.5,1);
+\draw[very thick,dashed,gray]  (5,0) grid ++(2.5,1);
+\draw[very thick]  (0,0) grid ++(5,1);
+
+
+\node[scale=1.2,gray] at (-1.5,0.5) {$0$};
+\node[scale=1.2,gray] at (-0.5,0.5) {$1$};
+\node[scale=1.2] at (0.5,0.5) {$2$};
+\node[scale=1.2] at (1.5,0.5) {$6$};
+\node[scale=1.2] at (2.5,0.5) {$11$};
+\node[scale=1.2] at (3.5,0.5) {$20$};
+\node[scale=1.2] at (4.5,0.5) {$17$};
+\node[scale=1.2,gray] at (5.5,0.5) {$3$};
+\node[scale=1.2,gray] at (6.5,0.5) {$0$};
+
+\node[right] at (8,0.5){\bf Liste de sortie tronquée};
+\end{scope}
+
+\end{tikzpicture}

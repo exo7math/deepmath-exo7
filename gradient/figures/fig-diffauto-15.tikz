@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+\node at (0,2) {$x_1$};
+% \node at (0,1.2) {$x_2$};
+\node at (0,-2) {$x_n$};
+\node at (6.5,0) {$f(x_1,\ldots,x_n)$};
+\node[blue,left] at (3.1,1) {$[\partial_{x_1} f]$};
+\node[blue,left] at (3.2,-1) {$[\partial_{x_n} f]$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+\draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$f$} ;
+
+\draw[ultra thick,red]  (0.5,1.2) -- (3,0);
+\draw[ultra thick,red]  (0.5,-1.2) -- (3,0);
+\draw[ultra thick,red,dotted]  (1,0.5) -- (1,-0.5);
+\end{tikzpicture}

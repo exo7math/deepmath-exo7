@@ -1,0 +1,50 @@
+\begin{tikzpicture}
+
+\begin{scope}
+
+
+\draw [very thick, dotted, green!70!black] (2.5,0) -- ++(0,-1) node[midway,right,black]{$\times$};
+\draw [very thick, dotted, green!70!black] (3.5,0) -- ++(0,-1) node[midway,right,black]{$\times$};
+\draw [very thick, dotted, green!70!black] (4.5,0) -- ++(0,-1) node[midway,right,black]{$\times$};
+
+\draw [very thick, dotted, red] (2.5,-2) -- ++(0.75,-1) node[midway,right,black]{$+$};
+\draw [very thick, dotted, red] (3.5,-2) -- ++(0,-1) node[midway,right,black]{$+$};
+\draw [very thick, dotted, red] (4.5,-2) -- ++(-0.75,-1) node[midway,right,black]{$+$};
+
+\fill[blue!10!white] (2,0) rectangle ++(1,1);
+\fill[blue!10!white] (3,0) rectangle ++(1,1);
+\fill[blue!10!white] (4,0) rectangle ++(1,1);
+\draw[very thick]  (0,0) grid ++(8,1);
+\node at (10,0.5) {\bf Liste d'entrée};
+
+\node[scale=1.2] at (2.5,0.5) {$x$};
+\node[scale=1.2] at (3.5,0.5) {$y$};
+\node[scale=1.2] at (4.5,0.5) {$z$};
+
+\end{scope}
+
+\begin{scope}[yshift=-2cm]
+\fill[green!10!white] (2,0) rectangle ++(1,1);
+\fill[green!10!white] (3,0) rectangle ++(1,1);
+\fill[green!10!white] (4,0) rectangle ++(1,1);
+\draw[very thick]  (2,0) grid ++(3,1);
+\node[scale=1.2] at (2.5,0.5) {$a$};
+\node[scale=1.2] at (3.5,0.5) {$b$};
+\node[scale=1.2] at (4.5,0.5) {$c$};
+
+\node at (10,0.5) {\bf Motif};
+\end{scope}
+
+\begin{scope}[yshift=-4cm]
+\fill[red!10!white] (3,0) rectangle ++(1,1);
+\draw[very thick]  (0,0) grid ++(8,1);
+\node at (10,0.5) {\bf Liste de sortie};
+\node[scale=1.2] at (3.5,0.5) {$s$};
+\end{scope}
+
+% \node[scale=3] at (-1,-1) {$\star$};
+% \node[scale=3] at (-1,-4+0.4) {$=$};
+
+
+\node[scale=1.2] at (3.5,-5) {$s=ax+by+cz$};
+\end{tikzpicture}

@@ -1,0 +1,6 @@
+\begin{tikzpicture}[scale=1, every node/.style={transform shape}]
+     \node(F){$\displaystyle \frac{\dd z}{\dd x}  = \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x}$};
+     
+     \draw[red,thick] (-0.2,-0.4)--++(0.4,0.35);
+     \draw[red,thick] (0.7,0.1)--++(0.4,0.35);     
+\end{tikzpicture}

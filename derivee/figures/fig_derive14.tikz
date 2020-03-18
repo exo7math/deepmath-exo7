@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+
+\node at (0,0) {$2$};
+\node at (4.5,0) {$\ln(2)$};
+\node at (4.5,-0.5) {$[\frac12]$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3.2,0) node[midway,above,black,scale=0.8]{$x \mapsto \ln(x)$} 
+node[midway,below,black,scale=0.8]{$[x \mapsto \frac1x]$};
+
+\begin{scope}[xshift=7cm]
+\node at (0,0) {$-1$};
+\node at (4.5,0) {$e^{2}$};
+\node at (4.5,-0.5) {$[-2e^{2}]$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3.4,0) node[midway,above,black,scale=0.8]{$x \mapsto e^{-2x}$}
+node[midway,below,black,scale=0.8]{$[x \mapsto -2e^{-2x}]$};
+\end{scope}
+
+\begin{scope}[xshift=14cm]
+\node at (0,0) {$3$};
+\node at (4.5,0) {$9$};
+\node at (4.5,-0.5) {$[6]$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3.4,0) node[midway,above,black,scale=0.8]{$x \mapsto x^2$};
+%node[midway,below,black,scale=0.8]{$[x \mapsto f'(x)]$};
+\end{scope}
+
+\end{tikzpicture}

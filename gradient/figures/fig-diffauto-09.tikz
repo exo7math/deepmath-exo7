@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\node at (0,2) {$x_0$};
+\node at (0,-2) {$y_0$};
+\node at (6.3,0) {$x_0 \times y_0$};
+\node[blue,left] at (3.2,1) {$[y_0]$};
+\node[blue,left] at (3.2,-1) {$[x_0]$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+\draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+\end{tikzpicture}

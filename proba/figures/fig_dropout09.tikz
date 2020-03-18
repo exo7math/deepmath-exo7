@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=0.5]
+
+\draw[thick,fill=black!10] (0,0) circle (2);
+\draw[ultra thick]  (150:2) -- (150:8)node[pos=0.3,above]{$a_1$};
+\draw[ultra thick]  (210:2) -- (210:8)node[pos=0.3,above]{$a_n$};
+%\draw[-o,ultra thick]  (210:3) -- (210:8) node[pos=0.2,below]{$a_0$};
+\draw[ultra thick,dotted]  (170:6)--(190:6);
+\draw[->,>=latex,ultra thick] (0:2) --  (7,0) node[right] {};
+\node[below right] at (-15:3) {$a_1x_1+\cdots+a_nx_n$};
+\node at (0,-5) {\bf Neurone normal};
+
+\end{tikzpicture}  

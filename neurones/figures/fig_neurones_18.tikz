@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+
+\tikzstyle{rouge} = [fill,rectangle,red,scale=1.2];
+\tikzstyle{bleu} = [fill,circle,blue] ;
+
+\draw[gray] (-4,-4) grid ++(8,8);
+\draw[->,>=latex, very thick,gray] (-4.5,0)--(5,0) node[below] {$x$};
+\draw[->,>=latex, very thick, gray] (0,-4.5)--(0,5) node[left] {$y$};
+
+\foreach \x/\y in {3.7/-0.2,3/1,1.5/1.5,-1/3,2.2/3.3,0.3/3.5}{
+  \node[bleu] at (\x,\y) {};
+}
+\foreach \x/\y in {1/-1,3/-1.5,-1.5/-2.5,0/-3,-2.8/3,-3/0.5,0/1}{
+ \node[rouge] at (\x,\y) {};
+}
+
+% \draw[red,ultra thick] (-2,3) -- (4,-1);
+
+
+
+\end{tikzpicture}

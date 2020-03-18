@@ -1,0 +1,33 @@
+\begin{tikzpicture}[scale=0.5]
+
+\fill[red!20,rounded corners] (-4.5,-1.5) rectangle ++(1,5);
+\fill[red!20,rounded corners] (-4.5,-3.25) rectangle ++(1,1);
+
+\fill[blue!20,rounded corners] (-8.5,-2.5) rectangle ++(1.25,8);
+
+\draw[thick,fill=black!10] (0,0) circle (3);
+\draw[ultra thick]  (150:3) -- (150:8)node[pos=0.3,above,red]{$a_1$};
+\draw[ultra thick]  (190:3) -- (190:7.25)node[pos=0.23,above,red]{$a_n$};
+\draw[-o,ultra thick]  (210:3) -- (210:8) node[pos=0.3,below,red]{$a_0$};
+\draw[ultra thick,dotted]  (158:6)--++(0,-2.5);
+\draw[->,>=latex,ultra thick] (0:3) --  (8,0) node[right] {$F(x_1,\ldots,x_n)$};
+\node[below right, blue] at (-15:3) {$\phi$};
+
+
+\node at (150:9) {$x_1$};
+\node at (190:8) {$x_n$};
+\draw[ultra thick,dotted]  (-7.85,0.5)--++(0,2.5);
+
+
+\node[right] at (15,2) {sortie};
+\draw[->,>=latex,green!70!black!20,line width=3pt] (15,2)  to[bend right=10] (10,0.5)  ;
+
+\node[right] at (15,-4) {fonction d'activation};
+\draw[->,>=latex,green!70!black!20,line width=3pt] (15,-4)  to[bend left=10] (3.5,-1.5)  ;
+
+\node[right] at (15,-5) {poids : coefficients et biais};
+\draw[->,>=latex,green!70!black!20,line width=3pt] (15,-5)  to[bend left=10] (-3.5,-3.5)  ;
+
+\node[right] at (15,3) {entrée};
+\draw[->,>=latex,green!70!black!20,line width=3pt] (15,3)  to[bend right=10] (-7,5)  ;
+\end{tikzpicture}  

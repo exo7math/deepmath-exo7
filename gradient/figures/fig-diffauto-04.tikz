@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+
+%  \fill (0,-2) circle (0.5ex);
+ \fill (6,0) circle (0.5ex);
+%  \fill (11,0) circle (0.5ex);
+
+\node at (0,2) {$x_0$};
+\node at (0,-2) {$y_0$};
+
+\node[red] at (0,1.3) {$\{\{\partial_x F(x_0,y_0)\}\}$};
+\node[red] at (0,-2.7) {$\{\{\partial_y F(x_0,y_0)\}\}$};
+
+%\node at (6.25,0) {$z_0=f(x_0,y_0)$};
+\node at (12,0) {$F(x_0,y_0)$};
+
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+\draw[dashed,ultra thick,red] (7.5,0) -- ++(1.5,0) ;
+\draw[->,>=latex,ultra thick,red] (9,0) -- ++(2,0) ;
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt] (12.5,-1.5) to node[midway,blue,scale=1.2]{$\times$} ++(-10,0) to ++(-1.7,-1) ;
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt] (12.5,0.5) to node[midway,blue,scale=1.2]{$\times$} ++(-10,0) to ++(-1.7,+0.5) ;
+
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
+
+ \node[blue,left] at (3.9,1.1) {$[\partial_x f(x_0,y_0)]$};
+ \node[blue,left] at (3.9,-1.1) {$[\partial_y f(x_0,y_0)]$};
+
+\end{tikzpicture}

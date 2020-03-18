@@ -1,0 +1,31 @@
+% Figure after Kjell Magne Fauske
+% http://www.texample.net/tikz/examples/neural-network/
+\begin{tikzpicture}[draw=black!50, node distance=3.5cm]
+   \def\layersep{3.5cm}
+    \tikzstyle{every pin edge}=[<-,shorten <=1pt,thick]
+    \tikzstyle{neuron}=[circle,fill=black!25,minimum size=12pt,inner sep=0pt]
+    \tikzstyle{entree}=[];
+    \tikzstyle{input neuron}=[neuron, fill=green!50];
+    \tikzstyle{output neuron}=[neuron, fill=red!50];
+    \tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+    \tikzstyle{annot} = [text width=4em, text centered]
+
+    % Premiere couche
+    \foreach \name / \y in {1,...,4}
+    % This is the same as writing \foreach \name / \y in {1/1,2/2,3/3,4/4}
+        \node[input neuron] (I-\name) at (0,-\y) {};
+
+    %Seconde couche
+    \foreach \name / \y in {1,...,5}
+        \path[yshift=0.5cm]
+            node[hidden neuron] (H-\name) at (\layersep,-\y cm) {};
+
+
+    % Connect every node in the input layer with every node in the
+    % hidden layer.
+    \foreach \source in {1,...,4}
+        \foreach \dest in {1,...,5}
+            \path[thick] (I-\source) edge (H-\dest);
+
+
+\end{tikzpicture}  

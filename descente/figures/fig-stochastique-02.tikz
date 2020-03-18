@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+
+\draw[->,>=latex, very thick] (-2,0)--(5.5,0) node[below] {$x$};
+\draw[->,>=latex, very thick] (0,-1)--(0,7.5) node[left] {$y$};
+\draw[gray] (-2,-1) grid (5,7);
+
+\draw[domain=-1.2:4.2, red,very thick,smooth] plot (\x,\x*\x-3*\x+2) node[black, above]{$y=x^2 + ax+b$};
+
+
+\foreach \i/\x/\y in {1/2/0, 2/0/2, 3/4/6, 4/1/0} { 
+  \coordinate (A-\i) at (\x,\y);
+  \fill[blue] (A-\i) circle (2pt) node[below=3pt]{$P_\i$};
+}
+
+\end{tikzpicture}

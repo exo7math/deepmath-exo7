@@ -1,0 +1,152 @@
+
+\begin{tikzpicture}[yscale=1.3,xscale=0.9,yslant=.35,nodes={font=},z={([yslant=-.5]1,0)}]
+
+% Convolution64
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{0}   
+    \def\X{8}  % X, Y, Z size
+    \def\Y{8}
+    \def\Z{5}
+    \draw[thin,fill=red!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=red!60] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=red!60!black!70]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below=2ex] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Conv. 64};
+
+% Pool
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{5}   
+    \def\X{4}  % X, Y, Z size
+    \def\Y{4}
+    \def\Z{5}
+    \draw[thin,fill=blue!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=blue!60] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=blue!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below=2ex] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Pooling};
+
+% Dropout
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{10}   
+    \def\X{4}  % X, Y, Z size
+    \def\Y{4}
+    \def\Z{1}
+    \draw[thin,fill=green!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=green!60!black!60] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=green!60!black!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below=2ex] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Dropout};
+
+
+% Convolution64
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{11}   
+    \def\X{4}  % X, Y, Z size
+    \def\Y{4}
+    \def\Z{5}
+    \draw[thin,fill=red!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=red!60] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=red!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below=2ex] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Conv. 64};
+
+
+% Pooling
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{16}   
+    \def\X{2}  % X, Y, Z size
+    \def\Y{2}
+    \def\Z{5}
+    \draw[thin,fill=blue!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=blue!60] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=blue!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below=2ex] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Pooling};
+
+% Dropout
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{21}   
+    \def\X{2}  % X, Y, Z size
+    \def\Y{2}
+    \def\Z{1}
+    \draw[thin,fill=green!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=green!60!black!60] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=green!60!black!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below=2ex] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Dropout};
+
+
+% Convolution64
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{22}   
+    \def\X{2}  % X, Y, Z size
+    \def\Y{2}
+    \def\Z{5}
+    \draw[thin,fill=red!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=red!60] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=red!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below=2ex] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Conv. 64};
+
+
+% Pooling
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{27}   
+    \def\X{1}  % X, Y, Z size
+    \def\Y{1}
+    \def\Z{5}
+    \draw[thin,fill=blue!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=blue!60] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=blue!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below=2ex] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Pooling};
+
+% Dropout
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{32}   
+    \def\X{1}  % X, Y, Z size
+    \def\Y{1}
+    \def\Z{1}
+    \draw[thin,fill=green!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=green!60!black!60] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=green!60!black!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below=2ex] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Dropout};
+
+
+% Applatissement
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{33}   
+    \def\X{0.5}  % X, Y, Z size
+    \def\Y{6}
+    \def\Z{0.5}
+    \draw[thin,fill=orange!80]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=orange!80] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=orange!80!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below=2ex] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Aplat.};
+
+% Dense 32
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{33.5}   
+    \def\X{0.5}  % X, Y, Z size
+    \def\Y{4}
+    \def\Z{0.5}
+    \draw[thin,fill=cyan!80]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=cyan!80] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=cyan!80!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below right] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Dense 32};
+
+% Dense 1
+    \def\A{0}  % A, B, C position
+    \def\B{0}  
+    \def\C{34}   
+    \def\X{0.5}  % X, Y, Z size
+    \def\Y{0.5}
+    \def\Z{0.5}
+    \draw[thin,fill=cyan!80]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
+    \draw[thin,fill=cyan!80] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
+    \draw[thin,fill=cyan!80!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
+   \node[below] at ($(\A+\X/2,\B+\Y/2,\C+\Z/2+2)$) {Dense 1};
+\end{tikzpicture}

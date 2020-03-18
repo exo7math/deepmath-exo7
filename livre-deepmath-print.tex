@@ -1,0 +1,116 @@
+%\documentclass[11pt]{report}
+\documentclass[10pt,twoside,openright]{report}
+
+%\usepackage[screen]{python}
+\usepackage[print]{python}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titre + préface + sommaire
+\renewcommand{\contentsname}{Sommaire}
+
+% Préface
+\pagenumbering{roman}
+\import{divers/}{preface_livre_deepmath.tex}
+\debutchapitres
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearemptydoublepage
+
+%======================================
+% Partie 1 - Analyse -- Réseaux de neurones
+%======================================
+
+\part{Analyse -- Réseaux de neurones}
+
+% 1 - Dérivée
+\import{derivee/}{derivee.tex}
+
+% 2 - Python : numpy et matplotlib avec une variable
+\import{pythonx/}{pythonx.tex}
+
+% 3 - Fonctions de plusieurs variables
+\import{fonctions/}{fonctions.tex}
+
+% 4 - Python : numpy et matplotlib avec deux variables
+\import{pythonxy/}{pythonxy.tex}
+
+% 5 - Réseau de neurones
+\import{neurones/}{neurones.tex}
+
+% 6 - Python : tensorflow/keras 1
+\import{pythontf1/}{pythontf1.tex}
+
+% 7 - Gradient
+\import{gradient/}{gradient.tex}
+
+% 8 - Descente de gradient
+\import{descente/}{descente.tex}
+
+% 9 - Rétropropagation
+\import{retro/}{retro.tex}
+
+% 10 - Python : tensorflow/keras 2
+\import{pythontf2/}{pythontf2.tex}
+
+
+\clearemptydoublepage
+
+%======================================
+% Partie 2 - Algèbre -- Convolution
+%======================================
+
+\part{Algèbre -- Convolution}
+
+% 1 - Convolution 1d
+\import{convolution1d/}{convolution1d.tex}
+
+% 2 - Convolution 2d
+\import{convolution2d/}{convolution2d.tex}
+
+% 3 - Convolution avec Python
+\import{pythonconv/}{pythonconv.tex}
+
+% 4 - Convolution avec Tensorflow/Keras
+\import{tfconv/}{tfconv.tex}
+
+% 5 - Tenseurs
+\import{tenseur/}{tenseur.tex}
+
+
+\clearemptydoublepage
+
+%======================================
+% Partie 3 - Probabilités appliquées
+%======================================
+
+\part{Probabilités appliquées}
+
+\import{proba/}{proba.tex}
+
+
+\clearemptydoublepage
+
+%======================================
+% Postface et index
+%======================================
+
+\import{annexe/}{annexe.tex}
+
+\import{divers/}{postface_livre_deepmath.tex}
+
+~
+\vfill
+\bigskip
+\bigskip
+
+\mycenterline{Version 0.01 -- Février 2020}
+
+
+
+\end{document}
+

@@ -1,0 +1,27 @@
+\begin{tikzpicture}[scale=1]
+
+\draw[->,>=latex,ultra  thick,gray] (-3.5,0)--(3.5,0) node[below] {$x$};
+\draw[->,>=latex, ultra thick, gray] (0,-1)--(0,4.5) node[left] {$y$};
+\draw[gray] (-3,-1) grid (3,4);
+\draw[ultra thick, color=green!70!black,domain=-2:2,smooth] plot (\x,{\x*\x}) node[above]{$y=x^2$};
+
+
+\coordinate (A) at (1,2);
+
+
+\fill[blue] (A) circle (2pt) node[above left]{$A$};
+
+
+\def\x{-1.7}
+
+\coordinate (M) at (\x,\x*\x);
+\fill[red] (M) circle (2pt) node[left]{$M$};
+\draw (A)--(M);
+
+\draw[dashed,red] (M)--(\x,0) node[below]{$x$};
+\draw[dashed,red] (M)--(0,\x*\x) node[right]{$x^2$};
+
+
+
+
+\end{tikzpicture}

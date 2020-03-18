@@ -1,0 +1,19 @@
+\begin{tikzpicture} 
+	\draw[->,>=latex, gray, very thin] (-1,0) -- (6,0);
+	\draw[->,>=latex, gray, very thin] (0,-1) -- (0,5);
+
+  \coordinate (A) at (1,2);
+  \coordinate (B) at (4,4);
+
+  \draw[dashed] (A)--(1,0) node[below]{$x_0$};
+  \draw[dashed] (A)--(0,2) node[left]{$y_0 = f(x_0)$};
+
+  \draw[dashed] (B)--(4,0) node[below]{$x$};
+  \draw[dashed] (B)--(0,4) node[left]{$y = f(x)$};
+
+    \draw[blue,ultra thick] (A)--++(3,0) node[midway,below]{$\dd x$}-- ++(0,2) node[midway,right]{$\dd y$};
+    \draw[ultra thick] (A)--++(3,2);
+
+    \fill (A) circle (2pt);
+    \fill (B) circle (2pt);
+\end{tikzpicture}

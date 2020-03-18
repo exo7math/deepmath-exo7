@@ -1,0 +1,24 @@
+\begin{tikzpicture}[scale=2]
+
+\tikzstyle{rouge} = [fill,rectangle,red,scale=1.2];
+\tikzstyle{bleu} = [fill,circle,blue] ;
+
+\draw[gray] (0,0) grid ++(1,1);
+\draw[->,>=latex, very thick,gray] (0,0)--(1.5,0) node[below] {$x$};
+\draw[->,>=latex, very thick, gray] (0,0)--(0,1.5) node[left] {$y$};
+
+
+ \node[bleu] at (0,0) {};
+ \node[rouge] at (1,0) {};
+ \node[rouge] at (0,1) {};
+ \node[rouge] at (1,1) {};
+
+% \draw[red,ultra thick] (-0.5,1.5) -- (1.5,-0.5) node[red,below]{$x+y-1=0$};
+
+\node at (0,0)[below=1ex] {$0$};
+\node at (1,0)[below=1ex] {$1$};
+\node at (0,0)[left=1ex] {$0$};
+\node at (0,1)[left=1ex] {$1$};
+
+\node at (1.5,0.5)[right] {\bf $x$ OU $y$};
+\end{tikzpicture}

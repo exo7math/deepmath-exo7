@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+
+
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt,opacity=1] (7,-0.5) to ++(-3,0) to node[midway,blue,scale=1.2]{$\times$} ++(-4.5,-2) to ++(-4,1.5) ;
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt,opacity=1] (7,0.5) to ++(-3,0) to ++(-0.3,1) to node[midway,blue,scale=1.2]{$\times$} ++(-4,0) to ++(-3.5,-1.5) ;
+
+\node at (-5,0) {$2$};
+%\node at (-5,-2) {$2$};
+\node at (-0.25,2) {$\exp(2)$};
+\node at (-0.25,-2) {$\ln(2)$};
+\node at (6.75,0) {$\exp(2)\ln(2)$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+\draw[->,>=latex,ultra thick,red] (-4.5,0.2) -- (-1,2) node[midway,above left,black,scale=0.8]{$x \mapsto \exp(x)$} ;
+\draw[->,>=latex,ultra thick,red] (-4.5,-0.2) -- (-1,-2) node[midway,below left,black,scale=0.8]{$x \mapsto \ln(x)$} ;
+\draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+
+
+\node[red,left] at (-4.3,-0.5) {$\{\{\ln(2)\exp(2)+\frac12\exp(2)\}\}$};
+ \node[blue] at (-0.25,1) {$[\exp(2)]$};
+ \node[blue] at (-0.25,-3) {$[\frac12]$};
+ \node[blue,left] at (3.9,1) {$[\ln(2)]$};
+ \node[blue,left] at (3.9,-1) {$[\exp(2)]$};
+
+
+\end{tikzpicture}

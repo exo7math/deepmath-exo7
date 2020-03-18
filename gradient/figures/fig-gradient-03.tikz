@@ -1,0 +1,45 @@
+\begin{tikzpicture}[scale=1.5]
+     \draw[->,>=latex,thick, gray] (-5,0)--(5,0) node[below,black] {$x$};
+     \draw[->,>=latex,thick, gray] (0,-3.5)--(0,4) node[right,black] {$y$};
+
+\def\a{3}
+\def\b{2}
+
+
+% several levels
+\foreach \k in {0.7,0.8,...,1.5}{
+  \draw[thick,lightgray] ellipse ({\k*\a} and {\k*\b});
+}
+
+% the chosen ellipse
+\def\k{1}  
+ \draw[very thick,red] ellipse ({\k*\a} and {\k*\b});
+
+
+\def\t{0.7}
+
+\pgfmathsetmacro\x{\a*cos(deg(\t))} 
+\pgfmathsetmacro\y{\b*sin(deg(\t))}
+\pgfmathsetmacro\dx{-\a*sin(deg(\t))}
+\pgfmathsetmacro\dy{\b*cos(deg(\t))}
+
+
+\draw[->,>=latex,ultra thick, blue] (\x,\y)--++(0.7*\dy,-0.7*\dx) node[above]{grad $f(x_0,y_0)$};
+
+%\draw[->,>=latex,ultra thick, green!50!black] (\x,\y)--++(0.8*\dx,0.8*\dy) node[above] {$v$};
+
+\draw[ultra thick, green!70!black] (\x,\y)--++(1.5*\dx,1.5*\dy)--++(-2.7*\dx,-2.7*\dy) node[below] {$T$};-
+\fill (\x,\y) circle (2pt) node[below left] {$(x_0,y_0)$};
+
+%\draw[dashed] (\x,0)--(\x,\y)--(0,\y);
+%\node at (\x,0) [below] {$a\cos t$};
+%
+%\node at (0,\y) [left] {$b\sin t$};
+
+\draw[<->,>=latex, thick] (0,0+0.1)--(-\a,0+0.1) node[midway, above] {$a$};
+\draw[<->,>=latex, thick] (0+0.1,0)--(0+0.1,-\b) node[midway, right] {$b$};
+
+
+\end{tikzpicture} 
+
+ 

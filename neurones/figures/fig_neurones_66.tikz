@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+
+\fill[blue!5] (-2,-2) rectangle ++ (8,7);
+
+\def\poly{ (0,0) (4,0) (6,1) (5,4) (2,3) (1,5)  (-2,3)}
+
+\begin{scope}[rotate=-10,scale=0.8]
+
+%\fill[red!20] plot [smooth cycle] coordinates \poly;
+%\draw[red,ultra thick] plot [smooth cycle] coordinates \poly;
+\draw [ultra thick,black!60,fill=red!30] plot [smooth cycle] coordinates \poly;
+
+\end{scope}
+
+
+
+
+\node[red] at (2,1){Int $A$};
+\node[black] at (4,2.7){Fr $A$};
+\node[blue] at (3,4){Ext $A$};
+
+\end{tikzpicture}

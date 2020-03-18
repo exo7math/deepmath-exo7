@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+
+%  \fill (0,-2) circle (0.5ex);
+ % \fill (6,0) circle (0.5ex);
+%  \fill (11,0) circle (0.5ex);
+
+\node at (-3.5,0) {$t_0$};
+\node at (0,2) {$x_0 = u(t_0)$};
+\node at (0,-2) {$y_0 = v(t_0)$};
+
+
+\node[red] at (-3.5,-1) {$\{\{F'(t_0)\}\}$};
+
+
+\draw[ultra thick,red] (-0.8,2) -- (-3,0.1) node[midway, above left,black]{$u$};
+\draw[ultra thick,red] (-0.8,-2) -- (-3,-0.1) node[midway, below left,black]{$v$};
+
+\draw[ultra thick,red]  (0.8,2) -- (3,0);
+\draw[ultra thick,red] (0.8,-2) -- (3,0);
+
+
+
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt] (5,-0.5) to ++(-1,0) to node[midway,blue,scale=1.2]{$\times$} ++(-3,-2.5) to ++(-2,0) to ++(-2.5,1.7) ;
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt] (5,0.5) to ++(-3,0) to node[midway,blue,scale=1.2]{$\times$} ++(-2.5,0.75) to ++(-2.5,-2) ;
+
+\node[blue] at (0,1.5) {$[u'(t_0)]$};
+\node[blue] at (0,-2.5) {$[v'(t_0)]$};
+
+\node at (5.75,0) {$F(t_0)$};
+ \node[blue,left] at (4,1.1) {$[\partial_x f(x_0,y_0)]$};
+ \node[blue,left] at (4,-1.1) {$[\partial_y f(x_0,y_0)]$};
+
+\draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
+
+\end{tikzpicture}

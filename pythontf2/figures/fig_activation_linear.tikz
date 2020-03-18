@@ -1,0 +1,21 @@
+\begin{tikzpicture}[scale=1.5]
+
+\draw[->,>=latex, gray] (-2.5,0)--(2.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-2.5)--(0,2.5) node[left] {$y$};
+
+\draw[ultra thick,red] (-2,-2) -- (2,2);
+
+
+\fill[red] (0,0) circle (1pt);
+\fill[red] (1,0) circle (1pt);
+\fill[red] (0,1) circle (1pt);
+
+\node at (0,0) [below left] {$0$};
+\node at (1,0) [below] {$1$};
+\node at (0,1) [left] {$1$};
+
+
+% \draw[ultra thick, color=blue,domain=-1.5:3.,smooth] plot (\x,{-1+0.12*(\x+2)^2});
+
+\node at (-2,1.2) {\bf Fonction identité};
+\end{tikzpicture}

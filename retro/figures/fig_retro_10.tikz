@@ -1,0 +1,33 @@
+﻿\begin{tikzpicture}[scale=2]
+
+	\draw[->,>=latex,gray] (-2.5,0) -- (2.5,0) node[above] {$x$};
+	\draw[->,>=latex, gray] (0,-1.5) -- (0,1.5) node[left] {$y$};
+
+% rectangle
+\def\myrectangle{(-2.05,-0.75) rectangle (2.05,1.05)}
+ \draw \myrectangle;
+
+
+\def\myellipse{ plot[domain=0:2*pi, samples=100, smooth] ({1/2 + sqrt(2)*cos(\x r)},{1/3 + 1/sqrt(2)*sin(\x r)}) }
+\def\mylemniscate{ plot[domain=0:2*pi,samples=100, smooth] ( { 2*sin(\x r) / (1+cos(\x r)*cos(\x r)) },  { 2*sin(\x r)*cos(\x r)/(1+cos(\x r)*cos(\x r)) } ) }
+
+% ellipse
+\draw \myellipse ;
+
+% lemniscate
+\draw \mylemniscate;
+
+
+\fill[blue!50] \myrectangle;
+
+% 
+% \begin{scope}[even odd rule]
+% \clip \myellipse;
+% \fill[blue!50] \mylemniscate;
+% \end{scope}
+
+\begin{scope}
+\fill[red!50, even odd rule] \myellipse \mylemniscate;
+\end{scope}
+
+\end{tikzpicture}

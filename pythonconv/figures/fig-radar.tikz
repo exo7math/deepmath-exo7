@@ -1,0 +1,23 @@
+% \usepackage{bbding}
+\begin{tikzpicture}[scale=0.5]
+
+
+\filldraw[very thick, fill=black!20] (-2,-5) -- (-0.25,0) -- (0.5,-5) -- cycle;
+\shadedraw[very thick, ball color=black!10,rotate=20] (0,0) ellipse (1cm and 2cm);
+ball color=
+
+\node[scale=4,rotate=160,yscale=0.8] (P) at (15,7) {\Plane};
+
+
+\draw[ultra thick, color=red,domain=0:3.14,smooth, rotate=30] plot (\x,{sin(2*\x r)});
+
+\draw[->,>=latex,red, ultra thick] (35:2.5) -- ++(30:3) node[midway, above left=5pt,  shape=circle,draw,very thick,inner sep=2pt,scale= 0.8] (char) {$1$};
+
+\foreach \angle in {-60,-90,...,-240}{
+\draw[->,>=latex,blue, very thick] (P) + (\angle:1.5) -- ++(\angle:3.5);
+}
+\draw[ultra thick, color=blue,domain=0:3.14,smooth, rotate=30, xshift=11cm,yshift=-1.5cm,scale=0.5] plot (\x,{sin(2*\x r)});
+
+\draw[->,>=latex,blue, very thick] (P) + (-150:6) -- ++(-150:8.5) node[midway, below right=5pt,  shape=circle,draw,very thick,inner sep=2pt,scale= 0.8] (char) {$2$};
+
+\end{tikzpicture}

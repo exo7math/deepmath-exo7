@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+
+%  \fill (0,-2) circle (0.5ex);
+ % \fill (6,0) circle (0.5ex);
+%  \fill (11,0) circle (0.5ex);
+
+\node at (-3.5,0) {$1$};
+\node at (0,2) {$e$};
+\node at (0,-2) {$\sin(1)$};
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt] (9.5,-0.75) to ++(-5.5,0) to node[midway,blue,scale=1.2]{$\times$} ++(-3,-2) to ++(-2,0) to ++(-2.5,1.5) ;
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt] (9.5,-0.5) to ++(-3,1) to node[midway,blue,scale=1.2]{$\times$} ++(-2.7,1.2) to ++(-5,-0.7) to ++(-2,-1.5); 
+
+
+\node[blue] at (0,1.1) {$[e]$};
+\node[blue] at (0,-2.5) {$[\cos(1)]$};
+
+\node[red] at (-3.5,-0.7) {$\{\{F'(1)\}\}$};
+
+\node at (6,0) {$e\sin(1)$};
+ \node[blue,left] at (3.3,1.1) {$[\sin(1)]$};
+ \node[blue,left] at (3.3,-1.1) {$[e]$};
+
+\node at (11,0) {$\sqrt{e\sin(1)}$};
+ \node[blue] at (11,-0.7) {$[\frac{1}{2\sqrt{e\sin(1)}}]$};
+
+\draw[ultra thick,red] (-0.5,2) -- (-3,0.1) node[midway, above left,black]{$e^t$};
+\draw[ultra thick,red] (-0.6,-2) -- (-3,-0.1) node[midway, below left,black]{$\sin t$};
+
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.6,-2) -- (3,0);
+
+ \draw[ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$x  y$} ;
+ \draw[->,>=latex,ultra thick,red] (7,0) -- ++(3,0) node[midway,above,black,scale=1]{$\sqrt{z}$} ;
+ 
+
+\end{tikzpicture}

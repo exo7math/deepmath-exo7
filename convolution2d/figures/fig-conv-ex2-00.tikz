@@ -1,0 +1,99 @@
+% From https://tex.stackexchange.com/questions/437007/drawing-a-convolution-with-tikz
+% By jakun
+\begin{tikzpicture}[scale=1.1]
+\newcommand\numRowsK{3}
+\newcommand\numColsK{3}
+\newcommand{\myK}[2]{% #1: row, #2: col
+    \edef\Kcol##1##2##3{###2}%
+    \edef\Krow##1##2##3{\noexpand\Kcol###1}%
+    \Krow
+        {2 1 0}
+        {1 1 {-1}}
+        {0 {-1} {-2}}%
+}
+
+    % ------- style -------
+    \tikzset{%
+        parenthesized/.style={%
+            left delimiter  = (,
+            right delimiter = ),
+        },
+        node distance = 10mu,
+    }
+
+    % ------- equation -------
+    \matrix[matrix of math nodes, nodes in empty cells, align=center,text depth=.2ex,text height=1.3ex,text width=0.9em,] (I) {
+&             &  &  &  & & \\
+&2 & -1 & 7 & 3 & 0 & \\
+&2 & 0 & 0 & -2 & 1 & \\
+&-5 & 0 & -1 & -1 & 4 & \\
+     &    &  & |[gray]| 0  & |[gray]| 0 & |[gray]| 0 &  \\
+    };
+
+    % \node (*) [right = of I] {${}*{}$};
+   \node (*) [right =1cm of I] {};
+
+    \newcommand\Kmatriy{}
+    \foreach \row in {1, ..., 3} {
+        \gdef \sep {}
+        \foreach \col in {1, ..., 3} {%
+            \xdef \Kmatriy {\unexpanded\expandafter{\Kmatriy}\unexpanded\expandafter{\sep}\noexpand \myK{\row}{\col}}
+            \gdef \sep { \& }
+        }
+        \xdef \Kmatriy {\unexpanded\expandafter{\Kmatriy}\noexpand\\}
+    }
+    \matrix[matrix of math nodes, parenthesized, ampersand replacement=\&] (K) [right = of *] {
+        \Kmatriy
+    };
+
+%    \node (=) [right = of K] {${}={}$};
+    \node (=) [right =1.5cm of K] {};
+
+    \matrix[matrix of math nodes, parenthesized, nodes in empty cells, align=center,text depth=.2ex,text height=1.5ex,text width=1em,] (I*K) [right = of {=}] {	
+1 & -6 & 7 &10 & 2 \\ 
+  9  &7 &10 & 7  &1 \\	
+ -3 & 0 & 0 &-8 & 0 \\	
+    };
+
+    % ------- highlighting -------
+    \newcommand\rowResult{3}
+    \newcommand\colResult{4}
+
+    \begin{scope}[on background layer]
+        \newcommand{\padding}{2pt}
+        \coordinate (Is-nw) at ([xshift=-\padding, yshift=0] I-\rowResult-\colResult.north west);
+        \coordinate (Is-se) at ([xshift=\padding, yshift=-1.5*\padding] I-\the\numexpr\rowResult+\numRowsK-1\relax-\the\numexpr\colResult+\numColsK-1\relax.south east);
+        \coordinate (Is-sw) at (Is-nw |- Is-se);
+        \coordinate (Is-ne) at (Is-se |- Is-nw);
+
+        \filldraw[blue,   fill opacity=.1] (Is-nw) rectangle (Is-se);
+        \filldraw[red, fill opacity=.1] (I*K-\rowResult-\colResult.north west) rectangle (I*K-\rowResult-\colResult.south east);
+
+        \draw[green!70!black, dotted, thick] 
+            (Is-nw) -- (K.north west)
+            (Is-se) -- (K.south east)
+            (Is-sw) -- (K.south west)
+            (Is-ne) -- (K.north east)
+        ;
+        \draw[red, dotted, thick] 
+            (I*K-\rowResult-\colResult.north west) -- (K.north west)
+            (I*K-\rowResult-\colResult.south east) -- (K.south east)
+            (I*K-\rowResult-\colResult.south west) -- (K.south west)
+            (I*K-\rowResult-\colResult.north east) -- (K.north east)
+        ;
+
+        \draw[green!70!black,  fill=green!10!white] (K.north west) rectangle (K.south east);
+
+        \foreach \row [evaluate=\row as \rowI using int(\row+\rowResult-1)] in {1, ..., \numRowsK} {%
+            \foreach \col [evaluate=\col as \colI using int(\col+\colResult-1)] in {1, ..., \numColsK} {%
+                    \node[text=green!70!black] at (I-\rowI-\colI.south east) [xshift=-.3em,yshift=+0.2ex] {\tiny$\times \myK{\row}{\col}$};
+                }
+        }
+    \end{scope}
+
+    % ------- labels -------
+    \tikzset{node distance=0em}
+    \node[below=of I] (I-label) {$A$};
+    \node at (K |- I-label)     {$M$ retourné};
+    \node at (I*K |- I-label)   {$A \star M$};
+\end{tikzpicture}

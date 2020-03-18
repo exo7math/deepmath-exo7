@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=0.4]
+
+\draw[thick,fill=black!10] (0,0) circle (3);
+\draw[->,>=latex,ultra thick] (0:3) --  (8,0) node[right] {$S$};
+
+% \draw[ultra thick]  (150:3) -- (150:8)node[pos=0.2,above]{$a$} node[left]{$x$};
+% \draw[ultra thick]  (180:3) -- (180:8)node[pos=0.2,above]{$b$} node[left]{$y$};
+% \draw[-o,ultra thick]  (210:3) -- (210:8) node[pos=0.2,below]{$c$};
+
+%\node[below right] at (-15:3) {$H$};
+
+\begin{scope}[xshift=20cm]
+\draw[thick,fill=black!10] (0,0) circle (3);
+\draw[->,>=latex,ultra thick] (10:3) -- ++(30:5) node[right] {$S$};
+\draw[->,>=latex,ultra thick] (0:3) -- ++(0:5) node[right] {$S$};
+\draw[->,>=latex,ultra thick] (-10:3) -- ++(-30:5) node[right] {$S$};
+%\node at (6,-2)[below,text width = 3cm]{même sortie vers tous les neurones};
+\end{scope}
+
+\end{tikzpicture}  

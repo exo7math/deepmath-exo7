@@ -1,0 +1,31 @@
+\begin{tikzpicture}[scale=1]
+
+\draw[->,>=latex, gray] (-1,0)--(7.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-1)--(0,7.5) node[left] {$y$};
+\draw[gray] (0,0) grid (7,7);
+
+\node at (0,0) [below left] {0};
+\node at (1,0) [below] {1};
+\node at (0,1) [left] {1};
+
+
+
+% Vraie solution y = ax +b
+% \def\a{0.39}
+% \def\b{3.4}
+
+% Exemple
+% \def\a{0.7}
+% \def\b{1.7}
+
+%\draw[red, very thick] (0,\b)--(7,7*\a+\b);
+
+
+
+\foreach \i/\j  in {2/3,3/5,4/4,5/6,6/6} {
+  \fill[blue] (\i,\j) circle (4pt);
+}
+
+
+
+\end{tikzpicture}

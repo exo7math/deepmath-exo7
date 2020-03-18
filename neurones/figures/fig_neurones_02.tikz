@@ -1,0 +1,25 @@
+\begin{tikzpicture}[scale=0.5]
+
+\foreach \name / \y in {-5,-3,...,5}{
+  \draw[-<,>=latex,ultra thick] (0,0)--(-6,\y);
+}
+
+\node[blue] at (-3,3) {$a_1$};
+\node[blue] at (-3,1.8) {$a_2$};
+\node[blue] at (-3,-0.3) {$a_i$};
+\node[blue] at (-3,-3.2) {$a_n$};
+
+
+
+\draw[thick,fill=black!10] (-2,-2) rectangle ++ (4,4);
+\draw[ultra thick] (2,0) --  (7,0);
+\draw[thick,fill=black!10] (7,-1) rectangle ++ (2,2);
+\draw[->,>=latex,ultra thick] (9,0) -- ++ (3,0) node[right] {sortie};
+
+\node[blue,scale=1.2] at (0,0) {$f$};
+\node[blue,scale=1.2] at (8,0) {$\phi$};
+\node at (-8,0) {entr\'ees};
+%\node at (1,-4) {fonction lin\'eaire};
+%\node[text width=2cm,align=center] at (8,-2.5) {fonction d'activation};
+
+\end{tikzpicture}  

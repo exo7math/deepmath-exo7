@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+
+\draw[->,>=latex, gray] (-0.5,0)--(7.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,5.5) node[left] {$y$};
+\draw[gray] (0,0) grid (7,5);
+
+\coordinate (A) at (1,4);
+\coordinate (B) at (3,3);
+\coordinate (C) at (5,2);
+\coordinate (D) at (6,1.5);
+\coordinate (E) at (2,3.5);
+
+\fill[blue] (A) circle (3pt); %node[above  left]{$A_1$};
+\fill[blue] (B) circle (3pt); %node[above left]{$A_2$};
+\fill[blue] (C) circle (3pt); %node[above left]{$A_3$};
+\fill[blue] (D) circle (3pt); %node[below right]{$A_4$};
+\fill[blue] (E) circle (3pt);
+
+\draw[red,ultra thick] (0,3) -- (7,2); % node[black, right]{$y=ax+b$};
+
+
+\end{tikzpicture}

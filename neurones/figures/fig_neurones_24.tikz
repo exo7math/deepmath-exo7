@@ -1,0 +1,43 @@
+\begin{tikzpicture}[scale=1]
+
+\pgfmathsetmacro{\cubex}{5}
+\pgfmathsetmacro{\cubey}{5}
+\pgfmathsetmacro{\cubez}{5}
+\draw[thick] (0,0,0) -- ++(\cubex,0,0) -- ++(0,\cubey,0) -- ++(-\cubex,0,0) -- cycle;
+\draw[thick] (0,0,0) -- ++(0,0,\cubez) -- ++(0,\cubey,0) -- ++(0,0,-\cubez) -- cycle;
+\draw[thick] (0,0,0) -- ++(\cubex,0,0) -- ++(0,0,\cubez) -- ++(-\cubex,0,0) -- cycle;
+
+\draw[thick] (0,5,0) -- ++(\cubex,0,0) -- ++(0,0,\cubez) -- ++(-\cubex,0,0) -- cycle;
+\draw[thick] (5,0,0) -- ++(0,0,\cubez) -- ++(0,\cubey,0) -- ++(0,0,-\cubez) -- cycle;
+
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (0,0,7) node[below]{rouge};
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (6.5,0,0) node[right]{vert};
+\draw [->,>=latex,ultra thick] (0,0,0) -- ++ (0,6.5,0) node[above]{bleu};
+
+\node[circle,fill=black] at (0,0,0) {};
+\node[circle,fill=green] at (5,0,0) {};
+\node[circle,fill=red] at (0,0,5) {};
+\node[circle,fill=blue] at (0,5,0) {};
+\node[circle,fill=white] at (5,5,5) {};
+\node[circle,fill=yellow] at (5,0,5) {};
+\node[circle,fill=cyan] at (5,5,0) {};
+\node[circle,fill=magenta] at (0,5,5) {};
+
+% \node[above left] at (0,0,0) {noir};
+% \node[above left] at (5,5,5) {blanc};
+% \node[below] at (5,0,5) {jaune};
+% \node[above] at (5,5,0) {cyan};
+% \node[left] at (0,5,5) {magenta};
+
+\node[text width=2cm,align=center] at (-1,1.4,6) {\bf zone des rouges};
+\draw[fill=red!50,opacity=0.5] (0,0,3) -- (3,0,5) -- (0,3,5) -- cycle;
+
+\node[left] at (0,0,3) {$A$};
+\node[below] at (3,0,5) {$B$};
+\node[left] at (0,3,5) {$C$};
+
+\draw[->,>=latex,ultra thick, red]  (1.1,0.8,4.33) -- (0.1,-0.2,4);
+
+
+
+\end{tikzpicture}

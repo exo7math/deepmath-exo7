@@ -1,0 +1,91 @@
+\begin{tikzpicture} [every edge/.style={draw,thick,->}]
+
+	\draw[->,>=latex, gray, very thin] (-0.5,0) -- (3.3,0);
+	\draw[->,>=latex, gray, very thin] (0,-0.5) -- (0,2.8);
+
+%	\draw[domain=-0.25:2.5,black,thick,smooth] plot (\x,{0.6+0.4*\x+0.6*cos(4*\x r)});
+
+    \draw[domain=0:2.35, blue,very thick,smooth] plot (\x,{2-(\x-1)^2)});
+
+
+   \def \x{0.7}
+   \coordinate (A) at ({\x},{2-(\x-1)^2)});
+   \fill (A) circle (1.5pt); % node[above] {$M_0$};
+
+
+    \def \xx{1.2}
+    \coordinate	 (B) at ({\xx},{2-(\xx-1)^2)});
+    \fill (B) circle (1.5pt); 
+    \draw[red,thin,dashed] (B)--+({1.5-(\xx-\x)},{(1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))}) ;
+    \draw[red,thin,dashed] (B)--+({-1.5-(\xx-\x)},{(-1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[dashed] (B)--({\xx},-0.1) node[below]{$x$};
+
+    \draw ({\xx},0) edge ({\x},0);
+
+    \def \xx{1.1}
+    \coordinate (C) at ({\xx},{2-(\xx-1)^2)});
+    \fill (C) circle (0.5pt); 
+    \draw[red,thin,dashed] (C)--+({1.5-(\xx-\x)},{(1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[red,thin,dashed] (C)--+({-1.5-(\xx-\x)},{(-1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[dashed] (C)--({\xx},0) ;
+
+    \def \xx{1.0}
+    \coordinate (CC) at ({\xx},{2-(\xx-1)^2)});
+    \fill (CC) circle (0.5pt); 
+    \draw[red,thin,dashed] (CC)--+({1.5-(\xx-\x)},{(1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[red,thin,dashed] (CC)--+({-1.5-(\xx-\x)},{(-1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[dashed] (CC)--({\xx},0) ;
+
+    \def \xx{0.9}
+    \coordinate (D) at ({\xx},{2-(\xx-1)^2)});
+    \fill (D) circle (0.5pt); 
+    \draw[red,thin,dashed] (D)--+({1.5-(\xx-\x)},{(1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[red,thin,dashed] (D)--+({-1.5-(\xx-\x)},{(-1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[dashed] (D)--({\xx},0) ;
+
+    \def \xx{0.85}
+    \coordinate (E) at ({\xx},{2-(\xx-1)^2)});
+    \fill (E) circle (0.5pt); 
+    \draw[red,thin,dashed] (E)--+({1.5-(\xx-\x)},{(1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[red,thin,dashed] (E)--+({-1.5-(\xx-\x)},{(-1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[dashed] (E)--({\xx},0) ;
+
+    \def \xx{0.8}
+    \coordinate (F) at ({\xx},{2-(\xx-1)^2)});
+    \fill (F) circle (0.5pt); 
+    \draw[red,thin,dashed] (F)--+({1.5-(\xx-\x)},{(1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[red,thin,dashed] (F)--+({-1.5-(\xx-\x)},{(-1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[dashed] (F)--({\xx},0) ;
+
+    \def \xx{0.75}
+    \coordinate (FF) at ({\xx},{2-(\xx-1)^2)});
+    \fill (FF) circle (0.5pt); 
+    \draw[red,thin,dashed] (FF)--+({1.5-(\xx-\x)},{(1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[red,thin,dashed] (FF)--+({-1.5-(\xx-\x)},{(-1.5-(\xx-\x))*((2-(\xx-1)^2)-(2-(\x-1)^2))/(\xx-\x)}) ;
+    \draw[dashed] (FF)--({\xx},0) ;
+
+
+
+
+
+    \draw[red,thick] (A)--+(1.5,{1.5*(2-2*\x)}) ;
+    \draw[red,thick] (A)--+(-1.5,{-1.5*(2-2*\x)}) ;
+
+  \draw[dashed] (A)--({\x},-0.1) node[below]{$x_0$};
+  \draw[dashed] (A)--(0,{2-(\x-1)^2)}) node[left]{$f(x_0)$};  
+
+
+
+
+% %\foreach \i in {4,3,...,1}
+% %{
+%  \def\xx{\x + 1.5-0.3*\i};
+%    \coordinate (M) at ({\xx},{2-(\xx-1)^2)});
+%    \fill (M) circle (1.5pt);
+%    \draw (A)--(M)--+($\i*(M)-\i*(A)$)--(A)--+($\i*(A)-\i*(M)$);
+%    \coordinate (P) at ({\xx},0);
+% %};
+%  \draw[dashed] (M)--(P) node[below]{$x$};
+%  \node[above right] at (M) {$M$};
+
+\end{tikzpicture}

@@ -1,0 +1,14 @@
+\begin{tikzpicture}[scale=1]
+
+\fill[blue!5] (0,0) rectangle (7,6);
+
+\draw [ultra thick,black!60,fill=red!30] plot [smooth cycle] coordinates {(1,1) (2,4) (4,4)  (6,3) };
+
+\node[red] at (3.5,3) {Int $A$};
+\node[blue] at (4.5,5) {Ext $A$};
+\node[black] at (1.5,4) {Fr $A$};
+
+\node[red] at (3.5,2.5) {$F(x,y) = 1$};
+\node[blue] at (4.5,4.5) {$F(x,y) = 0$};
+
+\end{tikzpicture}

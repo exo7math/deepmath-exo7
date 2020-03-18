@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+
+\node at (-5,0) {$x_0$};
+% \node at (-5,-2) {$x_0$};
+\node at (-0.25,2) {$\exp(x_0)$};
+\node at (-0.25,-2) {$\ln(x_0)$};
+\node at (6.75,0) {$\exp(x_0)\ln(x_0)$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+\draw[->,>=latex,ultra thick,red] (-4.5,0.2) -- (-1,2) node[midway,above left,black,scale=0.8]{$x \mapsto \exp(x)$} ;
+\draw[->,>=latex,ultra thick,red] (-4.5,-0.2) -- (-1,-2) node[midway,below left,black,scale=0.8]{$x \mapsto \ln(x)$} ;
+\draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+
+
+
+\end{tikzpicture}

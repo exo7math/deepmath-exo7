@@ -1,0 +1,58 @@
+\begin{tikzpicture}[scale=1]
+ 
+\filldraw[fill=red!20, draw=red, rounded corners=5pt] (0,-0.5) rectangle ++ (1,8);
+
+\filldraw[fill=blue!20, draw=blue] (3,0.5) rectangle ++ (1,6);
+
+\filldraw[fill=blue!20, draw=blue] (6,0.5) rectangle ++ (1,6);
+
+\filldraw[fill=blue!20, draw=blue] (9,0) rectangle ++ (1,7);
+
+\filldraw[fill=red!20, draw=red, rounded corners=5pt] (12,0) rectangle ++ (1,7);
+
+\node at (0.5,10) {\bf Entrée $X$};
+\node at (0.5,9) {dimension $784$};
+
+\node at (3.5,9) {\bf Couche 1};
+\node at (3.5,8) {$p=8$ neurones};
+
+\node at (6.5,9) {\bf Couche 2};
+\node at (6.5,8) {$p=8$ neurones};
+
+\node at (9.5,9) {\bf Couche 3};
+\node at (9.5,8) {$10$ neurones};
+
+\node at (12.5,10) {\bf  Sortie $Y$};
+\node at (12.5,9) {dimension $10$};
+
+
+\node at (0.5,7) {$x_1$};
+\draw[dashed] (0.5,0.5) -- (0.5,6.5);
+\node at (0.5,0) {$x_{784}$};
+
+\node at (12.5,6.5) {$y_0$};
+\draw[dashed] (12.5,1) -- (12.5,6);
+\node at (12.5,0.5) {$y_9$};
+
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (1,7)--(3,1+0.7*\y);
+}
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (1,0)--(3,1+0.7*\y);
+}
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (4,6)--(6,1+0.7*\y);
+}
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (4,1)--(6,1+0.7*\y);
+}
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (7,6)--(9,1+0.7*\y);
+}
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (7,1)--(9,1+0.7*\y);
+}
+\foreach \y in {0,...,9}{
+  \draw[gray, thick] (10,0.5+0.66*\y)--(12,0.5+0.66*\y);
+}
+\end{tikzpicture}  

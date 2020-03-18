@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+\def\layersep{2cm}
+\tikzstyle{neuron}=[circle,fill=red!50,minimum size=12pt,inner sep=0pt]
+
+% Neurone F
+\node[neuron,green!70!black] (F) at (0,0) {};
+
+% Neurone G
+\node[neuron,red!70] (G) at (\layersep,0) {};
+\node[above right=0.8ex,scale=0.8] at (G) {$g_\star$};
+\node[below right=0.8ex,scale=0.8] at (G) {$[g'_\star]$};
+ \path[thick] (F) edge (G);
+
+ \draw[-o,thick] (G) to node[pos=0.3,above left,scale=0.8]{$a$} ++ (-130:2) node[below,blue] (GG) {$1$};
+
+% Neurone H
+\node[neuron,green!70!black] (H) at (2*\layersep,0) {};
+\node[above right=0.8ex,scale=0.8] at (H) {};
+ \path[thick] (G) edge node[pos=0.8,above,scale=0.8]{$b$} (H);
+
+\draw[blue,line width=5pt,opacity=0.5] (GG)  to[bend right=10] (H.west) ;
+\draw[blue, line width=5pt,opacity=0.4] (G.north east)  to ++(0.1,-1.1) ;
+\end{tikzpicture}  

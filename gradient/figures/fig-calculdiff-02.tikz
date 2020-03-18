@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+
+\begin{scope} 
+
+\clip (-4,-2) rectangle (2,2);
+\fill[green!10,opacity=0.5] (-4,-2) rectangle (2,2);
+
+
+\draw [very thick, color=red,samples=25,smooth, fill, fill=red!60, fill opacity=0.7, domain=-4.1:2.5] 
+            plot( 
+                      {-1-\x*\x} ,
+                      {\x} 
+                    ); 
+
+\fill (-1,0) circle (2pt) node[below right]{\footnotesize $(-1,0)$};
+
+\end{scope}
+
+\draw[->,>=latex,thick, gray] (-4.5,0)--(2.5,0) node[below,black] {$x$};
+\draw[->,>=latex,thick, gray] (0,-2.5)--(0,2.5) node[right,black] {$y$};
+
+
+\node at (1,-1) {\large $U$};
+
+
+\end{tikzpicture}

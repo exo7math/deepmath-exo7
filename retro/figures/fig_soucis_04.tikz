@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+
+\begin{scope}[even odd rule]
+\clip (0,0) rectangle (6,5);
+\def\courbe{(0,2) .. controls (3,4) and (5,0) .. (6,3)}
+\draw[red, ultra thick] \courbe;
+\fill[red!50,opacity=0.5] (0,0) -- \courbe -- (6,0)-- cycle;
+\fill[blue!20,opacity=0.5] (0,5) -- \courbe -- (6,5) -- cycle;
+\end{scope}
+
+\draw[->,>=latex, gray] (-0.5,0)--(6.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,5.5) node[left] {$y$};
+\draw[gray] (0,0) grid (6,5);
+\end{tikzpicture}

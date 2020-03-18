@@ -1,0 +1,60 @@
+\begin{tikzpicture}
+
+
+
+\begin{scope}
+
+	\fill[fill=orange!50] (0,0) circle (24pt);
+	\fill[fill=orange!50] (0.8,0) circle (30pt);
+	\draw (0,0) circle (24pt);
+	\draw (0.8,0) circle (30pt);
+	\node at (-1.1,0) {$A$};
+	\node at (2.1,0) {$B$};
+	\node[red] at (0.25,0) {$A\cup B$};
+
+\end{scope}
+
+\begin{scope}[xshift=5cm]
+
+	\begin{scope}
+	\clip (0,0) circle (24pt);
+	\fill[fill=orange!50] (0.8,0) circle (30pt);
+	\end{scope}
+
+	\draw (0,0) circle (24pt);
+	\draw (0.8,0) circle (30pt);
+	\node at (-1.1,0) {$A$};
+	\node at (2.1,0) {$B$};
+	\node[red] at (0.25,0) {$A\cap B$};
+
+\end{scope}
+
+
+\begin{scope}[xshift=10cm]
+
+	\fill[fill=orange!50] (-1.25,-1.25) rectangle ++(2.5,2.5);
+	\fill[fill=white] (0,0) circle (15pt);
+	\draw (0,0) circle (15pt);
+	\node[black] at (0,0) {$A$};
+	\node[red] at (0.9,0.7) {$A^\complement$};
+	
+\end{scope}
+
+\begin{scope}[xshift=14cm]
+
+	\draw (1.2,0) circle (30pt);
+
+	\begin{scope}[even odd rule]
+	\clip (0,0) circle (24pt);
+	\fill[fill=orange!50] (0,0) circle (24pt) (1.2,0) circle (30pt);
+	\end{scope}
+
+	\draw (0,0) circle (24pt);
+	\draw (1.2,0) circle (30pt);
+	\node at (-0.8,1) {$A$};
+	\node at (2.1,1) {$B$};
+	\node[red] at (-0.30,0) {$A\setminus B$};
+
+\end{scope}
+
+\end{tikzpicture}

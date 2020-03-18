@@ -1,0 +1,26 @@
+\begin{tikzpicture}[scale=1.5]
+
+\draw[->,>=latex, very thick,gray] (-1.5,0)--(2.5,0) node[below] {$x$};
+\draw[->,>=latex, very thick, gray] (0,-1.5)--(0,2.5) node[left] {$y$};
+
+
+\draw (2,0) -- (-1,0) node [below left] {$y=0$};
+\draw (2,1) -- (-1,1) node [left] {$y=1$};
+\draw (0,2) -- (0,-1) node [below left] {$x=0$};
+\draw (1,2) -- (1,-1) node [below] {$x=1$};
+
+% \draw[gray,thin] (-1,-1) grid (2,2);
+\fill[blue!20,opacity=0.5] (-1,-1) rectangle (2,2);
+\fill[red!20] (0,0) rectangle (1,1);
+\draw[red,ultra thick] (0,0) rectangle (1,1);
+
+
+\node[scale=0.8,red] at (0.5,0.5) {$F(x,y)=1$};
+\node[scale=0.8,blue] at (1.5,1.5) {$F(x,y)=0$};
+
+\node at (0,0) [below left] {$0$};
+\node at (1,0) [below right] {$1$};
+\node at (0,1) [above left] {$1$};
+
+
+\end{tikzpicture}

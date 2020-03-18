@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+
+ \begin{scope}[rotate=10]
+\fill (0,0) circle (0.5ex) node[below]{$P_{k-1}$};
+\fill (2,0) circle (0.5ex) node[below]{$P_{k}$};
+\fill (5.5,1) circle (0.5ex) node[above]{$P_{k+1}$};
+
+ \draw[->,>=latex,ultra thick,blue,shorten >=3pt,shorten <=3pt] (0,0) -- (2,0);
+ \draw[->,>=latex,ultra thick,blue,shorten <=3pt] (2,0) -- ++(1.5,0) node[scale=0.7,midway, below]{$\mu  \overrightarrow{P_{k-1}P_k}$};
+ \draw[->,>=latex,ultra thick,blue!20,shorten >=3pt] (4,1) -- ++(1.5,0) ;
+
+
+ \draw[->,>=latex,ultra thick,red,shorten <=3pt] (2,0) -- ++(2,1) node[scale=0.7,midway, left]{$-\delta \grad f(P_k)$};
+ \draw[->,>=latex,ultra thick,red!20] (3.5,0) --++ (2,1) ;
+
+
+ \draw[->,>=latex,ultra thick,black!50,dashed,shorten <=3pt,shorten >=3pt] (2,0) -- (5.5,1);
+
+
+\end{scope}
+
+\end{tikzpicture}

@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+\node at (-3.5,0) {$t_0$};
+\node at (0,2) {$u(t_0)$};
+\node at (0,-2) {$v(t_0)$};
+\node[right] at (5.25,0) {$F(t_0) =f(u(t_0),v(t_0))$};
+
+\draw[ultra thick,red] (-0.6,2) -- (-3,0.1) node[midway, above left,black]{$u$};
+\draw[ultra thick,red] (-0.6,-2) -- (-3,-0.1) node[midway, below left,black]{$v$};
+
+\draw[ultra thick,red]  (0.6,2) -- (3,0);
+\draw[ultra thick,red] (0.6,-2) -- (3,0);
+
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
+\end{tikzpicture}

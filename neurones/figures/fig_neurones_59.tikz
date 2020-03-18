@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+
+
+\begin{scope}
+\begin{scope}[rotate=10]
+\draw[red,ultra thick] (0,0) -- (4,0);
+\fill[red!50,opacity=0.5] (0,0) rectangle (4,2);
+\end{scope}
+\node at (2,-1) {\bf Demi-plan};
+\end{scope}
+
+\begin{scope}[xshift=5cm]
+\begin{scope}[rotate=10]
+\draw[red,ultra thick] (0,0) -- (4,0);
+\draw[red,ultra thick] (0,0) -- (4,3);
+\fill[red!50,opacity=0.5] (0,0) -- (4,0) -- (4,3) -- cycle;
+\end{scope}
+\node at (2,-1) {\bf Quart de plan};
+\end{scope}
+
+\begin{scope}[xshift=10cm]
+\begin{scope}[rotate=10]
+\draw[red,ultra thick] (0,0) -- (3,0) -- (2,4) -- cycle;
+\fill[red!50,opacity=0.5] (0,0) -- (3,0) -- (2,4) -- cycle;
+\end{scope}
+\node at (1.7,-1) {\bf Triangle};
+\end{scope}
+
+\begin{scope}[xshift=15cm]
+\begin{scope}[rotate=-10,scale=0.8]
+\draw[red,ultra thick] (-1,4) -- (0,0) -- (3,0) -- (5,4);
+\fill[red!50,opacity=0.5] (-1,4) -- (0,0) -- (3,0) -- (5,4)--cycle;
+\end{scope}
+\node at (1.9,-1) {\bf Triangle infini};
+\end{scope}
+
+\end{tikzpicture}

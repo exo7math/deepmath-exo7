@@ -1,0 +1,36 @@
+\begin{tikzpicture}[scale=0.6]
+\usetikzlibrary{matrix}
+
+\node[scale=1.1]  at (0,0) {\emph{bon film à voir absolument}};
+
+\begin{scope}[xshift=4.5cm,yshift=-5cm]
+\draw (0,0) rectangle ++(2.5,4.3);
+\foreach \i/\mot in {1/film, 2/bon, 3/mauvais, 4/voir, 5/éviter, 6/très, 7/bien, 8/mal, 9/moyen, 10/super}{
+  \node[right,scale=0.8] at (0.1,4.3-0.4*\i) {\emph{\i : \mot}};
+}
+\end{scope}
+
+\draw[->,>=latex,green!70!black!20,line width=5pt] (4,0)  to[bend left=10]++(4,0) ;
+
+\node[scale=1.2] at (9.5,0) {[2, 1, 4]};
+
+\draw[->,>=latex,green!70!black!20,line width=5pt] (11,0)  to[bend left=10]++(4,0) ;
+
+\matrix (V) at (16,-2) [inner sep=1pt,matrix of math nodes,left delimiter=(,right delimiter={)},row sep=1.5ex,column sep=2ex] {
+1 \\1\\0\\1\\0\\0\\0\\0\\0\\0\\
+};
+\begin{scope}[xshift=17cm,yshift=-4.5cm]
+\foreach \i/\mot in {1/film, 2/bon, 3/mauvais, 4/voir, 5/éviter, 6/très, 7/bien, 8/mal, 9/moyen, 10/super}{
+ \node (M\i) [right of =V-\i-1,scale=0.8] {\emph{\mot}};
+}
+\end{scope}
+
+
+
+
+\node at (0,2) {\bf Critique};
+\node at (9.5,2) {\bf Codage critique};
+\node at (17,3) {\bf Vecteur critique};
+
+
+\end{tikzpicture}

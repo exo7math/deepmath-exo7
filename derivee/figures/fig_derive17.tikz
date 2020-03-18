@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+
+ \node at (0,0) {$x$};
+ \node at (5,0) {$y=f(x)$};
+\node[blue] at (5,-0.5) {$[f'(x) = \frac {dy}{dx}]$};
+\node at (12,0) {$z=g(y) = g\circ f(x)$};
+\node[blue] at (12,-0.5) {$[g'(y) = \frac{d z}{d y}]$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto f(x)$} ;
+ \draw[->,>=latex,ultra thick,red] (6.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto g(y)$};
+
+ \node[red] at (0,-1.5) {$\{\{ (g\circ f)'(x) = \frac{d z}{d x} =  \frac{d z}{d y} \times \frac {dy}{dx} \}\}$};
+
+
+%\draw[->,>=latex,ultra thick,green!70!black] (11.5,-1) to[bend left=15]node[midway,above,black,scale=1]{$\times$} ++(-6,0) ;
+
+%\draw[->,>=latex,ultra thick,green!70!black!20,line width=5pt] (8,-1.6) to[bend left=15] ++(-5,0) ;
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt] (12.5,-1) to node[midway,blue,scale=1.2]{$\times$} ++(-8,0) to ++(-2,-0.5) ;
+\end{tikzpicture}

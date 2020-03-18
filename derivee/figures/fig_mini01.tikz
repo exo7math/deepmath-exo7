@@ -1,0 +1,25 @@
+\begin{tikzpicture}[scale=1]
+
+\draw[->,>=latex, gray] (-1,0)--(4.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-1)--(0,4.5) node[left] {$y$};
+\draw[gray] (0,0) grid (4,4);
+\draw[ultra thick,green!70!black] (-0.5,-0.5) -- (4,4) node[right]{$y=x$};
+
+\coordinate (A) at (1,2);
+\coordinate (B) at (3,0);
+\coordinate (C) at (2,3);
+
+\fill[blue] (A) circle (2pt) node[above left]{$A$};
+\fill[blue] (B) circle (2pt) node[below]{$B$};
+\fill[blue] (C) circle (2pt) node[above]{$C$};
+
+\def\x{1.3}
+\coordinate (M) at (\x,\x);
+\fill[red] (M) circle (2pt) node[right]{$M$};
+\draw (A)--(M);
+\draw (B)--(M);
+\draw (C)--(M);
+
+\draw[dashed] (M)--(\x,0) node[below]{$x$};
+\draw[dashed] (M)--(0,\x) node[left]{$x$};
+\end{tikzpicture}

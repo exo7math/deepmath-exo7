@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+%\usetikzlibrary{matrix}
+\matrix (A) [matrix of math nodes,
+             left delimiter  = (,
+             right delimiter = )] at (0,0)
+{%
+  a_{11} & a_{12} & \ldots & a_{1p}  \\
+  a_{21}  & a_{22}   & \ldots    & a_{2p}\\
+  \vdots & \vdots & \ddots & \vdots  \\
+  a_{n1} & a_{n2} & \ldots & a_{np}  \\
+};
+
+\draw[<->,>=latex,thick,blue] (-2.5,-1) -- ++(0,2) node[midway,left]{$n$ lignes};
+\draw[<->,>=latex,thick,blue] (-1.5,-1.5) -- ++(3,0) node[midway,below]{$p$ colonnes};
+\end{tikzpicture}

@@ -1,0 +1,47 @@
+\begin{tikzpicture}[scale=1]
+\begin{scope}[]
+\draw[->,>=latex, gray] (-3,0)--(1.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,3) node[left] {$y$};
+
+%\draw[ultra thick,red] (-3,0) -- (0,0) -- (2,2);
+
+\draw[ultra thick, color=red,domain=-3:1,smooth] plot (\x,{exp(\x)});
+
+
+%\node at (1,1)[above]{$y=e^{x}$};
+
+\fill[red] (0,0) circle (1pt);
+\fill[red] (1,0) circle (1pt);
+\fill[red] (0,1) circle (1pt);
+
+
+\node at (0,0) [below right] {$0$};
+\node at (1,0) [below] {$1$};
+\node at (0,1) [left] {$1$};
+
+\node at (-2,1.5) {\bf Fonction $x \mapsto e^x$};
+\end{scope}
+
+\begin{scope}[xshift=4cm]
+\draw[->,>=latex, gray] (-1.5,0)--(3.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,3) node[left] {$y$};
+
+%\draw[ultra thick,red] (-3,0) -- (0,0) -- (2,2);
+
+\draw[ultra thick, color=red,domain=-1:3,smooth] plot (\x,{exp(-\x)});
+
+
+% \node at (2.5,0.5)[above]{$y=e^{-x}$};
+
+\fill[red] (0,0) circle (1pt);
+\fill[red] (1,0) circle (1pt);
+\fill[red] (0,1) circle (1pt);
+
+
+\node at (0,0) [below right] {$0$};
+\node at (1,0) [below] {$1$};
+\node at (0,1) [left] {$1$};
+
+\node at (2,1.5) {\bf Fonction $x \mapsto e^{-x}$};
+\end{scope}
+\end{tikzpicture}

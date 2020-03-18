@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+
+\node at (0,2) {$6$};
+\node at (0,-2) {$7$};
+\node at (6,0) {$13$};
+
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.5,0) node[pos=0,above right,black,scale=1.2]{$\oplus$} ;
+
+
+\begin{scope}[xshift=10cm]
+\node at (0,2) {$6$};
+\node at (0,-2) {$7$};
+\node at (6,0) {$42$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.5,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+\end{scope}
+
+\end{tikzpicture}

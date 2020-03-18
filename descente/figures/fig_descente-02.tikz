@@ -1,0 +1,48 @@
+\begin{tikzpicture}
+
+\begin{scope}
+\draw[->,>=latex, gray] (-0.5,0)--(5.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,3.5) node[left] {$y$};
+
+\draw[domain=0.5:3.5, blue,very thick,smooth,xshift=1cm] plot (\x,0.2*\x*\x+0.5);
+
+\fill[red] (2,0) circle (0.5ex) node[below]{$a_{k+1}$};
+\fill[red] (4,0) circle (0.5ex) node[below]{$a_{k}$};
+
+\fill[red] (2,0.7) circle (0.5ex);
+\fill[red] (4,2.29) circle (0.5ex);
+
+\draw[dashed] (2,0.7) -- (2,0);
+\draw[dashed] (4,2.29) -- (4,0);
+
+\draw[dashed] (2,0.7) -- (0,0.7) node[left]{$f(a_{k+1})$};
+\draw[dashed] (4,2.29) -- (0,2.29) node[left]{$f(a_{k})$};
+
+ \draw[<-,>=latex,ultra thick,orange,shorten >=3pt,shorten <=3pt] (2,0) -- (4,0) node[scale=0.7,midway, below]{$-\delta f'(a_k)$};
+\end{scope}
+
+
+\begin{scope}[xshift=8cm]
+
+\draw[->,>=latex, gray] (-0.5,0)--(5.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,3.5) node[left] {$y$};
+
+\draw[domain=-0.5:-3.5, blue,very thick,smooth,xshift=5cm] plot (\x,0.2*\x*\x+0.5);
+
+\fill[red] (2,0) circle (0.5ex) node[below]{$a_{k}$};
+\fill[red] (4,0) circle (0.5ex) node[below]{$a_{k+1}$};
+
+\fill[red] (4,0.7) circle (0.5ex);
+\fill[red] (2,2.29) circle (0.5ex);
+
+\draw[dashed] (4,0.7) -- (4,0);
+\draw[dashed] (2,2.29) -- (2,0);
+
+\draw[dashed] (4,0.7) -- (0,0.7) node[left]{$f(a_{k+1})$};
+\draw[dashed] (2,2.29) -- (0,2.29) node[left]{$f(a_{k})$};
+
+ \draw[->,>=latex,ultra thick,orange,shorten >=3pt,shorten <=3pt] (2,0) -- (4,0) node[scale=0.7,midway, below]{$-\delta f'(a_k)$};
+\end{scope}
+
+
+\end{tikzpicture}

@@ -1,0 +1,45 @@
+\begin{tikzpicture}[scale=15]
+
+% Fonction
+   %\def\fonction{ 1/(sqrt(2*3.14*\sigmadeux)) * exp{-1/2*1/\sigmadeux*(\x-\mu)*(\x-\mu)} };
+   \def\fonction{ 0.025* (exp{-0.5*ln(2*pi*\sigmadeux)}) * (exp{-1/2*1/\sigmadeux*(\x-\mymu)*(\x-\mymu)}) };
+   
+% intervalle
+    \def\a{2}; 
+
+
+% Axes
+    \draw[->,>=latex,thick, gray] (1.3,0)--(2.1,0) node[below,black] {taille};
+    \draw[->,>=latex,thick, gray] (1.35,-0.05)--++(0,0.25) node[right,black] {population};  
+
+
+% Graphe et aire
+%   \fill[black!20] (0,0) -- plot[domain=0:\a] (\x,\fonction) -- (\a,0) -- cycle;
+\def\mymu{1.76};
+\def\sigmadeux{0.0042};
+%   \draw[ultra thick, color=red,domain=1.40:2.0,samples=100,variable=\x] plot ( {\x} , {\fonction} );
+
+\def\mymu{1.66};
+\def\sigmadeux{0.0031};
+   \draw[thin, color=blue,domain=1.40:2.0,samples=100,variable=\x] plot ( {\x} , {\fonction} );
+
+
+% \draw (\mymu,0.2) -- ++(0,-0.4) node[below] {$\mu$};
+
+% \node[below] at (1.7,-0.1) {\bf Distribution de la taille des femmes};
+
+% \node[below, inner sep=10pt] at (0.5,0) {\vphantom{$n=10$}};
+
+
+% % Labels
+  \foreach \x in {140,150,...,200}{
+  \draw ({\x/100},0.02) -- ({\x/100},-0.02) node[anchor=north] {\small $\x$};
+}
+  % \draw (1pt,1cm) -- (-1pt,1cm) node[anchor=east] {$1$};
+  %\node[below, inner sep=10pt] at (0.5,0) {\vphantom{$n=10$}};
+
+% Box
+  \foreach \x/\y in {150/1,152/3,154/4,156/5,158/8,160/11,162/14,164/18,166/17,168/14,170/12,172/10,174/6,176/4,178/3,180/2,182/1}{
+      \draw[thick] (\x/100,0) rectangle ++(2/100,\y/100);
+}
+\end{tikzpicture}

@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+
+\fill (0,0) circle (0.5ex);
+\fill (4,0) circle (0.5ex);
+\fill (8,0) circle (0.5ex);
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto f(x)$} ;
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto g(x)$} ;
+
+\begin{scope}[yshift=-1.5cm]
+ \node at (0,0) {$x_0$};
+ \node at (4,0) {$f(x_0)$};
+ \node at (8,0) {$g\big( f(x_0)\big)$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(2.8,0) node[midway,above,black,scale=0.8]{$x \mapsto f(x)$} ;
+ \draw[->,>=latex,ultra thick,red] (4.8,0) -- ++(2.3,0) node[midway,above,black,scale=0.8]{$x \mapsto g(x)$} ;
+\end{scope}
+
+\end{tikzpicture}

@@ -1,0 +1,21 @@
+\begin{tikzpicture}[scale=0.4]
+
+\fill[green!20,rounded corners] (-4.5,-3) rectangle ++(1,6);
+
+\fill[blue!20,rounded corners] (-8.2,-5) rectangle ++(-1,10);
+
+\foreach \i in {-4,...,4}{
+  \draw[ultra thick] (0,0) -- (-8,\i);
+}
+
+\draw[->,>=latex,ultra thick] (0,0) --  (8,0) node[right] {sortie};  
+
+\draw[very thick,fill=black!10] (0,0) circle (2.5);
+
+
+
+\node[text width=3cm,align=center] at (-9,6.75) {entrée : sous-matrice de $A$};
+
+\node[text width=3cm,align=center] at (-4.0,4.75) {poids : coefficients de $M$};
+
+\end{tikzpicture}  

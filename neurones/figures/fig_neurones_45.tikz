@@ -1,0 +1,55 @@
+% Figure after Kjell Magne Fauske
+% http://www.texample.net/tikz/examples/neural-network/
+\begin{tikzpicture}[scale=1.5]
+   \def\layersep{3cm}
+    \tikzstyle{every pin edge}=[thick]
+    \tikzstyle{neuron}=[circle,fill=black!25,minimum size=12pt,inner sep=0pt]
+    \tikzstyle{entree}=[];
+    \tikzstyle{input neuron}=[neuron, fill=green!50];
+    \tikzstyle{output neuron}=[neuron, fill=red!50];
+    \tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+    \tikzstyle{annot} = [text width=4em, text centered]
+
+% Entree
+\node[entree] (E-1) at (-\layersep,-1) {$x$};
+\node[entree] (E-2) at (-\layersep,-2) {$y$};
+\node[entree] (E-3) at (-\layersep,-3) {$z$};
+
+% Premiere couche
+\node[input neuron] (I-1) at (0,-0.5) {};
+\node[input neuron] (I-2) at (0,-3.5) {};
+
+\node[above right=0.8ex,scale=0.7] at (I-1) {ReLU};
+\node[below right=0.8ex,scale=0.7] at (I-2) {ReLU};
+
+%Seconde couche et sortie
+\node[output neuron] (O-1) at (\layersep,-1 cm) {};
+\node[above right=0.8ex,scale=0.7] at (O-1) {ReLU};
+\node[output neuron] (O-2) at (\layersep,-3 cm) {};
+\node[below right=0.8ex,scale=0.7] at (O-2) {ReLU};
+
+
+% Arrete et poids
+ \path[thick] (E-1) edge node[pos=0.7,above,scale=0.7]{$1$} (I-1) ;
+ \path[thick] (E-2) edge node[pos=0.7,below,scale=0.7]{$-2$} (I-1);
+ \path[thick] (E-3) edge node[pos=0.7,below,scale=0.7]{$3$} (I-1);
+% \draw[-o,thick] (I-1) to node[midway,below right,scale=0.7]{$2$} ++ (-120:1);
+
+ \path[thick] (E-1) edge node[pos=0.7,above,scale=0.7]{$2$} (I-2);
+ \path[thick] (E-2) edge node[pos=0.7,below,scale=0.7]{$-4$} (I-2);
+ \path[thick] (E-3) edge node[pos=0.7,below,scale=0.7]{$1$} (I-2);
+ %\draw[-o,thick] (I-2) to node[midway,below right,scale=0.7]{$2$} ++ (-160:1);
+
+ \path[thick] (I-1) edge node[pos=0.85,above,scale=0.7]{$1$} (O-1);
+ \path[thick] (I-2) edge node[pos=0.85,above,scale=0.7]{$-2$}(O-1);
+ %\draw[-o,thick] (O-1) to node[midway,below right,scale=0.7]{$-1$} ++ (-120:1);
+
+ \path[thick] (I-1) edge node[pos=0.85,above,scale=0.7]{$2$} (O-2);
+ \path[thick] (I-2) edge node[pos=0.85			      ,above,scale=0.7]{$1$}(O-2);
+ %\draw[-o,thick] (O-1) to node[midway,below right,scale=0.7]{$-1$} ++ (-120:1);
+
+% Sortie
+ \draw[->,thick] (O-1)-- ++(1,0) node[right]{$Y_1$};
+ \draw[->,thick] (O-2)-- ++(1,0)node[right]{$Y_2$};
+
+\end{tikzpicture}  

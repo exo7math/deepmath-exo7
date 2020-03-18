@@ -1,0 +1,114 @@
+% \mainfolder est ../ si compilation d'un chapitre, sinon c'est vide
+\ProvidesPackage{\mainfolder python-minimal}
+% ----------------------------------------------------------------------
+% Je n'utilise pas \RequirePackage car \usepackage est moins geeky ;)
+\usepackage{\mainfolder python-common}
+% ----------------------------------------------------------------------
+% Police par defaut
+\usepackage{lmodern}
+% ----------------------------------------------------------------------
+% Format de la page
+\usepackage{geometry}
+\geometry{a4paper, top=2.5cm, bottom=2cm, left=2.5cm, right=2.5cm, marginparsep=1cm}
+\setlength{\parindent}{0cm}
+% Espace interligne (+ 21%)
+\linespread{1.21}
+% ----------------------------------------------------------------------
+% Définition d'un terme, mise en relief
+\newcommand{\defi}[1]{{\color{myorange}\textbf{\emph{#1}}}}
+\newcommand{\evidence}[1]{{\color{blue}\textbf{\emph{#1}}}}
+\newcommand{\assertion}[1]{{\og\emph{#1}\fg}} % pour chapitre logique
+% ----------------------------------------------------------------------
+% Titre du livre
+\newcommand{\montitre}[1]{
+\begin{center}
+\Huge #1
+\end{center}
+\begin{center}
+\LogoExoSept{5}
+\end{center}
+\tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+}
+% ----------------------------------------------------------------------
+% Les chapitres
+\newcommand{\debutchapitres}{} % on ne fait rien de spécial avant les chapitres
+\newcommand{\chapitre}[1]{
+\chapter{#1}
+}
+\newcommand{\finchapitre}{}
+% ----------------------------------------------------------------------
+% Personnalisation pour les théorèmes,...
+\usepackage{amsthm}
+\newtheorem{activite}{Activité}
+\newtheorem{enigme}{\'Enigme}
+\newtheorem*{exemple}{Exemple}
+\newtheorem*{solution}{Solution}
+
+% ----------------------------------------------------------------------
+% Encadrement auteurs
+\newcommand{\auteurs}[1]{\textbf{Auteurs} \\
+ #1
+}
+% ----------------------------------------------------------------------
+% Encadrement des formules
+\usepackage{fancybox}
+%\setlength{\fboxsep}{7pt}
+\newcommand{\mybox}[1]{\begin{center}\shadowbox{#1}\end{center}}
+\newcommand{\myboxinline}[1]{\raisebox{-2ex}{\shadowbox{#1}}}
+% ---- autre version
+% \usepackage{varwidth}
+% \tikzset{
+%   block/.style = {
+%     minimum height=1em,
+%     inner xsep=.7em, inner ysep=.35em,
+%     draw, thick, rounded corners,
+%     execute at begin node={\begin{varwidth}{\linewidth}\begin{center}},
+%     execute at end node={\end{center}\end{varwidth}}
+%   },
+%   inline/.style = {
+%     thin, inner sep=.35em,
+%     fill=white,
+%     drop shadow={shadow xshift=1pt, shadow yshift=-1pt}
+%   }
+% }
+% \newcommand{\mybox}[1]{\begin{center}\tikz{\node[block]{#1};}\end{center}}
+% \newcommand{\myboxinline}[1]{\tikz[baseline=(X.base)]{\node[block, inline](X){#1};}}
+% ----------------------------------------------------------------------
+% Algorithmes
+% bloque de code (\insertcode)
+\newcommand{\insertcode}[2]{
+{\hfill\texttt{\color{gray}#2}}
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+  \myinputlisting{#1}
+\end{minipage}
+\end{center}
+}
+% code en ligne (\codeinline)
+\newcommand{\codeinline}[1]{\lstinline!#1!}
+% ----------------------------------------------------------------------
+% Package liens hypertexts
+% En règle général il doit être le dernier package chargé.
+% pdfencoding=auto : d'après http://tex.stackexchange.com/questions/24445
+\usepackage[draft, pdfencoding=auto]{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue,
+pdftitle={Exo7 - Cours de mathématiques}, pdfauthor={Exo7}}
+% --- Liens vers vidéo Youtube
+% variable myvideo : 0 pas de video, sinon la référence youtube
+\newcommand{\video}[1]{\def\myvideo{#1}}
+\newcommand{\insertvideo}[2]{\video{#1}%
+{\small\texttt{\href{http://www.youtube.com/watch?v=\myvideo}{Vidéo $\blacksquare$ #2}}}}
+% --- Liens vers les fiches d'exercices
+\newcommand{\mafiche}[1]{\def\mymafiche{#1}}
+\newcommand{\insertfiche}[2]{\mafiche{#1}%
+{\small\texttt{\href{http://exo7.emath.fr/ficpdf/\mymafiche}{Fiche d'exercices $\blacklozenge$ #2}}}}
+
+
+% --- Indication des couleurs (pour couleur #1, pour nb #2)
+\newcommand{\couleurnb}[2]{#1}
+
+
+% ----------------------------------------------------------------------
+% Constantes pour l'inclusion des figures
+\newcommand{\myscale}{1}

@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+
+\draw[->,>=latex, gray] (-0.5,0)--(7.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,5.5) node[left] {$y$};
+\draw[gray] (0,0) grid (7,5);
+
+\coordinate (O) at (0,0);
+\coordinate (A) at (1,1+0.2);
+\coordinate (B) at (3,2-0.1);
+\coordinate (C) at (4,2.5+0.1);
+\coordinate (D) at (6,3.5);
+
+\fill[blue] (A) circle (3pt); %node[above  left]{$A_1$};
+\fill[blue] (B) circle (3pt); %node[above left]{$A_2$};
+\fill[blue] (C) circle (3pt); %node[above left]{$A_3$};
+\fill[blue] (D) circle (3pt); %node[below right]{$A_4$};
+
+\coordinate (E1) at (5.5,3.25);
+\node at (E1)[green!70!black,rectangle,fill ,draw] {};
+\node at (E1)[above] {$P$};
+\draw[green!70!black,ultra thick,dashed] (E1) -- (E1 |- O); 
+
+% \coordinate (E2) at (5.5,2.25);
+% \node at (E2)[green!70!black,rectangle,fill ,draw] {};
+% \node at (E2)[right] {$P'$};
+% \draw[green!70!black,ultra thick,dashed] (E2) -- (E2 |- O); 
+
+\node at (E1 |- O) [below] {$x_0$};
+
+\draw[red,ultra thick] (0,0.55) -- (7,3.9); % node[black, right]{$y=ax+b$};
+
+% \draw[red,ultra thick] (0,4) 
+% .. controls (0.5,1.8) .. (A)
+% .. controls (2.2,0.5) .. (B)
+% .. controls (3.6,3.2) .. (C)
+% .. controls (5,1) .. (D)
+% .. controls (6.25,4) .. (6.5,5);
+
+\end{tikzpicture}

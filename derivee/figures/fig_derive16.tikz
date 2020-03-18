@@ -1,0 +1,50 @@
+\begin{tikzpicture}
+ \node at (0,0) {$4$};
+%\fill (0,0) circle (0.5ex);
+\fill (4,0) circle (0.5ex);
+\fill (8,0) circle (0.5ex);
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto 2x^2$} ;
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto \cos(y)$} ;
+\node at (-2,0)[left] {\bf Exemple avec $x=4$};
+
+\begin{scope}[yshift=-2cm]
+ \node at (0,0) {$4$};
+ \node at (4,0) {$32$};
+ \node at (8.5,0) {$\cos(32)$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto 2x^2$} ;
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto \cos(y)$} ;
+\node at (-2,0)[left] {\bf Graphe de calcul};
+\end{scope}
+
+\begin{scope}[yshift=-4cm]
+ \node at (0,0) {$4$};
+ \node at (4,0) {$32$};
+\node[blue] at (4,-0.5) {$[16]$};
+\node at (8.5,0) {$\cos(32)$};
+\node[blue] at (8.5,-0.5) {$[-\sin(32)]$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto 2x^2$} 
+node[midway,below,black,scale=0.8]{$[x \mapsto 4x]$};
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto \cos(y)$} 
+node[midway,below,black,scale=0.8]{$[y \mapsto -\sin(y)]$};
+\node at (-2,0)[left] {\bf D\'eriv\'ees locales};
+\end{scope}
+
+\begin{scope}[yshift=-6cm]
+ \node at (0,0) {$x=4$};
+ \node at (4,0) {$y=32$};
+\node[blue] at (4,-0.5) {$[16]$};
+\node at (8.5,0) {$z=\cos(32)$};
+\node[blue] at (8.5,-0.5) {$[-\sin(32)]$};
+ \draw[->,>=latex,ultra thick,red] (0.7,0) -- ++(2.6,0) node[midway,above,black,scale=0.8]{$x \mapsto 2x^2$} 
+node[midway,below,black,scale=0.8]{$[x \mapsto 4x]$};
+ \draw[->,>=latex,ultra thick,red] (4.8,0) -- ++(2.6,0) node[midway,above,black,scale=0.8]{$y \mapsto \cos(y)$} 
+node[midway,below,black,scale=0.8]{$[y \mapsto -\sin(y)]$};
+
+ \node[red] at (0,-1.5) {$\{\{-16\sin(32)\}\}$};
+\node at (-2,0)[left] {\bf D\'eriv\'ee en $x=4$};
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt] (9,-1) to node[midway,blue,scale=1.2]{$\times$} ++(-6,0) to ++(-1.8,-0.5) ;
+\end{scope}
+
+
+\end{tikzpicture}

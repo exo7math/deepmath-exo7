@@ -1,0 +1,1343 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Dérivée}
+%====================================================================
+
+
+
+\objectifs{La notion de dérivée joue un rôle clé dans l'étude des fonctions. Elle permet de déterminer les variations d'une fonction et de trouver ses extremums. Une formule fondamentale pour la suite sera la formule de la dérivée d'une fonction composée.}
+
+
+\medskip
+
+\objectifs{Ceux qui sont à l'aise en mathématiques peuvent se rendre directement à la deuxième section de ce chapitre consacrée à la \og{}dérivation automatique\fg{}.}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dérivée}
+
+\index{derivee@dérivée}
+
+%--------------------------------------------------------------------
+\subsection{Définition}
+
+Soit $f : I \to \Rr$ une fonction, où $I$ est un intervalle ouvert (du type $]a,b[$) de $\Rr$. Soit $x_0 \in I$.
+
+\begin{definition}
+La dérivée de $f$ en $x_0$, si elle existe, est le nombre
+\mybox{$\displaystyle f'(x_0)= \lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$.}
+\end{definition}
+
+C'est donc la limite du taux d'accroissement $\frac{f(x)-f(x_0)}{x-x_0}$ lorsque $x$ tend vers $x_0$.
+Nous noterons la dérivée de $f$ en $x_0$ indifféremment sous la forme :
+\mybox{$\displaystyle f'(x_0)  \qquad  \text{ ou } \qquad \frac{\dd f}{\dd x}(x_0)$.}
+
+\begin{remarque*}
+Une dérivée n'existe pas toujours. Dans ce cours nous supposerons par défaut que la dérivée est bien définie, c'est-à-dire que $f$ est \defi{dérivable} en $x_0$. Nous préciserons explicitement les situations pour lesquelles ce n'est pas le cas. Comme la limite est unique, la dérivée de $f$ en $x_0$ ne peut prendre qu'une seule valeur.
+\end{remarque*}
+
+\begin{exemple}
+Calculons la dérivée en $x_0=1$ de la fonction $f$ définie par $f(x)=x^2$.
+On commence par réécrire le taux d'accroissement :
+$$\frac{f(x)-f(1)}{x-1} = \frac{x^2-1}{x-1} = \frac{(x-1)(x+1)}{x-1}=x+1.$$
+Ce taux d'accroissement tend vers $2$ lorsque $x$ tend vers $1$, donc $f'(1)=2$.
+
+Plus généralement, on montre que $f'(x_0)=2x_0$ :
+$$\frac{f(x)-f(x_0)}{x-x_0} = \frac{x^2-x_0^2}{x-x_0} = \frac{(x-x_0)(x+x_0)}{x-x_0}=x+x_0 \xrightarrow[x \to x_0]{} 2x_0.$$
+\end{exemple}
+
+\begin{exemple}
+On connaît la limite suivante :
+$$\frac{\exp(x)-1}{x}  \xrightarrow[x \to 0]{} 1.$$
+Interprétons ceci en termes de dérivée. Soit $f(x) = \exp(x)$. 
+Alors la limite ci-dessus s'écrit :
+$$\frac{f(x)-f(0)}{x-0} \xrightarrow[x \to 0]{} 1,$$
+c'est-à-dire $f'(0)=1$. Autrement dit, la dérivée de l'exponentielle en $0$ vaut $1$.
+\end{exemple} 
+
+
+Pour chaque $x_0$ en lequel la fonction $f$ est dérivable, on associe un nombre $f'(x_0)$, ce qui nous permet de définir une nouvelle fonction.
+\begin{definition}
+La fonction qui à $x$ associe $f'(x)$ est la \defi{fonction dérivée} de $f$.
+On la notera de l'une des façons suivantes :
+$$x \mapsto f'(x)\qquad \text{ ou } \qquad  f' \qquad \text{ ou } \qquad \frac{\dd f}{\dd x}.$$
+\end{definition}
+
+Pour le premier exemple avec $f(x)=x^2$, nous avons montré que $f'(x) = 2x$ (et donc $f'(1)=2$).
+L'exponentielle possède la propriété fondamentale que sa dérivée est aussi l'exponentielle :
+si $f(x)= \exp(x)$ alors $f'(x)=\exp(x)$. On retrouve bien que $f'(0)=\exp(0)=1$.
+
+
+%--------------------------------------------------------------------
+\subsection{Calcul approché de valeurs}
+
+Connaître la dérivée d'une fonction en un point permet d'approcher les valeurs de la fonction autour de ce point.
+Commençons par un petit changement de variable. Posons $h=x - x_0$, ce qui revient à écrire 
+$x = x_0 + h$ (et considérer un intervalle centré en $x_0$). Comme on s'intéresse aux valeurs de $x$ qui tendent vers $x_0$, cela revient à dire que $h$ tend vers $0$.
+Le taux d'accroissement devient $\frac{f(x_0+h)-f(x_0)}{h}$ et on a :
+$$\frac{f(x_0+h)-f(x_0)}{h} \xrightarrow[h \to 0]{} f'(x_0).$$
+
+Cela fournit une valeur approchée de $f$ en $x_0+h$, pourvu que $h$ soit proche de $0$ :
+\mybox{$\displaystyle f(x_0+h) \simeq f(x_0) + h f'(x_0)$.}
+
+\begin{proof}
+Comme 
+$$\frac{f(x_0+h)-f(x_0)}{h} \xrightarrow[h \to 0]{}  f'(x_0),$$
+alors pour $h$ suffisamment petit :
+$$\frac{f(x_0+h)-f(x_0)}{h} \simeq f'(x_0).$$
+En multipliant de part et d'autre par $h$, on obtient l'estimation voulue.
+\end{proof}
+
+\begin{exemple}
+On souhaite trouver une valeur approchée de $\sin(0.01)$ sans calculatrice.
+Posons $f(x) = \sin(x)$. On sait que $f'(x)=\cos(x)$.
+Avec $x_0=0$, on a $f(x_0) = \sin(0) = 0$. On se doute bien que $\sin(0.01)$ sera proche de $0$, mais on veut faire mieux.
+Posons $h=0.01$ et calculons $f'(x_0) = \sin'(0) = \cos(0) = 1$.
+Donc notre formule s'écrit, pour $h$ proche de $0$ :
+$$\sin(h) = f(x_0+h) \simeq f(x_0) + h f'(x_0) = 0 + h \cdot 1 = h.$$
+Et donc pour $h=0.01$ on a 
+$\sin(0.01) \simeq 0.01$
+On vérifie à la calculatrice que $\sin(0.01) = 0.00999983\ldots$, donc notre approximation est très bonne. (Attention, il faut d'abord sélectionner les radians comme unité d'angle sur la calculatrice.)
+\end{exemple}
+
+\begin{exemple}
+Justifions la formule 
+$$\sqrt{1+h} \simeq 1+ \frac 12 h,$$
+valable pour des valeurs de $h$ proches de $0$.
+
+Soit $f(x) = \sqrt{x}$ et $x_0=1$. On sait que $f'(x) = \frac12 \frac{1}{\sqrt{x}}$ donc $f'(x_0) = \frac12$.
+Pour $h$ proche de $0$ :
+$$\sqrt{1+h} = f(x_0+h) \simeq f(x_0) + h f'(x_0) = 1 + \frac12 h.$$
+
+Par exemple avec $h=0.1$ on obtient :
+$$\sqrt{1.1} \simeq 1 + 0.5 \times 0.1 = 1.05$$
+et la calculatrice donne $\sqrt{1.1} = 1.0488\ldots$
+\end{exemple}
+
+\begin{remarque*}
+Voici quelques explications sur la notation $\frac{\dd f}{\dd x}$, préférée par les physiciens, et qu'il faut bien comprendre car nous allons la généraliser plus tard.
+
+La notation \og{}$\dd x$\fg{} représente un élément infinitésimal de la variable $x$, c'est-à-dire la valeur $x-x_0$, avec $x$ très proche de $x_0$ (c'est-à-dire $x \to x_0$). $\dd y$ ou encore $\dd f$ représente la variation correspondante de la fonction, c'est-à-dire la valeur $f(x)-f(x_0)$, pour les mêmes valeurs de $x$ et $x_0$. Ainsi $\frac{\dd f}{\dd x}(x_0)$ représente le quotient de ces deux valeurs, autrement dit le taux d'accroissement pris à la limite.
+
+\myfigure{0.9}{
+\tikzinput{fig_derive03}
+}
+
+\end{remarque*}
+
+%--------------------------------------------------------------------
+\subsection{Tangente}
+
+\index{tangente}
+
+L'interprétation géométrique de la dérivée est essentielle !
+Le coefficient directeur de la tangente au graphe de $f$ en $x_0$ est $f'(x_0)$.
+
+Une équation de la \defi{tangente} au point $(x_0,f(x_0))$ est donc :
+\mybox{$y = (x-x_0) f'(x_0) + f(x_0)$.}
+
+\myfigure{2}{
+\tikzinput{fig_derive02bis}
+}
+
+Justification : la droite qui passe par les points $(x_0,f(x_0))$ et $(x,f(x))$ a pour coefficient directeur $\frac{f(x)-f(x_0)}{x-x_0}$.
+\`A la limite, lorsque $x \to x_0$, on trouve que le coefficient directeur de la tangente est $f'(x_0)$. Voir l'illustration ci-dessus pour des valeurs de $x$ tendant vers $x_0$.
+
+\begin{exemple}
+Voici le graphe de la fonction définie par $f(x) = \sqrt{x}$.
+La dérivée est $f'(x) = \frac12 \frac{1}{\sqrt{x}}$. La tangente en $x_0=1$ a donc pour équation 
+$y = (x-1)\frac12 + 1$, autrement dit c'est $y = \frac12 x + \frac12$.
+
+
+\myfigure{1}{
+\tikzinput{fig_derive04}
+}
+La tangente en $x_0$ est la droite qui \og{}approche\fg{} au mieux le graphe de $f$ autour $x_0$.
+Voici l'interprétation géométrique de l'approximation étudiée dans la section précédente :
+pour $x$ proche de $x_0$, au lieu de lire les valeurs $f(x)$ sur le graphe de $f$, on lit les valeurs approchées
+$y(x) = (x-x_0) f'(x_0) + f(x_0)$ %$y(x)=ax+b$
+sur la tangente en $x_0$. % (d'équation $y=ax+b$).
+
+\myfigure{1}{
+\tikzinput{fig_derive05}
+}
+
+\end{exemple}
+
+%--------------------------------------------------------------------
+\subsection{Formules usuelles}
+
+Voici les expressions des dérivées de fonctions classiques. Elles sont à connaître sur le bout des doigts.
+
+\begin{center}
+%\noindent
+\setlength{\arrayrulewidth}{0.05mm}
+%\begin{tabular}{|l|l|l|} \hline
+\begin{tabular}[t]{|c|c@{\vrule depth 1.2ex height 3ex width 0mm \ }|}
+\hline
+\textbf{Fonction}         & \textbf{Dérivée} \\ \hline
+   $x^n$         & $nx^{n-1}$  \quad ($n \in \Zz$)   \\ \hline
+   $\frac 1x$    & $-\frac{1}{x^2}$              \\ \hline
+   $\sqrt{x}$    & $\frac12 \frac1{\sqrt{x}}$   \\ \hline
+   $x^\alpha$   & $\alpha x^{\alpha-1}$  \quad ($\alpha\in\Rr$)  \\ \hline
+   $e^x$         & $e^x$                        \\ \hline
+   $\ln x$       & $\frac 1x$                   \\ \hline
+   $\cos x$      & $-\sin x$                    \\ \hline
+   $\sin x$      & $\cos x$                     \\ \hline
+   $\tan x$      & $1+\tan^2 x = \frac{1}{\cos^2 x}$        \\ \hline
+\end{tabular}
+\end{center}
+
+Ces formules, conjuguées aux opérations décrites dans la proposition ci-dessous, permettent de calculer un très grand nombre de dérivées.
+
+\begin{proposition}
+À partir de deux fonctions dérivables $f : I \to \Rr$ et $g : I \to \Rr$, on calcule la dérivée des opérations élémentaires suivantes :
+\begin{itemize}
+  \item \textbf{Somme} 
+  \mybox{$(f+g)'=f'+g'$}
+  Autrement dit $(f+g)'(x) = f'(x)+g'(x)$ pour tout $x \in I$.
+  
+  \item \textbf{Produit par un scalaire} 
+  \mybox{$(\lambda f)' = \lambda f'$}
+  où $\lambda$ est un réel fixé. Autrement dit $(\lambda f)'(x) = \lambda f'(x)$. 
+  
+  \item \textbf{Produit}
+  \mybox{$(f \times g)' = f'g+fg'$}
+  Autrement dit  $(f \times g)'(x) = f'(x)g(x)+f(x)g'(x)$.
+  
+  \item \textbf{Quotient}
+  \mybox{$\displaystyle\left(\frac{f}{g}\right)'=\frac{f'g-fg'}{g^2}$}
+  
+  Autrement dit $\displaystyle\left(\frac{f}{g}\right)'(x)=\frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}$ \  (si $g(x) \neq 0$).
+  
+\end{itemize}
+\end{proposition}
+
+\begin{exemple}
+\sauteligne
+\begin{itemize}
+  \item Soit $f_1(x) = x^2 + \cos(x)$ alors $f_1'(x) = 2x - \sin(x)$. La dérivée d'une somme est la somme des dérivées.
+  
+  \item Soit $f_2(x) = x^3 \times \sin(x)$ alors $f_2'(x) = 3x^2 \sin(x) + x^3 \cos(x)$. Nous avons appliqué la formule de la dérivée d'un produit.
+  
+  \item Soit $f_3(x) = \frac{\ln(x)}{e^x}$ alors $f_3'(x) = \frac{\frac1xe^x - \ln(x)e^x}{e^{2x}}$ en appliquant la formule de la dérivée d'un quotient et la relation $(e^x)^2 = e^{2x}$. 
+\end{itemize}
+\end{exemple}
+
+\begin{proof}
+Voyons comment prouver une des formules, par exemple $(f \times g)' = f'g+fg'$.
+
+Fixons $x_0 \in I$. Nous allons réécrire le taux d'accroissement de $f(x)\times g(x)$ :
+\begin{align*}
+\frac{f(x)g(x)-f(x_0)g(x_0)}{x-x_0}
+&=\frac{f(x)-f(x_0)}{x-x_0} g(x)+\frac{g(x)-g(x_0)}{x-x_0}f(x_0)\\
+&\xrightarrow[x\to x_0]{} f'(x_0)g(x_0)+g'(x_0)f(x_0).
+\end{align*}
+Ceci étant vrai pour tout $x_0 \in I$, la fonction $f\times g$ est dérivable sur $I$ et a pour dérivée $f'g+fg'$.
+\end{proof}
+
+
+
+
+%--------------------------------------------------------------------
+\subsection{Dérivée d'une composition}
+
+\index{derivee@dérivée!composition}
+
+Soient $f : \Rr \to \Rr$ et $g :  \Rr \to \Rr$ deux fonctions. La \defi{composition} $g\circ f$ est définie par :
+$$g\circ f(x) = g\big( f(x) \big).$$
+
+Il faut bien faire attention à l'ordre : on calcule d'abord $f(x)$ puis on évalue la quantité $g\big( f(x) \big)$ à l'aide de la fonction $g$.
+
+\myfigure{1.5}{
+\tikzinput{fig_derive01bis}
+}
+
+La dérivée d'une composition est la formule fondamentale de tout ce cours !
+En effet, c'est cette formule qui permet de calculer les bons paramètres pour un réseau de neurones.
+
+Voici la formule :
+\begin{proposition}
+La dérivée de $g \circ f$ est donnée par :
+\mybox{$\big( g \circ f \big)'(x) = g'\big( f(x) \big) \cdot f'(x)$.}
+\end{proposition}
+
+
+Autrement dit, si $F(x) = g\big( f(x) \big)$ alors $F'(x) = g'\big( f(x) \big) \cdot f'(x)$.
+
+Voici une façon pratique et mnémotechnique de retenir la formule :
+on note $y = f(x)$ et $z = g(y) = g \circ f(x)$.
+Alors
+\mybox{$\displaystyle\frac{\dd z}{\dd x}  = \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x}$}
+qui est exactement notre formule :
+$$\frac{\dd g\circ f}{\dd x}(x)  = \frac{\dd g}{\dd y}(y) \times \frac{\dd f}{\dd x}(x).$$
+
+Pourquoi cette formule est-elle si facile à retenir ? C'est comme si les dérivées se comportaient comme des fractions que l'on pouvait simplifier.
+Bien sûr c'est juste la notation qui permet cela.
+
+\myfigure{1}{
+\tikzinput{fig_derive06}
+}
+
+
+\begin{proof}
+La preuve est similaire à celle du produit de deux fonctions en écrivant cette fois :
+\begin{align*}
+\frac{g\circ f(x)-g\circ f(x_0)}{x-x_0} 
+&= \frac{g\big( f(x)\big)-g\big( f(x_0)\big)}{f(x)-f(x_0)} \times \frac{f(x)-f(x_0)}{x-x_0} \\
+&\xrightarrow[x\to x_0]{} g'\big(f(x_0)\big) \times f'(x_0).
+\end{align*}
+\end{proof}
+
+
+
+\begin{exemple}
+Commençons par un exemple simple avec $F(x) = \sin(3x)$. C'est la composition de $f(x) = 3x$ avec $g(x) = \sin(x)$ : $F(x) = g \circ f(x)$.
+On sait que $f'(x) = 3$ et $g'(x) = \cos(x)$ donc $g'(f(x)) = \cos(3x)$.
+Ainsi 
+$$F'(x) = 3\cos(3x).$$
+
+Une autre façon de le voir est de poser $y = 3x$, $z = \sin(y)$ ($= \sin(3x) = F(x)$).
+On a $\frac{\dd z}{\dd y} = \cos(y)$ et $\frac{\dd y}{\dd x} = 3$, ainsi :
+$$F'(x) =  \frac{\dd z}{\dd x}  
+= \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x}
+= \cos(y) \times 3.$$
+Et comme $y = 3x$, on obtient :
+$$F'(x) = 3\cos(3x).$$
+\end{exemple}
+
+\begin{exemple}
+Soit $F(x) = \ln(\cos(x))$. C'est la composition de $f(x) = \cos(x)$ avec $g(x) = \ln(x)$ : $F(x) = g \circ f(x)$.
+On sait que $f'(x) = - \sin(x)$. D'autre part $g'(x) = \frac1x$, donc $g'(f(x)) = \frac{1}{f(x)}= \frac{1}{\cos(x)}$.
+Ainsi :
+$$F'(x) = \frac{-\sin(x)}{\cos(x)}.$$
+\end{exemple}
+
+\begin{exemple}
+Soit $F(x) = \sqrt{\tan(x)}$. Cette fois utilisons la notation des physiciens avec  $y= \tan(x)$ et $z = \sqrt{y}$ ($= F(x)$).
+Alors :
+$$F'(x) =  \frac{\dd z}{\dd x}  
+= \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x}
+= \frac12\frac{1}{\sqrt{y}} \times (1+\tan^2(x)).$$
+Et comme $y = \tan(x)$, on obtient :
+$$F'(x) = \frac12 \cdot \frac{1+\tan^2(x)}{\sqrt{\tan(x)}}.$$
+\end{exemple}
+
+\bigskip
+
+Voici ce que donnent les dérivées des compositions des fonctions usuelles. Les formules s'obtiennent en appliquant directement la formule donnée plus haut, mais sont tout de même à connaître par c\oe ur.
+Ici $u$ désigne une fonction $x \mapsto u(x)$.
+\begin{center}
+%\noindent
+\setlength{\arrayrulewidth}{0.05mm}
+%\begin{tabular}{|l|l|l|} \hline
+\begin{tabular}[t]{|c|c@{\vrule depth 1.2ex height 3ex width 0mm \ }|}
+\hline
+\textbf{Fonction}         & \textbf{Dérivée} \\ \hline
+   $u^n$         & $nu'u^{n-1}$  \quad  ($n \in \Zz$)   \\ \hline
+   $\frac 1u$    & $-\frac{u'}{u^2}$              \\ \hline
+   $\sqrt{u}$    & $\frac12 \frac{u'}{\sqrt{u}}$   \\ \hline
+   $u^\alpha$    & $\alpha u' u^{\alpha-1}$ \quad ($\alpha\in\Rr$)  \\ \hline
+   $e^u$         & $u'e^u$                        \\ \hline
+   $\ln u$       & $\frac {u'}{u}$                   \\ \hline
+   $\cos u$      & $-u'\sin u$                    \\ \hline
+   $\sin u$      & $u'\cos u$                     \\ \hline
+   $\tan u$      & $u'(1+\tan^2 u) = \frac{u'}{\cos^2 u}$        \\ \hline
+\end{tabular}
+\hfill
+\end{center}
+
+
+La formule de la dérivée de composition se généralise : si $x$ est une fonction de $t$, $y$ est une fonction de $x$ et $z$ est une fonction de $y$ alors :
+$$\frac{\dd z}{\dd t}  = \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x} \times \frac{\dd x}{\dd t}$$
+
+
+% \todo{à prouver en exo mathématiciens + exercice real life temperature, altitude, pression}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dérivation automatique}
+
+\index{derivee@dérivée!derivation automatique@dérivation automatique}
+
+%--------------------------------------------------------------------
+\subsection{Graphe de calcul}
+
+\index{graphe de calcul}
+
+Un graphe de calcul est comme une chasse au trésor : on effectue des calculs étape par étape jusqu'à obtenir le résultat final.
+Voici un exemple ci-dessous. 
+
+\myfigure{1}{
+\tikzinput{fig_derive07}
+}
+
+On part d'un nombre et on doit calculer des résultats en fonction des opérations précisées sur les flèches (ici mettre le nombre au carré, puis ajouter $1$). Si on part par exemple de $2$ : on l'élève au carré, puis on ajoute $1$ pour obtenir le résultat $5$.
+Si on partait d'un réel quelconque $x_0$, cela donne $x_0^2+1$.
+Le dernier diagramme est le graphe de calcul tel que nous allons le représenter dans la suite.
+
+
+Plus généralement, on représente l'évaluation par une fonction $f$ comme ceci :
+\myfigure{1}{
+\tikzinput{fig_derive08}
+}
+
+ce qui permet de représenter facilement la composition de deux fonctions $g\circ f$ :
+\myfigure{1}{
+\tikzinput{fig_derive09a}
+}
+qui correspond au calcul :
+\myfigure{1}{
+\tikzinput{fig_derive09b}
+}
+
+
+Pour les additions et les multiplications, chaque graphe possède deux entrées et une sortie.
+
+Par exemple :
+\myfigure{0.6}{
+\tikzinput{fig_derive10}
+}
+Et plus généralement :
+\myfigure{0.6}{
+\tikzinput{fig_derive11}
+}
+
+Voici un graphe de calcul obtenu en combinant plusieurs opérations. Vérifier que le résultat final (tout à droite) vaut $5$. \'Ecrire le calcul algébrique effectué en remplaçant les nombres $2$, $8$ et $3$ par trois variables $x_0$, $y_0$ et $z_0$.
+\myfigure{0.7}{
+\tikzinput{fig_derive12}
+}
+
+%--------------------------------------------------------------------
+\subsection{Dérivation automatique (cas simple)}
+
+Nous allons enrichir nos graphes de calcul à l'aide de la dérivée : en plus d'écrire le résultat du calcul $f(x_0)$, on ajoute entre crochets la valeur de la dérivée $f'(x_0)$. On appelle cette valeur la \defi{dérivée locale}. Pour aider à effectuer les calculs, on peut rappeler sous la flèche la formule de la fonction dérivée.
+\myfigure{1}{
+\tikzinput{fig_derive13}
+}
+
+Voici trois exemples :
+\myfigure{0.8}{
+\tikzinput{fig_derive14}
+}
+Bien sûr, il n'est pas obligatoire d'écrire la formule $[x \mapsto f'(x)]$ sous la flèche quand on connaît bien ses dérivées !
+
+
+Voici comment évaluer la dérivée d'une composition. Prenons la fonction $F(x) = \cos(2x^2)$ pour laquelle on souhaite par exemple calculer $F'(3)$. 
+
+
+
+Une première méthode serait de calculer $F'(x)$ (quel que soit $x$), puis évaluer $F'(3)$. Voici une autre méthode : on pose $f(x)=2x^2$ et $g(y)=\cos(y)$ alors $F(x) = g \circ f(x)$ (on aurait pu noter $g(x) = \cos(x)$ mais utiliser le nom $y$ est plus pratique pour la suite).
+
+\myfigure{1}{
+\tikzinput{fig_derive15a}
+}
+
+
+\textbf{Première étape : graphe de calcul.}
+On écrit le graphe de calcul correspondant à cette composition :
+
+\myfigure{1}{
+\tikzinput{fig_derive15b}
+}
+\textbf{Seconde étape : ajout des dérivées locales.}
+On calcule les valeurs de dérivées locales :
+\myfigure{1}{
+\tikzinput{fig_derive15c}
+}
+
+\textbf{Troisième étape : calcul de la dérivée de la composition.}
+On calcule la dérivée de la composition comme le produit des dérivées locales.
+
+On note $\{\{F'(3)\}\}$ cette dérivée, entre accolades doubles.
+
+\myfigure{1}{
+\tikzinput{fig_derive15d}
+}
+
+
+
+Pour des raisons que l'on expliquera plus tard, il faut prendre l'habitude de calculer le produit de la droite vers la gauche : on effectue $(-\sin(18)) \times 12$ et non $12 \times (-\sin(18))$.
+
+
+Reprenons la même fonction, mais cette fois pour calculer $F'(4)$ :
+\myfigure{1}{
+\tikzinput{fig_derive16}
+}
+On trouve $F'(4) = -16\sin(32)$.
+
+
+\bigskip
+\textbf{Plus de fonctions.}
+Le principe est le même sur des exemples plus compliqués, ici avec trois fonctions : $F = h\circ g \circ f$.
+
+\myfigure{1}{
+\tikzinput{fig_derive16bisa}
+}
+
+Qui donne :
+
+\myfigure{1}{
+\tikzinput{fig_derive16bisb}
+}
+
+Répondre aux questions suivantes :
+\begin{itemize}
+  \item Quelle est la fonction composée ?
+  \item Quelle est la dérivée calculée ? Combien vaut-elle ? Vérifier les calculs !
+  \item Combien vaudrait la dérivée en $x=1$ ? En $x=2$ ?
+ 
+\end{itemize}
+
+
+\bigskip
+
+\textbf{Justification.} Pourquoi ces opérations donnent-elles le bon résultat ? Il s'agit juste de la réécriture de la formule de la dérivée d'une composition !
+
+Pour $F = g \circ f$, les dérivées locales sont $f'(x)$ et $g'(y)$ (en notant $y=f(x)$), le produit des dérivées locales est donc $f'(x) \times g'(y) = 
+f'(x) \times g'(f(x)) = F'(x)$.
+C'est encore plus facile à comprendre en notant $y = f(x)$, $z=g(y) = g\circ f(x)$ : il s'agit juste de la formule :
+$$\frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x} = \frac{\dd z}{\dd x}.$$
+
+\myfigure{0.8}{
+\tikzinput{fig_derive17}
+}
+
+Pour des compositions plus compliquées, par exemple avec trois compositions, c'est la réécriture de la formule :
+$$\frac{\dd F}{\dd x} = \frac{\dd F}{\dd z} \times\frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x}.$$
+
+
+
+%Mais en plus on calcule les \defi{dérivées séquentielles} qui sont les dérivées de la fonction $F$ par rapports aux variables intermédiaires (dont on aura besoin plus tard). Pour cela on part de la fin : la dernière dérivée séquentielle vaut $1$, les autres sont les produits partiels de dérivées locales situées à droite.
+%La dérivée séquentielle la plus à gauche est la dérivée de la composition.
+%
+%
+%   (c'est $\frac{\dd z}{\dd z}=1$}
+
+
+
+%--------------------------------------------------------------------
+\subsection{Dérivation automatique (cas général)}
+
+Pour les additions et multiplications, on ajoute des dérivées locales sur les arêtes.
+Les formules seront justifiées dans le chapitre \og{}Gradient\fg{}.
+Pour l'addition, les deux dérivées locales valent $1$ (le principe à gauche ci-dessous, un exemple à droite).
+
+\myfigure{0.7}{
+\tikzinput{fig_derive18}
+}
+
+Pour la multiplication, les dérivées locales correspondent aux valeurs d'entrée $x_0$ et $y_0$, mais échangées : $[y_0]$ et $[x_0]$ (le principe à gauche ci-dessous, un exemple à droite).
+
+\myfigure{0.7}{
+\tikzinput{fig_derive19}
+}
+
+Pour calculer la dérivée d'une composition, le principe est le même qu'auparavant :
+la dérivée est le produit des dérivées locales le long des arêtes joignant la valeur $x_0$ à la valeur $F(x_0)$.
+
+Par exemple, voici le graphe de calcul correspondant à $F(x) = \ln(x+2)$, on trouve $F'(x) = \frac{1}{x+2}$.
+\myfigure{0.7}{
+\tikzinput{fig_derive20}
+}
+Voici le graphe de calcul correspondant à $F(x) = \exp(3\times x)$, on trouve $F'(x) = 3\exp(3x)$.
+\myfigure{0.7}{
+\tikzinput{fig_derive21}
+}
+
+Il existe une nouvelle situation, lorsque l'on a besoin de dupliquer la variable d'entrée. Considérons par exemple la fonction $F(x) = \exp(x)\times \ln(x)$.
+L'entrée \og{}\textbullet\fg{} tout à gauche (sur la figure ci-dessous) représente une même valeur $x_0$ utilisée deux fois.
+
+
+\myfigure{0.7}{
+\tikzinput{fig_derive22a}
+}
+\myfigure{0.7}{
+\tikzinput{fig_derive22aa}
+}
+
+
+Voici le graphe de calcul correspondant à $F(2)$ pour l'entrée $x_0=2$, complétée par les dérivées locales (entre crochets) et la dérivée globale par rapport à la variable d'entrée (entre accolades doubles) :
+\myfigure{0.7}{
+\tikzinput{fig_derive22b}
+}
+
+La dérivée $F'(2)$ est une somme de termes calculée entre accolades  :
+$$F'(2) = \{\{ \ln(2)\exp(2) + \frac12\exp(2) \}\} = \left(\ln(2)+\frac12\right)e^2.$$
+
+
+
+Bilan.
+\mybox{
+\begin{minipage}{0.8\textwidth}
+Pour calculer la dérivée d'une fonction composée $F$ en $x_0$ :
+\begin{itemize} 
+  \item pour chaque entrée, calculer le produit des dérivées locales (qui sont entre crochets) le long des chemins allant de la valeur finale $F(x_0)$ en revenant vers l'entrée,
+  \item puis, calculer la somme de ces produits (écrite entre accolades doubles).
+\end{itemize}
+\end{minipage}
+}
+
+% \todo{Exemple : température = f(altitude), altitude = g(temps)}
+
+
+%--------------------------------------------------------------------
+\subsection{Dérivées séquentielles}
+
+Cette section est plus technique et peut être omise %éludée
+en première lecture.
+
+\bigskip
+
+Soit $F(x) = h\circ g \circ f(x)$ une composition de trois fonctions. Notons
+$$y=f(x), \qquad z = g(y), \qquad t = h(z).$$
+
+On appelle \defi{dérivées séquentielles}, les dérivées de $F$ par rapport à chacune des variables (ici $x,y,z,t$).
+
+\myfigure{1}{
+\tikzinput{fig_derive32}
+}
+
+Dans ce graphe de calcul, les dérivées locales sont entre crochets.
+Les dérivées séquentielles sont entre accolades doubles (lues en partant de la droite à partir de la figure ci-dessus) :
+$$\frac{\dd F}{\dd t} = \frac{\dd t}{\dd t} = 1,
+\qquad
+\frac{\dd F}{\dd z} = \frac{\dd t}{\dd z} = [z'],
+$$
+$$
+\frac{\dd F}{\dd y} = \frac{\dd t}{\dd y} = \frac{\dd t}{\dd z}\times\frac{\dd z}{\dd y}  = [z'] \times [y'],
+\qquad
+\frac{\dd F}{\dd x} = \frac{\dd t}{\dd x} = \frac{\dd t}{\dd z}\times\frac{\dd z}{\dd y}\times\frac{\dd y}{\dd x}  = [z'] \times [y'] \times [x'].
+$$
+
+On calcule donc facilement la dérivée $\frac{\dd F}{\dd x}$ mais on a aussi comme étapes intermédiaires $\frac{\dd F}{\dd y}$ et $\frac{\dd F}{\dd z}$.
+
+% Il ne faut pas confondre les dérivées locales et les dérivées séquentielles.
+
+Pourquoi est-il pertinent de calculer les dérivées séquentielles de la droite vers la gauche ?
+Sur l'exemple ci-dessus les dérivées séquentielles sont :
+$$ \{\{1\}\},
+\qquad 
+ \{\{z'\}\},
+\qquad 
+ \{\{z' \times y' \}\} ,
+\qquad 
+ \{\{z' \times y' \times x'\}\}.$$
+Pour éviter de calculer beaucoup de produits, on remarque que chaque nouveau produit est la multiplication de la dérivée séquentielle précédente avec la dérivée locale :
+$$ \{\{1\}\},
+\qquad 
+ \{\{z'\}\} = [z] \times \{\{1\}\},
+\qquad 
+ \{\{z' \times y' \}\} =  \{\{z'\}\}\times [y'],
+\qquad 
+ \{\{z' \times y' \times x'\}\} = \{\{z' \times y' \}\}\times [x'].$$
+
+\bigskip 
+Plus généralement, si $F = f_n\circ \cdots \circ f_2 \circ f_1$ et $x_1 = f_1(x_0)$, $x_2 = f_2(x_1)$,\ldots, $x_n = f_n(x_{n-1})$ alors :
+$$ \left\{\left\{\frac{\dd F}{\dd x_i} \right\}\right\} =  \left\{\left\{\frac{\dd F}{\dd x_{i+1}} \right\}\right\} \times \left[\frac{\dd f_i}{\dd x_{i}}\right].$$
+
+Pour obtenir toutes les dérivées séquentielles $\{\{\frac{\dd F}{\dd x_i} \}\}$, il y a donc $n$ produits à calculer en partant de $\{\{\frac{\dd F}{\dd x_n} \}\}$ et en terminant par $\{\{\frac{\dd F}{\dd x_0} \}\}$. Si on n'utilise pas cette formule de récurrence alors on a $\frac{n(n+1)}{2}$ produits à calculer, ce qui est beaucoup plus si $n$ est grand.
+
+% \todo{En exercice : comptage tous les produits partiels par deux méthodes.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Étude de fonctions}
+
+%--------------------------------------------------------------------
+\subsection{Variations}
+
+Soit une fonction $f : I \to \Rr$.
+\begin{definition}
+Pour tout $x$ et $y$ de $I$ : 
+\begin{itemize}
+  \item $f$ est \defi{croissante} si $x\le y$ implique $f(x) \le f(y)$. 
+  \item $f$ est \defi{strictement croissante} si $x < y$ implique $f(x) < f(y)$. 
+  \item $f$ est \defi{décroissante} si $x\le y$ implique $f(x) \ge f(y)$. 
+  \item $f$ est \defi{strictement décroissante} si $x < y$ implique $f(x) > f(y)$.
+\end{itemize}    
+\end{definition}
+
+
+\myfigure{1}{
+\tikzinput{fig_fonctions2}
+}
+
+La croissance et la dérivée sont liées par la proposition suivante.
+\begin{proposition}
+Soit $f : I \to \Rr$ une fonction dérivable, définie sur un intervalle $I$.
+Alors :
+\begin{itemize}
+\item $f$ est croissante sur $I$ $\iff$ $f'(x)\ge0$ pour tout $x \in I$.
+  \item $f$ est décroissante  sur $I$ $\iff$ $f'(x)\le0$ pour tout $x \in I$.  
+  \item $f$ est constante  sur $I$ $\iff$ $f'(x) = 0$ pour tout $x \in I$.
+\end{itemize}
+\end{proposition}
+
+On peut améliorer un peu certains résultats : par exemple si $f'(x)>0$ pour tout $x\in I$ alors $f$ est strictement croissante (la réciproque est fausse comme le montre l'exemple défini par $f(x)=x^3$).
+
+\begin{proof}
+Nous allons seulement prouver l'implication : $f$ est croissante $\implies$ $f'(x)\ge0$. Nous admettrons les autres propriétés.
+
+Soit $f$ une fonction croissante. Fixons $x_0$ et soit $x\ge x_0$. Alors comme $f$ est croissante on a $f(x) \ge f(x_0)$. Ainsi le taux d'accroissement $\frac{f(x)-f(x_0)}{x-x_0}$ est positif, pour tout $x>x_0$. Ainsi à la limite (lorsque $x\to x_0$ en ayant $x>x_0$) on a : $f'(x_0) = \lim_{x \to x_0^+}\frac{f(x)-f(x_0)}{x-x_0} \ge 0$.
+ 
+\end{proof}
+
+
+\begin{definition}
+Une fonction $f : I \to J$ est une \defi{bijection} si chaque $y \in J$ admet un unique antécédent $x \in I$, c'est-à-dire tel que $f(x)=y$.
+\end{definition}
+
+\begin{proposition}
+Soit $f : I \to \Rr$ une fonction. Soit $J = f(I)$ l'ensemble des valeurs prises par $f$ sur $I$. Si $f$ est strictement croissante sur $I$ (ou bien strictement décroissante sur $I$) alors la fonction $f : I \to J$ est bijective.
+\end{proposition}
+
+\begin{proof}
+Par définition de $J$, tout $y\in J$ admet un antécédent $x\in I$ par $f$. Comme $f$ est strictement croissante alors cet antécédent est unique.
+\end{proof}
+
+
+%--------------------------------------------------------------------
+\subsection{Fonctions d'activation}
+
+\index{activation}
+\index{fonction d'activation}
+
+Une \defi{fonction d'activation} n'est rien d'autre qu'une fonction $f : \Rr \to \Rr$ qui sera dans la suite associée à un neurone. Nous allons en étudier plusieurs exemples. À une \defi{entrée} $x \in \Rr$, on associe une \defi{sortie} $y = f(x)$.
+
+%\textbf{Fonction marche de Heaviside.}
+\subsubsection{Fonction marche de Heaviside.}
+
+C'est la fonction \defi{marche d'escalier} définie par la formule suivante :
+$$\begin{cases}
+H(x) = 0 & \text{ si } x < 0 \\
+H(x) = 1  & \text{ si } x \ge 0 \\
+\end{cases}$$
+
+\myfigure{1}{
+\tikzinput{fig_derive25}
+}
+
+Cela justifie le nom de fonction d'activation. Imaginons un composant électronique
+qui allume une diode lorsque l'intensité est positive.
+On modélise la situation ainsi :
+\begin{itemize}
+  \item $x\in\Rr$ est l'intensité donnée en entrée,
+  \item $y=0$ (diode éteinte) ou $y=1$ (diode allumée) est la valeur de sortie,
+  \item la relation entre les deux est donnée par la fonction de Heaviside $y=H(x)$ :
+  la diode est activée lorsque l'intensité $x$ est positive.
+\end{itemize}
+
+\begin{remarque*}
+Quelques caractéristiques de $H$ :
+\begin{itemize}
+  \item la fonction a l'avantage d'être très simple et de séparer clairement les résultats en deux catégories ($0$ et $1$),
+  \item c'est aussi un inconvénient car il n'y a pas de nuance possible (du genre \og{}plutôt oui/plutôt non\fg{}),
+  \item la fonction $H$ n'est pas dérivable en $0$ (ni même continue), ce qui sera gênant pour la suite,   
+  \item avoir posé $H(0)=1$ est un choix arbitraire, on aurait pu choisir une autre valeur comme $0$ (certains préfèrent la valeur $\frac12$).
+\end{itemize}
+\end{remarque*}
+
+
+\bigskip
+%\textbf{Fonction affine.}
+\subsubsection{Fonction affine.}
+
+Une \defi{fonction affine} est définie par :
+$$f(x) = ax + b$$
+
+\myfigure{1}{
+\tikzinput{fig_derive26}
+}
+
+\begin{remarque*}
+  \sauteligne
+\begin{itemize}
+  \item Les fonctions affines seront à la base des réseaux de neurones. Elles sont simples.
+  \item Si $a=1$ et $b=0$ alors $f(x)=x$, c'est la fonction identité : la sortie est égale à l'entrée. Nous l'utiliserons plus tard dans certains cas.
+  \item Si $b=0$ la sortie est proportionnelle à l'entrée.
+  \item Le principal inconvénient est le suivant : si $f(x) = ax+b$ et $g(x)=cx+d$ sont deux fonctions affines alors la composition $h = g\circ f$ est encore une fonction affine. Ainsi, avec des fonctions d'activation qui sont affines, par composition on n'obtiendra que des fonctions affines, ce qui n'est pas assez riche pour les problèmes de classification.
+  
+% \todo{à prouver en exercice}
+  
+\end{itemize}
+\end{remarque*}
+
+
+
+\bigskip
+%\textbf{ReLU et fonctions linéaires par morceaux.}
+\subsubsection{ReLU et fonctions linéaires par morceaux.}
+
+Une fonction définie par 
+$$\begin{cases}
+f(x) = ax & \text{ si } x < 0 \\
+f(x) = bx  & \text{ si } x \ge 0 \\
+\end{cases}$$
+est un exemple de \defi{fonction linéaire par morceaux} (elle est linéaire à gauche et linéaire à droite). 
+
+\myfigure{1}{
+\tikzinput{fig_derive27}
+}
+
+La plus utilisée est la fonction ReLU (pour \emph{Rectified Linear Unit}),
+définie par 
+$$\begin{cases}
+f(x) = 0 & \text{ si } x < 0 \\
+f(x) = x  & \text{ si } x \ge 0 \\
+\end{cases}$$
+
+\myfigure{1}{
+\tikzinput{fig_derive28}
+}
+
+
+\begin{remarque*}
+  \sauteligne
+\begin{itemize}
+  \item Attention ces fonctions ne sont pas dérivables en $0$ (sauf dans le cas $a=b$).
+  \item La fonction ReLU conjugue les bénéfices d'une fonction continue, d'une vraie fonction d'activation (la sortie est $0$ si l'entrée est négative et non nulle sinon) et d'une sortie proportionnelle à l'entrée (pour les entrées positives).
+\end{itemize}
+\end{remarque*}
+
+% \todo{exercice : composition affine + relu}
+
+
+
+\bigskip
+\textbf{La fonction sigmoïde.}
+
+La \defi{fonction sigmoïde} est définie par :
+$$\sigma(x) = \frac{1}{1+e^{-x}}.$$
+Le graphe de la fonction $\sigma$ possède une forme de \og{}sigma\fg{} comme le symbole intégrale $\int$.
+
+\myfigure{1.1}{
+\tikzinput{fig_derive29}
+}
+
+
+La fonction ressemble à la fonction de Heaviside mais elle à l'avantage d'être continue et dérivable. Elle propose une transition douce de $0$ à $1$, la transition étant assez linéaire 
+autour de $0$.
+
+Étudions en détails cette fonction.
+\begin{proposition}
+\sauteligne
+\begin{enumerate}
+  \item La fonction $\sigma$ est strictement croissante.
+  \item La limite en $-\infty$ est $0$, la limite en $+\infty$ en $1$.
+  \item La fonction $\sigma$ est continue et dérivable et 
+  $$\sigma'(x) = \frac{e^{-x}}{(1+e^{-x})^2}.$$
+  \item La tangente en $x=0$ a pour équation $y=\frac14x+\frac12$.
+  \item La fonction dérivée vérifie aussi la relation :
+  \mybox{$\sigma'(x) = \sigma(x)(1-\sigma(x))$.}
+\end{enumerate}
+\end{proposition}
+La dernière relation montre un autre avantage de la fonction $\sigma$ : si on a calculé $\sigma(x_0)$ alors, sans effort supplémentaire, on sait calculer $\sigma'(x_0)$.
+
+Pour mémoire, on rappelle l'allure des graphes des fonctions $x\mapsto e^x$ (à gauche) et $x\mapsto e^{-x}$ (à droite) en se souvenant que $e^{-x} = 1/e^x$.
+
+\myfigure{1.2}{
+\tikzinput{fig_derive30}
+}
+
+\begin{proof}
+~
+\begin{enumerate}
+  \item La fonction $x \mapsto e^{-x}$ est strictement décroissante, donc la fonction $x \mapsto 1+e^{-x}$ l'est aussi. Ainsi son inverse $x \mapsto \sigma(x) = 1/(1+e^{-x})$ est une fonction strictement croissante.
+  
+  \item $e^{-x}$ tend vers $0$ en $+\infty$ donc $\sigma(x) = 1/(1+e^{-x})$ tend vers $1$ lorsque $x$ tend vers $+\infty$. De même $e^{-x}$ tend vers $+\infty$ en $-\infty$ donc $\sigma(x)$ tend vers $0$ lorsque $x$ tend vers $-\infty$.
+  
+  \item On calcule la dérivée de $\sigma$ par la formule de la dérivée d'un quotient. Comme la dérivée est strictement positive cela prouve à nouveau que $\sigma$ est strictement croissante.
+  
+  \item Au passage, on a $\sigma'(0) = \frac14$. La tangente en $x=0$ a donc pour équation $y=\frac14x+\frac12$. Et, anticipant sur la suite, on calcule que la dérivée seconde $\sigma''(0)=0$. La courbe possède donc un point d'inflexion en $x=0$, ce qui justifie le caractère très linéaire du graphe autour de $x=0$.
+  
+  \item Enfin :
+  $$\sigma(x)\big(1-\sigma(x)\big) = \frac{1}{1+e^{-x}} \cdot \frac{e^{-x}}{1+e^{-x}} = \sigma'(x).$$
+\end{enumerate}
+\end{proof}
+
+
+%\todo{exercice : $\sigma$ avec paramètre $\lambda$}
+
+
+\bigskip
+\textbf{La fonction tangente hyperbolique.}
+
+La \defi{tangente hyberbolique} est définie par :
+$$\tanh(x) = \frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}.$$
+
+\myfigure{1.2}{
+\tikzinput{fig_derive31}
+}
+
+Elle a des propriétés similaires à la fonction sigmoïde mais varie de $-1$ à $+1$. C'est une fonction impaire : son graphe est symétrique par rapport à l'origine.
+On pourrait refaire une étude complète de cette fonction mais celle-ci est liée à celle de la fonction $\sigma$.
+
+\begin{proposition}
+~
+\mybox{$\tanh(x) = 2\sigma(2x)-1$.} 
+\end{proposition}
+
+\begin{proof}
+$$2\sigma(2x)-1
+= \frac{2}{1+e^{-2x}} - 1
+= \frac{1-e^{-2x}}{1+e^{-2x}}
+= \frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}
+= \tanh(x).$$
+L'avant-dernière égalité s'obtient en multipliant numérateur et dénominateur par $e^x$.
+\end{proof}
+
+
+%--------------------------------------------------------------------
+\subsection{Minimum et maximum}
+
+
+Pour configurer un réseau de neurones, il faut fixer des paramètres réels (appelés \emph{poids}). Les bons paramètres sont ceux qui permettent au réseau de répondre correctement à la problématique (du genre \og{}Est-ce une photo de chat ?\fg{}). Il n'y a pas de méthode directe pour trouver immédiatement quels sont les meilleurs paramètres. Ceux-ci sont obtenus par essais/erreurs, nous y reviendrons.
+
+Pour le moment, la question est de savoir : que sont de \og{}bons\fg{} paramètres ?
+
+
+
+Voyons le cas d'un seul paramètre avec le problème suivant :
+on se donne trois points du plan $A(1,2)$, $B(3,0)$ et $C(2,3)$. On cherche le point 
+$M(x,x)$ qui a la contrainte d'être sur la droite d'équation $(y=x)$  et qui approche au mieux les trois points $A$, $B$ et $C$. 
+
+\myfigure{1}{
+\tikzinput{fig_mini01}
+}
+
+
+Il faut préciser ce que l'on entend par \og{}approche au mieux\fg{}. Nous souhaitons que la somme des carrés des distances entre $M$ et chacun des points soit la plus petite possible. Nous allons définir une fonction d'erreur et chercher le point $M$ qui minimise cette erreur. 
+Définissons la fonction d'erreur :
+$$E(x) = AM^2 + BM^2 + CM^2.$$
+%qui mesure la distance au carré entre $M$ et les autres points.
+La formule algébrique est la suivante :
+$$E(x) = \left((x-1)^2+(x-2)^2\right)+\left((x-3)^2+(x-0)^2\right)+\left((x-2)^2+(x-3)^2\right).$$
+Il s'agit de trouver la valeur $x$ de sorte que $E(x)$ soit le plus petit possible.
+Pour cela, nous pouvons développer les termes de $E(x)$ et réécrire :
+$$E(x) = ax^2+bx+c \quad \text{ avec } a = 6,\  b = -22,\  c = 27.$$ 
+
+\myfigure{1}{
+\tikzinput{fig_mini03}
+}
+
+La courbe d'erreur est donc une parabole, la valeur la plus petite possible est atteinte en $x_0 = -b/2a = \frac{22}{12}=1.83\ldots$ qui correspond au sommet de la parabole.
+Pour cette valeur $x_0$, on trouve $E(x_0)=\frac{41}{6} = 6.83\ldots$ et tout autre paramètre $x\in\Rr$ vérifie $E(x) \ge E(x_0)$.
+
+Voici la configuration minimale avec $M_0 = (x_0,x_0)$.
+\myfigure{1}{
+\tikzinput{fig_mini02}
+}
+
+\bigskip
+
+
+
+De façon plus générale nous avons les définitions suivantes.
+\begin{definition}
+\index{minimum!local}
+\index{minimum!global}
+Soit $f : \Rr \to \Rr$ une fonction.
+\begin{itemize}
+  \item $f$ atteint un \defi{minimum global} en $x_0 \in \Rr$ si
+  pour tout $x \in \Rr$, on a $f(x) \ge f(x_0)$.
+  
+  \item$f$ atteint un \defi{minimum local} en $x_0 \in \Rr$ si
+  il existe un intervalle ouvert $I$, contenant $x_0$ et tel que 
+  pour tout $x \in I$, on a $f(x) \ge f(x_0)$. 
+\end{itemize}
+\end{definition}
+
+
+\myfigure{1.2}{
+\tikzinput{fig_mini04}
+}
+
+
+\begin{itemize}
+  \item On définirait de façon analogue un \defi{maximum global} et un \defi{maximum local}.
+  \item Comme son nom l'indique, pour savoir si on a un minimum local, on ne regarde que ce qui se passe autour de $x_0$ (l'intervalle $I$ peut être très petit autour de $x_0$).
+  \item Un minimum global est aussi un minimum local, mais l'inverse n'est pas vrai en général.
+\end{itemize}
+
+\bigskip
+
+Comme on l'a vu, trouver la meilleure solution d'un problème, correspond à trouver le minimum global d'une fonction. C'est un problème difficile en général. Par contre, il est facile de trouver des valeurs qui sont les candidats à être des minimums locaux.
+
+\begin{proposition}
+Si $f$ atteint un minimum local ou un maximum local en $x_0$ alors $f'(x_0) = 0$.
+\end{proposition}
+
+On appellera \defi{point critique}\index{point critique} une valeur $x_0$ vérifiant $f'(x_0)=0$.
+Voici l'interprétation géométrique : si $f$ atteint un minimum local ou un maximum local en $x_0$, alors la tangente au graphe en $x_0$ est horizontale.
+\myfigure{1.2}{
+\tikzinput{fig_mini05}
+}
+
+\begin{proof}
+Prenons le cas d'un minimum local en $x_0$.
+\begin{itemize}
+  \item Pour $x$ proche de $x_0$ avec $x>x_0$, on a $f(x_0) \le f(x)$, car en $x_0$ on atteint un minimum local. Donc le taux d'accroissement $\frac{f(x)-f(x_0)}{x-x_0}$ est positif. En passant à la limite, lorsque $x \to x_0$ avec $x>x_0$, on obtient que $f'(x_0) \ge 0$.
+  \item Pour $x$ proche de $x_0$ avec $x<x_0$, le taux d'accroissement $\frac{f(x)-f(x_0)}{x-x_0}$ est négatif (car cette fois $x-x_0<0$), à la limite, 
+ lorsque $x \to x_0$ avec $x<x_0$, on obtient que $f'(x_0) \le 0$.
+ \item Conclusion : $f'(x_0) \ge 0$ et $f'(x_0) \le 0$, donc $f'(x_0)=0$.
+\end{itemize}
+\end{proof}
+
+
+Reprenons, l'exemple de notre fonction $E(x) = 6x^2-22x+27$, et plus généralement celui d'une fonction $E(x) = ax^2+bx+c$, alors $E'(x)=2ax+b$. Le seul point en lequel la dérivée s'annule est $x_0 = -\frac{b}{2a}$ qui correspond bien au sommet de la parabole et est la valeur en laquelle la fonction $E$ atteint son minimum (ou bien son maximum si on avait $a<0$). Sur cet exemple le minimum local est aussi un minimum global.
+
+On termine avec un autre exemple un peu plus sophistiqué.
+
+\begin{exemple}
+Quel point de la parabole d'équation $(y=x^2)$ est le plus près du point $A$ de coordonnées $(1,2)$ ?
+
+\myfigure{1}{
+\tikzinput{fig_mini07}
+} 
+
+Les coordonnées d'un point $M$ appartenant à cette parabole sont de la forme $(x,x^2)$. 
+La distance entre $A$ et $M$ est donc :
+$$AM= \sqrt{(x-1)^2+(x^2-2)^2}.$$
+Mais trouver le plus petit $AM$ équivaut à trouver le plus petit $AM^2$.
+On définit donc comme fonction à minimiser 
+$$f(x) = AM^2 = (x-1)^2+(x^2-2)^2 = x^4 - 3x^2 - 2x + 5.$$
+
+
+\'Etudions cette fonction $f$.
+
+\begin{itemize}
+  \item Tout d'abord $f'(x) = 4x^3 - 6x - 2$.
+  \item Il faut chercher les valeurs en lesquelles $f$ s'annule. Ici il se trouve que $f'(-1)=0$, on peut donc factoriser $f'(x) = 2(x+1)(2x^2-2x-1)$.
+  Ainsi $f'(x)$ s'annule en deux autres valeurs, les solutions de $2x^2-2x-1=0$, c'est-à-dire en 
+%  Ainsi $f'(x)$ s'annule en 
+  $$x_1 = -1,\quad x_2 = \frac{1-\sqrt3}{2},\quad x_3 = \frac{1+\sqrt3}{2}.$$
+
+  \item On peut dresser le tableau de variations de $f$ puis tracer son graphe.
+   
+\myfigure{0.5}{
+\tikzinput{fig_mini06}
+}  
+  
+  
+  \item Maximum : $f$ admet un maximum local en $x_2$, mais $f$ n'a pas de maximum global.
+  
+  \item Minimums : $f$ admet un minimum local en $x_1$ et $x_3$. L'un des deux est un minimum global, mais lequel ? Il suffit de comparer $f(x_1)$ et $f(x_3)$ :
+  $$f(x_1) = 5, \qquad f(x_3) = \frac{11-6\sqrt{3}}{4}.$$
+  Ainsi le minimum global est atteint en $x_3$ avec
+  $$x_3 = \frac{1+\sqrt3}{2} = 1.36\ldots 
+  \quad \text{ et } \quad
+  f(x_3) = 0.15\ldots$$
+
+  \item Conclusion : le point de la parabole le plus proche du point $A$ est le point $M_3$ d'abscisse $x_3$ et d'ordonnée $x_3^2$. 
+  
+\myfigure{1}{
+\tikzinput{fig_mini08}
+}   
+  \item Remarque importante. Noter que le point $M_1$ (correspondant à $x_1$) est moins éloigné de $A$ que ses voisins proches, mais que ce n'est pas lui la solution du problème : $M_1$ correspond à un minimum local, mais pas un minimum global.
+\end{itemize}
+\end{exemple}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dérivée seconde}
+
+
+Nous avons vu que le nombre dérivé $f'(x_0)$ permet d'approcher les valeurs de $f(x)$ pour $x$ proche de $x_0$. La dérivée seconde permet de faire un peu mieux.
+
+  
+%--------------------------------------------------------------------
+\subsection{Définition}
+
+Soit $f : I \to \Rr$ une fonction dérivable, c'est-à-dire telle que $f'(x)$ existe pour tout $x \in I$. Nous notons $f'$ ou $x \mapsto f'(x)$ ou $\frac{\dd f}{\dd x}$ la fonction dérivée. 
+
+\begin{definition}
+La \defi{dérivée seconde} en $x_0$ (si elle existe) est la dérivée de la fonction $f'$, c'est-à-dire :
+$$(f')'(x_0).$$
+Nous noterons ce nombre $f''(x_0)$ ou bien $\frac{\dd^2 f}{\dd x^2}(x_0)$.
+\end{definition}
+
+Si la dérivée seconde existe pour tout $x\in I$, on obtient une fonction dérivée seconde notée $f''$ ou $x \mapsto f''(x)$ ou $\frac{\dd^2 f}{\dd x^2}$.
+
+\begin{exemple}
+\sauteligne
+\begin{itemize}
+  \item Soit $f(x)= x^3$. Calculons $f''(-2)$. On sait que $f'(x) = 3x^2$.
+  La dérivée de la fonction $f'$ est la fonction $f''$ définie par $f''(x) = 6x$.
+  Donc $f''(-2) = -12$.
+  
+  \item Soit $f(x) = \sin(x)$ alors $f'(x) = \cos(x)$ et la dérivée seconde est $f''(x) = - \sin(x)$.
+  
+  \item Soit $f(x) = \exp(x^2)$, alors $f'(x) = 2x \exp(x^2)$ et $f''(x) = (2 + 4x^2)\exp(x^2)$. 
+\end{itemize}
+\end{exemple}
+
+
+
+%--------------------------------------------------------------------
+\subsection{Concavité et minimum local}
+
+
+Le signe de la dérivée seconde informe sur l'allure du graphe :
+si la dérivée seconde est positive sur un intervalle, alors la fonction y est convexe. La courbe est en forme de $\cup$. Le modèle est $f(x)=x^2$ (dont la dérivée seconde est $f''(x)=2$, qui est bien positive).
+Si la dérivée seconde est négative sur un intervalle, alors la fonction y est concave.  La courbe est en forme de $\cap$. Le modèle est $f(x)=-x^2$ (avec $f''(x)=-2$).
+
+\myfigure{0.7}{
+\tikzinput{fig_derive23}
+}
+
+
+Cela va nous aider à déterminer si un point en lequel la dérivée s'annule, c'est-à-dire un point critique, est un minimum local ou un maximum local.
+
+
+\begin{proposition}
+\label{prop:minmax}
+\sauteligne
+\begin{itemize}
+  \item Si $f'(x_0)=0$ et $f''(x_0)>0$ alors $f$ atteint un minimum local en $x_0$.
+  
+  \item Si $f'(x_0)=0$ et $f''(x_0)<0$ alors $f$ atteint un maximum local en $x_0$.
+\end{itemize}
+\end{proposition}
+
+Si $f'(x_0)=0$ et $f''(x_0)=0$ alors on ne peut rien dire en général. Il faut étudier chaque fonction au cas par cas car tout peut arriver : un minimum local, un maximum local ou bien ni l'un ni l'autre. 
+% (Voir les exercices pour des exemples.)
+
+
+\begin{exemple}
+Cherchons les minimums et maximums locaux de la fonction $f$ définie par :
+$$f(x) = x^3-2x^2+2.$$
+
+\begin{itemize}
+  \item \textbf{Points critiques.}
+  On calcule $f'(x) = 3x^2-4x = x(3x-4)$ et on cherche les valeurs en lesquelles $f'$ s'annule.
+  Ici $f'$ s'annule en $x_1 = 0$ et en $x_2 = 4/3$.
+  
+  \item \textbf{Dérivée seconde en $x_1$.}
+  On calcule $f''(x) = 6x-4$. 
+  En $x_1$ on a $f''(x_1)=f''(0)=-4$, donc par la proposition \ref{prop:minmax},
+  $f$ admet un maximum local en $x_1$.
+
+  \item \textbf{Dérivée seconde en $x_2$.}
+  En $x_2$ on a $f''(x_2) = f''(\frac43)=+4$, donc par la proposition \ref{prop:minmax}, $f$ admet un minimum local en $x_2$.
+\end{itemize}
+
+\myfigure{1}{
+\tikzinput{fig_derive24}
+}
+
+Noter que $f$ n'admet aucun maximum global ni aucun minimum global sur $\Rr$.
+\end{exemple}
+
+
+\begin{proof}
+Prenons l'exemple d'un $x_0$ tel que $f'(x_0)=0$ et $f''(x_0)>0$.
+Nous supposons dans ce cours que les fonctions sont suffisamment régulières pour nos besoins. Ici nous supposons donc que $f''$ est continue, cela implique que $f''(x)>0$ pour $x$ dans un petit intervalle ouvert $]a,b[$ contenant $x_0$.
+
+On peut dresser le tableau de variation de $f$ sur $[a,b]$ :
+\begin{itemize}
+  \item $f''(x)$ est positive, donc $f'$ est strictement croissante sur $[a,b]$.
+  \item Comme $f'$ s'annule en $x_0$ alors $f'(x)$ est négatif pour $x$ dans $[a,x_0[$ et positif pour $x$ dans $]x_0,b]$.
+  \item Ainsi $f$ est décroissante sur $[a,x_0]$ puis croissante sur $[x_0,b]$.
+  \item Donc en $x_0$, $f$ atteint bien un minimum local.
+\end{itemize}
+\end{proof}
+
+
+% \todo{Exercice python : formule limite $f''(x)$ avec $(f(x+h)-2f(x)+f(x-h))/h^2$.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Méthode de Newton}
+
+\index{methode de Newton@méthode de Newton}
+
+La méthode de Newton est une façon efficace de trouver une solution approchée d'une équation $f(x)=0$. Dans le paramétrage d'un réseau de neurones, il ne s'agit pas de trouver une valeur en laquelle la fonction s'annule mais une valeur en laquelle la fonction d'erreur atteint son minimum. Alors à quoi bon étudier la méthode de Newton ?
+
+Tout d'abord, pour trouver le minimum de $f$, il faut identifier les points en lesquels $f'$ s'annule. Il s'agit donc de résoudre l'équation $f'(x)=0$ ce qui peut se faire par la méthode de Newton (appliquée à $f'$). %et pas à $f$).
+Ensuite, la méthode de Newton consiste à suivre le graphe selon la direction de la tangente. C'est une idée fondamentale que l'on retrouvera plus tard lors de l'étude de la \og{}descente de gradient\fg{} pour minimiser des fonctions de plusieurs variables.
+
+
+
+%--------------------------------------------------------------------
+\subsection{Principe}
+
+Pour chercher une valeur approchée de $\ell$ de $[0,1]$ telle que $f(\ell)=0$,  on pourrait par exemple calculer $f(0.00)$, $f(0.01)$, $f(0.02)$,\ldots,$f(1.00)$ et choisir pour $\ell$ celui qui donne la valeur la plus proche de $0$. C'est une méthode très lente (il faut ici évaluer $100$ fois la fonction $f$) et peu précise (la précision sera de l'ordre $10^{-2}$, soit deux chiffres exacts après la virgule).
+
+On va voir une autre méthode plus efficace pour obtenir une valeur approchée d'une solution $\ell$ de $f(\ell)=0$.
+
+
+L'idée de la méthode de Newton est d'utiliser la tangente :
+\begin{itemize} 
+  \item on part d'une valeur $x_0$ quelconque,
+  \item on trace la tangente au graphe de $f$ au point d'abscisse $x_0$,
+  \item cette tangente recoupe l'axe des abscisses en un point d'abscisse $x_1$ (figure de gauche),
+  \item cette valeur $x_1$ est plus proche de $\ell$ que ne l'est $x_0$,
+  \item on recommence à partir de $x_1$ : on trace la tangente, elle recoupe l'axe des abscisses, on obtient une valeur $x_2$\ldots{} (figure de droite).
+\end{itemize}
+  
+\myfigure{1}{
+\tikzinput{fig_zeros08}\quad
+\tikzinput{fig_zeros10}
+} 
+  
+Partons d'un $x_0$ quelconque et voyons comment calculer $x_1$, la valeur suivante de la suite. L'équation de la tangente en $x_0$ est :
+$$y = (x-x_0) f'(x_0) + f(x_0).$$
+On cherche le point $(x_1,y_1)$ en lequel la tangente recoupe l'axe des abscisses. Un tel point vérifie donc l'équation de la tangente avec en plus $y_1=0$, ainsi :
+$$0 = (x_1-x_0) f'(x_0) + f(x_0).$$
+Donc 
+$$x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}.$$
+
+  
+%--------------------------------------------------------------------
+\subsection{Suite}
+  
+On va ainsi définir par récurrence une suite $(x_n)$.  
+L'équation de la tangente en une valeur $x_n$ est donnée par 
+$y = f'(x_n)(x-x_n)+f(x_n)$. %On obtient une suite définie par récurrence :
+
+
+En partant d'une valeur $x_0$, on obtient une formule de récurrence, pour $n\ge0$  :
+\mybox{$\displaystyle x_0 \quad \text{ est donné } \qquad \text{ et } \qquad x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \quad \text{ pour } n \ge 0$.}
+
+
+Pour que cette méthode fonctionne, il faut tout de même partir d'une valeur $x_0$ pas trop éloignée de la solution $\ell$ cherchée.
+
+\begin{exemple}
+On cherche une valeur approchée de $\sqrt[3]{100}$.
+
+\begin{itemize}
+  \item Soit $f$ définie par $f(x)=x^3-100$. L'unique valeur en laquelle $f$ s'annule est bien le réel $\ell$ qui vérifie $\ell^3=100$, c'est-à-dire $\ell = \sqrt[3]{100}$.
+  
+  \item On calcule $f'(x) = 3x^2$.
+  
+  \item On part de $x_0=10$ par exemple.
+  
+  \item On calcule $f(x_0) = 900$ et $f'(x_0) = 300$. Par la formule de récurrence :
+  $$x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = 7$$
+  
+  \item On calcule $f(x_1) = f(7) = 243$, $f'(x_1) = f'(7) = 147$ et donc
+  $$x_2 = x_1 - \frac{f(x_1)}{f'(x_1)} = \frac{262}{49} = 5.3469\ldots$$ 
+  
+  \item Puis $x_3 = 4.7305\ldots$
+  
+  \item Puis $x_4 = 4.6432\ldots$ 
+  
+  \item Puis $x_5 = 4.6415894\ldots$   qui a déjà $5$ chiffres après la virgule de corrects.
+  
+  \item Et $x_6 = 4.641588833612\ldots$  qui a $12$ chiffres après la virgule de corrects. 
+\end{itemize}
+
+Pour le plaisir et pour appréhender la vitesse extraordinaire de convergence, voici le terme $x_{13}$ (après $n=13$ itérations) qui donne $1000$ chiffres exacts après la virgule pour $\sqrt[3]{100}$.
+\begin{center}
+{\footnotesize
+4. \hphantom{64158883361277889241007635091944657655134912501124x}  \\
+64158883361277889241007635091944657655134912501124 \ 
+36376506928586847778696928448261899590708975713798 \\
+41543308228265404820510270287495774377362322395030 \ 
+21465094177426719650916295452146089763366938104116 \\
+28606533596551384853869619496157227826277315767548 \ 
+83017169207448098556934156362916689287996611195246 \\
+16679670077293548124686871765259065725471337341531 \ 
+84860446462178977769897212428546914463963789526871 \\
+82014556020545505584013855637728160923375212916394 \ 
+80860747839555773984257273946686109226799406050704 \\
+02442029854177300120407410232413879663173270034106 \ 
+06737496780919282092017340424063011069619562088429 \\
+61382086140688243128977537380423154514270094830453 \ 
+92228536191076596869380984898548880361175285974621 \\
+54055836006657079466872481552449410810797956289034 \ 
+29915634432197012553305943982255082950700356942961 \\
+35930373637320850012819533899529732642969005258003 \ 
+48542372295980181985171325034488774422768662481827 \\
+78772197705070286933786368810026273023928761425717 \ 
+31457550215784934201074501143121549887585570334866\  \\
+  }
+\end{center}
+
+\end{exemple}
+
+
+%--------------------------------------------------------------------
+\subsection{Algorithme}
+
+\textbf{Algorithme de la méthode de Newton.}
+
+ \begin{itemize}
+   \item 
+   \begin{itemize} 
+       \item Entrée : une fonction $f$, une valeur de départ $x_0$, un nombre d'itérations $n$.
+       \item Sortie : une valeur approchée de $\ell$ tel que $f(\ell)=0$.
+     \end{itemize}
+    
+  \item Poser $x = x_0$.
+  \item Répéter $n$ fois:
+ $$x \leftarrow x - \dfrac{f(x)}{f'(x)}$$
+        
+   \item \`A la fin renvoyer $x$ (qui approche une solution $\ell$).
+ \end{itemize}  
+ 
+ 
+%--------------------------------------------------------------------
+\subsection{Exemple}
+
+\textbf{Objectif.} Trouver la valeur de $\ell$ en laquelle la fonction $g(x) = x^2-\sin(x)+1$ atteint son minimum.
+
+\myfigure{1}{
+\tikzinput{fig_zeros09}
+}
+
+\textbf{Méthode.} Il n'existe pas de méthode exacte pour trouver cette solution, nous allons donner une solution approchée de $\ell$.
+
+Calculons la dérivée de $f$ ainsi que sa dérivée seconde : 
+$$g'(x) = 2x-\cos(x), \qquad g''(x) = 2 + \sin(x).$$
+Une étude de fonction très simple montre que : (a) $g''(x)>0$, la dérivée est donc strictement croissante ; (b) la dérivée ne s'annule qu'en une seule valeur $\ell$ qui est la solution de $g'(x)=0$ autrement dit $\cos(x)=2x$.
+
+On pose donc $f(x) = 2x-\cos(x)$ (c'est-à-dire $f(x)=g'(x)$) et on applique la méthode de Newton à $f$.
+ 
+Partons de $x_0 = 0$.
+Voici la suite obtenue et l'erreur commise à chaque étape.
+
+$$
+\begin{array}{l|l}
+  x_0 = 0                  	 & \epsilon_0 \le 1 \\
+  x_1 = 0.5  				 & \epsilon_1 \le 10^{-1} \\
+  x_2 = 0.4506266930\ldots   & \epsilon_2 \le 10^{-3} \\
+  x_3 = 0.4501836475\ldots   & \epsilon_3 \le 10^{-7} \\
+  x_4 = 0.4501836112\ldots   & \epsilon_4 \le 10^{-15} \\
+\end{array}
+$$
+
+
+\textbf{Conclusion.} 
+Une valeur approchée de $\ell$ est donc donnée par 
+$$\ell \simeq 0.4501836112$$
+et en ce point $f(\ell)=0$ (donc $g'(\ell)=0$) et $g$ atteint sa valeur minimale :
+$$g(\ell) \simeq 0.7675344248.$$
+
+Partir d'une autre valeur, par exemple $x_0 = 10$, conduit rapidement à la même 
+solution.
+$$
+\begin{array}{l}
+x_0 = 10 \\
+x_1 = -4.3127566511\ldots\\
+x_2 = -1.4932228819\ldots\\
+x_3 =  1.5615319504\ldots\\
+x_4 =  0.5235838839\ldots\\
+x_5 =  0.4511295428\ldots\\
+x_6 =  0.4501837766\ldots\\
+x_7 =  0.4501836112\ldots\\
+\end{array}
+$$
+
+
+
+
+
+\end{document}

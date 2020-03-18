@@ -1,0 +1,93 @@
+% Picture by Kroum Tzanev
+\tikzset{
+  pics/grid matrix/.style ={
+    code = {
+      \foreach[count=\i from 0] \l in {#1}
+          \xdef\n{\i}; % \n va contenir le nombre de lignes
+      \fill (0,0) rectangle (\n,\n); % rempli le fond
+      \draw[draw grid/.try] (0,0) grid (\n,\n); % dessine la grille
+      \draw[line width=1pt] (0,0) rectangle (\n,\n); % dessine la bord extérieur
+      \foreach[count=\j] \l in {#1}
+        \foreach[count=\i] \e in \l{
+          % on place les nombres à l'intérieur de la grille
+          \path ({\i-.5},{\n+.5-\j}) node[transform shape,M\i\j/.try] (-M\i\j){\e};
+        }
+    }
+  },
+  grid color/.style={
+  	draw grid/.style=#1
+  }
+}
+
+  \begin{tikzpicture}[yscale=1.3,xscale=.9,yslant=.35,nodes={font=\bfseries\sffamily\huge},z={([yslant=-.35]1,0)}]
+    \def\xK{0}
+    \def\yK{6}
+    \def\zK{4}
+    \def\zS{12}\pgfmathsetmacro\zKS{\zS-\zK}
+    \path (0,0,0)
+      pic[
+        fill=blue!50!green!5,
+        grid color=blue,
+        draw=blue,
+        transform shape
+      ] (I)
+      {
+        grid matrix=
+        {
+          {, , , , , , , ,},
+          {, , , , , , , ,},
+          {, , , , , , , ,},
+          {, , , , , , , ,},
+          {, , , , , , , ,},
+          {, , , , , , , ,},
+          {, , , , , , , ,},
+          {, , , , , , , ,},
+          {, , , , , , , ,},
+        }
+      }
+    ;
+    \draw[blue, ultra thick] (\xK,\yK,0) rectangle ++(3,3,0);
+    % la connexion I -> K
+   \fill[opacity=.1,red] (\xK,\yK,0) -- (3,5,\zS) -- ++(1,0,0) -- (\xK+3,\yK,0);
+    \fill[opacity=.1,red] (\xK,\yK,0) -- (3,5,\zS) -- ++(0,1,0) -- (\xK,\yK+3,0);           \fill[opacity=.03,red] (\xK,\yK+3,0) -- (3,6,\zS) -- ++(1,0,0) -- (\xK+3,\yK+3,0);
+ % 
+%     \fill[opacity=.1,blue] (\xK,\yK,\zK) -- ++(1,1,\zKS) -- ++(1,0,0) -- ++(1,-1,-\zKS);
+%     \fill[opacity=.1,blue] (\xK,\yK,\zK) -- ++(1,1,\zKS) -- ++(0,1,0) -- ++(-1,1,-\zKS);
+%     \fill[opacity=.03,blue] (\xK,\yK+3,\zK) -- ++(1,-1,\zKS) -- ++(1,0,0) -- ++(1,1,-\zKS) ;
+
+    \draw (\xK,\yK,0) -- (3,5,\zS);
+    \draw (\xK,\yK+3,0) -- (3,6,\zS);
+    \draw (\xK+3,\yK,0) -- (4,5,\zS);
+    \draw (\xK+3,\yK+3,0) -- (4,6,\zS);
+
+
+
+    \path (3,3,\zS)
+      pic[
+        grid color=red,
+        draw=red,
+        fill=red!70!blue!7,
+        fill opacity=.5,
+        text opacity=1,
+        transform shape
+      ] (K)
+      {
+        grid matrix=
+        {
+          {, , },
+          {, , },
+          {, , },
+        }
+      }
+    ;
+
+    \draw[red!84!blue, ultra thick] (3,5,\zS) rectangle ++(1,1,0);
+
+
+  \end{tikzpicture}
+
+
+
+
+
+

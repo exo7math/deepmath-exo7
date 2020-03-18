@@ -1,0 +1,32 @@
+\begin{tikzpicture} 
+
+	\draw[->,>=latex, gray, very thin] (-0.5,0) -- (3.3,0);
+	\draw[->,>=latex, gray, very thin] (0,-0.5) -- (0,2.8);
+
+%	\draw[domain=-0.25:2.5,black,thick,smooth] plot (\x,{0.6+0.4*\x+0.6*cos(4*\x r)});
+
+    \draw[domain=0:2.35, blue,very thick,smooth] plot (\x,{2-(\x-1)^2)});
+
+
+   \def \x{0.7}
+    \coordinate (A) at ({\x},{2-(\x-1)^2)});
+    \fill (A) circle (1.5pt); % node[above] {$M_0$};
+
+    \draw[red,thick] (A)--+(1.5,{1.5*(2-2*\x)}) ;
+    \draw[red,thick] (A)--+(-1.5,{-1.5*(2-2*\x)}) ;
+
+  \draw[dashed] (A)--({\x},0) node[below]{$x_0$};
+  \draw[dashed] (A)--(0,{2-(\x-1)^2)}) node[left]{$f(x_0)$};  
+
+%\foreach \i in {4,3,...,1}
+%{
+%  \def\xx{\x + 1.5-0.3*\i};
+%    \coordinate (M) at ({\xx},{2-(\xx-1)^2)});
+%    \fill (M) circle (1.5pt);
+%    \draw (A)--(M)--+($\i*(M)-\i*(A)$)--(A)--+($\i*(A)-\i*(M)$);
+%    \coordinate (P) at ({\xx},0);
+%};
+%  \draw[dashed] (M)--(P) node[below]{$x$};
+%  \node[above right] at (M) {$M$};
+
+\end{tikzpicture}

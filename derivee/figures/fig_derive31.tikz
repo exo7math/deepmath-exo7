@@ -1,0 +1,28 @@
+\begin{tikzpicture}[scale=1.5]
+
+\draw[->,>=latex, gray] (-3.5,0)--(3.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-1)--(0,1.5) node[left] {$y$};
+
+%\draw[ultra thick,red] (-3,0) -- (0,0) -- (2,2);
+
+\draw[ultra thick, color=red,domain=-3:3,smooth] plot (\x,{(exp(\x)-exp(-\x))/(exp(\x)+exp(-\x)});
+\draw[dashed] (0,1.02)--(3,1.02);
+\draw[dashed] (0,-1.02)--(-3,-1.02);
+
+\node at (3,0.8)[below]{$y=\operatorname{tanh}(x)$};
+
+\fill[red] (0,0) circle (1pt);
+\fill[red] (1,0) circle (1pt);
+\fill[red] (0,1) circle (1pt);
+\fill[red] (0,-1) circle (1pt);
+
+\node at (0,0) [below right] {$0$};
+\node at (1,0) [below] {$1$};
+\node at (0,1) [left] {$1$};
+\node at (0,-1) [right] {$-1$};
+
+%\draw[dashed] (1,0)--(1,1) --(0,1);
+
+
+\node at (-2,1.2) {\bf Fonction tangente hyperbolique};
+\end{tikzpicture}

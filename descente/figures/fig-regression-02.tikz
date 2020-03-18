@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+
+\draw[->,>=latex, gray] (-1,0)--(6.5,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-1)--(0,6.5) node[left] {$y$};
+\draw[gray] (0,0) grid (6,6);
+
+\draw[red,ultra thick] (0,3) -- (6,6) node[black, right]{$y=\frac12 x+3$};
+
+\coordinate (A) at (0,3);
+\coordinate (B) at (2,4);
+\coordinate (C) at (6,6);
+
+\fill[blue] (A) circle (2pt) node[above left]{$A_1$};
+\fill[blue] (B) circle (2pt) node[above left]{$A_2$};
+\fill[blue] (C) circle (2pt) node[above left]{$A_3$};
+
+
+
+
+% \draw[ultra thick, blue] (A)--(1,1.6);
+% \draw[ultra thick, blue] (B)--(3,2.7);
+% \draw[ultra thick, blue] (C)--(5,3.8);
+
+
+\end{tikzpicture}

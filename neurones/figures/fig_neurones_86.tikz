@@ -1,0 +1,33 @@
+\begin{tikzpicture}[scale=1]
+
+\draw[->,>=latex, gray] (-0.5,0)--(13,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,7) node[left] {$y$};
+
+\draw[ultra thick,red] (-0.5,0) -- (2,0);
+\draw[ultra thick,red] (2,4) -- (3,4);
+
+\draw[ultra thick,red] (3,0) -- (5,0);
+\draw[ultra thick,red] (5,6) -- (10,6);
+\draw[ultra thick,red] (10,0) -- (12,0) node[above]{$F(x)$};
+
+\fill[black] (0,1) circle (1pt);
+\fill[black] (1,0) circle (1pt);
+
+\node at (0,0) [below left] {$0$};
+\node at (0,1) [left] {$1$};
+\node at (1,0) [below] {$1$};
+
+\node at (2,0) [below] {$2$};
+\node at (3,0) [below] {$3$};
+\node at (5,0) [below] {$5$};
+\node at (10,0) [below] {$10$};
+
+\draw[dashed] (2,4)--(0,4) node[left]{$4$};
+\draw[dashed] (5,6)--(0,6) node[left]{$6$};
+
+\draw[dashed] (2,0)--(2,4);
+\draw[dashed] (3,0)--(3,4);
+\draw[dashed] (5,0)--(5,6);
+\draw[dashed] (10,0)--(10,6);
+
+\end{tikzpicture}

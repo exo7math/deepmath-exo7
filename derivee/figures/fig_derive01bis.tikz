@@ -1,0 +1,10 @@
+\begin{tikzpicture}[node distance=4cm, every edge/.style={draw,thick,->}]
+     \node(E){$x$};
+     \node[right of=E](F){$y = f(x)$};
+     \node[right of=F](G){$z = g(y) = g\big( f(x) \big)$};
+     \draw (E) edge[|->] (F);
+     \draw (E.north) edge[red, bend left=45] node[above]{$f$} (F.north west);
+     \draw (F) edge[|->] (G);
+     \draw (F.north east) edge[red, bend left=45] node[above]{$g$} (G.north);
+     \draw (E.south) edge[red, bend right] node[below]{$g\circ f$} (G.south);       
+\end{tikzpicture}

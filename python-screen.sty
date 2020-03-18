@@ -1,0 +1,534 @@
+% \mainfolder est ../ si compilation d'un chapitre, sinon c'est vide
+\ProvidesPackage{\mainfolder python-screen}
+% ----------------------------------------------------------------------
+% Format de la page
+\usepackage[a4paper,
+  nomarginpar, nofoot,
+  margin = 2cm,
+  %top=0.5in,
+  %right=0.8in, left=0.8in, top=0.5in, bottom=0.7in,
+  bindingoffset=0cm,
+  headsep=21pt, heightrounded,
+%  showframe,
+]{geometry}
+% pas de retrait
+\setlength{\parindent}{0cm}
+% Espace interligne (+ xx%)
+\linespread{1.1}
+
+% ======================================================================
+\usepackage{\mainfolder python-common}
+% ======================================================================
+
+% ----------------------------------------------------------------------
+% Police par defaut
+\usepackage[charter,cal=cmcal]{mathdesign}
+
+
+% Police pour l'entete
+%\newcommand{\entetefonte}[1]{\fontfamily{lmss}\selectfont\textls[-10]{\textsc{#1}}}
+\newcommand{\entetefonte}[1]{\textls[-10]{\textsc{#1}}}
+
+% Police pour les sections
+\newcommand{\sectionfonte}{\fontfamily{phv}\bfseries}
+
+% ----------------------------------------------------------------------
+% Microtype
+%\frenchbsetup{AutoSpacePunctuation=false}
+\usepackage[kerning=true,activate={true,nocompatibility},final,tracking=true,spacing=true,factor=1100,stretch=20,shrink=20]{microtype}
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use "draft" to disable
+% tracking=true, kerning=true, spacing=true - activate these techniques
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+%\SetExtraKerning[name=frenchdefault,context=french,unit=space]{encoding={OT1,T1,LY1}}{'= {200,100},}
+% ----------------------------------------------------------------------
+% Overfull/Underfull
+\tolerance=250%
+\emergencystretch=1.5em%
+\hfuzz=2pt % Pas de warning overfull horizontal
+\vfuzz=2pt % Pas de warning overfull vertical
+\hbadness=10000 % Pas de warning underfull
+\vbadness=10000 % Pas de warning underfull
+% ----------------------------------------------------------------------
+% saut de page
+\usepackage{needspace}
+% ----------------------------------------------------------------------
+% reduction espace pour les environnement align and co
+\usepackage{etoolbox}
+\newcommand{\smalldisplayskips}{%
+\setlength{\abovedisplayskip}{4pt plus 3pt}%
+\setlength{\belowdisplayskip}{4pt plus 3pt}%
+\setlength{\abovedisplayshortskip}{1pt plus 3pt}%
+\setlength{\belowdisplayshortskip}{1pt plus 3pt}%
+}
+\appto{\normalsize}{\smalldisplayskips}
+\appto{\small}{\smalldisplayskips}
+\appto{\footnotesize}{\smalldisplayskips} 
+% ----------------------------------------------------------------------
+% Sommaire
+\usepackage[titles]{tocloft}  % pour l'indentation des pages > 100
+\setlength{\cftchapnumwidth}{2.55em}
+\setlength{\cftsecindent}{2.55em}
+%\usepackage{titletoc}  % Inutile
+%\addto\captionsfrancais{\def\contentsname{Sommaire}}  % Ne marche pas !
+\AtBeginDocument{\renewcommand{\contentsname}{Sommaire}}
+% ----------------------------------------------------------------------
+
+% ----------------------------------------------------------------------
+
+
+% ----------------------------------------------------------------------
+% Définition d'un terme, mise en relief
+% Définition d'un terme, mise en relief
+\newcommand{\defi}[1]{{\color{myorange}\textbf{\emph{#1}}}}
+\newcommand{\evidence}[1]{{\color{blue}\textbf{\emph{#1}}}}
+\newcommand{\assertion}[1]{{\og\emph{#1}\fg}} % pour chapitre logique
+
+% ----------------------------------------------------------------------
+% Titre du livre
+\newcommand{\montitre}[1]{
+% Pour la numerotation d'avant chapitres
+%\pdfcatalog{%
+%  /PageLabels<<%
+%    /Nums[%
+%      % Page numbers are zero based.
+%      % Uppercase roman numbers starting with first page.
+%      0<</S/a>>%
+%      % Arabic numbers starting with current page.
+%      \the\numexpr\value{page}-1\relax<</S/r>>%
+%    ]%
+%  >>%
+%}
+\pagestyle{empty}\thispagestyle{empty}
+\begin{center}
+\Huge #1
+\end{center}
+\begin{center}
+\LogoExoSept{5}
+\end{center}
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\tableofcontents
+\pagestyle{chapterpage}
+}
+
+% ----------------------------------------------------------------------
+% Les chapitres
+
+% Pour figure titre \part deepmath
+\newcommand\mynetwork[1]{
+\def\numpart{\the\numexpr\value{part}}
+\begin{center} 
+\begin{tikzpicture}
+\pgfmathsetmacro\k{1+2*\numpart}  
+\pgfmathsetmacro\kk{\k +2}
+\pgfmathsetmacro\halfk{\k/2}
+\pgfmathsetmacro\halfkk{\kk/2}
+\pgfmathsetmacro\scale{3/\k}
+   \def\layersep{4 cm}
+    \tikzstyle{every pin edge}=[<-,shorten <=1pt,thick]
+    \tikzstyle{neuron}=[circle,fill=black!25,minimum size=10*\scale pt,inner sep=0pt]
+    \tikzstyle{entree}=[];
+    \tikzstyle{input neuron}=[neuron, fill=green!50];
+    \tikzstyle{output neuron}=[neuron, fill=red!50];
+    \tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+    \tikzstyle{annot} = [text width=4em, text centered]
+    % Premiere couche
+    \foreach \name / \y in {1,...,\k}{
+    % This is the same as writing \foreach \name / \y in {1/1,2/2,3/3,4/4}
+   \path[yshift=-\halfk*\scale cm,yshift=-0.5*\scale cm]
+        node[input neuron] (I-\name) at (0,\y*\scale) {};
+}
+    %Seconde couche
+     \foreach \name / \y in {1,...,\kk}{
+         \path[yshift=-\halfkk*\scale cm,yshift=-0.5*\scale cm]
+             node[hidden neuron] (H-\name) at (\layersep,\y*\scale cm) {};
+      }
+    % Connect every node in the input layer with every node in the
+    % hidden layer.
+    \foreach \source in {1,...,\k}{
+        \foreach \dest in {1,...,\kk}{
+            \path[thick] (I-\source) edge (H-\dest);
+        }
+    }        
+\end{tikzpicture}  
+\end{center}
+}  
+% Fin figure \part deepmath
+
+\newcommand{\debutchapitres}{\cleardoublepage\pagestyle{main}\thispagestyle{empty}\setcounter{page}{1}
+% Pour la numerotation coherente pdf/latex
+\pdfcatalog{%
+  /PageLabels<<%
+    /Nums[%
+      % Page numbers are zero based.
+      % Uppercase roman numbers starting with first page.
+      0<</S/R>>%
+      % Arabic numbers starting with current page.
+      \the\numexpr\value{page}-1\relax<</S/D>>%
+    ]%
+  >>%
+}
+}
+
+%\usepackage[explicit,pagestyles]{titlesec}  %-> Baculer dans scratch-common.sty-
+\ifPDFTeX % PDFLaTeX
+  \newcommand{\ugqfont}{\fontfamily{ugq}}
+\else
+  \newcommand{\ugqfont}{\fontspec{URWGrotesk-bold.ttf}}
+\fi
+
+\titleformat{\part}[display]
+  {\Huge\center\scshape}% format
+  {\titlerule[3pt]\vspace{3pt}\titlerule[1pt]\vspace{20pt}%
+\partname~\thepart\\[25pt]%
+\mynetwork{\value{part}}
+  %\includegraphics[width = 6cm]{divers/logoScratchAuCollege}
+  %\\
+\MakeLowercase{#1}}% label
+  {15pt}% sep
+  {% the title
+  \titlerule[1pt]\vspace{3pt}\titlerule[3pt]\vspace{4pc}
+  }  
+  
+\titleformat{\chapter}[block]
+  {\raggedleft\ugqfont}% format
+  {}% label
+  {0pt}% sep
+  {% the title
+    \begin{tikzpicture}
+      \node[black, above left, inner ysep=0pt, text width=.7\linewidth, align=right, node font=\huge]{\color{Firebrick4}#1};
+      \draw[lightgray,line width=5pt] (0,-.1) -- (0,2.1);
+      \ifstandalone % Style chapitre si on compile un seul chapitre : pas numéro
+      \else % Style chapitre si on compile un seul livre
+        \coordinate (C) at (2,1.7);
+        \node[left, lightgray, inner sep=0pt] at (C) {\chaptertitlename};
+        \node[left, lightgray, inner sep=0pt, scale=3] at ([yshift=-20pt]C) {~\thechapter};
+      \fi
+    \end{tikzpicture}
+  }
+\titleformat{name=\chapter,numberless}[block]
+  {\raggedleft\ugqfont}% format
+  {}% label
+  {0pt}% sep
+  {% the title
+    \begin{tikzpicture}
+      \node[black, above left, inner ysep=0pt, text width=.7\linewidth, align=right, node font=\huge]{\color{Firebrick4}#1};
+      \draw[lightgray,line width=5pt] (0,-.1) -- (0,2.1);
+    \end{tikzpicture}
+  }
+ 
+\newcommand{\chapitre}[2][]{
+\clearemptydoublepage\thispagestyle{empty}
+\setcounter{theoreme}{0}
+\setcounter{proposition}{0}
+%\setcounter{exemple}{0}
+%\setcounter{lemme}{0}
+%\setcounter{corollaire}{0}
+%\setcounter{definition}{0}
+%\setcounter{tp}{0}
+%\setcounter{exercicecours}{0}
+%\setcounter{equation}{0}
+%\setcounter{activite}{0}
+%\setcounter{cours}{0}
+
+\ifx&#1&\chapter{#2}\else\chapter[#1]{#2}\fi
+}
+\newcommand{\finchapitre}{}
+% les sections
+
+\makeatletter
+\renewcommand{\thesection}{\@arabic\c@section}
+% \renewcommand{\thechapter}{}
+% \renewcommand{\chaptername}{}
+\makeatother
+
+
+\titleformat{\section}
+  {\Needspace{10\baselineskip}\sectionfonte\selectfont\color{Firebrick3}\LARGE}% format
+  {}% label
+  {0pt}% sep
+  {\thesection.~#1}
+
+\titleformat{name=\section,numberless}
+  {\Needspace{10\baselineskip}\sectionfonte\selectfont\color{Firebrick3}\LARGE}% format
+  {}% label
+  {0pt}% sep
+  {#1}
+
+% les sous-sections
+\titleformat{\subsection}
+  {\Needspace{5\baselineskip}\sectionfonte\selectfont\color{Firebrick1}\Large}% format
+  {}% label
+  {0pt}% sep
+  {\thesubsection.~#1}
+
+\titleformat{name=\subsection, numberless}
+  {\Needspace{5\baselineskip}\sectionfonte\selectfont\color{Firebrick1}\Large}% format
+  {}% label
+  {0pt}% sep
+  {#1}
+
+
+% ----------------------------------------------------------------------
+% Format en-têtes
+%\usepackage{titleps} % chargé par titlesec, je suppse
+\newpagestyle{main}[\small]{
+  \setheadrule{0pt}%{.55pt}
+  \sethead[{\color{gray}\entetefonte{\chaptertitle}}]% even-left
+          []% even-center
+          [\large\textbf{\thepage}]% even-right
+          {{\color{gray}\entetefonte{\chaptertitle}}}% odd-left
+          {}% odd-center
+          {\large\textbf{\thepage}}% odd-right
+  %\renewcommand\makeheadrule{\color{lightgray}\rule[-.3\baselineskip]{\linewidth}{0.4pt}}
+}
+\newpagestyle{chapterpage}[\small]{
+  \setheadrule{0pt}%
+  \sethead[]% even-left
+          []% even-center
+          []% even-right
+          {}% odd-left
+          {}% odd-center
+          {}% odd-right
+  %\renewcommand\makeheadrule{\color{lightgray}\rule[-.3\baselineskip]{\linewidth}{0.4pt}}
+}
+\assignpagestyle{\chapter}{chapterpage}
+\pagestyle{main}
+% ----------------------------------------------------------------------
+% Personnalisation pour les théorèmes,...
+\usepackage{amsthm}
+
+\newtheoremstyle{theoremeexo7}% name
+{3pt}% Space above
+{3pt}% Space below
+{\itshape}% Body font
+{}% Indent amount
+{\bfseries}% Theorem head font
+{.\newline}% Punctuation after theorem head
+{0pt\Needspace{3\baselineskip}}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’ )
+
+\newtheoremstyle{definitionexo7}% name
+{3pt}% Space above
+{3pt}% Space below
+{\upshape}% Body font
+{}% Indent amount
+{\bfseries}% Theorem head font
+{.\newline}% Punctuation after theorem head
+{0pt\Needspace{3\baselineskip}}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’ )
+
+
+\theoremstyle{theoremeexo7}
+\newtheorem{theoreme}{Théorème}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{propriete*}{Propriété}
+\newtheorem{lemme}{Lemme}
+\newtheorem{corollaire}{Corollaire}
+
+\theoremstyle{definitionexo7}
+\newtheorem*{definition}{Définition}
+\newtheorem*{remarque*}{Remarque}
+\newtheorem*{exercicecours}{Exercice}
+
+\newtheorem{activite}{Activité}
+\newtheorem{cours}{Cours}
+\newtheorem*{algorithme}{Algorithme}
+\newtheorem*{moncode}{Code}
+\newtheorem{enigme}{\'Enigme}
+\newtheorem*{exemple}{Exemple}
+
+% legèrement personnalisées
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems, skins, breakable}
+\tcbuselibrary{listings}
+\tcbset{listing engine=listings}
+
+\tcbset{
+  leftlined/.style 2 args={
+    blanker, breakable,
+    borderline west={#1}{0pt}{#2},left={#1*14/10+7pt},top=2.5ex, bottom=2.5ex
+  }
+}
+
+\tcolorboxenvironment{activite}{leftlined={5pt}{gray}}
+\tcolorboxenvironment{enigme}{leftlined={5pt}{gray}}
+\tcolorboxenvironment{algorithme}{leftlined={3pt}{lightgray}}
+
+\tcolorboxenvironment{exemple}{leftlined={3pt}{lightgray}}
+
+\tcolorboxenvironment{cours}{leftlined={3pt}{lightgray,decorate,decoration={name=zigzag}}}
+
+
+% Code 
+%\tcolorboxenvironment{moncode}{leftlined={5pt}{gray}}
+
+\tcolorboxenvironment{moncode}{fonttitle=\bfseries\upshape,fontupper=\itshape,
+colframe=red!50!black,colback=black!5!white,colbacktitle=green!20!white,coltitle=blue!75!black,titlerule=3mm}
+
+
+
+% ----------------------------------------------------------------------
+% Encadrement auteurs
+\newcommand{\auteurs}[1]{\vspace*{\fill}\textbf{\ugqfont\selectfont\color{gray}Auteurs du chapitre }#1
+}
+
+% ----------------------------------------------------------------------
+% Encadrement des formules
+\usepackage{fancybox}
+%\setlength{\fboxsep}{7pt}
+%\newcommand{\mybox}[1]{\begin{center}\shadowbox{#1}\end{center}}
+%\newcommand{\myboxinline}[1]{\raisebox{-2ex}{\shadowbox{#1}}}
+% ---- autre version
+\usepackage{varwidth}
+\tikzset{
+  block/.style = {
+    minimum height=1em,
+    inner xsep=.8em, inner ysep=.45em,
+    draw=black, thick, %rounded corners,
+    execute at begin node={\begin{varwidth}{\linewidth}\begin{center}},
+    execute at end node={\end{center}\end{varwidth}}
+  },
+  inline/.style = {
+    inner sep=.35em, draw=black, thick,
+  }
+}
+\newcommand{\mybox}[1]{\begin{center}\tikz{\node[block]{#1};}\end{center}}
+\newcommand{\myboxinline}[1]{\tikz[baseline=(X.base)]{\node[inline](X){#1};}}
+
+
+% ----------------------------------------------------------------------
+% Package liens hypertexts
+% Attention : hyperref doit être après titletoc !!!
+% En règle général il doit être le dernier package chargé.
+% pdfencoding=auto : d'après http://tex.stackexchange.com/questions/24445
+\usepackage[hypertexnames=true,pdfencoding=auto]{hyperref}
+%\usepackage[hypertexnames=true,plainpages=false,pdfpagelabels,pagebackref]{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue,
+pdftitle={Deepmath - Mathématiques des réseaux de neurones}, pdfauthor={Arnaud Bodin, François Recher}}
+% --- Liens vers vidéo Youtube
+% variable myvideo : 0 pas de video, sinon la référence youtube
+\newcommand{\video}[1]{\def\myvideo{#1}}
+\newcommand{\insertvideo}[2]{\video{#1}%
+{\hfill\small\texttt{\href{http://www.youtube.com/watch?v=\myvideo}{Vidéo $\blacksquare$ #2}}}}
+% --- Liens vers les fiches d'exercices
+\newcommand{\mafiche}[1]{\def\mymafiche{#1}}
+\newcommand{\insertfiche}[2]{\mafiche{#1}%
+{\small\texttt{\href{http://exo7.emath.fr/ficpdf/\mymafiche}{Fiche d'exercices $\blacklozenge$ #2}}}}
+
+
+% --- Indication des couleurs (pour couleur #1, pour nb #2)
+\newcommand{\couleurnb}[2]{#1}
+
+
+% ----------------------------------------------------------------------
+% Constantes pour l'inclusion des figures
+\newcommand{\myscale}{1}
+
+
+% Pour afficher/cacher les solutions 
+\usepackage{comment}
+
+%\newenvironment{code}{\begin{center}}{\end{center}}
+\newenvironment{solution}{\bigskip\textbf{Solution.}}{}
+%\tcolorboxenvironment{solution}{leftlined={3pt}{lightgray,decorate,decoration={name=zigzag}}}
+
+\def\myzero{0}
+\ifx \displaysolutions \myzero \excludecomment{solution}\let\endsolution\relax\else\fi
+\ifx \displaysolutions \myzero \excludecomment{code}\let\endsolution\relax\else\fi
+
+
+\newcommand{\onesolution}[3]{
+\tcbox[center title,fonttitle = \bfseries,title={#1 \\ #2},halign=center,box align=top,nobeforeafter]
+{#3}
+}
+
+
+% ----------------------------------------------------------------------
+% Algorithmes
+% bloc de code (\insertcode)
+
+\newcommand{\insertcode}[2]{%
+\begin{tcolorbox}[title={#2},breakable,fonttitle=\bfseries\upshape,fontupper=\itshape, colback=black!5!white,colbacktitle=black!10!white,coltitle=red!75!black,toptitle=5pt,bottomtitle=4pt,
+arc=0pt,outer arc=0pt,
+left=5pt,right=0pt,top=2pt,
+arc=0pt,
+boxrule=0pt,
+leftrule=5pt,
+colframe=black!50]%
+\myinputlisting{#1}% 
+\end{tcolorbox}
+}
+
+%\newcommand{\insertcode}[2]{%
+%\begin{moncode}[#2]%
+%\myinputlisting{#1}% 
+%\end{moncode}
+%}
+
+
+%\newcommand{\fonction}[2][]{
+%\begin{center}
+%\begin{minipage}{0.7\textwidth}
+%Titre : #1 \\
+%#2
+%\end{minipage}
+%\end{center}
+%}
+
+\newenvironment{fonction}[1][\unskip]{%
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[colback=white,colframe=lightgray,coltitle=black,title=#1,halign title=center]
+}
+{\end{tcolorbox}
+\end{minipage}
+\end{center}}
+
+\newenvironment{fonctionpython}[1][\unskip]{%
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[title=#1,halign title=center]
+}
+{\end{tcolorbox}
+\end{minipage}
+\end{center}}
+
+
+\newenvironment{code}[1][\unskip]{%
+\begin{center}
+\begin{minipage}{0.49\textwidth}
+\begin{tcolorbox}[title=#1,halign title=left,subtitle style={boxrule=0.6pt,
+colback=lightgray}]
+%\begin{lstlisting}
+}
+{
+%\end{lstlisting}
+\end{tcolorbox}
+\end{minipage}
+\end{center}}
+
+\newcommand{\soustitre}[1]{\tcbsubtitle{#1}}
+
+\newcommand{\objectifs}[1]{
+\sauteligne
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\emph{#1}
+\end{minipage}
+\end{center}
+}
+
+% code en ligne (\codeinline)
+%\newcommand{\codeinline}[1]{\lstinline[showstringspaces=false]!#1!}
+\newcommand{\codeinline}[1]{\lstinline[showstringspaces=false,breaklines=true,breakatwhitespace=true]!#1!}
+\newcommand{\ci}[1]{\codeinline{#1}}
+
+% Ligne bien centrée ()sans utiliser \centerline)
+\newenvironment{nscenter}
+{\parskip=0pt\par\nopagebreak\centering}
+{\par\noindent\ignorespacesafterend}
+\newcommand{\mycenterline}[1]{\begin{nscenter}#1\end{nscenter}}
+%\renewcommand{\centerline}[1]{\erreur}  % A commenter après débugage

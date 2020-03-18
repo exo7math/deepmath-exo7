@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=1]
+
+\draw[->,>=latex, gray] (-0.5,0)--(8,0) node[below] {$x$};
+\draw[->,>=latex, gray] (0,-0.5)--(0,3) node[left] {$y$};
+
+\draw[ultra thick,red] (-0.5,0) -- (2,0);
+\draw[ultra thick,red] (2,2) -- (4,2);
+\draw[ultra thick,red] (4,1) -- (5,1);
+\draw[ultra thick,red] (5,0) -- (7,0) node[above]{$F(x)$};
+
+
+\node at (2,0) [below] {$a$};
+\node at (4,0) [below] {$b$};
+\node at (5,0) [below] {$c$};
+
+\draw[dashed] (2,0)--(2,2);
+\draw[dashed] (4,0)--(4,2);
+\draw[dashed] (5,0)--(5,1);
+
+\end{tikzpicture}

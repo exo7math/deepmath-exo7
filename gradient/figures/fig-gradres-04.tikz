@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+\def\layersep{2cm}
+\tikzstyle{neuron}=[circle,fill=red!50,minimum size=12pt,inner sep=0pt]
+
+% Neurone F
+\node[neuron,green!70!black] (F) at (0,0) {};
+\node[above right=0.8ex,scale=0.8] at (F) {$f$};
+
+% Neurone G
+\node[neuron,red!70] (G) at (\layersep,0) {};
+\node[above =1.2ex,scale=0.8] at (G) {$g$};
+\node[below =1.2ex,scale=0.8] at (G) {$[g']$};
+ \path[thick] (F) edge node[pos=0.8,above,scale=0.8]{$a$} (G);
+
+% Neurone H1
+\node[neuron,green!70!black] (H1) at (2*\layersep,2) {};
+\node[above right=0.8ex,scale=0.8] at (H1) {};
+ \path[thick] (G) edge node[pos=0.8,above,scale=0.8]{$b_1$} (H1);
+
+% Neurone H
+\node[neuron,green!70!black] (H2) at (2*\layersep,1) {};
+\node[above right=0.8ex,scale=0.8] at (H2) {};
+ \path[thick] (G) edge node[pos=0.8,above,scale=0.8]{$b_2$} (H2);
+
+% Neurone H
+\node[neuron,green!70!black] (H3) at (2*\layersep,-2) {};
+\node[above right=0.8ex,scale=0.8] at (H3) {};
+ \path[thick] (G) edge node[pos=0.8,above,scale=0.8]{$b_\ell$} (H3);
+
+\draw[thick,dotted] (3.7,0.5) -- ++(0,-1.4);
+
+\end{tikzpicture}  

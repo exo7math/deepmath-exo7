@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+%\usetikzlibrary{matrix}
+\usetikzlibrary{backgrounds}
+
+\matrix (A) [matrix of math nodes,nodes in empty cells,
+             left delimiter  = (,
+             right delimiter = ),align=center,text depth=.5ex,text height=2ex,text width=1em] at (0,0)
+{%
+1 & 2 & 3 & 4 & 5 & 6 \\
+7 & |[red!30]|8 & |[red!40]|9 & 10 & 11 & 12 \\
+13 & 14 & 15 & 16 & 17 & 18 \\
+ &  &  &  &  &  \\
+ &  &  &  &  &  \\
+ &  &  &  &  &  \\
+};
+
+
+% \node at (0,-2.5) {\bf Superposition des motifs};
+
+ \begin{scope}[on background layer]
+ \fill[blue!30,opacity=0.5] (A-1-1.north west) rectangle (A-3-3.south east);
+\newcommand{\padding}{2pt}
+ \fill[blue!60,opacity=0.5,yshift=-20pt] ([yshift=-\padding]A-1-2.north west) rectangle ([yshift=-\padding]A-3-4.south east);
+\end{scope}
+
+
+\end{tikzpicture}

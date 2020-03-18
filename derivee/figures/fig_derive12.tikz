@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+
+
+\node at (0,2) {$2$};
+\node at (0,-2) {$8$};
+\fill (6,0) circle (0.5ex);
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+
+\begin{scope}[yshift=-4cm]
+ \node at (0,0) {$3$};
+\fill (6,0) circle (0.5ex);
+
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(5,0) node[midway,above,black,scale=0.8]{$x \mapsto x^2$} ;
+\end{scope}
+
+\begin{scope}[xshift=6.2cm,yshift=-2cm]
+\fill (6,0) circle (0.5ex);
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$\oplus$} ;
+\end{scope}
+
+\begin{scope}[xshift=12.5cm,yshift=-2cm]
+\fill (5,0) circle (0.5ex);
+
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(4,0) node[midway,above,black,scale=0.8]{$x \mapsto\sqrt{x}$} ;
+\end{scope}
+
+\end{tikzpicture}

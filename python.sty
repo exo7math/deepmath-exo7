@@ -1,0 +1,56 @@
+% ===================================================================
+% Préliminaire du préliminaire
+
+% Je n'utilise pas \RequirePackage car \usepackage est moins geeky ;)
+% --------------------------------------------------------------------
+% pour l'inclusion des chapitres et la possibilité de les compiler à part
+\usepackage[subpreambles=false]{standalone}
+% --------------------------------------------------------------------
+% \mainfolder est utiliser pour indiquer où sont les fichiers .sty
+\ifdefined\mainfolder\relax\else
+  \ifstandalone
+    \newcommand*{\mainfolder}{../}
+  \else
+    \newcommand*{\mainfolder}{}
+  \fi
+\fi
+%\ifstandalone
+%  \newcommand*{\mainfolder}{../}
+%\else
+%  \newcommand*{\mainfolder}{}
+%\fi
+% --------------------------------------------------------------------
+\ProvidesPackage{\mainfolder python}
+% --------------------------------------------------------------------
+\def\@minimal{Utiliser une présentation minimale (par defaut)}
+\def\@screen{Utiliser une présentation en couleurs avec des liens}
+\def\@print{Utiliser une présentation pour impression noir et blanc}
+%\def\@test{Utiliser pour faire des tests}
+\newif\ifincolor\incolortrue % par defaut en couleur
+\let\@usestyle\@screen % par dafaut pour ecran
+\DeclareOption{minimal}{\let\@usestyle\@minimal\incolorfalse}
+\DeclareOption{screen}{\let\@usestyle\@screen}
+\DeclareOption{print}{\let\@usestyle\@print\incolorfalse}
+%\DeclareOption{test}{\let\@usestyle\@test\incolorfalse}
+% Options solutions cachées
+\newif\if@nosolutions     \@nosolutionsfalse
+\DeclareOption{nosolutions}{\@nosolutionstrue}
+\ProcessOptions
+% ===================================================================
+% Chargement du style spécifique selon le choix :  minimal, screen, print
+\ifx\@usestyle\@minimal
+  \usepackage{\mainfolder python-minimal}
+\fi
+\ifx\@usestyle\@screen
+  \usepackage{\mainfolder python-screen}
+\fi
+\ifx\@usestyle\@print
+  \usepackage{\mainfolder python-print}
+\fi
+%\ifx\@usestyle\@test
+%  \usepackage{\mainfolder exo7book-test}
+%\fi
+\def\displaysolutions{1}
+\if@nosolutions
+\def\displaysolutions{0}
+\fi

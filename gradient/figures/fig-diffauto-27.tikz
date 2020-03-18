@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+
+%  \fill (0,-2) circle (0.5ex);
+ % \fill (6,0) circle (0.5ex);
+%  \fill (11,0) circle (0.5ex);
+
+\node at (-3.5,0) {$t_0$};
+\node at (0,2.1) {$x_0 = \exp t_0$};
+\node at (0,-2.1) {$y_0 = \sin t_0$};
+
+\node[blue] at (0,1.5) {$[\exp t_0]$};
+\node[blue] at (0,-2.5) {$[\cos t_0]$};
+
+% \node[red] at (-3.5,-1) {$\{\{F'(t_0)\}\}$};
+
+\node at (6,0) {$z_0=x_0  y_0$};
+ \node[blue,left] at (3,1.1) {$[y_0]$};
+ \node[blue,left] at (3,-1.1) {$[x_0]$};
+
+\node at (11,0) {$\sqrt{z_0}$};
+ \node[blue] at (11,-0.5) {$[\frac{1}{2\sqrt{z_0}}]$};
+
+\draw[ultra thick,red] (-0.5,2) -- (-3,0.1) node[midway, above left,black]{$e^t$};
+\draw[ultra thick,red] (-0.5,-2) -- (-3,-0.1) node[midway, below left,black]{$\sin t$};
+
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+
+ \draw[ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$x y$} ;
+ \draw[->,>=latex,ultra thick,red] (7,0) -- ++(3,0) node[midway,above,black,scale=1]{$\sqrt{z}$} ;
+\end{tikzpicture}

@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+
+ \begin{scope}[rotate=10]
+\fill (0,0) circle (0.5ex) node[below]{$P_{k-1}$};
+\fill (2,0) circle (0.5ex) node[below]{$P_{k}$};
+\fill (4,1) circle (0.5ex) node[above]{$P_{k+1}$};
+
+ \draw[->,>=latex,ultra thick,blue,shorten >=3pt,shorten <=3pt] (0,0) -- (2,0);
+ \draw[->,>=latex,ultra thick,red,shorten >=3pt,shorten <=3pt] (2,0) -- (4,1) node[scale=0.7,midway, below right]{$-\delta \grad f(P_k)$};
+\end{scope}
+
+\end{tikzpicture}

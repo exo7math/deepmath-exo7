@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+
+	\draw[->,>=latex, black, very thin] (-1,0) -- (3.3,0) node[above] {$x$};
+	\draw[->,>=latex, black, very thin] (0,-2) -- (0,2.5) node[left] {$y$};
+
+%	\draw[domain=-0.25:2.5,black,thick,smooth] plot (\x,{0.6+0.4*\x+0.6*cos(4*\x r)});
+
+    \draw[domain=0.25:2.8,red,very thick,smooth] plot (\x,{2-0.4*\x-0.6*cos(4*\x r)-1/(\x-3.45)^2});
+
+
+%	\draw[myred,very thick] (0.25,0)--(2.85,0) node[midway,below] {$I$};
+
+%	\draw[dashed] (0.25,0) -- (0.25,1.5);
+%	\draw[dashed] (2.85,0) -- (2.85,-1.6);
+
+%        \fill[myred] (0.25,0) circle (1.5pt);
+%        \fill (0.25,1.45) circle (1.5pt);
+
+    \coordinate (P) at (0.75,2.17);
+    \draw[->,>=latex,blue,thick] (P)--+(0.5,0) ;
+    \draw[->,>=latex,blue,thick] (P)--+(-0.5,0) ;
+
+    \coordinate (Q) at (2.2,0.98);
+    \draw[->,>=latex,blue,thick] (Q)--+(0.5,0) ;
+    \draw[->,>=latex,blue,thick] (Q)--+(-0.5,0) ;
+
+    \coordinate (R) at (1.65,0.44);
+    \draw[->,>=latex,blue,thick] (R)--+(0.5,0) ;
+    \draw[->,>=latex,blue,thick] (R)--+(-0.5,0) ;
+\end{tikzpicture}

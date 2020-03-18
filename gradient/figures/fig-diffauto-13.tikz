@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+
+\node at (0,2) {$3$};
+\node at (0,-2) {$2$};
+
+\node at (6.5,0) {$18+\sin 2$};
+\node at (12.2,0) {$\ln(18+\sin2)$};
+ \node[blue,left] at (2.9,1.1) {$[12]$};
+ \node[blue,left] at (3.7,-1.1) {$[9+\cos 2]$};
+ \node[blue] at (12,-0.8) {$[\frac{1}{18+\sin2}]$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
+\draw[->,>=latex,ultra thick,red] (7.8,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$\ln z$};
+
+
+\end{tikzpicture}

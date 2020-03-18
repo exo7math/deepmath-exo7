@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+ \node at (0,0) {$3$};
+%\fill (0,0) circle (0.5ex);
+\fill (4,0) circle (0.5ex);
+\fill (8,0) circle (0.5ex);
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto 2x^2$} ;
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto \cos(y)$} ;
+
+\end{tikzpicture}

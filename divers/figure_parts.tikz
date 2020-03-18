@@ -1,0 +1,39 @@
+% Figure after Kjell Magne Fauske
+% http://www.texample.net/tikz/examples/neural-network/
+\begin{tikzpicture}[draw=black!50, node distance=3.5cm]
+
+ \def\k{4}
+   %\def\k{#1+2}
+\pgfmathsetmacro\kk{\k +2}
+\pgfmathsetmacro\halfk{\k/2}
+\pgfmathsetmacro\halfkk{\kk/2}
+\pgfmathsetmacro\scale{3/\k}
+
+   \def\layersep{4 cm}
+    \tikzstyle{every pin edge}=[<-,shorten <=1pt,thick]
+    \tikzstyle{neuron}=[circle,fill=black!25,minimum size=10*\scale pt,inner sep=0pt]
+    \tikzstyle{entree}=[];
+    \tikzstyle{input neuron}=[neuron, fill=green!50];
+    \tikzstyle{output neuron}=[neuron, fill=red!50];
+    \tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+    \tikzstyle{annot} = [text width=4em, text centered]
+
+    % Premiere couche
+    \foreach \name / \y in {1,...,\k}{
+    % This is the same as writing \foreach \name / \y in {1/1,2/2,3/3,4/4}
+   \path[yshift=-\halfk*\scale cm,yshift=-0.5*\scale cm]
+        node[input neuron] (I-\name) at (0,\y*\scale) {};
+    }
+    %Seconde couche
+     \foreach \name / \y in {1,...,\kk}{
+         \path[yshift=-\halfkk*\scale cm,yshift=-0.5*\scale cm]
+             node[hidden neuron] (H-\name) at (\layersep,\y*\scale cm) {};
+    }
+
+    % Connect every node in the input layer with every node in the
+    % hidden layer.
+    \foreach \source in {1,...,\k}{
+        \foreach \dest in {1,...,\kk}{
+            \path[thick] (I-\source) edge (H-\dest);
+   }}
+\end{tikzpicture}  

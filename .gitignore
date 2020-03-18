@@ -1,0 +1,68 @@
+# from WinEdt and GitHub
+# ----------------------
+*.aa?
+*.acn
+*.acr
+*.alg
+*.aux
+*.bak
+*.blg
+*.dvi
+*.fdb_latexmk
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nav
+*.nlo
+*.out
+*.pdfsync
+*.pdf_tex
+*.prj
+*.ps
+*.snm
+*.synctex*
+*.tdo
+*.tmp
+*.toc
+*.vrb
+*.xdy
+
+# le bytecode python
+#-----------------------
+*.pyc
+*.pyo
+
+# ----------------------
+# plus nécéssaire car un .gitignore par répértoire
+# *tikzcach*
+
+# tous les resultats pdf
+# ----------------------
+# *.pdf
+
+# certains resultats pdf
+#-----------------------
+
+#scratch-??.pdf
+#enigme-??.pdf
+
+
+# Autres
+# ----------------------
+*.zip
+*.sublime*
+*.auxlock
+*.ptc
+*test*.tex
+#vim
+*~

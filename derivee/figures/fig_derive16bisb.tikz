@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+
+ \node at (0,0) {$e$};
+ \node at (4,0) {$1$};
+\node[blue] at (4,-0.5) {$[1/e]$};
+\node at (8.5,0) {$2$};
+\node[blue] at (8.5,-0.5) {$[3]$};
+\node at (12.5,0) {$e^2$};
+\node[blue] at (12.5,-0.5) {$[e^2]$};
+
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto \ln(x)$} 
+node[midway,below,black,scale=0.8]{$[x \mapsto 1/x]$};
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto y^3+1$} 
+node[midway,below,black,scale=0.8]{$[y \mapsto 3y^2]$};
+ \draw[->,>=latex,ultra thick,red] (9,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$z \mapsto e^z$} node[midway,below,black,scale=0.8]{$[z \mapsto e^z]$};
+
+
+ \node[red] at (0,-1) {$\{\{e^2 \times 3 \times \frac1e = 3e \}\}$};
+
+
+\end{tikzpicture}

@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+\tikzstyle{rouge} = [fill,rectangle,red,scale=0.6];
+\tikzstyle{bleu} = [fill,circle,blue,scale=0.5] ;
+
+
+\begin{scope}[even odd rule]
+\clip (0,0) rectangle (6,5);
+% \def\courbe{(0,1) .. controls (3,4) .. (6,2)}
+% \draw[red, ultra thick] \courbe;
+
+\def\courbe{(0,1) .. controls (1,1.7) and (1.5,1) .. (1.5,3) 
+.. controls (4,2.7) and (.5,1) .. (3,3.8)
+.. controls (3,2.5) and (3.5,3) .. (4.5,3)
+.. controls (5,4) and (5.5,1) .. (6,2)
+}
+
+\draw[red, ultra thick] \courbe;
+\fill[red!50,opacity=0.5] (0,0) -- \courbe -- (6,0)-- cycle;
+\fill[blue!20,opacity=0.5] (0,5) -- \courbe -- (6,5) -- cycle;
+\end{scope}
+
+% \draw[->,>=latex, gray] (-0.5,0)--(6.5,0) node[below] {$x$};
+% \draw[->,>=latex, gray] (0,-0.5)--(0,5.5) node[left] {$y$};
+\draw[gray] (0,0) rectangle (6,5);
+
+
+\foreach \x/\y in {1.1/1.7, 2.3/2.5, 3.3/3.1, 3.8/3.2, 0.2/2.1, 0.3/4.3, 0.9/2.1, 1.3/3.6, 1.7/4.8, 2.1/4.1, 2.5/3.4, 3.1/4.2, 4.3/3.6, 4.9/4.8,5.3/2.7, 5.7/2,5.9/3.3}{
+   \node[bleu] at (\x,\y) {};
+}
+
+\foreach \x/\y in {0.1/0.7, 0.9/1.2, 1.1/0.5, 1.7/2.8, 2/1, 2.4/2.2, 2.8/3, 2.9/0.3,
+3.5/1.4,3.7/2.7, 4.1/2.1, 4.3/1.3, 4.8/3, 5.5/1.7, 5.8/0.4, 2.9/3.5, 4.5/0.1 }{
+   \node[rouge] at (\x,\y) {};
+}
+\end{tikzpicture}

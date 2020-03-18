@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+
+\coordinate (A) at (0,0);
+\coordinate (B) at (3,1);
+\coordinate (C) at (1,2);
+
+
+\draw[blue, very thick]  (A) -- (C) node[midway,left] {$w_1$};
+\draw[blue, very thick]  (C) -- (B) node[midway,right] {$w_2$};
+\draw[blue, very thick]  (A) -- (B) node[midway,below] {$w_3=0$};
+
+\fill[red] (A) circle(3pt);
+\fill[red] (B) circle(3pt);
+\fill[red] (C) circle(3pt);
+
+\begin{scope}[xshift=5cm]
+\coordinate (A) at (0,0);
+\coordinate (B) at (3,1);
+\coordinate (C) at (1,2);
+
+\draw[blue, very thick]  (A) -- (C) node[midway,left] {$w_1$};
+\draw[blue, very thick]  (C) -- (B) node[midway,right] {$w_2$};
+\draw[dotted,blue!20, very thick]  (A) -- (B);
+
+\fill[red] (A) circle(3pt);
+\fill[red] (B) circle(3pt);
+\fill[red] (C) circle(3pt);
+\end{scope}
+
+\end{tikzpicture}

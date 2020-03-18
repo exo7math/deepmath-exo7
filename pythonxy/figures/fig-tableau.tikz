@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+
+
+% Tableau
+
+\draw (0,0) grid ++(6,4);
+
+
+
+\node[blue] at (0.5,3.5) {\bf 1};
+\node[blue] at (1.5,3.5) {\bf 2};
+\node[blue] at (2.5,3.5) {\bf 3};
+%\node[blue] at (3.5,1.5) {\bf 1};
+%\node[blue] at (4.5,1.5) {\bf 0};
+%\node[blue] at (5.5,1.5) {\bf 0};
+
+\node[blue] at (0.5,2.5) {\bf 7};
+\node[blue] at (1.5,2.5) {\bf 8};
+%\node[blue] at (2.5,2.5) {\bf 1};
+%\node[blue] at (3.5,2.5) {\bf 1};
+%\node[blue] at (4.5,2.5) {\bf 1};
+%\node[blue] at (5.5,2.5) {\bf 0};
+
+\node at (3,-1.5) {\bf Tableau};
+
+\draw[->,>=latex,very thick]   (0,5)  to node[midway, above] {indice $j$}  ++(6,0) ;
+\draw[->,>=latex,very thick]   (-2,4)  to node[midway, left] {indice $i$}  ++(0,-4) ;
+
+\node[scale=0.7,above] at (0.5,4) {$j=0$};
+\node[scale=0.7,above] at (1.5,4) {$j=1$};
+\node[scale=0.7,above] at (3.5,4.05) {$\cdots$};
+\node[scale=0.7,above] at (5.5,4) {$j=n-1$};
+
+\node[scale=0.7,left] at (0,3.5) {$i=0$};
+\node[scale=0.7,left] at (0,2.5) {$i=1$};
+\node[scale=0.7,left] at (-0.3,1.5) {$\vdots$};
+\node[scale=0.7,left] at (0,0.5) {$i=p-1$};
+
+
+\draw[<->,>=latex,very thick,gray]   (0,-0.5)  to node[midway, below] {$n$}  ++(6,0) ;
+\draw[<->,>=latex,very thick,gray]   (6.5,0)  to node[midway, right] {$p$}  ++(0,4) ;
+
+
+\end{tikzpicture}

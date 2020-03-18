@@ -1,0 +1,64 @@
+\begin{tikzpicture}
+ \node at (0,0) {$3$};
+%\fill (0,0) circle (0.5ex);
+\fill (4,0) circle (0.5ex);
+\fill (8,0) circle (0.5ex);
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto 2x^2$} ;
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto \cos(y)$} ;
+
+\begin{scope}[yshift=-2cm]
+ \node at (0,0) {$3$};
+ \node at (4,0) {$18$};
+ \node at (8.5,0) {$\cos(18)$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto 2x^2$} ;
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto \cos(y)$} ;
+\end{scope}
+
+\begin{scope}[yshift=-4cm]
+ \node at (0,0) {$2$};
+ \node at (4,0) {$18$};
+\node[blue] at (4,-0.5) {$[12]$};
+\node at (8.5,0) {$\cos(18)$};
+\node[blue] at (8.5,-0.5) {$[-\sin(28)]$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto 2x^2$} 
+node[midway,below,black,scale=0.8]{$[x \mapsto 4x]$};
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto \cos(y)$} 
+node[midway,below,black,scale=0.8]{$[x \mapsto -\sin(x)]$};
+\end{scope}
+
+\begin{scope}[yshift=-6cm]
+ \node at (0,0) {$x=2$};
+ \node at (4,0) {$y=28$};
+\node[blue] at (4,-0.5) {$[12]$};
+\node at (8.5,0) {$z=\cos(18)$};
+\node[blue] at (8.5,-0.5) {$[-\sin(18)]$};
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto 2x^2$} 
+node[midway,below,black,scale=0.8]{$[x \mapsto 4x]$};
+ \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto \cos(y)$} 
+node[midway,below,black,scale=0.8]{$[x \mapsto -\sin(x)]$};
+
+ \node[red] at (0,-1.5) {$\{\{-12\sin(18)\}\}$};
+
+\draw[->,>=latex,ultra thick,green!70!black] (7.5,-1) to[bend left]node[midway,below,black,scale=1]{$\times$} ++(-3,0) ;
+
+
+\end{scope}
+
+
+% \begin{scope}[yshift=-9cm]
+%  \node at (0,0) {$x=2$};
+%  \node at (4,0) {$y=28$};
+% \node[blue] at (4,-0.5) {$[12]$};
+% \node at (8.5,0) {$z=\cos(18)$};
+% \node[blue] at (8.5,-0.5) {$[-\sin(18)]$};
+%  \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto 2x^2$} 
+% node[midway,below,black,scale=0.8]{$[x \mapsto 4x]$};
+%  \draw[->,>=latex,ultra thick,red] (4.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$y \mapsto \cos(y)$} 
+% node[midway,below,black,scale=0.8]{$[x \mapsto -\sin(x)]$};
+% 
+%  \node[red] at (0,-1.5) {$F'(x) = \frac{d z}{d x} =-12\sin(18)$};
+%  \node[red] at (4,-1.5) {$\frac{d z}{d y} =-\sin(18)$};
+% \node[red] at (8.5,-1.5) {$\frac{d z}{d z} =1$};
+% \end{scope}
+
+\end{tikzpicture}

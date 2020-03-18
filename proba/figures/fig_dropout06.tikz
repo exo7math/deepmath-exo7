@@ -1,0 +1,47 @@
+% Figure after Kjell Magne Fauske
+% http://www.texample.net/tikz/examples/neural-network/
+\begin{tikzpicture}[draw=black!50, node distance=3.5cm]
+   \def\layersep{5cm}
+    \tikzstyle{every pin edge}=[<-,shorten <=1pt,thick]
+    \tikzstyle{neuron}=[circle,fill=black!25,minimum size=12pt,inner sep=0pt]
+    \tikzstyle{entree}=[];
+    \tikzstyle{input neuron}=[neuron, fill=green!50];
+    \tikzstyle{output neuron}=[neuron, fill=red!50];
+    \tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+    \tikzstyle{annot} = [text width=4em, text centered]
+
+    % Premiere couche
+    \foreach \name / \y in {1,...,10}
+    % This is the same as writing \foreach \name / \y in {1/1,2/2,3/3,4/4}
+        \node[hidden neuron] (A-\name) at (0,-\y) {};
+
+    %Seconde couche
+    \foreach \name / \y in {1,...,7}
+        \path[yshift=-1.5cm]
+            node[input neuron] (B-\name) at (\layersep,-\y cm) {};
+
+    %Seconde couche
+    \foreach \name / \y in {1,...,8}
+        \path[yshift=-1.cm]
+            node[hidden neuron] (C-\name) at (2*\layersep,-\y cm) {};
+
+    % Connect every node in the input layer with every node in the
+    % hidden layer.
+    \foreach \source in {1,...,10}{
+
+        \foreach \dest in {1,...,7}{    
+ \ifthenelse{\not\equal{\dest}{2} \and \not\equal{\dest}{5} \and \not\equal{\dest}{6}}{
+            \path[thick] (A-\source) edge (B-\dest);
+    }
+}}
+
+    \foreach \source in {1,...,7}{
+     \ifthenelse{\not\equal{\source}{2} \and \not\equal{\source}{5} \and\not\equal{\source}{6}}{
+        \foreach \dest in {1,...,8}{
+            \path[thick] (B-\source) edge (C-\dest);
+    }
+}}
+
+\node at (5,-10.5) {\bf Une couche avec dropout};
+
+\end{tikzpicture}  

@@ -1,0 +1,57 @@
+\begin{tikzpicture}
+%\usetikzlibrary{matrix}
+\usetikzlibrary{backgrounds}
+
+\matrix (A) [matrix of math nodes,nodes in empty cells,
+             left delimiter  = (,
+             right delimiter = ),align=center,text depth=.5ex,text height=2ex,text width=1em] at (0,0)
+{%
+2 & 5 & 0 & 5 & 3 & 6 & \cdot & \cdot & \cdot\\
+8 & 4 & 1 & 1 & 3 & 0 & \cdot & \cdot & \cdot\\
+7 & 0 & 0 & 0 & 2 & 2 & \cdot & \cdot & \cdot\\
+&&&&&&&&\\
+&&&&&&&&\\
+&&&&&&&&\\
+&&&&&&&&\\
+&&&&&&&&\\
+&&&&&&&&\\
+};
+
+\matrix (B) [matrix of math nodes,nodes in empty cells,
+             left delimiter  = (,
+             right delimiter = ),align=center,text depth=.5ex,text height=2ex,text width=0.8em] at (9,0)
+{%
+8 & 6 & \cdot \\
+ &  &  \\
+ &   &  \\
+};
+
+
+\draw[->,>=latex,line width = 4pt,blue!30] (4,0) -- ++(3,0) node[midway,below=1ex,black]{max-pooling de taille $3$};
+
+\node at (0,-3.5) {matrice de taille $9\times 9$};
+\node at (9,-1.5) {matrice de taille $3\times 3$};
+
+\draw[red,thick] (A-1-3.north east)--(A-9-3.south east);
+\draw[red,thick] (A-1-6.north east)--(A-9-6.south east);
+\draw[red,thick,thick] (A-3-1.south west)--(A-3-9.south east);
+\draw[red,thick,thick] (A-6-1.south west)--(A-6-9.south east);
+
+\draw[red,thick,thick] (B-1-1.north east)--(B-3-1.south east);
+\draw[red,thick,thick] (B-1-2.north east)--(B-3-2.south east);
+
+\draw[red,thick,thick] (B-1-1.south west)--(B-1-3.south east);
+\draw[red,thick,thick] (B-2-1.south west)--(B-2-3.south east);
+
+% 
+\draw[<->,>=latex,thick,blue] (-3.25,0.7) -- ++(0,2) node[midway,left]{$3$};
+\draw[<->,>=latex,thick,blue] (-2.5,3) -- ++(1.75,0) node[midway,above]{$3$};
+% 
+ \begin{scope}[on background layer]
+\fill[red!30,opacity=0.5] (A-1-1.north west) rectangle (A-3-3.south east);
+ \fill[red!30,opacity=0.5] (B-1-1.north west) rectangle (B-1-1.south east);
+ \draw[->,>=latex,ultra thick,red!30] (A-1-1.north east) to[bend left] (B-1-1.north west);
+\end{scope}
+
+
+\end{tikzpicture}

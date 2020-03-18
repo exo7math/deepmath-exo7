@@ -1,0 +1,24 @@
+\begin{tikzpicture}[scale=1.5]
+
+      \draw[->,>=latex, gray] (-1.5,0)--(3.5,0);
+      \draw[->,>=latex, gray] (0,-1.3)--(0,2.0);
+
+
+       \node at (1.8,0) [below,myred] {$x$};
+       \node at (2.5,0) [below,myred] {$y$};
+
+       \draw[dashed,myred] (1.8,0)--(1.8,0.733)--(0,0.733);
+       \draw[dashed,myred] (2.5,0)--(2.5,1.43)--(0,1.43);
+
+
+       \node at (0,0.733) [left,myred] {$f(x)$};
+       \node at (0,1.43) [left,myred] {$f(y)$};
+
+       \fill (1.8,0) circle (1pt);
+       \fill (2.5,0) circle (1pt);
+       \fill (0,0.733) circle (1pt);
+       \fill (0,1.43) circle (1pt);
+
+      \draw[ultra thick, color=blue,domain=-1.5:3.,smooth] plot (\x,{-1+0.12*(\x+2)^2});
+
+\end{tikzpicture}

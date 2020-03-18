@@ -1,0 +1,55 @@
+\begin{tikzpicture}
+ \fill (-5,2) circle (0.5ex);
+ \fill (-5,-2) circle (0.5ex);
+ \fill (0,2) circle (0.5ex);
+ \fill (0,-2) circle (0.5ex);
+ \fill (6,0) circle (0.5ex);
+ %\fill (11,0) circle (0.5ex);
+%\node at (0,2) {$x_0$};
+%\node at (0,-2) {$3$};
+%\node at (6,0) {$x_0 + y_0$};
+% \node[blue,left] at (3,1) {$[1]$};
+% \node[blue,left] at (3,-1) {$[1]$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+\draw[->,>=latex,ultra thick,red] (-4,2) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto \exp(x)$} ;
+\draw[->,>=latex,ultra thick,red] (-4,-2) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto \ln(x)$} ;
+\draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+
+\begin{scope}[xshift=12cm]
+\node at (-5,2) {$x_0$};
+\node at (-5,-2) {$x_0$};
+\node at (-0.25,2) {$\exp(x_0)$};
+\node at (-0.25,-2) {$\ln(x_0)$};
+\node at (6.75,0) {$\exp(x_0)\ln(x_0)$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+\draw[->,>=latex,ultra thick,red] (-4,2) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto \exp(x)$} ;
+\draw[->,>=latex,ultra thick,red] (-4,-2) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto \ln(x)$} ;
+\draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+
+\end{scope}
+
+
+\begin{scope}[xshift=4cm,yshift=-6cm]
+\node at (-5,2) {$2$};
+\node at (-5,-2) {$2$};
+\node at (-0.25,2) {$\exp(2)$};
+\node at (-0.25,-2) {$\ln(2)$};
+\node at (6.75,0) {$\exp(2)\ln(2)$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+\draw[->,>=latex,ultra thick,red] (-4,2) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto \exp(x)$} ;
+\draw[->,>=latex,ultra thick,red] (-4,-2) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto \ln(x)$} ;
+\draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+
+
+\node[red] at (-5,1) {$\{\{\ln(2)\exp(2)\}\}$};
+\node[red] at (-5,-3) {$\{\{\frac12\exp(2)\}\}$};
+ \node[blue] at (-0.25,1) {$[\exp(2)]$};
+ \node[blue] at (-0.25,-3) {$[\frac12]$};
+ \node[blue,left] at (3,1) {$[\ln(2)]$};
+ \node[blue,left] at (3,-1) {$[\exp(2)]$};
+
+\end{scope}
+\end{tikzpicture}

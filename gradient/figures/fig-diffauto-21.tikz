@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+
+ \fill (-3.5,0) circle (0.5ex);
+ \fill (0,2) circle (0.5ex);
+ \fill (0,-2) circle (0.5ex);
+ \fill (5.5,0) circle (0.5ex);
+
+\draw[ultra thick,red] (-0.5,2) -- (-3,0.1) node[midway, above left,black]{$u(t)$};
+\draw[ultra thick,red] (-0.5,-2) -- (-3,-0.1) node[midway, below left,black]{$v(t)$};
+
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+
+
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f(x,y)$} ;
+
+\end{tikzpicture}

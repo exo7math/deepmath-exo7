@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+
+ \fill (0,-2) circle (0.5ex);
+% \fill (0,-2) circle (0.5ex);
+ \fill (6,0) circle (0.5ex);
+ \fill (11,0) circle (0.5ex);
+%\node at (0,2) {$x_0$};
+\node at (0,2) {$3$};
+%\node at (6,0) {$x_0 + y_0$};
+% \node[blue,left] at (3,1) {$[1]$};
+% \node[blue,left] at (3,-1) {$[1]$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+\draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+\draw[->,>=latex,ultra thick,red] (7,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto \exp(x)$} ;
+
+\begin{scope}[yshift=-6cm]
+\node at (0,-2) {$x_0$};
+\node[red] at (0,-3) {$\{\{3\exp(3x_0)\}\}$};
+\node at (0,2) {$3$};
+\node at (6,0) {$3x_0$};
+\node at (11.5,0) {$\exp(3x_0)$};
+ \node[blue,left] at (3,1) {$[x_0]$};
+ \node[blue,left] at (3,-1) {$[3]$};
+ \node[blue] at (11.5,-1) {$[\exp(3x_0)]$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.2,0) node[pos=0,above right,black,scale=1.2]{$\otimes$} ;
+\draw[->,>=latex,ultra thick,red] (7,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$x \mapsto \exp(x)$} 
+node[midway,below,black,scale=0.8]{$[x \mapsto \exp(x)]$} ;
+
+
+\draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt] (12.5,-1.5) to node[midway,blue,scale=1.2]{$\times$} ++(-10,0) to ++(-1.7,-1) ;
+\end{scope}
+
+\end{tikzpicture}

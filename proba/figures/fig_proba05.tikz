@@ -1,0 +1,49 @@
+\begin{tikzpicture}[scale=1]
+
+% Esperance
+    \def\mymu{4};
+
+% variance
+    \def\sigmadeux{2};
+
+% Fonction
+   %\def\fonction{ 1/(sqrt(2*3.14*\sigmadeux)) * exp{-1/2*1/\sigmadeux*(\x-\mu)*(\x-\mu)} };
+   \def\fonction{ 10* (exp{-0.5*ln(2*pi*\sigmadeux)}) * (exp{-1/2*1/\sigmadeux*(\x-\mymu)*(\x-\mymu)}) };
+   
+% intervalle
+    \def\a{10}; 
+
+
+% Axes
+    \draw[->,>=latex,thick, gray] (-1.5,0)--(\a+1,0) node[below,black] {$x$};
+    \draw[->,>=latex,thick, gray] (0,-0.5)--(0,7) node[right,black] {$f(x)$};  
+
+
+% Graphe et aire
+%   \fill[black!20] (0,0) -- plot[domain=0:\a] (\x,\fonction) -- (\a,0) -- cycle;
+\def\mymu{4};
+\def\sigmadeux{2};
+   \draw[ultra thick, color=red,domain=-1:\a,samples=100,variable=\x] plot ( {\x} , {\fonction} );
+
+\def\mymu{4};
+\def\sigmadeux{0.5};
+   \draw[ultra thick, color=blue,domain=-1:\a,samples=100,variable=\x] plot ( {\x} , {\fonction} );
+
+\def\mymu{4};
+\def\sigmadeux{1};
+   \draw[ultra thick, color=green!70!black,domain=-1:\a,samples=100,variable=\x] plot ( {\x} , {\fonction} );
+
+\draw (\mymu,0.2) -- ++(0,-0.4) node[below] {$\mu$};
+
+% \node[below] at (4,-1) {\bf Cas $\mu=4$, $\sigma^2 = 2$};
+
+% \node[below, inner sep=10pt] at (0.5,0) {\vphantom{$n=10$}};
+
+
+% % Labels
+%   \foreach \x/\xtext in {0/0, 1/1, 2/2}
+%   \draw (\x cm,2pt) -- (\x cm,-2pt) node[anchor=north] {$\xtext$};
+%   \draw (1pt,1cm) -- (-1pt,1cm) node[anchor=east] {$1$};
+%   \node[below, inner sep=10pt] at (0.5,0) {\vphantom{$n=10$}};
+
+\end{tikzpicture}

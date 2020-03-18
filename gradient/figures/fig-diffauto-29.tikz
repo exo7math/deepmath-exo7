@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+
+\node at (-3.5,0) {$t$};
+\node at (0,0) {$\ln t$};
+\node at (0,-2) {$\sin t$};
+
+\node at (6.5,0) {$F(t)$};
+ \node[blue,left] at (2.5,1.2) {$[1]$};
+ \node[blue,left] at (2.5,0.3) {$[2y]$};
+ \node[blue,left] at (3,-1.1) {$[-1/z^2]$};
+
+ \node[blue] at (0,-0.5) {$[1/t]$};
+ \node[blue] at (0,-2.5) {$[\cos t]$};
+
+\draw[ultra thick,red] (-3,0.1) to[bend left=60] (3,0);
+
+\draw[ultra thick,red] (0.5,0) -- (3,0);
+\draw[ultra thick,red] (-0.5,-2) -- (-3,-0.1);
+\draw[ultra thick,red] (-0.5,0) -- (-3,0);
+
+
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(3,0) node[pos=0,above right,black,scale=1]{$x+y^2+\frac1z$} ;
+
+\end{tikzpicture}

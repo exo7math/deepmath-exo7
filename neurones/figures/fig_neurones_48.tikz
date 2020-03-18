@@ -1,0 +1,44 @@
+\begin{tikzpicture}[scale=1]
+
+
+\begin{scope}[even odd rule]
+\clip (-5,-4) rectangle (5,4);
+% \draw[ blue,ultra thick] (6,2) -- (-6,-2);
+% \fill[blue!20,opacity=0.5] (6,2) -- (6,6) --(-6,6) --(-6,-2)-- cycle;
+% 
+% \draw[ green!70!black,ultra thick] (-3,6) -- (3,-6);
+% \fill[ green!70!black!20,opacity=0.5] (-3,6) -- (6,6) --(6,-6) --(3,-6)-- cycle;
+
+
+\draw[orange,thick,dashed] (0,0) -- (-6,-2);
+\draw[ green!70!black,thick,dashed] (0,0) -- (3,-6);
+\draw[red,ultra thick] (0,0) -- (6,2);
+\draw[ red,ultra thick] (0,0) -- (-3,6);
+\fill[red!50,opacity=0.5] (0,0) -- (6,2) -- (6,6) --(-3,6) -- cycle;
+
+\fill[blue!20,opacity=0.5] (0,0) -- (6,2) -- (6,-6) -- (-6,-6) -- (-6,6) -- (-3,6) -- cycle;
+\end{scope}
+
+
+\draw[->,>=latex, very thick,gray] (-5.5,0)--(6,0) node[below] {$x$};
+\draw[->,>=latex, very thick, gray] (0,-4.5)--(0,5) node[left] {$y$};
+\draw[gray,thin] (-5,-4) grid (5,4);
+
+
+\node[orange,left] at (-5,-1.8) {$-x+3y=0$};
+%\node[scale=1,orange] at (-4,0.5) {$s_1(x,y)=1$};
+%\node[scale=1,orange] at (-4,-2.5) {$s_1(x,y)=0$};
+
+\node[green!70!black,below] at (2,-4) {$2x+y=0$};
+%\node[scale=1,green!70!black] at (3.5,-2.5) {$s_2(x,y)=1$};
+%\node[scale=1,green!70!black] at (0,-2.5) {$s_2(x,y)=0$};
+
+\node[scale=1.2,red] at (2,2.5) {$F(x,y)=1$};
+\node[scale=1.2,blue] at (-1.5,-2.5) {$F(x,y)=0$};
+
+\node at (0,0) [below left] {$0$};
+\node at (1,0) [below right] {$1$};
+\node at (0,1) [above left] {$1$};
+
+
+\end{tikzpicture}

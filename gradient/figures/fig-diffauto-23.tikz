@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+\node at (-3.5,0) {$t_0$};
+\node at (0,2) {$u(t_0)$};
+\node at (0,-2) {$v(t_0)$};
+\node[blue] at (0,1.5) {$[u'(t_0)]$};
+\node[blue] at (0,-2.5) {$[v'(t_0)]$};
+\node at (5.75,0) {$F(t_0)$};
+\node[blue,left] at (4,1.1) {$[\partial_x f(x_0,y_0)]$};
+\node[blue,left] at (4,-1.1) {$[\partial_y f(x_0,y_0)]$};
+
+\draw[ultra thick,red] (-0.5,2) -- (-3,0.1) node[midway, above left,black]{$u$};
+\draw[ultra thick,red] (-0.5,-2) -- (-3,-0.1) node[midway, below left,black]{$v$};
+
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+
+\draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
+\end{tikzpicture}

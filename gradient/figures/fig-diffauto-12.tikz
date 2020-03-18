@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+
+\node at (0,2) {$3$};
+\node at (0,-2) {$2$};
+\node at (6.5,0) {$18+\sin2$};
+\node at (12.2,0) {$\ln(18+\sin2)$};
+\draw[ultra thick,red]  (0.5,2) -- (3,0);
+\draw[ultra thick,red] (0.5,-2) -- (3,0);
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2.5,0) node[pos=0,above right,black,scale=1]{$x^2y+\sin y$} ;
+\draw[->,>=latex,ultra thick,red] (7.8,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$\ln z$};
+
+\end{tikzpicture}

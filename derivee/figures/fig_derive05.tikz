@@ -1,0 +1,43 @@
+\begin{tikzpicture}[scale=3]
+
+	\draw[->,>=latex, gray, thick] (-0.25,0) -- (2,0) node[black,right]{$x$};
+	\draw[->,>=latex, gray, thick] (0,-0.25) -- (0,1.5)  node[black,above]{$y$};
+
+  \draw[blue,very thick] plot [smooth] coordinates {(0.4,0.55)  (1,1)  (1.8,1.25) }  node[right,blue]{graphe de $f$};
+
+
+   \def \x{1}
+    \coordinate (A) at ({\x},{sqrt(\x)});
+    \fill[blue] (A) circle (1pt); % node[above] {$M_0$};
+
+    \draw[red,thick] (A)--+(1,0.5) node[right,red]{tangente};
+    \draw[red,thick] (A)--+(-1,-0.5) ;
+
+  \draw[dashed] (A)--(1,0) node[below]{$x_0$};
+
+
+
+
+
+    \coordinate (B) at (1.5,1.255);
+    \fill[red] (B) circle (1pt); 
+
+  \draw[dashed] (B)--(1.5,0) node[below]{$x_0+h$};
+  \draw[dashed] (B)--(0,1.255) node[above left,red,scale=0.7]{$y(x_0+h)$};  
+    \coordinate (C) at (1.5,1.17);
+    \fill[blue] (C) circle (1pt); 
+  \draw[dashed] (C)--(0,1.17) node[left,blue,scale=0.7]{$f(x_0+h)$};  
+
+% node[above] {$M_0$};
+%\foreach \i in {4,3,...,1}
+%{
+%  \def\xx{\x + 1.5-0.3*\i};
+%    \coordinate (M) at ({\xx},{2-(\xx-1)^2)});
+%    \fill (M) circle (1.5pt);
+%    \draw (A)--(M)--+($\i*(M)-\i*(A)$)--(A)--+($\i*(A)-\i*(M)$);
+%    \coordinate (P) at ({\xx},0);
+%};
+%  \draw[dashed] (M)--(P) node[below]{$x$};
+%  \node[above right] at (M) {$M$};
+
+\end{tikzpicture}
