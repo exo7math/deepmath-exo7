@@ -35,13 +35,9 @@ Partie II - Algèbre - Convolution
 ---------------------------------
 
 * Convolution 1d [Chapitre](convolution1d/convolution1d.pdf)
-
 * Convolution 2d [Chapitre](convolution2d/convolution2d.pdf)
-
 * Convolution avec Python [Chapitre](pythonconv/pythonconv.pdf)
-
 * Convolution avec Tensorflow/Keras [Chapitre](tfconv/tfconv.pdf)
-
 * Tenseurs [Chapitre](tenseur/tenseur.pdf)
 
 
