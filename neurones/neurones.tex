@@ -66,7 +66,7 @@ Voici ce que fait un perceptron linéaire de poids $a_1,\ldots,a_n$ et de foncti
 }
 
 
-On peut donc définir ce qu'est un perceptron. Un \defi{perceptron linéaire} à $n$ variables et de fonction d'activation la fonction marche de Heaviside est la donnée de $n$ coefficients réels $a_1,\ldots,a_n$ auxquels sont associés la fonction $F : \Rr \to \Rr$ définie par $F = H \circ f$, c'est-à-dire :
+On peut donc définir ce qu'est un perceptron. Un \defi{perceptron linéaire} à $n$ variables et de fonction d'activation la fonction marche de Heaviside est la donnée de $n$ coefficients réels $a_1,\ldots,a_n$ auxquels est associée la fonction $F : \Rr \to \Rr$ définie par $F = H \circ f$, c'est-à-dire :
 $$\begin{cases}
 F(x_1,\ldots,x_n) = 1 & \text{ si } a_1 x_1 + a_2 x_2 + \cdots + a_n x_n \ge 0, \\
 F(x,\ldots,x_n) = 0  & \text{ sinon.} \\
@@ -140,7 +140,7 @@ Voici le neurone à deux variables de l'exemple précédent.
 }  
 
 \begin{exemple}
-Voici deux catégories de points : des ronds bleus et des carrés rouges. Comme trouver un perceptron qui les sépare ?
+Voici deux catégories de points : des ronds bleus et des carrés rouges. Comment trouver un perceptron qui les sépare ?
 
 \myfigure{0.7}{
 	\tikzinput{fig_neurones_10}
@@ -153,7 +153,7 @@ $F$ vérifie $F(x,y)=1$ pour les coordonnées des carrés et $F(x,y)=0$ pour les
 	\tikzinput{fig_neurones_11}
 } 
 
-Trouvons un droite qui les sépare. Par exemple, la droite d'équation $4x-y=0$ sépare les ronds des carrés. On définit donc le neurone avec les poids $a=4$ et $b=-1$.
+Trouvons une droite qui les sépare. Par exemple, la droite d'équation $4x-y=0$ sépare les ronds des carrés. On définit donc le neurone avec les poids $a=4$ et $b=-1$.
 Si $(x,y)$ sont les coordonnées d'un carré alors on a bien $F(x,y)=1$ et pour un rond $F(x,y)=0$.
 
 \begin{center}
@@ -365,7 +365,7 @@ Graphiquement, on représente toutes les configurations associées à \og{}$x$ O
 Peut-on réaliser l'opération \og{}$x$ OU $y$\fg{} par un perceptron ? 
 Oui ! Cela revient à séparer les rond bleus des carrés rouges.
 C'est possible avec le perceptron de poids $a=1$, $b=1$, $c=-1$.
-Par exemple, si $x=0$ et $y=1$ alors, on calcul $1\cdot0+1\cdot1-1 = 0 \ge0$. Composée avec la fonction marche de Heaviside, la fonction $F(x,y)$
+Par exemple, si $x=0$ et $y=1$ alors, on calcule $1\cdot0+1\cdot1-1 = 0 \ge0$. Composée avec la fonction marche de Heaviside, la fonction $F(x,y)$
 définie par le perceptron renvoie dans ce cas $1$ (\og{}vrai\fg{}).
 Si $x=0$ et $y=0$, alors $1\cdot0+1\cdot0-1 = -1 <0$ et $F(x,y)=0$ (\og{}faux\fg{}).
 
