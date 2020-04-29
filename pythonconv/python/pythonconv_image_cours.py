@@ -11,14 +11,14 @@ M = np.array([[-2,-1,0],[-1,1,1],[0,1,2]])
 
 # Partie C - Calcul de la convolution
 from scipy import signal
-B = signal.convolve2d(f, g, boundary='fill', mode='same')
+B = signal.convolve2d(A, M, boundary='fill', mode='same')
 
 # Partie D - Affichage des images avant/après
 fig = plt.figure(figsize = (10,5))
 
 ax = plt.subplot(1,2,1)
 ax.set_title("Image originale")
-ax.imshow(f, cmap='gray')
+ax.imshow(A, cmap='gray')
 
 ax = plt.subplot(1,2,2)
 ax.set_title("Image sortie")

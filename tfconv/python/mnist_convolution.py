@@ -47,7 +47,7 @@ modele = Sequential()
 # Première couche de convolution : 32 neurones, convolution 3x3, activation relu
 modele.add(Conv2D(32, kernel_size=3, padding='same', activation='relu', input_shape=(28,28,1)))
 
-# Deuxième couche de convolution : 32 neurones
+# Deuxième couche de convolution : 16 neurones
 modele.add(Conv2D(16, kernel_size=3, padding='same', activation='relu'))
 
 # modele.add(Conv2D(8, kernel_size=3, activation='relu'))

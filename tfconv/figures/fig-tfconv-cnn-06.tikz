@@ -26,7 +26,7 @@
 
 
 % Arrow
-\draw[->, >=latex, gray!30, line width=4] (\size/2,\size/2,\position+1.5)  -- ++(0,0,4) node[midway, above=2ex, black,scale=0.7]{Convolution 32 couches};
+\draw[->, >=latex, gray!30, line width=4] (\size/2,\size/2,\position+1.5)  -- ++(0,0,4) node[midway, above=2ex, black,scale=0.7]{Convolution 16 couches};
 
 
 
@@ -41,7 +41,7 @@
   \filldraw[thick, fill=red!60] (-\size/2,-\size/2,{\position+(2*\i+1)*\filtersep}) rectangle (\size/2,\size/2,{\position+(2*\i+1)*\filtersep});
 }
 
-\node[below=5ex] at (-\size/2,-\size/2,\position+\numfilter*\filtersep) {$(28,28,32)$};
+\node[below=5ex] at (-\size/2,-\size/2,\position+\numfilter*\filtersep) {$(28,28,16)$};
 
 % Arrow
 \draw[->, >=latex, gray!30, line width=4] (\size/2,\size/2,\position+2*\numfilter*\filtersep+1.5)  -- ++(0,0,4) node[midway, above=2ex, black,scale=0.7]{Convolution 16 couches};

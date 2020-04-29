@@ -62,7 +62,7 @@ print('erreur_absolue_moyenne element=', erreurel1, 100*erreurel1/erreur1, "%")
 print('erreur_log_moyenne element=', erreurel2, 100*erreurel2/erreur2, "%")
 
 ##########################################
-def entroprie_croisee_binaire(Y,Ytilde):
+def entropie_croisee_binaire(Y,Ytilde):
     epsilon = 1e-7
     n = len(Y)
     erreur = 0
@@ -74,7 +74,7 @@ def entroprie_croisee_binaire(Y,Ytilde):
 # Exemple 
 Y = np.array([1,0,1,1,0,1])
 Ytilde = np.array([0.9,0.2,0.8,1,0.1,0.7])
-erreur = entroprie_croisee_binaire(Y,Ytilde)
+erreur = entropie_croisee_binaire(Y,Ytilde)
 print('Y =', Y)
 print('Ytilde =', Ytilde)
 print('entroprie_croisee_binaire =', erreur)
