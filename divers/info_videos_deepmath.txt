@@ -1,0 +1,688 @@
+
+DEEPMATH
+Mathématiques des réseaux de neurones
+
+[Deepmath] Mathématiques des réseaux de neurones
+ARNAUD BODIN & FRANÇOIS RECHER
+
+
+Tags youtube
+Réseau de neurones, deeplearning, mathématiques, convolution, tensorflow, keras, numpy, 
+
+PARTIE 1 Analyse – Réseaux de neurones
+
+#---------------------------
+Teaser
+
+[Deepmath] Mathématiques des réseaux de neurones
+https://youtu.be/sw4Z_N7Dv6E
+
+Retrouvez le livre sur http://exo7.emath.fr
+Page https://exo7math.github.io/deepmath-exo7/
+Source https://github.com/exo7math/deepmath-exo7
+Vidéos https://youtube.com/   "deepmath"
+
+#---------------------------
+Comment travailler ?
+
+[Deepmath] Comment travailler ? Mathématiques des réseaux de neurones
+https://youtu.be/PoYLxHh-IgU
+
+Retrouvez le livre sur http://exo7.emath.fr
+Page https://exo7math.github.io/deepmath-exo7/
+Source https://github.com/exo7math/deepmath-exo7
+Vidéos https://youtube.com/   "deepmath"
+#---------------------------
+Chapitre 1
+Dérivée
+
+#-----
+[Deepmath] 1.1. Définition de la dérivée
+https://youtu.be/aKfGdTldwUs
+
+Chapitre "Dérivée" - Partie 1.1. Définition de la dérivée
+
+Plan : définition, taux d'accroissement, calcul approché de valeurs, tangente, dérivées usuelles.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 1.2. Dérivée d'une composition
+https://youtu.be/iMa3BZF_Btw
+
+Chapitre "Dérivée" - Partie 1.2. Dérivée d'une composition
+
+Plan : dérivée d'une composition, notation des physiciens, dérivées usuelles, preuve.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 1.3. Dérivation automatique
+https://youtu.be/I4xoDKUfXhE
+
+Chapitre "Dérivée" - Partie 1.3. Dérivation automatique
+
+Plan : graphe de calcul, dérivation automatique, exemple, justification, somme et produit.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 1.4. Fonctions d'activation
+https://youtu.be/q0ZZ695vjkY
+
+Chapitre "Dérivée" - Partie 1.4. Fonctions d'activation
+
+Plan : fonction marche de Heaviside, ReLU, sigma, étude de sigma, tangente hyperbolique.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 1.5. Minimums et maximums
+https://youtu.be/UmJ2Og-VLKk
+
+Chapitre "Dérivée" - Partie 1.5. Minimums et maximums
+
+Plan : dérivée et croissance, minimum local/global, point critique, preuve, exemple.
+
+Retrouvez le livre sur http://exo7.emath.fr
+#---------------------------
+
+#---------------------------
+Chapitre 2
+Python : numpy et matplotlib avec une variable
+
+#-----
+[Deepmath] 2.1. Numpy (une variable)
+https://youtu.be/2sO3d1s2wPk
+
+Chapitre "Python : numpy et matplotlib avec une variable"
+Partie 2.1. Numpy
+
+Plan : définition d'un vecteur, opérations élémentaires, application d'une fonction.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+
+#-----
+[Deepmath] 2.2. Matplotlib (une variable)
+https://youtu.be/IuEY3K_RroI
+
+Chapitre "Python : numpy et matplotlib avec une variable"
+Partie 2.2. Matplotlib
+
+Plan : tracé, options. 
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+
+#---------------------------
+Chapitre 3
+Fonctions de plusieurs variables
+
+#-----
+[Deepmath] 3.1. Définition et graphe (plusieurs variables)
+https://youtu.be/twrd6e89vaA
+
+Chapitre "Fonctions de plusieurs variables"
+Partie 3.1. Définition et graphe
+
+Plan : fonction de deux variables ou plus, exemples, graphe, tranches, lignes de niveau.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 3.2. Minimums et maximums (plusieurs variables)
+https://youtu.be/sCjEukXJoGw
+
+Chapitre "Fonctions de plusieurs variables"
+Partie  3.2. Minimums et maximums
+
+Plan : Minimum/maximum local/global, exemples typiques, point-selle. 
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 3.3. Recherche d'un minimum (plusieurs variables)
+https://youtu.be/txGgbSganSA
+
+Chapitre "Fonctions de plusieurs variables"
+Partie 3.3. Recherche d'un minimum 
+
+Plan : recherche élémentaire d'un minimum, régression linéaire.
+
+Retrouvez le livre sur http://exo7.emath.fr
+#---------------------------
+
+
+#---------------------------
+Chapitre 4
+Python : numpy et matplotlib avec deux variables
+
+#-----
+[Deepmath] 4.1. Numpy (deux variables)
+https://youtu.be/jZjAeBVj9tw
+
+Chapitre "Python : numpy et matplotlib avec deux variables"
+Partie 4.1. Numpy 
+
+Plan : tableau à deux dimensions, opérations sur un tableau, taille, boucle sur les éléments, grille.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 4.2. Matplotlib (deux variables)
+https://youtu.be/HILxxZebJls
+
+Chapitre "Python : numpy et matplotlib avec deux variables"
+Partie 4.2. Matplotlib 
+
+Plan : Graphe d'une fonction de deux variables, options de tracé, lignes de niveau.
+
+Retrouvez le livre sur http://exo7.emath.fr
+#---------------------------
+
+
+#---------------------------
+Chapitre 5
+Réseau de neurones
+
+#-----
+[Deepmath] 5.1. Un neurone
+https://youtu.be/MfptsiyntVo
+
+Chapitre "Réseau de neurones"
+Partie 5.1. Un neurone 
+
+Plan : Neurone linéaire, fonction d'activation, neurone affine, biais, problème de classification, activation sigma.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 5.2. Théorie avec un neurone
+https://youtu.be/xccdozKWAe8
+
+Chapitre "Réseau de neurones"
+Partie 5.2. Théorie avec un neurone 
+
+Plan : OU logique, ET logique, problème du OU exclusif, vocabulaire.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 5.3. Plusieurs neurones
+https://youtu.be/CeRlYwIscJQ
+
+Chapitre "Réseau de neurones"
+Partie 5.3. Plusieurs neurones 
+
+Plan : couches de neurones, exemples.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 5.4. Théorie avec plusieurs neurones
+https://youtu.be/2JnyMQpaRMU
+
+Chapitre "Réseau de neurones"
+Partie  5.4. Théorie avec plusieurs neurones
+
+Plan : réalisation du OU exclusif, ensembles réalisables, union, intersection, polygones, courbes de Jordan.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 5.5. Théorème d'approximation universel
+https://youtu.be/ReLK3O4wyuA
+
+Chapitre "Réseau de neurones"
+Partie 5.5. Théorème d'approximation universel 
+
+Plan : énoncé, fonctions marches, créneaux, escaliers, preuve.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+
+#---------------------------
+Chapitre 6
+Python : tensorflow avec keras - partie 1
+
+#-----
+[Deepmath] 6.1. Utiliser tensorflow
+https://youtu.be/rmxLFqY3--o
+
+Chapitre "Python : tensorflow avec keras - partie 1"
+Partie 6.1 Utiliser tensorflow
+
+Plan : définition des poids, définition des couches, évaluation, visualisation.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 6.2. Tensorflow : exemples à une variable
+https://youtu.be/hWcYfn4jkO4
+
+Chapitre "Python : tensorflow avec keras - partie 1"
+Partie 6.2. Exemples à une variable
+
+Plan : module 'keras_facile', activation,marche de Heaviside, théorème d'approximation universel.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 6.3. Tensorflow : exemples à deux variables
+https://youtu.be/p3smt0Nq-3E
+
+Chapitre "Python : tensorflow avec keras - partie 1"
+Partie 6.3 Exemples à deux variables
+
+Plan : Exemples et visualisation avec deux (ou trois) variables.
+
+Retrouvez le livre sur http://exo7.emath.fr
+#---------------------------
+
+
+#---------------------------
+Chapitre 7
+Gradient
+
+#-----
+[Deepmath] 7.1. Dérivées partielles
+https://youtu.be/OUTxRsyLyeE
+
+Chapitre "Gradient"
+Partie 7.1. Dérivées partielles 
+
+Plan : définition, calcul, interprétation géométrique.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 7.2. Gradient et géométrie
+https://youtu.be/7hDrbuz-nZQ
+
+Chapitre "Gradient"
+Partie 7.2. Gradient et géométrie 
+
+Plan : définition, exemples, tangente à une ligne de niveau, ligne de plus forte pente, surface de niveau.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 7.3. Gradient et minimum/maximum
+https://youtu.be/8GwXHvZcV3Q
+
+Chapitre "Gradient"
+Partie 7.3. Gradient et minimum/maximum 
+
+Plan : Minimum, maximum, point-selle, point critique, direction du gradient.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 7.4. Différentiation automatique
+https://youtu.be/xQKw1xqNtvE
+
+Chapitre "Gradient"
+Partie 7.4. Différentiation automatique 
+
+Plan : rappels, fonctions de plusieurs variables, exemples.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 7.5. Gradient pour un réseau de neurones
+https://youtu.be/7zf-oIerJsE
+
+Chapitre "Gradient"
+Partie 7.5. Gradient pour un réseau de neurones
+
+Plan : fonction et erreur associé à un réseau, formule du sourire, exemple.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+
+#---------------------------
+Chapitre 8
+Descente de gradient
+
+#-----
+[Deepmath] 8.1. Descente de gradient classique
+https://youtu.be/GE4UwT-JV4A
+
+Chapitre "Descente de gradient"
+Partie 8.1. Descente classique
+
+Plan : principe, pas, algorithme.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 8.2. Descente de gradients : exemples
+https://youtu.be/MJkY-E_0K74
+
+Chapitre "Descente de gradient"
+Partie 8.2. Exemples
+
+Plan : exemple en deux variables, pas, exemples en une variable.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 8.3. Descente de gradient et régression linéaire
+https://youtu.be/HmAH6Ct1rc4
+
+Chapitre "Descente de gradient"
+Partie 8.3 Régression linéaire
+
+Plan : régression linéaire, erreur, descente, lien avec un neurone.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 8.4. Descente de gradient stochastique
+https://youtu.be/4owcCc6iUiI
+
+Chapitre "Descente de gradient"
+Partie 8.4. Descente stochastique
+
+Plan : erreur locale et globale, descente stochastique, descente par lots, époque.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+
+#-----
+[Deepmath] 8.5. Accélération de la descente de gradient
+https://youtu.be/uBzn5sVtRzY
+
+Chapitre "Descente de gradient"
+Partie 8.5. Accélération
+
+Plan : algorithme classique, moment, Nesterov
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+
+#---------------------------
+Chapitre 9
+Rétropropagation
+
+#-----
+[Deepmath] 9.1. Principe de la rétropropagation
+https://youtu.be/HveXkSWDeYQ
+
+Chapitre "Rétropropagation"
+Partie 9.1. Principe
+
+Plan : sortie produite/attendue, erreur, exemple, descente de gradient, prédiction.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 9.2. Exemples de rétropropagation
+https://youtu.be/_AsV7EQw78I
+
+Chapitre "Rétropropagation"
+Partie 9.2. Exemples
+
+Plan : fonction marche (une variable), lemniscate (deux variables)  
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 9.3. Sur-apprentissage et autres soucis
+https://youtu.be/ePjASZtPWM0
+
+Chapitre "Rétropropagation"
+Partie 9.3. Sur-apprentissage et autres soucis
+
+Plan : modèle insuffisant, sous-apprentissage, minimum local, sur-apprentissage
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+
+#---------------------------
+Chapitre 10
+Python : tensorflow avec keras - partie 2
+
+#-----
+[Deepmath] 10.1. Reconnaissance de chiffres - tensorflow - MNIST
+https://youtu.be/_pC42JErjhk
+
+Chapitre "tensorflow avec keras - partie 2"
+Partie 10.Reconnaissance de chiffres - MNIST
+
+Plan : base MNIST, format des données, réseau, test et explication du programme.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+
+#-----
+[Deepmath] 10.2. Analyse de texte - tensorflow - IMDB
+https://youtu.be/2ZBNRceYWpI
+
+Chapitre "tensorflow avec keras - partie 2"
+Partie 10.2. Analyse de texte - IMDB
+
+Plan : base IMDB, données, vectorisation, programme, erreur et précision, sur-apprentissage.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 10.3. Reconnaissance d'images - tensorflow - CIFAR-10
+https://youtu.be/cxxno8F1JmQ
+
+
+Chapitre "tensorflow avec keras - partie 2"
+Partie 10.3. Reconnaissance d'images - CIFAR-10
+
+Plan : Base CIFAR-10, données, réseau, constat d'échec.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+
+
+II Algèbre – Convolution
+
+#---------------------------
+Chapitre 11
+Convolution : une dimension
+
+#-----
+[Deepmath] 11. Convolution : une dimension
+https://youtu.be/tG93CSTbYfk
+
+Chapitre "Convolution : une dimension"
+
+Plan : motif, calcul, exemple, traitement du signal, neurone de convolution (1D), couche de convolution (1D).
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+
+#---------------------------
+Chapitre 12
+Convolution
+
+#-----
+[Deepmath] 12.1. Convolution d'une matrice
+https://youtu.be/5CaotCBDs6c
+
+Chapitre "Convolution"
+Partie 12.1. Convolution d'une matrice
+
+Plan : motif, calcul de la convolution, exemple.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 12.2. Neurone et couche de convolution
+https://youtu.be/6mniOdmfdzk
+
+Chapitre "Convolution"
+Partie 12.2. Neurone et couche de convolution
+
+Plan : neurone de convolution, couche de convolution.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 12.3. Les différentes couches d'un réseau
+https://youtu.be/TPKIWko2YfI
+
+Chapitre "Convolution"
+Partie 12.3. Les différentes couches d'un réseau
+
+Plan : couche de convolution, couche d'activation, plusieurs filtres, plusieurs canaux d'entrées, pooling, dropout.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 12.4. Traitement des images
+https://youtu.be/5-nNFHndKTE
+
+Chapitre "Convolution"
+Partie 12.4. Traitement des images
+
+Plan : format d'une image, flou, piqué, lignes verticales/horizontales, bords, mise en relief, pooling.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+
+#---------------------------
+Chapitre 13
+Convolution avec Python
+
+#-----
+[Deepmath] 13. Convolution avec Python
+https://youtu.be/gWoHWXGkdxs
+
+Chapitre "Convolution avec Python"
+
+Plan : Convolution en deux dimensions, convolution étendue, associativité, convolution sur une image, convolution en une dimension.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+
+#---------------------------
+Chapitre 14
+Convolution avec tensorflow/keras
+
+#-----
+[Deepmath] 14.1. Reconnaissance de chiffres - convolution - tensorflow - MNIST
+https://youtu.be/F4RdAcjM2cI
+
+Chapitre "Convolution avec tensorflow/keras"
+Partie 14.1. Reconnaissance de chiffres
+
+Plan : base MNIST, couches de convolutions,  programme.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 14.2. Reconnaissance d'images - convolution - tensorflow - CIFAR-10
+https://youtu.be/ogiMe_lbvts
+
+Chapitre "Convolution avec tensorflow/keras"
+Partie 14.2. Reconnaissance d'images
+
+Plan : base CIFAR-10, réseau, couche de pooling, programme.
+
+Retrouvez le livre sur http://exo7.emath.fr
+#-----
+[Deepmath] 14.3. Reconnaissance d'images - Chat vs chien
+https://youtu.be/EbcvAvFfB_c
+
+Chapitre "Convolution avec tensorflow/keras"
+Partie 14.3. Chat vs chien
+
+Plan : Données, concours 'kaggle', réseau, couches de dropout, programme. 
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 14.4. Que voit un réseau de neurones ?
+https://youtu.be/bjAWwP7h8mI
+
+Chapitre "Convolution avec tensorflow/keras"
+Partie 14.4. Que voit un réseau de neurones ?
+
+Plan : réseau pour MNIST, filtres de la première couche, filtres de la seconde couche.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+
+#---------------------------
+Chapitre 15
+Tenseurs
+
+#-----
+[Deepmath] 15. Tenseurs
+https://youtu.be/XoB6xPMZ8y8
+
+Chapitre "Tenseurs"
+
+Plan : exemples de tenseurs, vocabulaire (dimension, taille, nombre d'éléments), opérations, changer la taille d'un tenseur.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
+
+III Probabilités appliquées
+
+#---------------------------
+Chapitre 16
+Probabilités
+
+#-----
+[Deepmath] 16.1. Activation softmax
+https://youtu.be/WFa7kErZyvw
+
+Chapitre "Probabilités"
+Partie 16.1. Activation softmax
+
+Plan : fonctions H et sigma, argmax, softmax, exemple.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 16.2. Fonctions d'erreur
+https://youtu.be/h1BRq9gkkVk
+
+Chapitre "Probabilités"
+Partie 16.2. Fonctions d'erreur
+
+Plan : erreur quadratique moyenne, erreur absolue moyenne, erreur logarithmique moyenne, entropie croisée binaire, exemples.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#-----
+[Deepmath] 16.3. Loi normale
+https://youtu.be/07UIumUsGus
+
+Chapitre "Probabilités"
+Partie 16.3. Loi normale
+
+Plan : loi de Gauss, espérance, écart-type, loi normale réduite, normalisation, exemple.
+
+Retrouvez le livre sur http://exo7.emath.fr
+
+#---------------------------
