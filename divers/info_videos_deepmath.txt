@@ -15,8 +15,9 @@ PARTIE 1 Analyse – Réseaux de neurones
 Teaser
 
 [Deepmath] Mathématiques des réseaux de neurones
-https://youtu.be/sw4Z_N7Dv6E
-
+  (chaîne deepmath) https://youtu.be/sw4Z_N7Dv6E
+      (chaîne exo7) https://youtu.be/WVE7bA_trxE
+      
 Retrouvez le livre sur http://exo7.emath.fr
 Page https://exo7math.github.io/deepmath-exo7/
 Source https://github.com/exo7math/deepmath-exo7
@@ -43,6 +44,8 @@ https://youtu.be/aKfGdTldwUs
 Chapitre "Dérivée" - Partie 1.1. Définition de la dérivée
 
 Plan : définition, taux d'accroissement, calcul approché de valeurs, tangente, dérivées usuelles.
+
+Erreur à 13:06. Il manque un "prime" : (lambda f)'(x) = lambda f'(x).
 
 Retrouvez le livre sur http://exo7.emath.fr
 
@@ -173,7 +176,8 @@ Retrouvez le livre sur http://exo7.emath.fr
 
 #-----
 [Deepmath] 4.2. Matplotlib (deux variables)
-https://youtu.be/HILxxZebJls
+https://youtu.be/contVfU2b-w
+[OLD] https://youtu.be/HILxxZebJls
 
 Chapitre "Python : numpy et matplotlib avec deux variables"
 Partie 4.2. Matplotlib 
