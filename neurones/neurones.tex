@@ -737,13 +737,29 @@ On termine en comparant les fonctions produites par des réseaux ayant la même 
 Voici les graphiques 3D obtenus pour les fonctions d'activation $H$ (comme dans l'exemple vu auparavant), $\sigma$, $\tanh$ et ReLU. Les fonctions $F$ obtenues dépendent fortement du choix de la fonction d'activation.
 
 \begin{center}
+\begin{minipage}{0.4\textwidth}
+\center
 \includegraphics[scale=\myscale,scale=0.4]{figures/neurones-surface-2-heaviside}
+Activation $H$
+\end{minipage}\quad
+\begin{minipage}{0.4\textwidth}
+\center
 \includegraphics[scale=\myscale,scale=0.4]{figures/neurones-surface-2-sigma}
+Activation $\sigma$
+\end{minipage}
 \end{center}
 
 \begin{center}
+\begin{minipage}{0.4\textwidth}
+\center
 \includegraphics[scale=\myscale,scale=0.4]{figures/neurones-surface-2-tanh}
+Activation $\tanh$
+\end{minipage}\quad
+\begin{minipage}{0.4\textwidth}
+\center
 \includegraphics[scale=\myscale,scale=0.4]{figures/neurones-surface-2-relu}
+Activation ReLU
+\end{minipage}
 \end{center}
 \end{exemple}
 
@@ -797,7 +813,7 @@ Le neurone du haut réalise \og{}$x \text{ ET } \text{non} y$\fg{}, le neurone d
 \subsection{Ensemble réalisable}
 
 Nous aimerions savoir quels ensembles peuvent être décrits par un réseau de neurones.
-On rappelle qu'un ensemble $A \subset \Rr^2$ découpe le plan en trois parties disjointes :
+On rappelle qu'un ensemble $A \subset \Rr^2$ découpe le plan en trois parties disjointes : intérieur, frontière, extérieur :
 $$\Int(A) \qquad \Fr(A) \qquad \Ext(A).$$
 
 \myfigure{0.9}{

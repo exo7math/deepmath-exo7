@@ -811,7 +811,7 @@ f(x) = x  & \text{ si } x \ge 0 \\
   \sauteligne
 \begin{itemize}
   \item Attention ces fonctions ne sont pas dérivables en $0$ (sauf dans le cas $a=b$).
-  \item La fonction ReLU conjugue les bénéfices d'une fonction continue, d'une vraie fonction d'activation (la sortie est $0$ si l'entrée est négative et non nulle sinon) et d'une sortie proportionnelle à l'entrée (pour les entrées positives).
+  \item La fonction ReLU conjugue les bénéfices d'une fonction continue, avec une activation (ici la sortie est non nulle pour une entrée strictement  positive) et d'une sortie proportionnelle à l'entrée (pour les entrées positives).
 \end{itemize}
 \end{remarque*}
 
@@ -988,6 +988,8 @@ Voici l'interprétation géométrique : si $f$ atteint un minimum local ou un ma
 \myfigure{1.2}{
 \tikzinput{fig_mini05}
 }
+
+Attention ! La réciproque de cette proposition n'est pas vraie. Il se peut que $f'(x_0)=0$ mais que $f$ n'atteigne ni un minimum local, ni un maximum local en $x_0$. Nous y reviendrons.
 
 \begin{proof}
 Prenons le cas d'un minimum local en $x_0$.
@@ -1188,7 +1190,7 @@ L'idée de la méthode de Newton est d'utiliser la tangente :
   \item on part d'une valeur $x_0$ quelconque,
   \item on trace la tangente au graphe de $f$ au point d'abscisse $x_0$,
   \item cette tangente recoupe l'axe des abscisses en un point d'abscisse $x_1$ (figure de gauche),
-  \item cette valeur $x_1$ est plus proche de $\ell$ que ne l'est $x_0$,
+  \item cette valeur $x_1$ est plus proche de $\ell$ que ne l'est $x_0$ (sous réserve que $f$ satisfasse des hypothèses raisonnables),
   \item on recommence à partir de $x_1$ : on trace la tangente, elle recoupe l'axe des abscisses, on obtient une valeur $x_2$\ldots{} (figure de droite).
 \end{itemize}
   

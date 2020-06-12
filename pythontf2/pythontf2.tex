@@ -77,7 +77,7 @@ Il faut passer un peu de temps à comprendre et à manipuler les données.
 \ci{X\_train\_data[i]} correspond à une image et \ci{Y\_train\_data[i]} au chiffre attendu pour cette image. Nous parlerons plus tard des données de test.
 On renvoie au fichier \ci{tf2\_chiffres\_data.py} pour une exploration de la base. Noter que l'on peut afficher une image à l'aide de \matplotlib{} par la commande :
 \mycenterline{\ci{plt.imshow(X_train_data[i], cmap='Greys')}}
-
+suivie de \ci{plt.show()}.
 
 %---
 \subsubsection*{Traitement des données}
@@ -238,7 +238,7 @@ $p$ & {neurones} & {poids} & {précision} \\ \hline
 50 & 110 & 42\,310 & 94.4\% \\
 \end{tabular}
 \end{center}
-Sans trop d'efforts on obtient donc un précision de $95\%$. C'est-à-dire que $95$ fois sur $100$ le chiffre prédit est le chiffre correct.
+Sans trop d'efforts on obtient donc une précision de $95\%$. C'est-à-dire que $95$ fois sur $100$ le chiffre prédit est le chiffre correct.
 
 Il est important de mesurer la précision sur les données de test qui sont des données qui n'ont pas été utilisées lors de l'apprentissage. 
 Le réseau n'a donc pas appris par c\oe ur les données d'apprentissage, mais a réussi à dégager un schéma, validé sur des données indépendantes.
@@ -560,7 +560,7 @@ Il faut préciser quelle méthode va être utilisée pour minimiser la fonction 
 
 \begin{itemize}
   \item \textbf{Descente de gradient stochastique classique} (option \ci{optimizer='sgd'}). C'est la méthode classique telle qu'elle a été expliquée dans le chapitre \og{}Descente de gradient\fg{}. 
-  La taille de l'échantillon permet de faire un descente de gradient stochastique pure 
+  La taille de l'échantillon permet de faire une descente de gradient stochastique pure 
   (\ci{batch_size=1}), une descente de gradient sur la totalité des $N$ données (\ci{batch_size=N})
   ou toute solution intermédiaire (par exemple \ci{batch_size=32}).
 
@@ -967,7 +967,7 @@ On retrouve ce phénomène sur l'erreur au fil des époques. Elle décroît cont
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Reconnaissance d'images}
 
-On termine par un constat d'échec, nos réseaux de neurones atteignent leurs limites lorsque le problème posé se complique. Nous souhaitons reconnaître des petites images et les classer selon $10$ catégories.
+On termine par un constat d'échec (provisoire), nos réseaux de neurones atteignent leurs limites lorsque le problème posé se complique. Nous souhaitons reconnaître des petites images et les classer selon $10$ catégories.
 
 %--------------------------------------------------------------------
 \subsection{Données}

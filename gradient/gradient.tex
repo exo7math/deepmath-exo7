@@ -218,7 +218,7 @@ Le vecteur gradient $\grad f(x_0,y_0)$ est orthogonal à la ligne de niveau de $
 
 
 Sur ce premier dessin, sont dessinés la ligne de niveau passant par le point $(x_0,y_0)$ \couleurnb{(en rouge)}{}, un vecteur tangent $v$ en ce point et la tangente à la ligne de niveau \couleurnb{(en vert)}{}. 
-Le vecteur gradient est orthogonal à la ligne de niveau en ce point \couleurnb{(en bleu)}{}.
+Le vecteur gradient est un vecteur du plan qui est orthogonal à la ligne de niveau en ce point \couleurnb{(en bleu)}{}.
 
 
 \bigskip
@@ -227,7 +227,7 @@ Le vecteur gradient est orthogonal à la ligne de niveau en ce point \couleurnb{
   \tikzinput{fig-gradient-02}
 }
 
-À chaque point du plan, on peut associer un vecteur gradient. Ce vecteur gradient est orthogonal à la ligne de niveau passant par ce point.
+À chaque point du plan, on peut associer un vecteur gradient. Ce vecteur gradient est orthogonal à la ligne de niveau passant par ce point. Nous verrons juste après comment savoir s'il est orienté \og{}vers le haut\fg{} ou \og{}vers le bas\fg{}. 
 
 \myfigure{0.8}{
   \tikzinput{fig-gradient-01}
@@ -338,7 +338,7 @@ Les résultats présentés ci-dessus pour les fonctions de deux variables se gé
 Commençons avec trois variables et une fonction $f:\Rr^3 \to \Rr$.
 Rappelons qu'un plan de $\Rr^3$ passant par $(x_0,y_0,z_0)$ et de vecteur normal 
 $n=(a,b,c)$ a pour équation cartésienne :
-$$a(x-x_0)+b(y-y_0)+c(z-z_0) + d =0.$$
+$$a(x-x_0)+b(y-y_0)+c(z-z_0) = 0.$$
 
 
 De même qu'il existe une droite tangente pour les lignes de niveau, il existe un \defi{plan tangent} à une surface de niveau.
@@ -502,7 +502,7 @@ Voici son graphe vu sous trois angles différents et ses lignes de niveau.
 \end{exemple}
 
 
-Comme il est difficile de calculer les points critiques de façon exacte, nous allons utiliser des méthodes numériques.
+Comme il peut être difficile de calculer les points critiques de façon exacte, nous allons utiliser des méthodes numériques.
 L'idée qui sera détaillée dans le prochain chapitre est la suivante : comme le gradient indique la direction dans laquelle la fonction $f$ croît le plus rapidement, nous allons suivre la direction opposée au gradient, pour laquelle $f$ décroît le plus rapidement. Ainsi, partant d'un point $(x_0,y_0)$ au hasard, on sait dans quelle direction se déplacer pour obtenir un nouveau point $(x_1,y_1)$ en lequel $f$ est plus petite. Et on recommence.
 
 Sur les trois dessins ci-dessous, on a dessiné les lignes de niveau d'une fonction $f$ ainsi que les vecteurs $-\grad f(x,y)$. On voit que ces vecteurs pointent bien vers le minimum (figure de gauche), s'éloignent d'un maximum (figure centrale), le cas d'un point-selle est spécial (figure de droite). Dans tous les cas, la longueur des vecteurs gradients diminue à l'approche du point critique.
@@ -756,7 +756,7 @@ La fonction est $F(t) = t + (\ln t)^2 + \frac{1}{\sin t}$ et en sommant on trouv
 \bigskip
 \textbf{Un autre exemple.}
 On termine par un exemple plus compliqué : on souhaite calculer la dérivée de 
-$$F(t) = t \cdot \ln t \cdot \ln(\ln t).$$
+$$F(t) = t^2 \cdot \ln t \cdot \ln(\ln t).$$
 Voici le graphe de calcul que l'on utilise (noter qu'avec ce graphe, on ne calcule qu'une seule fois $\ln t$ dont le résultat est réutilisé pour calculer $\ln(\ln t)$).
 
 \myfigure{0.8}{
