@@ -90,6 +90,7 @@ Auteurs
 Arnaud Bodin et François Recher
 
 Merci à Michel Bodin pour sa relecture.
+Merci à Frédéric Sanchez pour ses remarques pertinentes.
 
 Ce livre est diffusé sous la licence *Creative Commons -- BY-NC-SA -- 4.0 FR*.
 
