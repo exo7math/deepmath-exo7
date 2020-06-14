@@ -18,4 +18,7 @@
 
 \draw[blue,line width=5pt,opacity=0.5] (F.east)  to[bend right=40] (H.west) ;
 \draw[blue, line width=5pt,opacity=0.4] (G.south) to ++(-0.3,-0.5) ;
+
+\draw[thick,dotted] (K)+(1,0) -- ++(1.5,0);
+\draw[->,>=latex,thick] (K)+(1.5,0)-- ++(2.5,0) node[right]{$F$};
 \end{tikzpicture}  

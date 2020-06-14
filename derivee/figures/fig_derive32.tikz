@@ -2,11 +2,11 @@
 
  \node at (0,0) {$x$};
  \node at (4,0) {$y=f(x)$};
-\node[blue] at (4,-0.5) {$[\frac{d f}{d x}]$};
+\node[blue] at (4,-0.5) {$[y'=\frac{d f}{d x}]$};
 \node at (8.5,0) {$z=g(y)$};
-\node[blue] at (8.5,-0.5) {$[\frac{d g}{d y}]$};
+\node[blue] at (8.5,-0.5) {$[z'=\frac{d g}{d y}]$};
 \node at (13,0) {$t=h(z)$};
-\node[blue] at (13,-0.5) {$[\frac{d h}{d z}]$};
+\node[blue] at (13,-0.5) {$[t'=\frac{d h}{d z}]$};
 
  \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(2.5,0) node[midway,above,black,scale=0.8]{$f$};
  \draw[->,>=latex,ultra thick,red] (5,0) -- ++(2.5,0) node[midway,above,black,scale=0.8]{$g$};

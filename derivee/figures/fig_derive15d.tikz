@@ -1,7 +1,7 @@
 \begin{tikzpicture}
 
  \node at (0,0) {$x=3$};
- \node at (4,0) {$y=28$};
+ \node at (4,0) {$y=18$};
 \node[blue] at (4,-0.5) {$[12]$};
 \node at (8.5,0) {$z=\cos(18)$};
 \node[blue] at (8.5,-0.5) {$[-\sin(18)]$};

@@ -39,6 +39,10 @@
 
     \def\x{1.25}
     \def\k{1.25}
+    \node[blue, below right] at (\x,0,0) {$x_0$}; 
+    \draw[blue,dashed] (0,\k,0) node[blue, below left]{$y_0$} -- ++(\x,0,0) ;
+
+
     \draw[->,>=latex,ultra thick,blue] (\x,\k,{2+sin(3*\x r)*cos(2*\k r))})--++(0,0.7,0.8);
    
  \draw[->,>=latex,ultra thick,brown] (0,0,0)--++(0,1,0) node[midway,below left]{$v=(0,1)$};

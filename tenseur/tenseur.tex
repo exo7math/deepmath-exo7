@@ -85,10 +85,10 @@ On accède aux éléments en utilisant les coordonnées :
 \end{itemize}
 
 Plus généralement un \defi{$n$-tenseur} $T$ est un tableau de nombres ayant $n$ dimensions.
-On accèdent à ses éléments en précisant leurs $n$ coordonnées $T[i_1,i_2,\ldots,i_n]$.
+On accède à ses éléments en précisant ses $n$ coordonnées $T[i_1,i_2,\ldots,i_n]$.
 
 Il n'est pas très difficile de définir des $n$-tenseurs, ce sont juste des tableaux de nombres. Par contre, il est plus difficile de visualiser un tenseur à partir de la dimension $4$.
-Une matrice peut-être vue comme une liste de vecteurs. De même, un $3$-tenseur est une liste de matrices, un $4$-tenseur une liste de $3$-tenseurs\ldots
+Une matrice peut être vue comme une liste de vecteurs. De même, un $3$-tenseur est une liste de matrices, un $4$-tenseur une liste de $3$-tenseurs\ldots
 
 Une autre façon de voir un $4$-tenseur est de le présenter comme une matrice dans laquelle chaque élément est en fait une matrice :
 $$T = \begin{pmatrix}
@@ -174,12 +174,12 @@ Nous reprenons les exemples définis plus haut.
 \textbf{Opérations élément par élément entre tenseurs de même taille.}
 \begin{itemize}
   \item \ci{A * AA} calcule chaque produit $a_{ij}\times a'_{ij}$ (ici en dimension 2) et n'a rien à voir avec le produit de deux matrices.
-  \item \ci{T + TT} calcule chaque somme $T_{ijk}+T'_{ijk}$ (ici en dimensions 3).
+  \item \ci{T + TT} calcule chaque somme $T_{ijk}+T'_{ijk}$ (ici en dimension 3).
 \end{itemize}
 
 \textbf{Fonctions sur un tenseur.}
 
-Certaines fonction agissent élément par élément d'autre pas.
+Certaines fonctions agissent élément par élément d'autre pas.
 \begin{itemize}
   \item \ci{V.mean()} renvoie la moyenne de tous les éléments.
   \item \ci{A.sum()} renvoie la somme de tous les éléments.

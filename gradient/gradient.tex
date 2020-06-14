@@ -218,7 +218,7 @@ Le vecteur gradient $\grad f(x_0,y_0)$ est orthogonal à la ligne de niveau de $
 
 
 Sur ce premier dessin, sont dessinés la ligne de niveau passant par le point $(x_0,y_0)$ \couleurnb{(en rouge)}{}, un vecteur tangent $v$ en ce point et la tangente à la ligne de niveau \couleurnb{(en vert)}{}. 
-Le vecteur gradient est orthogonal à la ligne de niveau en ce point \couleurnb{(en bleu)}{}.
+Le vecteur gradient est un vecteur du plan qui est orthogonal à la ligne de niveau en ce point \couleurnb{(en bleu)}{}.
 
 
 \bigskip
@@ -227,7 +227,7 @@ Le vecteur gradient est orthogonal à la ligne de niveau en ce point \couleurnb{
   \tikzinput{fig-gradient-02}
 }
 
-À chaque point du plan, on peut associer un vecteur gradient. Ce vecteur gradient est orthogonal à la ligne de niveau passant par ce point.
+À chaque point du plan, on peut associer un vecteur gradient. Ce vecteur gradient est orthogonal à la ligne de niveau passant par ce point. Nous verrons juste après comment savoir s'il est orienté \og{}vers le haut\fg{} ou \og{}vers le bas\fg{}. 
 
 \myfigure{0.8}{
   \tikzinput{fig-gradient-01}
@@ -338,7 +338,7 @@ Les résultats présentés ci-dessus pour les fonctions de deux variables se gé
 Commençons avec trois variables et une fonction $f:\Rr^3 \to \Rr$.
 Rappelons qu'un plan de $\Rr^3$ passant par $(x_0,y_0,z_0)$ et de vecteur normal 
 $n=(a,b,c)$ a pour équation cartésienne :
-$$a(x-x_0)+b(y-y_0)+c(z-z_0) + d =0.$$
+$$a(x-x_0)+b(y-y_0)+c(z-z_0) = 0.$$
 
 
 De même qu'il existe une droite tangente pour les lignes de niveau, il existe un \defi{plan tangent} à une surface de niveau.
@@ -502,7 +502,7 @@ Voici son graphe vu sous trois angles différents et ses lignes de niveau.
 \end{exemple}
 
 
-Comme il est difficile de calculer les points critiques de façon exacte, nous allons utiliser des méthodes numériques.
+Comme il peut être difficile de calculer les points critiques de façon exacte, nous allons utiliser des méthodes numériques.
 L'idée qui sera détaillée dans le prochain chapitre est la suivante : comme le gradient indique la direction dans laquelle la fonction $f$ croît le plus rapidement, nous allons suivre la direction opposée au gradient, pour laquelle $f$ décroît le plus rapidement. Ainsi, partant d'un point $(x_0,y_0)$ au hasard, on sait dans quelle direction se déplacer pour obtenir un nouveau point $(x_1,y_1)$ en lequel $f$ est plus petite. Et on recommence.
 
 Sur les trois dessins ci-dessous, on a dessiné les lignes de niveau d'une fonction $f$ ainsi que les vecteurs $-\grad f(x,y)$. On voit que ces vecteurs pointent bien vers le minimum (figure de gauche), s'éloignent d'un maximum (figure centrale), le cas d'un point-selle est spécial (figure de droite). Dans tous les cas, la longueur des vecteurs gradients diminue à l'approche du point critique.
@@ -730,7 +730,7 @@ $$F'(t_0) = \left[\frac{1}{2\sqrt{z_0}}\right]\cdot[y_0]\cdot[\exp t_0]
 \  + \  \left[\frac{1}{2\sqrt{z_0}}\right]\cdot[x_0]\cdot[\cos t_0]
 $$
 et donc 
-$$F'(t_0) = \frac{\exp t_0 (\sin y_0 + \cos y_0)}{2\sqrt{\exp t_0 \sin y_0}}.$$
+$$F'(t_0) = \frac{\exp t_0 \cdot (\sin t_0 + \cos t_0)}{2\sqrt{\exp t_0 \sin t_0}}.$$
 
 Reprenons tout depuis le début pour calculer $F'(1)$ en oubliant que l'on a déjà trouvé la formule générale :
 \myfigure{0.8}{
@@ -756,7 +756,7 @@ La fonction est $F(t) = t + (\ln t)^2 + \frac{1}{\sin t}$ et en sommant on trouv
 \bigskip
 \textbf{Un autre exemple.}
 On termine par un exemple plus compliqué : on souhaite calculer la dérivée de 
-$$F(t) = t \cdot \ln t \cdot \ln(\ln t).$$
+$$F(t) = t^2 \cdot \ln t \cdot \ln(\ln t).$$
 Voici le graphe de calcul que l'on utilise (noter qu'avec ce graphe, on ne calcule qu'une seule fois $\ln t$ dont le résultat est réutilisé pour calculer $\ln(\ln t)$).
 
 \myfigure{0.8}{
@@ -772,6 +772,7 @@ C'est donc un peu plus compliqué que ce l'on pense au premier abord : il faut i
 
 %--------------------------------------------------------------------
 \subsection{Fonction associée à un réseau}
+\label{ssec:foncres}
 
 Pour un réseau de neurones $\mathcal{R}$ ayant $n$ entrées $(x_1,\ldots,x_n)$ et une seule sortie, nous associons une fonction : $F : \Rr^n \to \Rr$,  $(x_1,\ldots,x_n) \mapsto F(x_1,\ldots,x_n)$. La situation est en fait plus compliquée. Jusqu'ici les paramètres du réseau étaient donnés. \`A partir de maintenant les variables du problème ne seront plus les entrées mais les poids du réseau. 
 Notons $a_1,\ldots,a_m$ ces poids (l'ensemble des coefficients et des biais). Si l'entrée est fixée et que les poids sont les variables du réseau alors on pourrait considérer que ce même réseau $\mathcal{R}$ définit la fonction 
@@ -838,16 +839,20 @@ Cette somme comporte autant de termes que d'arêtes sortantes (il n'y a pas à �
 \tikzinput{fig-gradres-04}
 }
 
+\bigskip
 
+Pour pouvoir calculer toutes les dérivées partielles, on procède par récurrence, en partant de la fin puis en revenant en arrière de proche en proche. 
 
-Pour pouvoir calculer toutes les dérivées partielles, on procède par récurrence, en partant de la fin puis en revenant en arrière de proche en proche. Voici la formule d'initialisation associée aux coefficients en sortie de réseau,
-\mybox{$\displaystyle
-\frac{\partial F}{\partial a} = f_\mystar \cdot g'_\mystar
-$} 
-C'est la \og{}formule du demi-sourire\fg{}:
 \myfigure{1}{
 \tikzinput{fig-gradres-05}
 }
+
+Voici la formule d'initialisation associée aux coefficients en sortie de réseau,, dite \og{}formule du demi-sourire\fg{} :
+\mybox{$\displaystyle
+\frac{\partial F}{\partial a} = f_\mystar \cdot g'_\mystar
+$} 
+
+
 \bigskip
 
 Voici quelques situations particulières, mais qui sont simplement des applications de la formule du sourire.
@@ -874,7 +879,16 @@ $$\frac{\partial F}{\partial a} = \frac{g'_\mystar}{g_\mystar} \cdot b \cdot \fr
 
 
 \begin{remarque*}
-Ces formules ne sont pas valables lorsque $g_\star=0$. Nous verrons lors de la preuve de ces formules comment régler ce problème.
+\sauteligne
+\begin{itemize}
+  \item Ces formules ne sont pas valables lorsque $g_\star=0$. Nous verrons lors de la preuve de ces formules comment régler ce problème.
+  
+  \item Il faut s'habituer au jeu d'écriture un peu ambigu, comme on le fait pour une expression $y$ qui dépend de $x$. On peut noter cette expression $y(x)$ ou bien simplement $y$, cette dernière écriture peut désigner une fonction de $x$ ou bien la valeur prise en $x$. Par exemple dans la formule du sourire  $\frac{\partial F}{\partial a}$ et $ \frac{\partial F}{\partial b}$ sont en fait les valeurs des dérivées partielles et ne sont pas vraiment considérées comme des fonctions. Dans la pratique cela ne posera pas de problème car le but est de calculer les valeurs des dérivées partielles (et pas l'expression des fonctions dérivées partielles).
+  
+  \item En plus les expressions sont dérivées par rapport à différentes variables. Par exemple, si une expression $F$ dépend de $y$, et l'expression $y$ dépend de $x$, alors on peut calculer  $\frac{\partial F}{\partial y}$, mais aussi $\frac{\partial F}{\partial x}$. 
+  
+  \item Enfin la fonction $F$ considérée ici dépend des variables d'entrée $x_i$ mais aussi des poids $a_j$, si on suivait le formalisme introduit en section \ref{ssec:foncres}, on devrait plutôt la noter  $\widehat F$.
+\end{itemize}
 \end{remarque*}
 
 
@@ -1010,7 +1024,8 @@ $$\frac{\partial F}{\partial x} = \big(-ac\sin (ax) + bd\cos (bx) \big) \exp \bi
     \label{eq:grad:eq1}
   \end{equation}
 }
-Preuve : on a $h_\mystar = h(b g_\mystar)$, la formule s'obtient en dérivant $g \mapsto h(bg)$ par rapport à la variable $g$.
+Preuve : on a $h_\mystar = h(b g_\mystar)$, la formule s'obtient en dérivant $g \mapsto h(bg)$ par rapport à la variable $g$, avec 
+$h'_\mystar = h'(b g_\mystar)$.
 
 \mybox{
   \begin{equation}
@@ -1018,7 +1033,7 @@ Preuve : on a $h_\mystar = h(b g_\mystar)$, la formule s'obtient en dérivant $g
     \label{eq:grad:eq2}
   \end{equation}
 }
-Preuve : on a $g_\mystar = g(\cdots + a f_\mystar+\cdots)$, la formule s'obtient en dérivant $a \mapsto g(\cdots + a f +\cdots)$ par rapport à la variable $a$.
+Preuve : on a $g_\mystar = g(\cdots + a f_\mystar+\cdots)$, la formule s'obtient en dérivant $a \mapsto g(\cdots + a f +\cdots)$ par rapport à la variable $a$. On note $g'_\mystar = g'(\cdots + a f_\mystar+\cdots)$.
 
 \mybox{
   \begin{equation}
@@ -1026,7 +1041,7 @@ Preuve : on a $g_\mystar = g(\cdots + a f_\mystar+\cdots)$, la formule s'obtient
     \label{eq:grad:eq3}
   \end{equation}
   }
-Preuve : c'est la même formule que l'équation (\ref{eq:grad:eq2}) mais cette fois pour $b \mapsto h(\cdots + b g +\cdots)$.
+Preuve : c'est la même formule que l'équation (\ref{eq:grad:eq2}) mais cette fois pour $b \mapsto h(b g)$ et $h'_\mystar = h'(b g_\mystar)$.
 
 \bigskip
 \textbf{Formule générale.}

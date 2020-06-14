@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+
+ \node at (0,0) {$x_i$};
+ \node at (4.5,0) {$x_{i+1}=f_{i+1}(x_i)$};
+\node[blue] at (4.5,-0.5) {$[x'_{i+1}=\frac{d f_{i+1}}{d x_i}]$};
+\node at (9.5,0) {$x_{i+2}$};
+
+
+
+ \draw[->,>=latex,ultra thick,red] (0.5,0) -- ++(2.5,0) node[midway,above,black,scale=0.8]{$f_{i+1}$};
+ \draw[->,>=latex,ultra thick,red] (6,0) -- ++(2.5,0) node[midway,above,black,scale=0.8]{$f_{i+2}$};
+
+
+ \node[red] at (0,-1.5) {$\{\{\frac{d F}{d x_i} \}\}$};
+ \node[red] at (4.5,-1.5) {$\{\{\frac{d F}{d x_{i+1}} \}\}$};
+
+\end{tikzpicture}

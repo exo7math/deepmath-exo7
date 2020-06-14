@@ -231,7 +231,12 @@ Jusqu'à calculer entièrement la matrice $A\star M$.
 \begin{remarque*}
 \sauteligne
 \begin{itemize}
+
+  \item Il ne faut pas confondre le fait de retourner la matrice avec une opération différente qui s'appelle la transposition.
+  
   \item Dans la plupart de nos situations, le motif sera une matrice de taille $3 \times 3$. Par contre la matrice $A$ pourra être de très grande taille (par exemple une matrice $600 \times 400$, codant une image).
+  
+  \item 
   
   \item Cependant, si la matrice du motif a une dimension paire on rajoute des zéros virtuels à gauche ou en haut (avant de le retourner).
 
@@ -491,7 +496,7 @@ un $3$-tenseur de taille $(3, 3, k)$, c'est-à-dire un tableau à $3$ dimensions
    \myfigure{0.6}{
    \tikzinput{fig-convolution2d-3d-07d}
    } 
-Ce motif $M$ correspond donc à une couche de neurones où chaque neurone a $3\times3\times k$ arêtes. Chaque neurone est connecté localement à une zone $3\times 3$ dans un plan, mais ceci sur toute la profondeur des $k$ entrées. Le calcul de la sortie du neurone se fait en réalisant la somme de $3 \times 3 \times k$. Pour réaliser une couche de neurones, la zone $3 \times 3$ se déplace dans le plan, mais s'étend toujours sur toute la profondeur.
+Ce motif $M$ correspond donc à une couche de neurones où chaque neurone a $3\times3\times k$ arêtes. Chaque neurone est connecté localement à une zone $3\times 3$ dans un plan, mais ceci sur toute la profondeur des $k$ entrées. Le calcul de la sortie du neurone se fait en réalisant la somme de $3 \times 3 \times k$ termes. Pour réaliser une couche de neurones, la zone $3 \times 3$ se déplace dans le plan, mais s'étend toujours sur toute la profondeur.
 
    \myfigure{0.5}{
    \tikzinput{fig-convolution2d-3d-11}

@@ -618,12 +618,12 @@ Dans ce graphe de calcul, les dérivées locales sont entre crochets.
 Les dérivées séquentielles sont entre accolades doubles (lues en partant de la droite à partir de la figure ci-dessus) :
 $$\frac{\dd F}{\dd t} = \frac{\dd t}{\dd t} = 1,
 \qquad
-\frac{\dd F}{\dd z} = \frac{\dd t}{\dd z} = [z'],
+\frac{\dd F}{\dd z} = \frac{\dd t}{\dd z} = [t'],
 $$
 $$
-\frac{\dd F}{\dd y} = \frac{\dd t}{\dd y} = \frac{\dd t}{\dd z}\times\frac{\dd z}{\dd y}  = [z'] \times [y'],
+\frac{\dd F}{\dd y} = \frac{\dd t}{\dd y} = \frac{\dd t}{\dd z}\times\frac{\dd z}{\dd y}  = [t'] \times [z'],
 \qquad
-\frac{\dd F}{\dd x} = \frac{\dd t}{\dd x} = \frac{\dd t}{\dd z}\times\frac{\dd z}{\dd y}\times\frac{\dd y}{\dd x}  = [z'] \times [y'] \times [x'].
+\frac{\dd F}{\dd x} = \frac{\dd t}{\dd x} = \frac{\dd t}{\dd z}\times\frac{\dd z}{\dd y}\times\frac{\dd y}{\dd x}  = [t'] \times [z'] \times [y'].
 $$
 
 On calcule donc facilement la dérivée $\frac{\dd F}{\dd x}$ mais on a aussi comme étapes intermédiaires $\frac{\dd F}{\dd y}$ et $\frac{\dd F}{\dd z}$.
@@ -634,23 +634,27 @@ Pourquoi est-il pertinent de calculer les dérivées séquentielles de la droite
 Sur l'exemple ci-dessus les dérivées séquentielles sont :
 $$ \{\{1\}\},
 \qquad 
- \{\{z'\}\},
+ \{\{t'\}\},
 \qquad 
- \{\{z' \times y' \}\} ,
+ \{\{t' \times z' \}\} ,
 \qquad 
- \{\{z' \times y' \times x'\}\}.$$
+ \{\{t' \times z' \times y'\}\}.$$
 Pour éviter de calculer beaucoup de produits, on remarque que chaque nouveau produit est la multiplication de la dérivée séquentielle précédente avec la dérivée locale :
 $$ \{\{1\}\},
 \qquad 
- \{\{z'\}\} = [z] \times \{\{1\}\},
+ \{\{t'\}\} = [t'] \times \{\{1\}\},
 \qquad 
- \{\{z' \times y' \}\} =  \{\{z'\}\}\times [y'],
+ \{\{t' \times z' \}\} =  \{\{t'\}\}\times [z'],
 \qquad 
- \{\{z' \times y' \times x'\}\} = \{\{z' \times y' \}\}\times [x'].$$
+ \{\{t' \times z' \times y'\}\} = \{\{t' \times z' \}\}\times [y'].$$
 
 \bigskip 
 Plus généralement, si $F = f_n\circ \cdots \circ f_2 \circ f_1$ et $x_1 = f_1(x_0)$, $x_2 = f_2(x_1)$,\ldots, $x_n = f_n(x_{n-1})$ alors :
-$$ \left\{\left\{\frac{\dd F}{\dd x_i} \right\}\right\} =  \left\{\left\{\frac{\dd F}{\dd x_{i+1}} \right\}\right\} \times \left[\frac{\dd f_i}{\dd x_{i}}\right].$$
+$$ \left\{\left\{\frac{\dd F}{\dd x_i} \right\}\right\} =  \left\{\left\{\frac{\dd F}{\dd x_{i+1}} \right\}\right\} \times \left[\frac{\dd f_{i+1}}{\dd x_{i}}\right].$$
+
+\myfigure{1}{
+\tikzinput{fig_derive33}
+}
 
 Pour obtenir toutes les dérivées séquentielles $\{\{\frac{\dd F}{\dd x_i} \}\}$, il y a donc $n$ produits à calculer en partant de $\{\{\frac{\dd F}{\dd x_n} \}\}$ et en terminant par $\{\{\frac{\dd F}{\dd x_0} \}\}$. Si on n'utilise pas cette formule de récurrence alors on a $\frac{n(n+1)}{2}$ produits à calculer, ce qui est beaucoup plus si $n$ est grand.
 
@@ -811,7 +815,7 @@ f(x) = x  & \text{ si } x \ge 0 \\
   \sauteligne
 \begin{itemize}
   \item Attention ces fonctions ne sont pas dérivables en $0$ (sauf dans le cas $a=b$).
-  \item La fonction ReLU conjugue les bénéfices d'une fonction continue, d'une vraie fonction d'activation (la sortie est $0$ si l'entrée est négative et non nulle sinon) et d'une sortie proportionnelle à l'entrée (pour les entrées positives).
+  \item La fonction ReLU conjugue les bénéfices d'une fonction continue, avec une activation (ici la sortie est non nulle pour une entrée strictement  positive) et d'une sortie proportionnelle à l'entrée (pour les entrées positives).
 \end{itemize}
 \end{remarque*}
 
@@ -988,6 +992,8 @@ Voici l'interprétation géométrique : si $f$ atteint un minimum local ou un ma
 \myfigure{1.2}{
 \tikzinput{fig_mini05}
 }
+
+Attention ! La réciproque de cette proposition n'est pas vraie. Il se peut que $f'(x_0)=0$ mais que $f$ n'atteigne ni un minimum local, ni un maximum local en $x_0$. Nous y reviendrons.
 
 \begin{proof}
 Prenons le cas d'un minimum local en $x_0$.
@@ -1188,7 +1194,7 @@ L'idée de la méthode de Newton est d'utiliser la tangente :
   \item on part d'une valeur $x_0$ quelconque,
   \item on trace la tangente au graphe de $f$ au point d'abscisse $x_0$,
   \item cette tangente recoupe l'axe des abscisses en un point d'abscisse $x_1$ (figure de gauche),
-  \item cette valeur $x_1$ est plus proche de $\ell$ que ne l'est $x_0$,
+  \item cette valeur $x_1$ est plus proche de $\ell$ que ne l'est $x_0$ (sous réserve que $f$ satisfasse des hypothèses raisonnables),
   \item on recommence à partir de $x_1$ : on trace la tangente, elle recoupe l'axe des abscisses, on obtient une valeur $x_2$\ldots{} (figure de droite).
 \end{itemize}
   
