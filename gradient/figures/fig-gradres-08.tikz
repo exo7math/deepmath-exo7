@@ -20,4 +20,7 @@
 
 \draw[blue,line width=5pt,opacity=0.5] (GG)  to[bend right=10] (H.west) ;
 \draw[blue, line width=5pt,opacity=0.4] (G.north east)  to ++(0.1,-1.1) ;
+
+\draw[thick,dotted] (H)+(1,0) -- ++(1.5,0);
+\draw[->,>=latex,thick] (H)+(1.5,0)-- ++(2.5,0) node[right]{$F$};
 \end{tikzpicture}  
