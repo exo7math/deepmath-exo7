@@ -253,8 +253,8 @@ $\delta=0.2$ \quad $a_0=-1.5$
 \end{minipage}
 \end{center}
 
-Il faut bien comprendre ce graphique : la suite des points $(a_k)$ (points rouges) se lit sur l'axe des abscisses. Les vecteurs (orange) montrent les itérations.
-Il est plus facile de comprendre l'algorithme sur le graphe de $f$ (en bleu). Sur ce graphe, on reporte les points $(a_k,f(a_k))$ (en rouge), ce qui permet de bien comprendre que les valeurs $f(a_k)$ décroissent rapidement. On note aussi que le gradient (ici $f'(a_k)$) diminue à l'approche du minimum, ce qui se traduit par des vecteurs (c'est-à-dire l'écart entre deux points successifs) de plus en plus petits. 
+Il faut bien comprendre ce graphique : la suite des points $(a_k)$ \couleurnb{(points rouges) }{}se lit sur l'axe des abscisses. Les vecteurs \couleurnb{(orange) }{}montrent les itérations.
+Il est plus facile de comprendre l'algorithme sur le graphe de $f$ \couleurnb{(en bleu)}{}. Sur ce graphe, on reporte les points $(a_k,f(a_k))$ \couleurnb{(en rouge)}{}, ce qui permet de bien comprendre que les valeurs $f(a_k)$ décroissent rapidement. On note aussi que le gradient (ici $f'(a_k)$) diminue à l'approche du minimum, ce qui se traduit par des vecteurs (c'est-à-dire l'écart entre deux points successifs) de plus en plus petits. 
 
 \end{exemple}
 
@@ -512,11 +512,13 @@ k & (a_k,b_k) & \grad E(a_k,b_k) & E(a_k,b_k) \\ \hline
 \end{array}
 $$
 
+\smallskip
+
 Au bout de $100$ itérations, on obtient $a_{100} \simeq 0.501$ et $b_{100} \simeq 2.99$ (avec un gradient et une erreur presque nuls). C'est bien la droite $y = \frac12x+3$ qui passe par les trois points.
 
 
-Sur la figure de gauche ci-dessous, sont dessinés, dans le plan de coordonnées $(a,b)$, les premiers points $(a_k,b_k)$ qui convergent (lentement et en oscillant) vers $(\frac12,3)$ (point bleu). Sur la figure de droite sont tracées, dans le plan de coordonnées $(x,y)$, les droites d'équation $y = a_kx+b_k$ pour les premières valeurs de $k$. 
-Il est beaucoup plus difficile d'appréhender la convergence des droites (vers la droite d'équation $y=\frac12x+3$ en bleu) que celle des points de la figure de gauche.
+Sur la figure de gauche ci-dessous, sont dessinés, dans le plan de coordonnées $(a,b)$, les premiers points $(a_k,b_k)$ qui convergent (lentement et en oscillant) vers $(\frac12,3)$ \couleurnb{(point bleu)}{}. Sur la figure de droite sont tracées, dans le plan de coordonnées $(x,y)$, les droites d'équation $y = a_kx+b_k$ pour les premières valeurs de $k$. 
+Il est beaucoup plus difficile d'appréhender la convergence des droites (vers la droite d'équation $y=\frac12x+3$\couleurnb{ en bleu}{}) que celle des points de la figure de gauche.
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.5]{figures/regression-01}
@@ -538,7 +540,7 @@ On ne choisit pas le point initial $(a_0,b_0)$ au hasard. Plus on part d'un poin
 La descente de gradient conduit au bout de $1000$ itérations à $a\simeq 0.78$ et $b\simeq -2.46$,
 ce qui donne l'équation de la droite de régression linéaire.
 
-Sur le dessin ci-dessous sont tracées la droite initiale qui passe par les points $A_1$ et $A_5$ (en rouge) et la droite de régression linéaire (en bleu).
+Sur le dessin ci-dessous sont tracées la droite initiale qui passe par les points $A_1$ et $A_5$ \couleurnb{(en rouge) }{}et la droite de régression linéaire \couleurnb{(en bleu)}{}.
 
 \myfigure{0.5}{
 \tikzinput{fig-regression-04}
@@ -578,7 +580,7 @@ Vocabulaire :
 \subsection{Régression linéaire $z=ax+by+c$}
 
 Le neurone suivant a pour fonction $F(x,y) = ax+by+c$.
-Le problème de la régression linéaire pour des données $(x_i,y_i,z_i)$,  $i=1,\ldots,N$, consiste à trouver des poids $(a,b,c)$ tel que $F(x_i,y_i) \simeq z_i$.
+Le problème de la régression linéaire pour des données $(x_i,y_i,z_i)$,  $i=1,\ldots,N$, consiste à trouver des poids $(a,b,c)$ tels que $F(x_i,y_i) \simeq z_i$.
 
 \myfigure{1}{
 \tikzinput{fig-regression-06}
@@ -730,7 +732,7 @@ On va ici chercher des coefficients $a$ et $b$ tels que les points soient proche
 On note donc $F(x) = x^2+ax+b$ et on souhaite $F(x_i) \simeq y_i$ pour les points $A_i = (x_i,y_i)$, $i=1,\ldots,4$.
 
 Les fonctions d'erreurs locales sont :
-$$E_i(a,b) = \big(y_i - (x_i^2+ax_i+b_i)\big)^2.$$
+$$E_i(a,b) = \big(y_i - (x_i^2+ax_i+b)\big)^2.$$
 
 La fonction d'erreur globale est :
 $$E(a,b) = E_1(a,b)+E_2(a,b)+E_3(a,b)+E_4(a,b).$$
@@ -1012,14 +1014,14 @@ C'est un petit avantage par rapport à la méthode du moment puisqu'on calcule l
 %--------------------------------------------------------------------
 \subsection{Vocabulaire}
 
-Terminons par un petit résumé du vocabulaire avec sa traduction en anglais.
+Terminons par un petit résumé du vocabulaire avec sa traduction en anglais :
 \begin{itemize}
  \item descente de gradient (classique), \emph{(batch) gradient descent},
- \item descente de gradient stochastique, \emph{sgd} pour \emph{stochastic gradient descent}
+ \item descente de gradient stochastique, \emph{sgd} pour \emph{stochastic gradient descent},
  \item descente de gradient par lots, \emph{mini-batch gradient descent},
- \item pas $\delta$, \emph{learning rate}
+ \item pas $\delta$, \emph{learning rate},
  \item erreur quadratique moyenne, \emph{mse} pour \emph{minimal squared error},
- \item moment, \emph{momentum}
+ \item moment, \emph{momentum},
  \item époque, \emph{epoch}.
  \end{itemize}  
 

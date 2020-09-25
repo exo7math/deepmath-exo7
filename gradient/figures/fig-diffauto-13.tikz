@@ -10,8 +10,8 @@
  \node[blue] at (12,-0.8) {$[\frac{1}{18+\sin2}]$};
 \draw[ultra thick,red]  (0.5,2) -- (3,0);
 \draw[ultra thick,red] (0.5,-2) -- (3,0);
- \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
-\draw[->,>=latex,ultra thick,red] (7.8,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$\ln z$};
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=0.9]{$f$} ;
+\draw[->,>=latex,ultra thick,red] (7.8,0) -- ++(3,0) node[midway,above,black,scale=0.9]{$\ln z$};
 
 
 \end{tikzpicture}

@@ -8,8 +8,8 @@
 \node[blue] at (12,-1.1) {$[\frac{1}{18+\sin2}]$};
 \draw[ultra thick,red]  (0.5,2) -- (3,0);
 \draw[ultra thick,red] (0.5,-2) -- (3,0);
- \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
-\draw[->,>=latex,ultra thick,red] (7.8,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$\ln z$};
+
+\draw[->,>=latex,ultra thick,red] (7.8,0) -- ++(3,0) node[midway,above,black,scale=0.9]{$\ln z$};
 
 
 \node[red] at (0,1.5) {$\{\{\partial_x F(3,2)\}\}$};
@@ -22,6 +22,6 @@
 
  \node[blue,left] at (2.9,1.1) {$[12]$};
  \node[blue,left] at (3.8,-1.1) {$[9+\cos 2]$};
- \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=0.9]{$f$} ;
 
 \end{tikzpicture}

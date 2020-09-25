@@ -11,8 +11,8 @@
 
 % Neurone G
 \node[neuron,red!70] (G) at (\layersep,0) {};
-\node[above right=0.8ex,scale=0.8] at (G) {$g$};
-\node[below right=0.8ex,scale=0.8] at (G) {$[g']$};
+\node[above right=0.8ex,scale=0.8] at (G) {$g_\star$};
+\node[below right=0.8ex,scale=0.8] at (G) {$[g'_\star]$};
  \path[thick] (F) edge node[pos=0.8,above,scale=0.8]{$a$} (G);
 
 % Sortie

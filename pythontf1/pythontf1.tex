@@ -82,7 +82,7 @@ Explications :
   
   \item Pour chaque couche, il faut préciser le nombre de neurones qu'elle contient. S'il y a $n$ neurones alors la couche renvoie $n$ valeurs en sortie. On rappelle qu'un neurone renvoie la même valeur de sortie vers tous les neurones de la couche suivante.
   
-  \item Pour la première couche, il faut préciser le nombre de valeurs en entrée (par l'option \ci{input_dim = ...}). Ici on a une entrée d'une seule variable. Sur la figure ci-dessous un exemple d'une entrée de dimension $3$.
+  \item Pour la première couche, il faut préciser le nombre de valeurs en entrée (par l'option \ci{input_dim = ...}). Dans le code ici, on a une entrée d'une seule variable. Sur la figure ci-dessous un exemple d'une entrée de dimension $3$.
 
   \myfigure{0.8}{
     \tikzinput{fig_pythontf_03}
@@ -91,7 +91,7 @@ Explications :
   \item Pour les autres couches, le nombre d'entrées est égal au nombre de sorties de la couche précédente. Il n'est donc pas nécessaire de le préciser.
   
   \item Pour chaque couche, il faut également préciser une fonction d'activation (c'est la même pour tous les neurones de cette couche). Plusieurs fonctions d'activation sont prédéfinies :
-  \mycenterline{\ci{'relu'} (ReLU), \quad \ci{'sigmoid'}($\sigma$), \quad  \ci{'linear'} (identité)}
+  \mycenterline{\ci{'relu'} (ReLU), \quad \ci{'sigmoid'} ($\sigma$), \quad  \ci{'linear'} (identité)}
   Nous verrons plus tard comment définir notre propre fonction d'activation, comme par exemple la fonction marche de Heaviside
   
   \item Notre exemple ne possède qu'une entrée et comme il n'y a qu'un seul neurone sur la dernière couche alors il n'y a qu'une seule valeur en sortie. Ainsi notre réseau va définir une fonction $F : \Rr \to \Rr$, $x \mapsto F(x)$.
@@ -224,7 +224,7 @@ modele.add(Dense(1, activation='sigmoid'))
 \end{lstlisting}
 
 La première couche possède $3$ neurones, chacun ayant deux entrées.
-La seconde couche n'a qu'un seul neurone (qui a donc automatiquement $3$ entrées). La fonction d'activation est partout la fonction $\sigma$.
+La seconde couche n'a qu'un seul neurone (qui a automatiquement $3$ entrées). La fonction d'activation est partout la fonction $\sigma$.
 
 \bigskip
 \textbf{Poids.}
@@ -386,7 +386,7 @@ Voici le graphe de la fonction produite par ce neurone :
 %--------------------------------------------------------------------
 \subsection{Théorème d'approximation universelle}
 
-\index{theoreme@théorème d'approximation universel}
+\index{theoreme@théorème d'approximation universelle}
 
 Enfin, le module \ci{keras\_facile} propose une fonction \ci{calcul_approximation()} qui rend effectif le théorème d'approximation universelle pour les fonctions d'une variable (voir le chapitre \og{}Réseau de  neurones\fg{}).
 

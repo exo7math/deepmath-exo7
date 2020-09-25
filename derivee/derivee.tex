@@ -38,7 +38,7 @@
 %--------------------------------------------------------------------
 \subsection{Définition}
 
-Soit $f : I \to \Rr$ une fonction, où $I$ est un intervalle ouvert (du type $]a,b[$) de $\Rr$. Soit $x_0 \in I$.
+Soit $f : I \to \Rr$ une fonction, où $I$ est un intervalle ouvert de $\Rr$ (par exemple du type $]a,b[$). Soit $x_0 \in I$.
 
 \begin{definition}
 La dérivée de $f$ en $x_0$, si elle existe, est le nombre
@@ -152,7 +152,7 @@ L'interprétation géométrique de la dérivée est essentielle !
 Le coefficient directeur de la tangente au graphe de $f$ en $x_0$ est $f'(x_0)$.
 
 Une équation de la \defi{tangente} au point $(x_0,f(x_0))$ est donc :
-\mybox{$y = (x-x_0) f'(x_0) + f(x_0)$.}
+\mybox{$y = (x-x_0) f'(x_0) + f(x_0)$}
 
 \myfigure{2}{
 \tikzinput{fig_derive02bis}
@@ -277,7 +277,7 @@ En effet, c'est cette formule qui permet de calculer les bons paramètres pour u
 Voici la formule :
 \begin{proposition}
 La dérivée de $g \circ f$ est donnée par :
-\mybox{$\big( g \circ f \big)'(x) = g'\big( f(x) \big) \cdot f'(x)$.}
+\mybox{$\big( g \circ f \big)'(x) = g'\big( f(x) \big) \cdot f'(x)$}
 \end{proposition}
 
 
@@ -579,7 +579,7 @@ Voici le graphe de calcul correspondant à $F(2)$ pour l'entrée $x_0=2$, compl�
 \tikzinput{fig_derive22b}
 }
 
-La dérivée $F'(2)$ est une somme de termes calculée entre accolades  :
+La dérivée $F'(2)$ est la somme de termes, calculée entre accolades  :
 $$F'(2) = \{\{ \ln(2)\exp(2) + \frac12\exp(2) \}\} = \left(\ln(2)+\frac12\right)e^2.$$
 
 
@@ -643,7 +643,7 @@ $$ \{\{1\}\},
 Pour éviter de calculer beaucoup de produits, on remarque que chaque nouveau produit est la multiplication de la dérivée séquentielle précédente avec la dérivée locale :
 $$ \{\{1\}\},
 \qquad 
- \{\{t'\}\} = [t'] \times \{\{1\}\},
+ \{\{t'\}\} = \{\{1\}\} \times [t'],
 \qquad 
  \{\{t' \times z' \}\} =  \{\{t'\}\}\times [z'],
 \qquad 
@@ -836,7 +836,7 @@ Le graphe de la fonction $\sigma$ possède une forme de \og{}sigma\fg{} comme le
 }
 
 
-La fonction ressemble à la fonction de Heaviside mais elle à l'avantage d'être continue et dérivable. Elle propose une transition douce de $0$ à $1$, la transition étant assez linéaire 
+La fonction ressemble un peu à la fonction de Heaviside mais elle à l'avantage d'être continue et dérivable. Elle propose une transition douce de $0$ à $1$, la transition étant assez linéaire 
 autour de $0$.
 
 Étudions en détails cette fonction.
@@ -941,7 +941,7 @@ $$E(x) = ax^2+bx+c \quad \text{ avec } a = 6,\  b = -22,\  c = 27.$$
 \tikzinput{fig_mini03}
 }
 
-La courbe d'erreur est donc une parabole, la valeur la plus petite possible est atteinte en $x_0 = -b/2a = \frac{22}{12}=1.83\ldots$ qui correspond au sommet de la parabole.
+La courbe d'erreur est donc une parabole, la valeur la plus petite possible est atteinte en $x_0 = -\frac{b}{2a} = \frac{22}{12}=1.83\ldots$ qui correspond au sommet de la parabole.
 Pour cette valeur $x_0$, on trouve $E(x_0)=\frac{41}{6} = 6.83\ldots$ et tout autre paramètre $x\in\Rr$ vérifie $E(x) \ge E(x_0)$.
 
 Voici la configuration minimale avec $M_0 = (x_0,x_0)$.
@@ -1237,7 +1237,7 @@ On cherche une valeur approchée de $\sqrt[3]{100}$.
   \item On part de $x_0=10$ par exemple.
   
   \item On calcule $f(x_0) = 900$ et $f'(x_0) = 300$. Par la formule de récurrence :
-  $$x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = 7$$
+  $$x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} =10-\frac{900}{300} = 7$$
   
   \item On calcule $f(x_1) = f(7) = 243$, $f'(x_1) = f'(7) = 147$ et donc
   $$x_2 = x_1 - \frac{f(x_1)}{f'(x_1)} = \frac{262}{49} = 5.3469\ldots$$ 

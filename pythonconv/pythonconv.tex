@@ -71,7 +71,7 @@ C'est un bon exercice de programmer sa propre fonction qui calcule la convolutio
 
 \begin{itemize}
   \item \emph{Convolution de même taille.}
-  C'est celle que l'on vient de voir et que l'on a défini dans le chapitre précédent. La matrice $B = A \star M$ est de même taille que la matrice $A$. Pour les calculs, on peut être amené à rajouter des zéros virtuels sur les bords de la matrice $A$.
+  C'est celle que l'on vient de voir et que l'on a définie dans le chapitre précédent. La matrice $B = A \star M$ est de même taille que la matrice $A$. Pour les calculs, on peut être amené à rajouter des zéros virtuels sur les bords de la matrice $A$.
   \mycenterline{\ci{B1 = signal.convolve2d(A, M, mode='same', boundary='fill')}}
 
 \myfigure{1}{
