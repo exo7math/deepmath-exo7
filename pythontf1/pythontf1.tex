@@ -184,7 +184,7 @@ $F(3) = 2$. Ce que l'on peut vérifier à la main en calculant les sorties de ch
 \subsection{Visualisation}
 Afin de tracer le graphe de la fonction $F: \Rr \to \Rr$, on peut calculer d'autres valeurs :
 
-\begin{minipage}{0.55\textwidth}
+\begin{minipage}{0.64\textwidth}
 \begin{lstlisting}
 import matplotlib.pyplot as plt
 liste_x = np.linspace(-2, 3, num=100)
@@ -197,7 +197,7 @@ plt.plot(liste_x,liste_y)
 plt.show()
 \end{lstlisting}
 \end{minipage}
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.35\textwidth}
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.4]{figures/pythontf-keras-01}
 \end{center}
@@ -261,7 +261,7 @@ Cette fois l'entrée est du type $(x,y)$ et la sortie correspond à un seul rée
 \textbf{Graphique.}
 Voici comment tracer le graphe de $F: \Rr^2 \to \Rr$. C'est un peu trop technique, ce n'est pas la peine d'en comprendre les détails.
 
-\begin{minipage}{0.5\textwidth}
+\begin{minipage}{0.52\textwidth}
 \begin{lstlisting}
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -280,7 +280,7 @@ ax.plot_surface(X, Y, Z)
 plt.show()
 \end{lstlisting}
 \end{minipage}
-\begin{minipage}{0.49\textwidth}
+\begin{minipage}{0.47\textwidth}
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.5]{figures/pythontf-keras-02a}
 \end{center}
@@ -312,9 +312,10 @@ modele.add(Dense(2, input_dim=1, activation='relu'))
 modele.add(Dense(1, activation='relu'))
 
 # Poids de la couche 0
-definir_poids(modele,0,0,1,-1)     # definir_poids(modele,couche,rang,coeff,biais)
+# definir_poids(modele,couche,rang,coeff,biais)
+definir_poids(modele,0,0,1,-1)  
 definir_poids(modele,0,1,-0.5,1)
-affiche_poids(modele,0)            # affiche poids de la couche 0
+affiche_poids(modele,0)          # affiche poids de la couche 0
 
 # Poids de la couche 1
 definir_poids(modele,1,0,[1,1],0) 

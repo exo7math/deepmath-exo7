@@ -70,7 +70,7 @@ Plus en détails :
 Ces données sont accessibles très simplement avec \tensorflow/\keras{} :
 \begin{lstlisting}
 from tensorflow.keras.datasets import mnist
-(X_train_data, Y_train_data), (X_test_data, Y_test_data) = mnist.load_data()
+(X_train_data,Y_train_data),(X_test_data,Y_test_data) = mnist.load_data()
 \end{lstlisting} 
 
 Il faut passer un peu de temps à comprendre et à manipuler les données.
@@ -146,7 +146,7 @@ from tensorflow.keras.datasets import mnist
 from tensorflow.keras.utils import to_categorical
 
 # Téléchargement des données
-(X_train_data, Y_train_data), (X_test_data, Y_test_data) = mnist.load_data()
+(X_train_data,Y_train_data),(X_test_data,Y_test_data) = mnist.load_data()
 
 N = X_train_data.shape[0]  # N = 60 000 données
 
@@ -154,8 +154,8 @@ N = X_train_data.shape[0]  # N = 60 000 données
 X_train = np.reshape(X_train_data,(N,784))  # vecteur image
 X_train = X_train/255  # normalisation
 
-# Données d'apprentissage Y
-Y_train = to_categorical(Y_train_data, num_classes=10) # vers une liste de taille 10
+# Données d'apprentissage Y vers une liste de taille 10
+Y_train = to_categorical(Y_train_data, num_classes=10) 
 
 # Données de test
 X_test = np.reshape(X_test_data,(X_test_data.shape[0],784))
@@ -190,7 +190,7 @@ modele.fit(X_train, Y_train, batch_size=32, epochs=40)
 ### Partie D - Résultats
 
 resultat = modele.evaluate(X_test, Y_test, verbose=0)
-print('Valeur de la fonction erreur sur les données de test (loss):', resultat[0])
+print('Valeur de l''erreur sur les données de test (loss):', resultat[0])
 print('Précision sur les données de test (accuracy):', resultat[1])
 \end{lstlisting} 
 
@@ -792,7 +792,7 @@ for k in range(1000):
 # Partie D. Visualisation
 
 sortie_produite = modele.predict(entree)
-ZZ = sortie_produite.reshape(Z.shape)  # sortie produite aux bonnes dimensions
+ZZ = sortie_produite.reshape(Z.shape)  # sortie aux bonnes dimensions
 
 # Affichage
 import matplotlib.pyplot as plt
@@ -888,8 +888,8 @@ Noter qu'avec ce codage on perd pas mal d'information par rapport à la critique
 from tensorflow.keras.datasets import imdb
 
 nb_mots_total = 1000   # On ne garde que les n=1000 mots les plus fréquents  
-(X_train_data, Y_train), (X_test_data, Y_test) = imdb.load_data(num_words=
-                                                                nb_mots_total)
+(X_train_data, Y_train), (X_test_data, Y_test) = 
+                       imdb.load_data(num_words = nb_mots_total)
 
 # Partie A bis. Afficher d'un texte
 
@@ -996,7 +996,7 @@ Plus en détails :
 
 from tensorflow.keras.datasets import cifar10
 
-(X_train_data, Y_train_data), (X_test_data, Y_test_data) = cifar10.load_data()
+(X_train_data,Y_train_data),(X_test_data,Y_test_data)=cifar10.load_data()
 
 num_classes = 10
 labels =  ['airplane','automobile','bird','cat','deer',

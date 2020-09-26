@@ -300,7 +300,7 @@ Avec \Python{} on ne peut pas écrire l'opération
 \mycenterline{\ci{y = x + 2}}
 si on n'a pas auparavant affecté une valeur à la variable \ci{x}.
 
-Ce que l'on voudrait, c'est pouvoir manipuler \ci{y} comme une variable ordinaire. Un autre point de vue est de dire que l'on veut définir la fonction $x \mapsto y = x+2$. Ainsi, on ne pourrait préciser qu'en fin de programme que la variable, ici $x$, valait en fait $7$ et donc que tout ce qui concernait $y$ l'était finalement pour $y=9$.
+Ce que l'on voudrait, c'est pouvoir manipuler \ci{y} comme une variable ordinaire. Un autre point de vue est de dire que l'on veut définir la fonction $x \mapsto y = x+2$. Ainsi, on pourrait ne préciser qu'en fin de programme que la variable, ici $x$, valait en fait $7$ et donc que tout ce qui concernait $y$ l'était finalement pour $y=9$.
 
 Voici comment faire avec \keras.
 
@@ -314,7 +314,7 @@ print(f([7]))
 
 La fonction \ci{placeholder()} réserve un emplacement mémoire pour un tenseur nommé $x$ (ici un vecteur de longueur $1$, donc un nombre), que l'on peut manipuler ensuite comme une variable.
 On définit ensuite la fonction $f : x \mapsto y = x+2$. 
-Ce n'est qu'à la fin, lorsque l'on calcule $f(7)$ que l'emplacement mémoire de \ci{x} est affectée à  la valeur \ci{[7]} et que le calcul $y=x+2$ est vraiment effectué. 
+Ce n'est qu'à la fin, lorsque l'on calcule $f(7)$ que l'emplacement mémoire de \ci{x} est affecté à  la valeur \ci{[7]} et que le calcul $y=x+2$ est vraiment effectué. 
 
 \bigskip
 Voici un autre autre exemple qui correspond au calcul $A \times X$ où $A$ est une matrice $3\times 3$ et $X$ un vecteur de taille $3$.

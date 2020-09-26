@@ -142,10 +142,12 @@ Poursuivons l'étude de notre exemple.
   $$\frac{\partial E_i}{\partial b}(x_i,y_i) = 2 y_i \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$
   $$\frac{\partial E_i}{\partial c}(x_i,y_i) = 2 \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$ 
   donc 
+  {\small
   $$\grad E_i(a,b,c) = \left(\frac{\partial E_i}{\partial a}(x_i,y_i), \frac{\partial E_i}{\partial b}(x_i,y_i), \frac{\partial E_i}{\partial c}(x_i,y_i) \right)
   \qquad \text{ et  } \qquad 
   \grad E(a,b,c) = \frac 1N \sum_{i=1}^N \grad E_i.$$
-     
+  }
+ 
   \item On part de $P_0 = (0,1,-2)$, on calcule $\grad E(P_0) = (-0.077, 0.192, 0.005)$. On obtient le poids suivant par $P_1 = P_0 - \delta \grad E(P_0) = (0.077,    0.807,    -2.005)$ (avec $\delta = 1$).   
      
   \item On continue avec la formule de récurrence $P_{k+1} = P_k - \delta \grad E(P_k)$ pour obtenir les poids suivants :
@@ -511,7 +513,8 @@ On divise notre rectangle en une grille de $n \times n$ points. Les exemples ci-
 \textbf{Architecture.}
 On décide de concevoir un réseau à $4$ couches, avec le même nombre $p$ de neurones par couche pour les trois premières couches et un seul neurone sur la couche de sortie. La fonction d'activation choisie pour tous les neurones est ReLU .
 Voici une illustration de la configuration pour $p=3$.
-\myfigure{0.87}{
+
+\myfigure{0.84}{
 \tikzinput{fig_retro_11}
 }
 
