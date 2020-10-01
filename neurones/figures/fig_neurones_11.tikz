@@ -25,6 +25,6 @@
 
 %\node[scale=1.3,red,right] at (4.5,-1.5) {$P(x,y)=1$};
 %\node[scale=1.3,blue,left] at (-4.5,1.5) {$P(x,y)=0$};
-\node[red,below] at (-1,-4) {$4x-y=0$};
+\node[red,below] at (-1.3,-4) {$4x-y=0$};
 
 \end{tikzpicture}

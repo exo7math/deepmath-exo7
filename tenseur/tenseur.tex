@@ -118,7 +118,7 @@ M_{2,1} & M_{2,2} & \cdots \\
 Il est important de maîtriser le vocabulaire lié aux tenseurs et de ne pas confondre les notions.
 
 \begin{itemize}
-  \item \defi{Dimension.} 
+  \item \defi{Dimension}. 
   \begin{itemize}
     \item C'est le nombre d'indices qu'il faut utiliser pour accéder à un élément. 
     Chaque indice correspond à un \defi{axe}.
@@ -127,7 +127,7 @@ Il est important de maîtriser le vocabulaire lié aux tenseurs et de ne pas con
     \item La commande est \ci{T.ndim}.
  \end{itemize}
   
-  \item \defi{Taille.}
+  \item \defi{Taille}.
     \begin{itemize}
       \item C'est la liste des longueurs de chaque axe.
       \item Un vecteur de longueur $3$ a pour taille $(3)$ que l'on note plutôt $(3,)$ (pour signifier que c'est bien une liste). Une matrice $3\times 4$ a pour taille $(3,4)$. Un tenseur de taille $(3,5,7,11)$ est un tenseur de dimension $4$, le premier indice $i_1$ varie de $1$ à $3$ (ou plutôt de $0$ à $2$ avec \Python), le second indice $i_2$ varie de $1$ à $5$\ldots
@@ -136,7 +136,7 @@ Il est important de maîtriser le vocabulaire lié aux tenseurs et de ne pas con
     \end{itemize}
     
   
-  \item \defi{Nombre d'éléments.}
+  \item \defi{Nombre d'éléments}.
     \begin{itemize}
       \item C'est le nombre total d'éléments nécessaire pour définir un tenseur. Cela correspond au nombre d'emplacements qu'il faut réserver dans la mémoire pour stocker le tenseur. Le nombre d'éléments d'un tenseur est le produit $\ell_1 \times \cdots \times \ell_n$ des longueurs de la taille $(\ell_1,\ldots,\ell_n)$ du tenseur.
       \item Un vecteur de longueur $3$ possède $3$ éléments, une matrice $3\times 4$ en a $12$ et un $4$-tenseur de taille $(3,5,7,11)$ en a $3\times5\times7\times 11$.

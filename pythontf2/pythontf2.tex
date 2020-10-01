@@ -336,7 +336,7 @@ L'entrée et la sortie sont de dimension $1$.
 La fonction associée au réseau est donc $F : \Rr \to \Rr$.
 On souhaite calculer les poids du réseau de sorte que $F(x) \simeq f(x)$, pour tout $x\in[0,5]$.
 
-\myfigure{0.78}{
+\myfigure{0.75}{
   \tikzinput{fig_tf2_02}
 }
 
@@ -887,7 +887,8 @@ Noter qu'avec ce codage on perd pas mal d'information par rapport à la critique
 
 from tensorflow.keras.datasets import imdb
 
-nb_mots_total = 1000   # On ne garde que les n=1000 mots les plus fréquents  
+# On ne garde que les n=1000 mots les plus fréquents
+nb_mots_total = 1000     
 (X_train_data, Y_train), (X_test_data, Y_test) = 
                        imdb.load_data(num_words = nb_mots_total)
 

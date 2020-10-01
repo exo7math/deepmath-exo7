@@ -396,7 +396,7 @@ training_set = train_datagen.flow_from_directory(train_directory,
 modele = Sequential()
 
 modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu', 
-                               input_shape=(image_width,image_height,3)))
+                      input_shape=(image_width,image_height,3)))
 modele.add(MaxPooling2D(pool_size=(2, 2)))
 modele.add(Dropout(0.5))
 
@@ -437,7 +437,7 @@ La nouveauté est ici l'ajout de couches de dropout par la commande :
 Après pas mal de calculs et une quarantaine d'époques, on obtient une précision de $85\%$, ce qui est tout fait correct, même si on est loin des $99\%$ de précision des meilleurs résultats du concours \og{}Kaggle\fg{}. \`A vous de jouer !
 
 \begin{center}
-\includegraphics[scale=\myscale,scale=0.7]{figures/tfconv-chienchat-test}
+\includegraphics[scale=\myscale,scale=0.9]{figures/tfconv-chienchat-test}
 \end{center}
 
 On montre ci-dessus des images de test avec deux photos mal identifiées, peut-être à cause d'éléments extérieurs (le gilet coloré en haut à gauche, la serviette au milieu).
@@ -464,7 +464,7 @@ On reprend l'exemple de la reconnaissance de chiffres manuscrits de la base MNIS
   \item \textbf{Couche dense et sortie.} Une couche dense de  $10$ neurones qui est aussi la couche de sortie.
 \end{itemize}
 
-\myfigure{0.35}{
+\myfigure{0.34}{
 \tikzinput{fig-tfconv-cnn-06}
 } 
 

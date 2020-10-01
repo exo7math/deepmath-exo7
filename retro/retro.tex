@@ -514,7 +514,7 @@ On divise notre rectangle en une grille de $n \times n$ points. Les exemples ci-
 On décide de concevoir un réseau à $4$ couches, avec le même nombre $p$ de neurones par couche pour les trois premières couches et un seul neurone sur la couche de sortie. La fonction d'activation choisie pour tous les neurones est ReLU .
 Voici une illustration de la configuration pour $p=3$.
 
-\myfigure{0.84}{
+\myfigure{0.8}{
 \tikzinput{fig_retro_11}
 }
 
@@ -728,7 +728,7 @@ $$(-2,1),\quad  (-1,0),\quad (0,0),\quad (1,0),\quad (3,2).$$
 \end{center}
 
 Il s'agit de trouver le meilleur coefficient $a$, qui définisse $F$ tel que $F(x_i) \simeq y_i$. Autrement dit, on souhaite minimiser $E(a) = \sum E_i(a)$ où $E_i(a) = (F(x_i)-y_i)^2$.
-Géométriquement il y a deux paramètres qui semblent meilleurs que les autres $a=-1$ (figure de gauche) et $a=+1$ (figure de droite) car alors les portions de droites passent par des carrés bleus.
+Géométriquement il y a deux paramètres qui semblent meilleurs que les autres $a=-1$ (figure de gauche) et $a=+1$ (figure de droite) car alors les portions de droites passent par des carrés\couleurnb{ bleus}{}.
 
 \begin{center}
 \begin{minipage}{0.45\textwidth}
@@ -792,7 +792,7 @@ Il s'agit donc d'un problème délicat : la fonction $F$ obtenue vérifie bien $
 
 % Les exemples qui suivent ne sont pas vraiment issue de réseau de neurone, mais d'interpolation polynomiale, ce qui est plus parlant.
 
-\textbf{Exemple 1.} Nous avons $4$ points bleus.
+\textbf{Exemple 1.} Nous avons $4$ points\couleurnb{ bleus}{}.
 Pour une valeur $x_0$ donnée, on souhaite prédire une valeur $y_0$ (figure de gauche) cohérente avec nos données.
 
 On propose dans un premier temps d'approcher la solution en utilisant une droite (figure de droite) même si les points ne sont pas exactement alignés. Cela permet de prédire une valeur $y_0$ pour placer le point $P=(x_0,y_0)$.

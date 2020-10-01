@@ -254,7 +254,7 @@ $\delta=0.2$ \quad $a_0=-1.5$
 \end{center}
 
 Il faut bien comprendre ce graphique : la suite des points $(a_k)$ \couleurnb{(points rouges) }{}se lit sur l'axe des abscisses. Les vecteurs \couleurnb{(orange) }{}montrent les itérations.
-Il est plus facile de comprendre l'algorithme sur le graphe de $f$ \couleurnb{(en bleu)}{}. Sur ce graphe, on reporte les points $(a_k,f(a_k))$ \couleurnb{(en rouge)}{}, ce qui permet de bien comprendre que les valeurs $f(a_k)$ décroissent rapidement. On note aussi que le gradient (ici $f'(a_k)$) diminue à l'approche du minimum, ce qui se traduit par des vecteurs (c'est-à-dire l'écart entre deux points successifs) de plus en plus petits. 
+Il est plus facile de comprendre l'algorithme sur le graphe de $f$\couleurnb{ (en bleu)}{}. Sur ce graphe, on reporte les points $(a_k,f(a_k))$\couleurnb{ (en rouge)}{}, ce qui permet de bien comprendre que les valeurs $f(a_k)$ décroissent rapidement. On note aussi que le gradient (ici $f'(a_k)$) diminue à l'approche du minimum, ce qui se traduit par des vecteurs (c'est-à-dire l'écart entre deux points successifs) de plus en plus petits. 
 
 \end{exemple}
 
@@ -517,7 +517,7 @@ $$
 Au bout de $100$ itérations, on obtient $a_{100} \simeq 0.501$ et $b_{100} \simeq 2.99$ (avec un gradient et une erreur presque nuls). C'est bien la droite $y = \frac12x+3$ qui passe par les trois points.
 
 
-Sur la figure de gauche ci-dessous, sont dessinés, dans le plan de coordonnées $(a,b)$, les premiers points $(a_k,b_k)$ qui convergent (lentement et en oscillant) vers $(\frac12,3)$ \couleurnb{(point bleu)}{}. Sur la figure de droite sont tracées, dans le plan de coordonnées $(x,y)$, les droites d'équation $y = a_kx+b_k$ pour les premières valeurs de $k$. 
+Sur la figure de gauche ci-dessous, sont dessinés, dans le plan de coordonnées $(a,b)$, les premiers points $(a_k,b_k)$ qui convergent (lentement et en oscillant) vers $(\frac12,3)$\couleurnb{ (point bleu)}{}. Sur la figure de droite sont tracées, dans le plan de coordonnées $(x,y)$, les droites d'équation $y = a_kx+b_k$ pour les premières valeurs de $k$. 
 Il est beaucoup plus difficile d'appréhender la convergence des droites (vers la droite d'équation $y=\frac12x+3$\couleurnb{ en bleu}{}) que celle des points de la figure de gauche.
 
 \begin{center}
@@ -540,7 +540,7 @@ On ne choisit pas le point initial $(a_0,b_0)$ au hasard. Plus on part d'un poin
 La descente de gradient conduit au bout de $1000$ itérations à $a\simeq 0.78$ et $b\simeq -2.46$,
 ce qui donne l'équation de la droite de régression linéaire.
 
-Sur le dessin ci-dessous sont tracées la droite initiale qui passe par les points $A_1$ et $A_5$ \couleurnb{(en rouge) }{}et la droite de régression linéaire \couleurnb{(en bleu)}{}.
+Sur le dessin ci-dessous sont tracées la droite initiale qui passe par les points $A_1$ et $A_5$ \couleurnb{(en rouge) }{}et la droite de régression linéaire\couleurnb{ (en bleu)}{}.
 
 \myfigure{0.5}{
 \tikzinput{fig-regression-04}
@@ -599,13 +599,14 @@ On aura besoin de calculer le gradient de $E$ :
 $$\grad E(a,b,c) 
 = \left(\frac{\partial E}{\partial a}(a,b,c), \frac{\partial E}{\partial b}(a,b,c), \frac{\partial E}{\partial c}(a,b,c)\right).$$
 Donc 
+{\small
 $$\grad E(a,b,c) 
 = \left(
 \sum_{i=1}^{N} -2x_i\big(z_i - (ax_i+by_i+c)\big),  
 \sum_{i=1}^{N} -2y_i\big(z_i - (ax_i+by_i+c)\big), 
 \sum_{i=1}^{N} -2\big(z_i - (ax_i+by_i+c)\big)
 \right).$$
-
+}
 
 \begin{exemple}
 Voici un exemple avec trois points $A_1=(0,0,3)$, $A_2=(1,0,4)$ et $A_3=(0,1,5)$.
@@ -1008,7 +1009,7 @@ $$P_{k+1} = P_k'  - \delta \grad f(P_k').$$
 }
 
 
-C'est un petit avantage par rapport à la méthode du moment puisqu'on calcule la gradient au point $P_k'$ qui est censé être plus près de la solution $P_{\min}$ que $P_k$.
+C'est un petit avantage par rapport à la méthode du moment puisqu'on calcule le gradient au point $P_k'$ qui est censé être plus près de la solution $P_{\min}$ que $P_k$.
 
 
 %--------------------------------------------------------------------

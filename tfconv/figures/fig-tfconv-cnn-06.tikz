@@ -78,7 +78,7 @@
 \node[below=5ex] at (-\size/2,-\size/2,\position+\numfilter*\filtersep) {$(14,14,16)$};
 
 % Arrow
-\draw[->, >=latex, gray!30, line width=4] (\size/2,\size/2,\position+2*\numfilter*\filtersep+1)  -- ++(0,0,4) node[midway, above=2ex, black,scale=0.7]{Applatissement};
+\draw[->, >=latex, gray!30, line width=4] (\size/2,\size/2,\position+2*\numfilter*\filtersep+1)  -- ++(0,0,4) node[midway, above=2ex, black,scale=0.7]{Aplatissement};
 
 
 %%%%%%%%%%%%%%%%%%

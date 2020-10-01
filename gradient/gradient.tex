@@ -155,7 +155,7 @@ Pour une fonction d'une variable, la dérivée est la pente de la tangente au gr
 Sur la figure de gauche, la dérivée partielle  $\frac{\partial f}{\partial x}$ indique la pente de la tranche parallèle à l'axe $(Ox)$\couleurnb{ (en orange)}{}. Sur la figure de droite, la dérivée partielle  $\frac{\partial f}{\partial y}$ indique la pente de la tranche parallèle à l'axe $(Oy)$\couleurnb{ (en vert)}{}.
 
 
-\myfigure{0.8}{
+\myfigure{0.75}{
   \tikzinput{fig-calculdiff-04}
   \tikzinput{fig-calculdiff-05}
 } 
@@ -217,8 +217,8 @@ Le vecteur gradient $\grad f(x_0,y_0)$ est orthogonal à la ligne de niveau de $
 \end{proposition}
 
 
-Sur ce premier dessin, sont dessinés la ligne de niveau passant par le point $(x_0,y_0)$ \couleurnb{(en rouge)}{}, un vecteur tangent $v$ en ce point et la tangente à la ligne de niveau \couleurnb{(en vert)}{}. 
-Le vecteur gradient est un vecteur du plan qui est orthogonal à la ligne de niveau en ce point \couleurnb{(en bleu)}{}.
+Sur ce premier dessin, sont dessinés la ligne de niveau passant par le point $(x_0,y_0)$ \couleurnb{(en rouge)}{}, un vecteur tangent $v$ en ce point et la tangente à la ligne de niveau\couleurnb{ (en vert)}{}. 
+Le vecteur gradient est un vecteur du plan qui est orthogonal à la ligne de niveau en ce point\couleurnb{ (en bleu)}{}.
 
 
 \bigskip
@@ -677,7 +677,7 @@ Voici le graphe de calcul d'une situation que l'on a déjà rencontrée dans le 
 Il s'agit du graphe de calcul de $F(t) = f\big( u(t), v(t) \big)$ où
 $u : \Rr \to \Rr$, $v : \Rr \to \Rr$ et $f : \Rr^2 \to \Rr$. L'objectif est de calculer $F'(t)$.
 
-\myfigure{0.6}{
+\myfigure{0.55}{
 \tikzinput{fig-diffauto-21}\qquad
 \tikzinput{fig-diffauto-22}
 }
@@ -824,7 +824,7 @@ Voici la formule pour calculer la dérivée partielle de $F$ par rapport au coef
 \mybox{$\displaystyle
 \frac{\partial F}{\partial a} = f_\mystar \cdot \frac{g'_\mystar}{g_\mystar} \cdot b \cdot \frac{\partial F}{\partial b}
 $} 
-Voici un schéma pour retenir cette \og{}formule du sourire\fg{}\index{formule du sourire}:
+Voici un schéma pour retenir cette \og{}\defi{formule du sourire}\fg{}\index{formule du sourire}:
 on multiplie les coefficients $f_\mystar$, $g'_\mystar$, $b$ et la dérivée partielle par rapport à $b$ le long de l'arc et on divise par le coefficient $g_\mystar$ au bout du segment.
 \myfigure{1.4}{
 \tikzinput{fig-gradres-03}
