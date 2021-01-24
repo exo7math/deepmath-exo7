@@ -70,7 +70,7 @@ On commence par calculer le coefficient le plus à gauche (après ajout d'un zé
 \tikzinput{fig-convolution1d-05a}
 }
 On continue en calculant les coefficients un par un.
-\myfigure{0.5}{
+\myfigure{0.45}{
 \tikzinput{fig-convolution1d-05b}\qquad\qquad
 \tikzinput{fig-convolution1d-05c}\qquad\qquad
 \tikzinput{fig-convolution1d-05d}\qquad\qquad
@@ -110,7 +110,7 @@ La convolution par le motif $[\frac13,\frac13,\frac13]$ correspond à effectuer 
 Exemple :
 $$[4, 2, 1, 4, 5, 1, 3] \conv \frac13[1,1,1] \simeq [2.00, 2.33, 2.33, 3.33, 3.33, 3.00, 1.33]$$
 
-On peut représenter graphiquement une liste $[x_0,x_1,\ldots,x_N]$ en reliant les points de coordonnées $(k,x_k)$ pour $k$ entre $0$ et $N$. Voici la représentation du tableau d'entrée en bleu et celle du produit de convolution en rouge.
+On peut représenter graphiquement une liste $[x_0,x_1,\ldots,x_N]$ en reliant les points de coordonnées $(k,x_k)$ pour $k$ entre $0$ et $N$. Voici la représentation du tableau d'entrée \couleurnb{en bleu }{}et celle du produit de convolution\couleurnb{ en rouge}{}.
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.6]{figures/convolution-1d-1}
 \end{center}
@@ -180,11 +180,11 @@ Pour un motif  $[a,b,c]$, un neurone de convolution possède trois arêtes, de p
 \tikzinput{fig-convolution1d-08}
 }
 
-La sortie est $s=xc+yb+za$. On pourrait aussi composer par une fonction d'activation $\phi$ auquel cas la sortie serait $s=\phi(xc+yb+za)$.
+La sortie est $s=xc+yb+za$. On pourrait aussi composer par une fonction d'activation $\phi$, auquel cas la sortie serait $s=\phi(xc+yb+za)$.
 
 On peut représenter une couche de convolution par un ensemble de neurones de convolution, 
-ceux-ci ayant tous les mêmes poids $[a,b,c]$ et chacun étant reliés à seulement trois valeurs de l'entrée. La sortie produite est alors le produit  convolution de l'entrée par le motif $[a,b,c]$.
-Pour une entrée de longueur $n$, la couche de convolution possède $n$ neurones, chaque neurone ayant trois arêtes. Mais au total, il n'y a que trois poids différents.
+ceux-ci ayant tous les mêmes poids $[a,b,c]$ et chacun étant relié à seulement trois valeurs de l'entrée. La sortie produite est alors le produit  convolution de l'entrée par le motif $[a,b,c]$.
+Pour une entrée de longueur $n$, la couche de convolution possède $n$ neurones, chaque neurone ayant trois arêtes (sauf les neurones de bord). Mais au total, il n'y a que trois poids différents.
 
 
 \myfigure{1}{

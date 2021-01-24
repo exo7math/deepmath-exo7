@@ -37,8 +37,8 @@ headsep=21pt, heightrounded,
 \ifXeTeX\else
 \tikzifexternalizing{}{
   \pdfinfo{
-    /Title (Python au lycée - tome 2)
-	/Author (Arnaud Bodin)
+    /Title (Deepmath)
+	/Author (Arnaud Bodin et François Recher)
 	/Subject (algorithmes et programmation)
 	/Keywords (informatique, mathématiques, algorithme, python)
     /GTS_PDFXVersion (PDF/X-3:2002)
@@ -132,6 +132,9 @@ headsep=21pt, heightrounded,
 \setlength{\cftchapnumwidth}{2.55em}
 \setlength{\cftsecindent}{2.55em}
 \renewcommand\cftchapafterpnum{\vskip-4pt}
+%\setlength{\cftbeforepartskip}{0pt}  % espace entre avant un titre de partie
+\setlength{\cftparskip}{-3pt}  % espace entre les titres de chapitres
+
 %\renewcommand\cftsecafterpnum{\vskip15pt}
 %\usepackage{titletoc}  % Inutile
 %\addto\captionsfrancais{\def\contentsname{Sommaire}}  % Ne marche pas !
@@ -358,7 +361,7 @@ headsep=21pt, heightrounded,
 {}% Theorem head spec (can be left empty, meaning ‘normal’ )
 
 \newtheoremstyle{definitionexo7}% name
-{5cm plus 1cm minus 2cm}% Space above
+{3pt} %{5cm plus 1cm minus 2cm}% Space above
 {3pt}% Space below
 {\upshape}% Body font
 {}% Indent amount

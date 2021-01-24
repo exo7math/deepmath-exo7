@@ -2,11 +2,10 @@
 Deepmath : Mathématiques des réseaux de neurones
 ================================================
 
-Ce livre comporte trois parties avec chacune un côté mathématiques et un côté réseaux de neurones :
+Ce livre comporte deux parties avec chacune un côté mathématiques et un côté réseaux de neurones :
 
 * analyse et réseaux de neurones
 * algèbre et convolution
-* probabilités appliquées aux réseaux
 
 
 Livre
@@ -53,16 +52,12 @@ Partie II - Algèbre - Convolution
 * Tenseurs [Chapitre](tenseur/tenseur.pdf)
 
 
-Partie III - Probabilités appliquées
+Compléments
 ------------------------------------
 
 [Vidéos](https://www.youtube.com/playlist?list=PL4Z-Jb1iAUObWRvZuQgPFUkUMP_Aycwdv)
 
-* Probabilité  [Chapitre](proba/proba.pdf)
-
-Annexe
-------
-
+* Probabilités  [Chapitre](proba/proba.pdf)
 * Annexe [Chapitre](annexe/annexe.pdf)
 
 
@@ -77,11 +72,8 @@ Le module 'keras_facile' conçu pour vous aider à démarrer  se trouve ici : [k
 Erreurs
 =======
 
-Ce livre est encore une version "beta" et nous avons besoin de votre aide :
+Merci de nous signaler toutes les éventuelles fautes (de calcul, de programmation, d’orthographe).
 
-* merci de signaler toutes les fautes (de calcul, de programmation, d’orthographe),
-* n’hésitez pas à dire si certaines explications ne sont pas claires,
-* vous pouvez proposer des ajouts ou des améliorations.
 
 
 Auteurs
@@ -90,6 +82,9 @@ Auteurs
 Arnaud Bodin et François Recher
 
 Merci à Michel Bodin pour sa relecture.
+
+Merci à Kroum Tzanev pour ses figures de convolutions.
+
 Merci à Frédéric Sanchez pour ses remarques pertinentes.
 
 Ce livre est diffusé sous la licence *Creative Commons -- BY-NC-SA -- 4.0 FR*.

@@ -143,7 +143,7 @@ $$E = \frac{1}{5} \big( (1-1.2)^2+ (2-1.9)^2 + \cdots \big) = 0.08.$$
 
 L'\defi{erreur absolue moyenne} calcule une moyenne des distances entre données et prédictions :
 $$E = \frac{1}{N} \sum_{i=1}^N |y_i-\widetilde y_i|.$$
-Intuitivement, cette erreur est plus naturelle car elle mesure une distance (et non le carré d'une distance), mais l'usage de la valeur absolue la rend moins aisée que la précédente.
+Intuitivement, cette erreur est plus naturelle car elle mesure une distance (et non le carré d'une distance), mais l'usage de la valeur absolue la rend d'utilisation moins aisée que la précédente.
   
 \begin{exemple}
 Avec les mêmes données et prédictions que dans l'exemple précédent, cette fois :
@@ -178,7 +178,7 @@ et $\widetilde y_4 = 105$ contribue à $15\%$ de l'erreur $E$. Selon l'origine d
 %--------------------------------------------------------------------
 \subsection{Entropie croisée binaire}
 
-L'\defi{entropie croisée binaire} est adaptée lorsque la réponse attendue est soit $y_i=0$ soit $y_i=1$ et que la sortie produit (c'est-à-dire la prédiction) est une probabilité $\widetilde y_i$ avec $0 < \widetilde y_i < 1$ :
+L'\defi{entropie croisée binaire} est adaptée lorsque la réponse attendue est soit $y_i=0$ soit $y_i=1$ et que la sortie produite (c'est-à-dire la prédiction) est une probabilité $\widetilde y_i$ avec $0 < \widetilde y_i < 1$ :
 $$E = -\frac{1}{N} \sum_{i=1}^N \big( y_i \ln(\widetilde y_i) + (1-y_i) \ln(1-\widetilde y_i)\big).$$
   
 Chaque terme de la somme n'est en fait constitué que d'un seul élément : si
@@ -241,7 +241,7 @@ Prenons l'exemple de la taille de personnes. Voici la répartition du nombre de 
 \tikzinput{fig_proba03}
 }
 
-Une telle répartition se fait suivant la \og{}loi de Gauss\fg{} qui s'appelle aussi la courbe en cloche. Elle dépend de deux paramètres : l'\defi{espérance} $\mu$ et l'\defi{écart-type} $\sigma$.
+Une telle répartition se fait suivant la \og{}loi de Gauss\fg{} que l'on nomme aussi \og{}courbe en cloche\fg{}. Elle dépend de deux paramètres : l'\defi{espérance} $\mu$ et l'\defi{écart-type} $\sigma$.
 
 \myfigure{0.8}{
 \tikzinput{fig_proba04}
@@ -324,7 +324,7 @@ avec $\mu\simeq 176$ et $\sigma\simeq 7.8$.
 
 
 On en déduit la répartition attendue des hommes en fonction de leur taille, par exemple 
-$95\%$ des hommes ont une taille entre $\mu-2\sigma$ et $\mu+2\sigma$, c'est-à-dire dans l'intervalle $[161,192]$.
+$95\%$ des hommes ont une taille comprise entre $\mu-2\sigma$ et $\mu+2\sigma$, c'est-à-dire dans l'intervalle $[161,192]$.
 
 Pour obtenir une loi normale centrée réduite on utilise la transformation :
 $$x'_i = \frac{x_i-\mu}{\sigma}$$

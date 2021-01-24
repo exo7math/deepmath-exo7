@@ -49,7 +49,7 @@ Attention ! \numpy{} et \matplotlib{} ne sont pas toujours installés avec votre
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Numpy (une variable)}
 
-On appelle le module \numpy{} en le nommant de façon raccourcie \og{}\ci{np}\fg{} :
+On appelle le module \numpy{} et on le renomme de façon raccourcie \og{}\ci{np}\fg{} :
 \mycenterline{\ci{import numpy as np}}
 
 %--------------------------------------------------------------------
@@ -78,7 +78,7 @@ Les principaux objets de  \numpy{} sont des \og{}tableaux\fg{}. Dans ce chapitre
   \mycenterline{\ci{np.linspace(0,1,num=12)}}
   vaut :
   \begin{center}
-  \begin{minipage}{0.8\textwidth}
+  \begin{minipage}{0.9\textwidth}
 \begin{lstlisting}
 [0.         0.09090909 0.18181818 0.27272727 0.36363636 0.45454545
  0.54545455 0.63636364 0.72727273 0.81818182 0.90909091 1.        ]
@@ -119,7 +119,7 @@ Si $Y$ est un autre vecteur défini par \ci{Y = np.array([10,11,12,13])} alors :
 
 Voici plusieurs façons d'initialiser un vecteur.
 \begin{itemize}
-  \item Avec des zéros. Exemple : \ci{np.zeros(5)} renvoie \ci{[0. 0. 0. 0. 0.]}\index{numpy@\numpy!zeros@\ci{zeros()}}
+  \item Avec des zéros. Exemple : \ci{np.zeros(5)} renvoie \ci{[0. 0. 0. 0. 0.]}\index{numpy@\numpy!zeros@\ci{zeros()}}.
   \item Avec des uns. Exemple : \ci{X = np.ones(5)}, alors \ci{X} vaut \ci{[1. 1. 1. 1. 1.]}.
   Ainsi \ci{7*X} renvoie \ci{[7. 7. 7. 7. 7.]}.\index{numpy@\numpy!ones@\ci{ones()}}
   \item Avec des nombres aléatoires entre $0$ et $1$. Exemple : \ci{np.random.random(5)} renvoie un vecteur dont les coordonnées sont tirées aléatoirement à chaque appel, on obtient par exemple :
@@ -214,7 +214,7 @@ Nous allons tracer les graphes de fonctions d'une variable à l'aide des modules
 
 Voici comment tracer la fonction $f : [-3,3] \to \Rr$ définie par $f(x) =e^{-x^2}$, c'est la courbe de Gauss.
 
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.5\textwidth}
 \begin{lstlisting}
 import numpy as np
 import matplotlib.pyplot as plt
@@ -250,19 +250,19 @@ Alors la commande \ci{plt.plot(X,Y)} affiche les points $(x,y)$ pour $x$ parcour
 \begin{minipage}{0.32\textwidth}
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.35]{figures/pythonx-plot1}
-\footnotesize \ci{plt.plot(X,Y)}
+\scriptsize \ci{plt.plot(X,Y)}
 \end{center}
 \end{minipage}
 \begin{minipage}{0.32\textwidth}
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.35]{figures/pythonx-plot2}
-\footnotesize \ci{plt.plot(X,Y,linewidth=3,color='red')}
+\scriptsize \ci{plt.plot(X,Y,linewidth=3,color='red')}
 \end{center}
 \end{minipage}
 \begin{minipage}{0.32\textwidth}
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.35]{figures/pythonx-plot3}
-\footnotesize \ci{plt.scatter(X,Y)}
+\scriptsize \ci{plt.scatter(X,Y)}
 \end{center}
 \end{minipage}
 
@@ -277,7 +277,7 @@ On peut bien sûr changer le style du tracé ou n'afficher que les points.
 On peut exiger que le repère soit orthonormé, ajouter une grille pour plus de lisibilité.
 Enfin, la commande \ci{plt.savefig()} permet de sauvegarder l'image.
 
-\begin{minipage}{0.55\textwidth}
+\begin{minipage}{0.6\textwidth}
 \begin{lstlisting}
 def f(x):
 	return np.exp(-x) * np.cos(2*np.pi*x)
@@ -295,7 +295,7 @@ plt.savefig('amorti.png')
 plt.show()
 \end{lstlisting}
 \end{minipage}
-\begin{minipage}{0.39\textwidth}
+\begin{minipage}{0.34\textwidth}
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.45]{figures/pythonx-amorti}
 \end{center}

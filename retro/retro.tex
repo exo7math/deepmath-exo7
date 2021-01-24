@@ -79,7 +79,7 @@ Nous traitons l'exemple donné en introduction.
   
   
     
-  \item Nos données sont les points rouges ou bleus.
+  \item Nos données sont les points rouges et bleus.
   Une entrée $X_i$ est donc constituée des coordonnées $(x_i,y_i)$ d'un point et la sortie attendue pour ce point est $z_i = 0$ (pour les points bleus) et $z_i = 1$ (pour les points rouges).
   Voici les coordonnées des ronds bleus (sortie attendue $z_i = 0$) :
   $$(0,3),\ (1,1.5),\ (1,4),\ (1.5,2.5),\ (2,2.5),\ (3,3.5),\ (3.5,3.25),\ (4,3),\ (4,4),\ (5,4)$$
@@ -93,7 +93,7 @@ Nous traitons l'exemple donné en introduction.
 \myfigure{0.7}{
 \tikzinput{fig_retro_06}
 }  
-  \item L'erreur commise par la fonction $F$ associée au poids $a,b,c$ est :
+  \item L'erreur commise par la fonction $F$ associée aux poids $a,b,c$ est :
   $$E = E(a,b,c) = \frac{1}N \sum_{i=1}^N E_i(a,b,c)$$
   où $N$ est le nombre total des données (le nombre de ronds bleus plus le nombre de carrés rouges)
   et 
@@ -110,7 +110,7 @@ Nous traitons l'exemple donné en introduction.
 
 \begin{itemize}
   \item Pour trouver les poids $P = (a_1,a_2,\ldots)$ qui définissent le meilleur réseau $\mathcal{R}$ (autrement dit la meilleure fonction $F$),
-  il s'agit de minimiser l'erreur $E$, vue comme une fonction des poids $P = (a_1,a_2,\ldots)$. Pour cela on utilise la méthode de la descente de gradient.
+  il suffit de minimiser l'erreur $E$, vue comme une fonction des poids $P = (a_1,a_2,\ldots)$. Pour cela on utilise la méthode de la descente de gradient.
   
   \item On part de poids initiaux $P_0 = (a_1,a_2,\ldots)$, par exemple choisis au hasard. On fixe un pas $\delta$.
   
@@ -141,11 +141,13 @@ Poursuivons l'étude de notre exemple.
   $$\frac{\partial E_i}{\partial a}(x_i,y_i) = 2 x_i  \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$
   $$\frac{\partial E_i}{\partial b}(x_i,y_i) = 2 y_i \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$
   $$\frac{\partial E_i}{\partial c}(x_i,y_i) = 2 \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$ 
-  donc 
+  et par suite 
+  {\small
   $$\grad E_i(a,b,c) = \left(\frac{\partial E_i}{\partial a}(x_i,y_i), \frac{\partial E_i}{\partial b}(x_i,y_i), \frac{\partial E_i}{\partial c}(x_i,y_i) \right)
   \qquad \text{ et  } \qquad 
   \grad E(a,b,c) = \frac 1N \sum_{i=1}^N \grad E_i.$$
-     
+  }
+ 
   \item On part de $P_0 = (0,1,-2)$, on calcule $\grad E(P_0) = (-0.077, 0.192, 0.005)$. On obtient le poids suivant par $P_1 = P_0 - \delta \grad E(P_0) = (0.077,    0.807,    -2.005)$ (avec $\delta = 1$).   
      
   \item On continue avec la formule de récurrence $P_{k+1} = P_k - \delta \grad E(P_k)$ pour obtenir les poids suivants :
@@ -206,7 +208,7 @@ $$
 
 La conception d'un réseau de neurones est réalisée en modélisant au mieux les données injectées. Mais l'objectif réel est de faire des prédictions pour de nouvelles valeurs, jamais rencontrées auparavant.
 La descente de gradient produit un ensemble de poids $P$ qui définit complètement notre réseau $\mathcal{R}$.
-Nous obtenons donc une fonction $F : \Rr^n \to \Rr$, construite de sorte que $F(X_i) \simeq z_i$.
+Nous obtenons donc une fonction $F : \Rr^n \to \Rr^p$, construite de sorte que $F(X_i) \simeq z_i$.
 Nous pouvons évaluer cette fonction pour tout $X \in \Rr^n$, même pour des $X$ différents des $X_i$.
 
 
@@ -268,7 +270,7 @@ Il y a donc $9$ coefficients à déterminer.
 La fonction d'erreur est :
 $$E = (F(0,0) - 0)^2 + (F(1,1) - 0)^2 + (F(0,1)-1)^2 + (F(1,0) - 1)^2$$
 sachant que $F$ et donc l'erreur $E$ dépendent des coefficients $a_1,\ldots,a_9$.
-Il s'agit de trouver ceux qui rendent l'erreur $E$ (presque) nulle.
+Il s'agit de trouver ceux qui rendent l'erreur $E$ minimale.
 
 \bigskip
 
@@ -465,7 +467,7 @@ Voici le graphe de la fonction $x \mapsto F(x)$ au bout de différents nombres d
 %--------------------------------------------------------------------
 \subsection{Plus de neurones}
 
-Le but est de trouver un réseau de neurones qui distingue deux zones compliquées du plan : la zone bleue et la zone rouge.
+Le but est ici de trouver un réseau de neurones qui distingue deux zones compliquées du plan : la zone bleue et la zone rouge.
 
 \myfigure{1}{
 \tikzinput{fig_retro_10d}
@@ -500,7 +502,7 @@ $(x-\frac12)^2 + 4(y-\frac13)^2=2$.
 
 L'union de ces deux courbes a pour équation :
 $$f(x,y) = \big( (x^2+y^2)^2 - 4(x^2-y^2) \big)  \cdot \big((x-\tfrac12)^2 + 4(y-\tfrac13)^2 - 2 \big) = 0.$$
-La zone rouge correspond aux points de coordonnées $(x,y)$ pour lesquels $f(x,y) \le 0$ et la zone bleue à $f(x,y) > 0$. Nous allons limité notre étude à une zone rectangulaire. Le rectangle est choisi de sorte que l'aire bleue et l'aire rouge soient à peu près égales.
+La zone rouge correspond aux points de coordonnées $(x,y)$ pour lesquels $f(x,y) \le 0$ et la zone bleue à $f(x,y) > 0$. Nous allons limiter notre étude à une zone rectangulaire. Le rectangle est choisi de sorte que l'aire bleue et l'aire rouge soient à peu près égales.
 
 \textbf{Objectifs.} 
 On oublie maintenant la fonction $f$ et on ne retient que quelques points rouges et quelques points bleus. On cherche un réseau et une fonction $F$ telle que $F(x,y) \simeq 1$ pour les points rouges et $F(x,y) \simeq 0$ pour les points bleus.
@@ -511,7 +513,8 @@ On divise notre rectangle en une grille de $n \times n$ points. Les exemples ci-
 \textbf{Architecture.}
 On décide de concevoir un réseau à $4$ couches, avec le même nombre $p$ de neurones par couche pour les trois premières couches et un seul neurone sur la couche de sortie. La fonction d'activation choisie pour tous les neurones est ReLU .
 Voici une illustration de la configuration pour $p=3$.
-\myfigure{0.87}{
+
+\myfigure{0.8}{
 \tikzinput{fig_retro_11}
 }
 
@@ -580,12 +583,15 @@ N'oublions pas le but principal des réseaux de neurones : apprendre à partir d
 
 
 Voici un problème pour lequel nous allons tester si les prédictions sur des données nouvelles sont correctes ou pas.
-On dispose de $n$ cases, dont $3$ sont noircies.  On appelle \emph{hauteur}, le nombre total de cases entre la plus haute et la plus basse cases noircies. Si les trois cases ont pour rang $i < j <k$ alors la hauteur vaut $h = k-i+1$ (la case noircie du milieu n'intervient pas dans la formule).
+On dispose de $n$ cases, dont $3$ sont noircies.  On appelle \emph{hauteur}, le nombre total de cases entre la plus haute et la plus basse case noircie. Si les trois cases ont pour rang $i < j <k$ alors la hauteur vaut $h = k-i+1$ (la case noircie du milieu n'intervient pas dans la formule).
 Sur le dessin ci-dessous, $n=8$ et la configuration représentée est de hauteur $6$.
 
 \myfigure{1}{
 \tikzinput{fig_retro_12}
 }
+
+Nous voulons tester si un réseau de neurones permet de retrouver un résultat qu'on peut vérifier ici à l'aide d'une formule simple :
+étant donné une configuration il s'agit de faire calculer à la machine quelle est sa hauteur. 
 
 Il y a en tout $N = \frac{n(n-1)(n-2)}{6}$ configurations possibles pour les trois cases noires parmi $n$ cases.
 On décide d'utiliser la moitié des configurations comme données d'apprentissage et l'autre moitié va nous permettre de tester si le réseau calculé avec les données d'apprentissage se comporte \og{} correctement\fg{} sur les nouvelles données.
@@ -595,7 +601,7 @@ Dans la suite nous prendrons $n=20$ cases, ce qui fait $N=1140$ configurations p
 \textbf{Données en entrées.}
 On calcule les $N$ configurations possibles. Après un mélange aléatoire, on ne retient que $N/2$ configurations pour l'apprentissage. Une configuration est codée sous la forme d'un vecteur
 $X = (x_1,x_2,\ldots,x_n)$ avec $x_i=0$ (case blanche) ou $x_i = 1$ (case noire).
-Pour chaque configuration $X$ des données d'apprentissage, on calcule la hauteur $z = h(X)$. Les données d'apprentissage sont les $N/2$ données $(X_k,z_k)$ formées des entrées $X_k$ et de la sortie attendue $z_k$ (la hauteur). 
+Pour chaque configuration $X$ des données d'apprentissage, on calcule la hauteur $z = h(X)$. Les données d'apprentissage sont les $N/2$ données $(X_k,z_k)$ formées des entrées $X_k$ et de la sortie attendue $z_k$ correspond à la hauteur. 
 
 \textbf{Réseau.}
 Le réseau comporte $n$ entrées : une entrée par case. Il est constituée de $3$ couches.
@@ -617,7 +623,7 @@ Pour chaque $X_k$, la prédiction est correcte si la valeur arrondie $F(X_k)$ va
 \textbf{Tests.}
 Il faut tester l'efficacité du réseau : tout d'abord le réseau modélise-t-il correctement les données d'apprentissage ? En effet, même si la fonction $F$ a été construite dans le but d'avoir $F(X_k) \simeq z_k$, il n'y a pas nécessairement égalité pour toutes les données d'apprentissage. Mais surtout, il faut tester si la fonction $F$ donne de bonnes prédictions pour de nouvelles données. Nous disposons pour cela des $N/2$ données de test non utilisées lors de l'apprentissage.
 
-Les résultats dépendent des poids initiaux (aléatoires) et de la liste des configurations (qui a été mélangée), on ne retient que les meilleurs résultats parmi plusieurs essais.
+Les résultats dépendent des poids initiaux (aléatoires) et de la liste des configurations choisies pour l'apprentissage (liste qui a été mélangée), on ne retient que les meilleurs résultats parmi plusieurs essais.
 Par exemple, pour $p=10$, voici un des meilleurs résultats obtenus :
 \begin{itemize}
   \item \emph{Apprentissage.} $560$ données prédites correctement sur un total de de $570$ données d'apprentissage, soit $98\%$ de réussite.
@@ -725,7 +731,7 @@ $$(-2,1),\quad  (-1,0),\quad (0,0),\quad (1,0),\quad (3,2).$$
 \end{center}
 
 Il s'agit de trouver le meilleur coefficient $a$, qui définisse $F$ tel que $F(x_i) \simeq y_i$. Autrement dit, on souhaite minimiser $E(a) = \sum E_i(a)$ où $E_i(a) = (F(x_i)-y_i)^2$.
-Géométriquement il y a deux paramètres qui semblent meilleurs que les autres $a=-1$ (figure de gauche) et $a=+1$ (figure de droite) car alors les portions de droites passent par des carrés bleus.
+Géométriquement il y a deux paramètres qui semblent meilleurs que les autres $a=-1$ (figure de gauche) et $a=+1$ (figure de droite) car alors les portions de droites passent par des carrés\couleurnb{ bleus}{}.
 
 \begin{center}
 \begin{minipage}{0.45\textwidth}
@@ -789,7 +795,7 @@ Il s'agit donc d'un problème délicat : la fonction $F$ obtenue vérifie bien $
 
 % Les exemples qui suivent ne sont pas vraiment issue de réseau de neurone, mais d'interpolation polynomiale, ce qui est plus parlant.
 
-\textbf{Exemple 1.} Nous avons $4$ points bleus.
+\textbf{Exemple 1.} Nous avons $4$ points\couleurnb{ bleus}{}.
 Pour une valeur $x_0$ donnée, on souhaite prédire une valeur $y_0$ (figure de gauche) cohérente avec nos données.
 
 On propose dans un premier temps d'approcher la solution en utilisant une droite (figure de droite) même si les points ne sont pas exactement alignés. Cela permet de prédire une valeur $y_0$ pour placer le point $P=(x_0,y_0)$.
@@ -819,7 +825,7 @@ Le problème est similaire si on essaye de séparer les ronds bleus des carrés 
 
 \textbf{Conclusion.}
 Le sur-apprentissage, c'est comme emmener ses enfants à l'école en conduisant à 200 km/h : cela répond de façon correcte à un problème, mais cela provoque beaucoup d'autres ennuis !  
-Quelle est la meilleure solution entre un modèle simple mais imparfait et un modèle parfait mais compliqué ? Il n'y a pas une réponse immédiate à la question : pour savoir, il faut tester le modèle sur d'autres données, jamais rencontrées, afin de déterminer si le réseau n'a pas été sur-entraîné.
+Quelle est la meilleure solution entre un modèle simple mais imparfait et un modèle parfait mais compliqué ? Il n'y a pas une réponse immédiate à la question : pour le savoir, il faut tester le modèle sur d'autres données, jamais rencontrées précédemment, afin de déterminer si le réseau n'a pas été sur-entraîné.
 
 
 \end{document}

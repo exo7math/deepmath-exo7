@@ -7,7 +7,7 @@
  node[above,black] {ligne de niveau $c_k$};
 
  \draw[ultra thick, black!50,rotate=20,xshift=4.2cm] (0.5,-2) to[out=150,in=-110] (0,0) to[out=70,in=-170] (1.5,1)
- node[above,black] {$c_{k+1}<c_k$};
+ node[above,black] {\begin{tabular}{c}ligne de niveau $c_{k+1}$\\avec $c_{k+1}<c_k$\end{tabular}};
 % \fill (0,0) circle (0.5ex) node[below]{$P_{k-1}$};
 \fill (2,0) circle (0.5ex) node[left]{$P_{k}$};
 \fill (4,1) circle (0.5ex) node[right]{$P_{k+1}$};

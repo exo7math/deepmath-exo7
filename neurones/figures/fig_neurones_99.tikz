@@ -23,7 +23,7 @@
 \draw[->,>=latex,green!70!black!20,line width=3pt] (15,2)  to[bend right=10] (10,0.5)  ;
 
 \node[right] at (15,-4) {fonction d'activation};
-\draw[->,>=latex,green!70!black!20,line width=3pt] (15,-4)  to[bend left=10] (3.5,-1.5)  ;
+\draw[->,>=latex,green!70!black!20,line width=3pt] (15,-4)  to[bend left=10] (3.6,-1.5)  ;
 
 \node[right] at (15,-5) {poids : coefficients et biais};
 \draw[->,>=latex,green!70!black!20,line width=3pt] (15,-5)  to[bend left=10] (-3.5,-3.5)  ;

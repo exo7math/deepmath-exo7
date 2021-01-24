@@ -40,20 +40,19 @@
 %---------------------------
 {\large\textbf{Introduction}}
 
-Ce livre comporte trois parties avec pour chacune un côté \og{} mathématique\fg{} et un côté \og{} réseau de neurones\fg{} :
+Ce livre comporte deux parties avec pour chacune un côté \og{}mathématique\fg{} et un côté \og{}réseau de neurones\fg{} :
 \begin{itemize}
   \item analyse et réseaux de neurones,
-  \item algèbre et convolution,
-  \item probabilités appliquées aux réseaux.
+  \item algèbre et convolution.
 \end{itemize}
 
-Le but de la première partie est de comprendre les mathématiques liées aux réseaux de neurones et le calcul des poids par rétropropagation. La seconde est consacrée à la convolution qui est une opération mathématique simple pour extraire des caractéristiques d'une image et permet d'obtenir des réseaux de neurones performants. Enfin, la dernière partie est un court chapitre sur les probabilités rencontrées dans nos réseaux.
+Le but de la première partie est de comprendre les mathématiques liées aux réseaux de neurones et le calcul des poids par rétropropagation. La seconde est consacrée à la convolution qui est une opération mathématique simple pour extraire des caractéristiques d'une image et permet d'obtenir des réseaux de neurones performants. 
 
 \medskip
 
 Nous limitons les mathématiques présentées au niveau de la première année d'études supérieures, ce qui permet de comprendre les calculs de la rétropropagation.
-Ce livre explique comment utiliser des réseaux de neurones simples (à l'aide de \tensorflow/\keras). À l'issue de sa lecture, vous saurez programmer un réseau qui distingue un chat d'un chien ! Cependant ce n'est un manuel ni d'ingénierie ni d'optimisation informatique. 
-Le lecteur est donc supposé être familier avec les mathématiques du niveau du lycée  (dérivée, étude de fonctions\ldots) et avec les notions de base de la programmation avec \Python{}.
+Ce livre explique comment utiliser des réseaux de neurones simples (à l'aide de \tensorflow/\keras). À l'issue de sa lecture, vous saurez programmer un réseau qui distingue un chat d'un chien ! 
+Le lecteur est supposé être familier avec les mathématiques du niveau lycée  (dérivée, étude de fonction\ldots) et avec les notions de base de la programmation avec \Python{}.
 
 \medskip
 
@@ -71,13 +70,7 @@ Selon votre profil vous pouvez suivre différents parcours de lecture :
 
 \bigskip
 
-Ce livre est encore en version \og{}beta\fg{} et nous avons besoin de votre aide :
-\begin{itemize}
-  \item merci de nous signaler toutes les fautes (de calcul, de programmation, d'orthographe),
-  \item n'hésitez pas nous à dire si certaines explications ne sont pas claires,
-  \item vous pouvez nous proposer des ajouts ou des améliorations.
-%  \item nous aurions aussi besoin d'un meilleur titre pour le livre !
-\end{itemize}
+
 
 
   
@@ -85,9 +78,9 @@ Ce livre est encore en version \og{}beta\fg{} et nous avons besoin de votre aide
 \bigskip
 \vspace*{\fill}
 \begin{center}
-Ce cours est aussi disponible en vidéos \href{https://www.youtube.com/channel/UCnKarYaG1VuzdWix1vBitFg/}{\og{}Youtube : Deepmath\fg{}}.\\
+Ce cours est aussi disponible en vidéos \href{https://www.www.youtube.com/c/deepmath/}{\og{}Youtube : Deepmath\fg{}}.\\
 L'intégralité des codes \Python{} ainsi que tous les fichiers sources sont sur la page \emph{GitHub} d'Exo7 :\\
-\href{https://github.com/exo7math/}{\og{}GitHub : Exo7\fg{}}.
+\href{https://github.com/exo7math/deepmath-exo7}{\og{}GitHub : Exo7\fg{}}.
 \end{center}
 
 
@@ -101,4 +94,94 @@ L'intégralité des codes \Python{} ainsi que tous les fichiers sources sont sur
 \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 \tableofcontents
 
+\cleardoublepage
+\section*{Résumé des chapitres}
 
+
+\newcommand{\titrechapitre}[1]{{\textbf{#1}}\nopagebreak}
+\newcommand{\descriptionchapitre}[1]{%
+\smallskip\hfill
+\begin{minipage}{0.95\textwidth}\small#1\end{minipage}\medskip\smallskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Dérivée}
+
+\descriptionchapitre{La notion de dérivée joue un rôle clé dans l'étude des fonctions. Elle permet de déterminer les variations d'une fonction et de trouver ses extremums. Une formule fondamentale pour la suite sera la formule de la dérivée d'une fonction composée.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Python : numpy et matplotlib avec une variable}
+
+\descriptionchapitre{Le but de ce court chapitre est d'avoir un aperçu de deux modules \Python{} : \numpy{} et \matplotlib{}. Le module \numpy{} aide à effectuer des calculs numériques efficacement. Le module \matplotlib{} permet de tracer des graphiques.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Fonctions de plusieurs variables}
+
+\descriptionchapitre{Dans ce chapitre, nous allons nous concentrer sur les fonctions de deux variables et la visualisation de leur graphe et de leurs lignes de niveau. 
+La compréhension géométrique des fonctions de deux variables est fondamentale pour assimiler les techniques qui seront rencontrées plus tard avec un plus grand nombre de variables.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Python : numpy et matplotlib avec deux variables}
+
+\descriptionchapitre{Le but de ce chapitre est d'approfondir notre connaissance de \numpy{} et \matplotlib{} en passant à la dimension $2$. Nous allons introduire les tableaux à double entrée qui sont comme des matrices et visualiser les fonctions de deux variables.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Réseau de neurones}
+
+\descriptionchapitre{Le cerveau humain est composé de plus de $80$ milliards de neurones. Chaque neurone reçoit des signaux électriques d'autres neurones et réagit en envoyant un nouveau signal à ses neurones voisins.
+Nous allons construire des réseaux de neurones artificiels. Dans ce chapitre, nous ne chercherons pas à expliciter une manière de déterminer dynamiquement les paramètres du réseau de neurones, ceux-ci seront fixés ou bien calculés à la main.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Python : tensorflow avec keras - partie 1}
+
+\descriptionchapitre{Le module \Python{} \tensorflow{} est très puissant pour l'apprentissage automatique. Le module \keras{} a été élaboré pour pouvoir utiliser \tensorflow{} plus simplement.
+Dans cette partie nous continuons la partie facile : comment utiliser un réseau de neurones déjà paramétré ?}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Gradient}
+
+\descriptionchapitre{Le gradient est un vecteur qui remplace la notion de dérivée pour les fonctions de plusieurs variables. On sait que la dérivée permet de décider si une fonction est croissante ou décroissante. De même, le vecteur gradient indique la direction dans laquelle la fonction croît ou décroît le plus vite. Nous allons voir comment calculer de façon algorithmique le gradient grâce à la \og{}différentiation automatique\fg{}.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Descente de gradient}
+
+\descriptionchapitre{L'objectif de la méthode de descente de gradient est de trouver un minimum d'une fonction de plusieurs variables le plus rapidement possible. L'idée est très simple, on sait que le vecteur opposé au gradient indique une direction vers des plus petites valeurs de la fonction, il suffit donc de suivre d'un pas cette direction et de recommencer. Cependant, afin d'être encore plus rapide, il est possible d'ajouter plusieurs paramètres qui demandent pas mal d'ingénierie pour être bien choisis.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Rétropropagation}
+
+\descriptionchapitre{La rétropropagation, c'est la descente de gradient appliquée aux réseaux de neurones. Nous allons étudier des problèmes variés et analyser les solutions produites par des réseaux de neurones.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Python : tensorflow avec keras - partie 2}
+
+\descriptionchapitre{Jusqu'ici nous avons travaillé dur pour comprendre en détails la rétropropagation du gradient. Les exemples que nous avons vus reposaient essentiellement sur des réseaux simples. En complément des illustrations mathématiques étudiées, il est temps de découvrir des exemples de la vie courante comme la reconnaissance d'image ou de texte. Nous profitons de la librairie \tensorflow/\keras{} qui en quelques lignes nous permet d'importer des données, de construire un réseau de neurones à plusieurs couches, d'effectuer une descente de gradient et de valider les résultats.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Convolution : une dimension}
+
+\descriptionchapitre{Ce chapitre permet de comprendre la convolution dans le cas le plus simple d'un tableau à une seule dimension.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Convolution}
+
+\descriptionchapitre{La convolution est une opération mathématique simple sur un tableau de nombres, une matrice ou encore une image afin d'y apporter une transformation ou d'en tirer des caractéristiques principales.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Convolution avec Python}
+
+\descriptionchapitre{\Python{} permet de calculer facilement les produits de convolution.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Convolution avec tensorflow/keras}
+
+\descriptionchapitre{Nous mettons en \oe uvre ce qui a été vu dans les chapitres précédents au sujet des couches de convolution afin de créer des réseaux de neurones beaucoup plus performants.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Tenseurs}
+
+\descriptionchapitre{Un tenseur est un tableau à plusieurs dimensions, qui généralise la notion de matrice et de vecteur et permet de faire les calculs dans les réseaux de neurones.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titrechapitre{Probabilités}
+
+\descriptionchapitre{Nous présentons quelques thèmes probabilistes qui interviennent dans les réseaux de neurones.}

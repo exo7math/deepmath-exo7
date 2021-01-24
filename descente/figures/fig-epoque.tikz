@@ -15,7 +15,7 @@
 
 
 \draw[|-|,blue] (-1.5,0.5) -- (-1.5,-4.55) node[midway, left]{itération $1$};
-\draw[|-|] (-3.5,1) -- (-3.5,-5) node[midway, left]{époque $1$};
+\draw[|-|] (-3,1) -- (-3,-5) node[midway, left]{époque $1$};
 \end{scope}
 \begin{scope}[yshift=-7cm]
 
@@ -28,12 +28,12 @@
 \node[right] at (0,-4) {donnée $N$};
 
 \draw[|-|,blue] (-1.5,0.5) -- (-1.5,-4.5) node[midway, left]{itération $2$};
-\draw[|-|] (-3.5,1) -- (-3.5,-5) node[midway, left]{époque $2$};
+\draw[|-|] (-3,1) -- (-3,-5) node[midway, left]{époque $2$};
 \end{scope}
 \end{scope}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{scope}[xshift=12cm]
+\begin{scope}[xshift=11cm]
 \begin{scope}
 \node[scale=1.4] at (2,2) {\bf Descente de gradient stochastique};
 
@@ -57,7 +57,7 @@
 \draw[|-|,blue] (-1.5,-3.6) -- (-1.5,-4.4) node[midway, left]{itération $N$};
 
 
-\draw[|-|] (-4,1) -- (-4,-5) node[midway, left]{époque $1$};
+\draw[|-|] (-3.5,1) -- (-3.5,-5) node[midway, left]{époque $1$};
 \end{scope}
 \begin{scope}[yshift=-7cm]
 
@@ -80,13 +80,13 @@
 \draw[|-|,blue] (-1.5,-0.6) -- (-1.5,-1.4) node[midway, left]{itération $N+2$};
 \draw[|-|,blue] (-1.5,-3.6) -- (-1.5,-4.4) node[midway, left]{itération $2N$};
 
-\draw[|-|] (-4,1) -- (-4,-5) node[midway, left]{époque $2$};
+\draw[|-|] (-3.5,1) -- (-3.5,-5) node[midway, left]{époque $2$};
 \end{scope}
 \end{scope}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{scope}[xshift=24cm]
+\begin{scope}[xshift=22cm]
 \begin{scope}
 \node[scale=1.4] at (2,2) {\bf Descente de gradient par lots};
 
@@ -116,7 +116,7 @@
 \draw[|-|,blue] (-1.5,-3.3) -- (-1.5,-4.8) node[midway, left]{itération $N/K$};
 
 
-\draw[|-|] (-4,1) -- (-4,-5) node[midway, left]{époque $1$};
+\draw[|-|] (-3.5,1) -- (-3.5,-5) node[midway, left]{époque $1$};
 \end{scope}
 \begin{scope}[yshift=-7cm]
 
@@ -146,7 +146,7 @@
 \draw[|-|,blue] (-1.5,-3.3) -- (-1.5,-4.8) node[midway, left,scale=0.85]{itération $2N/K$};
 
 
-\draw[|-|] (-4,1) -- (-4,-5) node[midway, left]{époque $2$};
+\draw[|-|] (-3.5,1) -- (-3.5,-5) node[midway, left]{époque $2$};
 \end{scope}
 \end{scope}
 

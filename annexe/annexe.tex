@@ -8,6 +8,7 @@
 %====================================================================
 \chapter*{Annexe}
 %====================================================================
+\addcontentsline{toc}{chapter}{Annexe}
 
 \objectifs{On regroupe ici quelques informations diverses et variées.}
 
@@ -16,7 +17,7 @@
 \section{Une brève histoire des réseaux de neurones}
 
 \begin{itemize}
-  \item \textbf{Neurone en biologie.} Entre 1840 et 1900 on découvre que la cellule est l'élément fondamental du vivant ; par observation Santiago Ram\'on y Cajal et d'autres mettent en évidence que les cellules du système nerveux forment un réseau : les neurones.
+  \item \textbf{Neurone en biologie.} Entre 1840 et 1900 on découvre que la cellule est l'élément fondamental du vivant ; par observation, Santiago Ram\'on y Cajal et d'autres mettent en évidence que les cellules du système nerveux forment un réseau : les neurones.
   On sait maintenant que le cerveau humain contient entre 80 et 100 milliards de neurones, mais nous avons aussi 500 millions de neurones dans le ventre (soit autant que dans le cerveau d'un chien).
   Un neurone est composé d'un élément central prolongé par un axone au bout duquel se trouvent les synapses. Les neurones sont organisés en réseau, un neurone étant en moyenne relié à $10\,000$ autres neurones et transmet ainsi un signal électrique à tous ses neurones voisins. 
     
@@ -29,8 +30,8 @@
   
   \item \textbf{\emph{Deep learning}.} À partir des années 2000 et surtout après 2010 les réseaux de neurones font des progrès fulgurants grâce à l'apprentissage profond. Yann Le Cun démontre l'efficacité des couches de convolution pour la reconnaissance des chiffres. On réalise et entraîne alors des réseaux ayant de plus en plus de couches grâce à des progrès matériels (par exemple le calcul sur les processeurs graphiques GPU) mais surtout grâce aux couches de convolution qui extraient des caractéristiques abstraites des images.  
   
-  \item \textbf{Présent et avenir.} Les réseaux de neurones s'appliquent à de nombreux domaines : la reconnaissance d'images (par exemple la détection de cancer sur une radiographie), les transports (par exemple la conduite autonome des voitures), les jeux (les ordinateurs battent les champions du monde d'échecs, de go et des jeux vidéos les plus complexes), l'écriture (classement, résumé, traduction).
-  Il y a cependant une méfiance vis à vis des décisions prises par une machine (sentence de justice, diagnostic médical, publicité ciblée). Une meilleure compréhension du fonctionnement des réseaux de neurones par tous est donc indispensable !
+  \item \textbf{Présent et avenir.} Les réseaux de neurones s'appliquent à de nombreux domaines : la reconnaissance d'images (par exemple la détection de cancer sur une radiographie), les transports (par exemple la conduite autonome des voitures), les jeux (les ordinateurs battent les champions du monde d'échecs, de go et des jeux vidéos les plus complexes), l'écriture (classement, résumé, traduction)\ldots{} 
+  Il persiste cependant une certaine méfiance vis à vis des décisions prises par une machine (sentence de justice, diagnostic médical, publicité ciblée). Une meilleure compréhension du fonctionnement des réseaux de neurones par tous est donc indispensable !
 \end{itemize}
 
 
@@ -57,7 +58,7 @@
   
   \item Un peu de pub pour les livres Exo7 :  
   \begin{itemize}
-    \item \emph{Algèbre} et \emph{Analyse} pour toutes les notions de mathématique niveau première année,
+    \item \emph{Algèbre} et \emph{Analyse} pour toutes les notions de mathématiques niveau première année d'études supérieures,
     \item \emph{Python au lycée} (tome 1 et tome 2) pour apprendre la programmation.
   \end{itemize}
   Ils sont disponibles gratuitement en téléchargement :
@@ -65,7 +66,7 @@
   \href{http://exo7.emath.fr/}{exo7.emath.fr} 
   \quad et \quad \href{https://github.com/exo7math/deepmath-exo7}{GitHub : exo7math} 
   }
-  et aussi en vente à prix coûtant sur \href{https://www.amazon.fr/}{amazon.fr}.
+  et aussi en vente à prix coûtant sur \href{https://www.amazon.fr/}{amazon.fr} en version imprimée.
 \end{itemize}
 
 
@@ -74,7 +75,7 @@
 \section{Ce qu'il faut pour utiliser tensorflow/keras}
 
 Les activités de ce livre sont écrite pour \Python{}, version 3.
-Cependant il faut installer un certain nombre de modules complémentaires qui ne sont pas présents par défaut.
+Cependant il faut installer un certain nombre de modules complémentaires qui ne sont pas nécessairement présents par défaut.
 \begin{itemize}
   \item \ci{tensorflow} qui contient le sous-module \ci{keras},
   \item \ci{numpy} pour les tableaux,
@@ -91,7 +92,7 @@ Un module s'installe simplement par :
 Il existe des distributions \Python{} (du type \ci{conda}) qui contiennent les principaux modules scientifiques et permettent aussi de créer des \og{}environnements\fg{} afin de gérer plusieurs versions
 de \Python{} et de ses modules.
 
-Pour ceux qui ne souhaitent rien installer, il est possible d'utiliser \tensorflow{} en ligne :
+Pour ceux qui souhaitent ne rien installer, il est possible d'utiliser \tensorflow{} en ligne :
 \mycenterline{\href{https://colab.research.google.com/notebooks/welcome.ipynb}{Google Colab}}
 
 
@@ -106,7 +107,9 @@ La plupart des références à propos des réseaux de neurones sont en anglais. 
 \begin{itemize}
   \item neurone artificiel/\emph{artificial neuron}
   \item poids/\emph{weights}, biais/\emph{bias}
-  \item fonction d'activation/\emph{activation function}, fonction marche de Heaviside/\emph{Heaviside step function}, fonction sigma $\sigma$ ou sigmoïde/\emph{sigmoid function}
+  \item fonction d'activation/\emph{activation function}
+  \item fonction marche de Heaviside/\emph{Heaviside step function}
+  \item fonction sigma $\sigma$ ou sigmoïde/\emph{sigmoid function}
   \item fonction d'erreur/\emph{loss function} ou \emph{cost function}
   \item entrée/\emph{input}, sortie/\emph{output}
   \item couches du réseau/\emph{layers}
@@ -119,7 +122,7 @@ La plupart des références à propos des réseaux de neurones sont en anglais. 
  
 \medskip
 
-\textbf{Mathématiques}
+\textbf{Mathématiques.}
 
 \begin{itemize}
   \item dérivée partielle/\emph{partial derivative}
@@ -151,7 +154,7 @@ L'image de couverture du livre est générée automatiquement grâce à un rése
   \item une image dont on veut conserver le contenu :  ici la statue de la liberté,
   \item et une image dont on veut conserver le style : ici un tableau de Van Gogh.
 \end{itemize}
-L'image obtenue a le contenu de la première et le style de la seconde !
+L'image obtenue possède le contenu de la première et le style de la seconde !
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.15]{figures/statue-of-liberty_resized.jpg}
@@ -177,7 +180,7 @@ Plus en détails :
   \item le réseau de neurones, nommé \og{}VGG19\fg{}, est un réseau à 19 couches. 
   On ne va pas calculer les poids, mais on utilise des poids qui ont déjà été calculés pour reconnaître les images de la base \emph{ImageNet}.
   
-  \item Dans ce réseau bien paramétré certaines couches se concentrent sur le contenu (contour, lignes, formes\ldots) et d'autre se concentrent sur le style (couleur, flou\ldots).
+  \item Dans ce réseau bien paramétré certaines couches se concentrent sur le contenu (contour, lignes, formes\ldots) et d'autres se concentrent sur le style (couleur, flou\ldots).
   
   \item En identifiant ces couches, on construit par itérations une image qui conserve le contenu de la première image et prend peu à peu le style de la seconde.
   

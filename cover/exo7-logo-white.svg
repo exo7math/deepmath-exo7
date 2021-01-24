@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+  ===================================
+  Auteur du logo : Arnaud Bodin
+  Version SVG : Kroum Tzanev
+  ===================================
+
+  Comment a été fabriqué ce fichier :
+  ===================================
+  1) J'ai utilisé http://everythingfonts.com/ttf-to-svg our convertir
+    cmssbx10.ttf en cmssbx10.svg
+  2) J'ai extrait avec Sublime les 'path' des Exo7
+  3) J'ai ecrit le svg avec Sublime
+  4) J'ai utilisé Inkscape pour placer les lettres à leur place (au dessu d'une calque contenant le logo en PNG)
+  5) Avec Sublime j'ai simplifié les coordonnée (round(*100)/100)
+
+ -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   viewBox="-30 -70 100 110"
+   width="100"
+   height="110"
+   id="svg16"
+   sodipodi:docname="exo7-logo-white.svg"
+   inkscape:version="0.92.4 (f8dce91, 2019-08-02)"
+   inkscape:export-filename="/home/arnaud/Exo7/cover/exo7-logo-white.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1681"
+     inkscape:window-height="840"
+     id="namedview18"
+     showgrid="false"
+     inkscape:zoom="2.1454545"
+     inkscape:cx="50"
+     inkscape:cy="55"
+     inkscape:window-x="163"
+     inkscape:window-y="115"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg16" />
+  <!-- rectangle orange claire (en bas) -->
+  <path
+     d="M00 00 L40  00 L 40  40 L 00  40 Z"
+     fill="rgb(247,148,0)"
+     id="path2"
+     style="fill:#ffffff" />
+  <!-- rectangle orange foncé (à gauche) -->
+  <path
+     d="M00 00 L00 -30 L-30 -30 L-30  00 Z"
+     fill="rgb(237,66,0)"
+     id="path4"
+     style="fill:#ffffff" />
+  <!-- rectangle orange jaune (en haut à droite) -->
+  <path
+     d="M40 00 L70 -40 L 30 -70 L 00 -30 Z"
+     fill="rgb(255,219,0)"
+     id="path6"
+     style="fill:#ffffff" />
+  <!-- E -->
+  <path
+     d="m 18.46,-28.68 q -0.55,-0.06 -0.61,-0.61 v -11.2 q 0.05,-0.54 0.61,-0.6 h 7.53 q 0.26,0.03 0.42,0.19 0.16,0.16 0.19,0.42 v 0.72 q -0.06,0.55 -0.61,0.61 l -5.44,-0.05 v 3.23 h 4.89 q 0.25,0.03 0.42,0.19 0.16,0.16 0.19,0.42 v 0.53 q -0.06,0.56 -0.6,0.61 h -4.89 v 3.58 l 5.64,-0.07 q 0.27,0 0.45,0.16 0.18,0.16 0.23,0.44 v 0.82 q -0.03,0.25 -0.19,0.42 -0.17,0.17 -0.42,0.19 h -7.8 z"
+     id="path8"
+     fill="rgb(0,0,0)"
+     style="fill:#666666" />
+  <!-- x -->
+  <path
+     d="m 28.5,-28.68 q -0.15,0 -0.27,-0.11 -0.12,-0.11 -0.12,-0.28 0,-0.17 0.09,-0.25 l 2.88,-3.59 -2.75,-3.31 q -0.1,-0.13 -0.1,-0.25 0,-0.17 0.12,-0.28 0.12,-0.11 0.28,-0.11 h 1.3 q 0.41,0 0.65,0.32 l 1.5,1.93 1.45,-1.93 q 0.23,-0.32 0.62,-0.32 h 1.29 q 0.17,0 0.29,0.11 0.12,0.11 0.12,0.28 0,0.14 -0.09,0.25 l -2.67,3.31 2.97,3.59 q 0.09,0.08 0.09,0.25 0,0.17 -0.12,0.28 -0.12,0.11 -0.28,0.11 h -1.31 q -0.39,0 -0.62,-0.32 l -1.76,-2.56 -1.69,2.56 q -0.2,0.32 -0.59,0.32 h -1.31 z"
+     fill="rgb(0,0,0)"
+     id="path10"
+     style="fill:#666666" />
+  <!-- o -->
+  <path
+     d="m 37.14,-32.87 q 0,-1.45 0.48,-2.46 0.48,-1.01 1.45,-1.53 0.97,-0.52 2.44,-0.52 1.46,0 2.43,0.52 0.97,0.52 1.45,1.53 0.48,1.01 0.48,2.46 0,1.06 -0.29,1.85 -0.29,0.79 -0.85,1.31 -0.56,0.52 -1.37,0.78 -0.81,0.26 -1.85,0.26 -1.41,0 -2.38,-0.46 -0.97,-0.46 -1.48,-1.39 -0.51,-0.94 -0.51,-2.34 z m 4.37,2.73 q 0.86,0 1.26,-0.42 0.4,-0.42 0.49,-1.02 0.09,-0.59 0.09,-1.55 0,-0.94 -0.09,-1.52 -0.09,-0.57 -0.5,-0.97 -0.41,-0.4 -1.25,-0.4 -0.85,0 -1.26,0.4 -0.42,0.4 -0.51,0.97 -0.09,0.57 -0.09,1.52 0,0.95 0.09,1.55 0.09,0.59 0.5,1.02 0.41,0.42 1.27,0.42 z"
+     fill="rgb(0,0,0)"
+     id="path12"
+     style="fill:#666666" />
+  <!-- 7 -->
+  <path
+     d="m 48.67,-29.37 q 0,-1.35 0.27,-2.72 0.27,-1.36 0.78,-2.65 0.52,-1.28 1.28,-2.46 0.76,-1.18 1.66,-2.12 l -5.01,0.02 q -0.59,0 -0.68,-0.61 v -0.8 q 0.05,-0.54 0.61,-0.6 l 6.97,0.02 q 0.25,0.03 0.42,0.19 0.16,0.16 0.19,0.42 v 0.65 q -0.03,0.22 -0.12,0.36 -0.89,1.08 -1.58,2.3 -0.69,1.22 -1.18,2.56 -0.49,1.34 -0.73,2.75 -0.24,1.41 -0.24,2.79 -0.03,0.25 -0.18,0.41 -0.16,0.16 -0.43,0.2 h -1.4 q -0.6,-0.1 -0.6,-0.68 z"
+     fill="rgb(0,0,0)"
+     id="path14"
+     style="fill:#666666" />
+</svg>

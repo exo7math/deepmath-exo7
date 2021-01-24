@@ -38,7 +38,7 @@ On rappelle brièvement que cette base contient $60\,000$ données d'apprentissa
 \includegraphics[scale=\myscale,scale=0.5]{figures/tfconv-chiffre-train-1}
 \end{center}
 
-Pour le besoin de la convolution, on conserve chaque image sous la forme d'un tableau $28\times 28$, afin de préciser que l'image est en niveau de gris, la taille du tableau \numpy{} est en fait $(28, 28, 1)$ (à comparer à la représentation d'une image couleur de taille $(28, 28, 3)$).
+Pour le besoin de la convolution, on conserve chaque image sous la forme d'un tableau $28\times 28$ ; afin de préciser que l'image est en niveau de gris, la taille du tableau \numpy{} est en fait $(28, 28, 1)$ (à comparer à la représentation d'une image couleur de taille $(28, 28, 3)$).
 
 %--------------------------------------------------------------------
 \subsection{Modèle}
@@ -112,7 +112,7 @@ from tensorflow.keras.layers import Dense, Conv2D, Flatten
 from tensorflow.keras.datasets import mnist
 from tensorflow.keras.utils import to_categorical
 
-(X_train_data, Y_train_data), (X_test_data, Y_test_data) = mnist.load_data()
+(X_train_data,Y_train_data),(X_test_data,Y_test_data) = mnist.load_data()
 
 N = X_train_data.shape[0]  # 60 000 données
 
@@ -128,7 +128,7 @@ Y_test = to_categorical(Y_test_data, num_classes=10)
 ### Partie B - Réseau de neurones
 modele = Sequential()
 
-# Première couche de convolution : 32 neurones, motif 3x3, activation relu
+# Première couche de convolution : 32 neurones, motif 3x3, activ. relu
 modele.add(Conv2D(32, kernel_size=3, padding='same', activation='relu',
                       input_shape=(28,28,1)))
 
@@ -174,7 +174,7 @@ Note : en fait le calcul d'une \og{}convolution\fg{} avec \tensorflow/\keras{} e
 %--------------------------------------------------------------------
 \subsection{Résultats}
 
-Après $5$ époques, on obtient une précision de $99\%$ sur les données de test, ce qui est un gros progrès par rapport au $95\%$ obtenus dans le chapitre \og{}Python : tensorflow avec keras - partie 2\fg{}. Il faut bien avoir conscience que les derniers pourcentages de précision sont de plus en plus durs à acquérir !
+Après $5$ époques, on obtient une précision de $99\%$ sur les données de test, ce qui est un gros progrès par rapport au $95\%$ obtenus dans le chapitre \og{}Python : tensorflow avec keras - partie 2\fg{}. Il faut bien avoir conscience que les derniers pourcentages de précision sont de plus en plus difficiles à acquérir !
 
 
 \begin{center}
@@ -207,7 +207,7 @@ On souhaite reconnaître des objets ou des animaux sur de petites photos.
 %--------------------------------------------------------------------
 \subsection{Données}
 
-On rappelle que la base CIFAR10\index{donnees@données!CIFAR-10}, déjà rencontrée dans le chapitre \og{}Python : tensorflow avec keras - partie 2\fg{} contient $50\,000$ images d'apprentissage, réparties en $10$ catégories.
+On rappelle que la base CIFAR-10\index{donnees@données!CIFAR-10}, déjà rencontrée dans le chapitre \og{}Python : tensorflow avec keras - partie 2\fg{} contient $50\,000$ images d'apprentissage, réparties en $10$ catégories.
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.7]{figures/tfconv-images-train}
@@ -244,7 +244,7 @@ Sans les deux couches de pooling, il y aurait $767\,946$ poids.
 \begin{lstlisting}
 modele = Sequential()
 
-# Première couche de convolution : 64 neurones, motif 3x3, activation relu
+# Première couche de convolution : 64 neurones, motif 3x3, activ. relu
 modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu',
                       input_shape=(32,32,3)))
 
@@ -263,7 +263,7 @@ modele.add(MaxPooling2D(pool_size=(2, 2)))
 # Quatrième couche de convolution : 64 neurones
 modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu'))
 
-# Applatissage 
+# Aplatissage 
 modele.add(Flatten())
 
 # Couche de sortie : 1O neurones
@@ -283,7 +283,7 @@ La nouveauté est ici l'ajout de couches de pooling par la commande :
 Après une dizaine d'époques, on obtient plus de $80\%$ de précision sur les données d'entraînement et un peu moins de $75\%$ sur les données de test. Ainsi les trois quarts des images sont correctement prédites.
 
 \begin{center}
-\includegraphics[scale=\myscale,scale=0.7]{figures/tfconv-images-test}
+\includegraphics[scale=\myscale,scale=0.8]{figures/tfconv-images-test}
 \end{center}
 
 
@@ -346,7 +346,7 @@ De plus, comme les photos représentent une grande quantité de données, nous a
 
 
 \begin{center}
-\includegraphics[scale=\myscale,scale=0.6]{figures/tfconv-chienchat-train}
+\includegraphics[scale=\myscale,scale=0.8]{figures/tfconv-chienchat-train}
 \end{center}
 
 
@@ -369,7 +369,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Conv2D, Flatten, MaxPooling2D, Dropout
+from tensorflow.keras.layers import Dense,Conv2D,Flatten,MaxPooling2D,Dropout
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # Partie A. Données
@@ -396,7 +396,7 @@ training_set = train_datagen.flow_from_directory(train_directory,
 modele = Sequential()
 
 modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu', 
-                                     input_shape=(image_width,image_height,3)))
+                      input_shape=(image_width,image_height,3)))
 modele.add(MaxPooling2D(pool_size=(2, 2)))
 modele.add(Dropout(0.5))
 
@@ -437,7 +437,7 @@ La nouveauté est ici l'ajout de couches de dropout par la commande :
 Après pas mal de calculs et une quarantaine d'époques, on obtient une précision de $85\%$, ce qui est tout fait correct, même si on est loin des $99\%$ de précision des meilleurs résultats du concours \og{}Kaggle\fg{}. \`A vous de jouer !
 
 \begin{center}
-\includegraphics[scale=\myscale,scale=0.7]{figures/tfconv-chienchat-test}
+\includegraphics[scale=\myscale,scale=0.9]{figures/tfconv-chienchat-test}
 \end{center}
 
 On montre ci-dessus des images de test avec deux photos mal identifiées, peut-être à cause d'éléments extérieurs (le gilet coloré en haut à gauche, la serviette au milieu).
@@ -464,7 +464,7 @@ On reprend l'exemple de la reconnaissance de chiffres manuscrits de la base MNIS
   \item \textbf{Couche dense et sortie.} Une couche dense de  $10$ neurones qui est aussi la couche de sortie.
 \end{itemize}
 
-\myfigure{0.35}{
+\myfigure{0.34}{
 \tikzinput{fig-tfconv-cnn-06}
 } 
 
@@ -532,7 +532,7 @@ Voici deux exemples pour la couche 1 : le filtre 12 qui met en évidence les seg
 
 \bigskip
 \textbf{Deuxième couche.}
-Le filtre 10 renforce les lignes verticales. Le filtre 14 renforce les lignes horizontales, on voit ainsi que le filtre 14 permet de détecter le chiffre 1, c'est le seul chiffre qui n'active (presque) aucun pixel pour ce filtre. (On rappelle que les filtres de cette deuxième couches n'ont rien à voir avec les filtres de la première couche.)
+Le filtre 10 renforce les lignes verticales. Le filtre 14 renforce les lignes horizontales, on voit ainsi qu'il permet de détecter le chiffre 1, c'est le seul chiffre qui n'active (presque) aucun pixel pour ce filtre. (On rappelle que les filtres de cette deuxième couche n'ont rien à voir avec les filtres de la première couche.)
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.5]{figures/tfconv-viz3-c2-f10}
@@ -544,7 +544,7 @@ Le filtre 10 renforce les lignes verticales. Le filtre 14 renforce les lignes ho
 
 \bigskip
 \textbf{Troisième couche.}
-La troisième couche est une couche de pooling ainsi ses filtres correspondent aux filtres de la couche précédente. 
+La troisième couche est une couche de pooling, ainsi ses filtres correspondent aux filtres de la couche précédente. 
 
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.5]{figures/tfconv-viz3-c3-f10}

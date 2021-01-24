@@ -7,7 +7,7 @@
              right delimiter = ),align=center,text depth=.5ex,text height=2ex,text width=1em] at (0,0)
 {%
 1 & 2 & 3 & 4 & 5 & 6 \\
-7 & |[red!30]|8 & |[red!40]|9 & 10 & 11 & 12 \\
+7 & |[white]|8 & |[white]|9 & 10 & 11 & 12 \\
 13 & 14 & 15 & 16 & 17 & 18 \\
  &  &  &  &  &  \\
  &  &  &  &  &  \\

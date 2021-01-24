@@ -1,4 +1,4 @@
-% Figure after Kjell Magne Fauske
+﻿% Figure after Kjell Magne Fauske
 % http://www.texample.net/tikz/examples/neural-network/
 \begin{tikzpicture}[draw=black!50, node distance=3.5cm]
 

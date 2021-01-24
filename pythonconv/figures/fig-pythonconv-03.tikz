@@ -60,11 +60,13 @@
     % ------- highlighting -------
     \newcommand\rowResult{1}
     \newcommand\colResult{1}
+    \newcommand\rowResultbis{2}
+    \newcommand\colResultbis{2}
 
     \begin{scope}[on background layer]
         \newcommand{\padding}{1pt}
-        \coordinate (Is-nw) at ([xshift=-\padding, yshift=0] I-\rowResult-\colResult.north west);
-        \coordinate (Is-se) at ([xshift=+\padding, yshift=-1.5*\padding] I-\the\numexpr\rowResult+\numRowsK-1\relax-\the\numexpr\colResult+\numColsK-1\relax.south east);
+        \coordinate (Is-nw) at ([xshift=-\padding, yshift=0] I-\rowResultbis-\colResultbis.north west);
+        \coordinate (Is-se) at ([xshift=+\padding, yshift=-1.5*\padding] I-\the\numexpr\rowResultbis+\numRowsK-1\relax-\the\numexpr\colResultbis+\numColsK-1\relax.south east);
         \coordinate (Is-sw) at (Is-nw |- Is-se);
         \coordinate (Is-ne) at (Is-se |- Is-nw);
 
@@ -86,8 +88,8 @@
 
         \draw[green!70!black,  fill=green!10!white] (K.north west) rectangle (K.south east);
 
-        \foreach \row [evaluate=\row as \rowI using int(\row+\rowResult-1)] in {1, ..., \numRowsK} {%
-            \foreach \col [evaluate=\col as \colI using int(\col+\colResult-1)] in {1, ..., \numColsK} {%
+        \foreach \row [evaluate=\row as \rowI using int(\row+\rowResultbis-1)] in {1, ..., \numRowsK} {%
+            \foreach \col [evaluate=\col as \colI using int(\col+\colResultbis-1)] in {1, ..., \numColsK} {%
                     \node[text=green!70!black] at (I-\rowI-\colI.south east) [xshift=-.3em,yshift=+0.2ex] {\tiny$\times \myK{\row}{\col}$};
                 }
         }

@@ -15,8 +15,8 @@
  \node[blue] at (12,-1.2) {$[g'(z_0)]$};
 \draw[ultra thick,red]  (0.5,2) -- (3,0);
 \draw[ultra thick,red] (0.5,-2) -- (3,0);
- \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
-\draw[->,>=latex,ultra thick,red] (7.5,0) -- ++(3,0) node[midway,above,black,scale=0.8]{$g$};
+% \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
+\draw[->,>=latex,ultra thick,red] (7.5,0) -- ++(3,0) node[midway,above,black,scale=0.9]{$g$};
 
 \draw[->,>=latex,ultra thick,green!70!black!20,line width=10pt] (12.5,-1.7) to node[midway,blue,scale=1.2]{$\times$} ++(-10,0) to ++(-1.7,-1) ;
 
@@ -24,7 +24,7 @@
 
  \node[blue,left] at (3.9,1.1) {$[\partial_x f(x_0,y_0)]$};
  \node[blue,left] at (3.9,-1.1) {$[\partial_y f(x_0,y_0)]$};
- \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=1]{$f$} ;
+ \draw[->,>=latex,ultra thick,red] (3,0) -- ++(2,0) node[pos=0,above right,black,scale=0.9]{$f$} ;
 
 %,opacity=0.5
 %line width=5pt

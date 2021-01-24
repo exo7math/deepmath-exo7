@@ -1,4 +1,6 @@
-\begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
+\begin{tikzpicture}[scale=0.45, every node/.style={transform shape}]
+%\begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
+
    % Bruit
     \node[anchor=south west,inner sep=0] (image1) at (0,0) {\includegraphics[scale=1]{figures/correlation2d-2.png}};
     \begin{scope}[x={(image1.south east)},y={(image1.north west)}]
@@ -11,16 +13,16 @@
     % Image résultante
     \node[anchor=south west,inner sep=0] (image3) at (20,0) {\includegraphics[scale=1]{figures/correlation2d-3.png}};
 
-   \begin{scope}[xshift=20cm]
+   \begin{scope}[xshift=19.5cm]
     \begin{scope}[x={(image3.south east)},y={(image3.north west)}]
         \draw[red,ultra thick,rounded corners] (0.35,0.33) rectangle ++(0.15,0.2);
     \end{scope}
     \end{scope}
 
     % Opérations
-    \node[scale=8] at (14,4.5) {$+$};
+    \node[scale=7] at (14.5,5) {$+$};
 
-    \node[scale=8] at (20,4.5) {$=$};
+    \node[scale=7] at (20,5) {$=$};
 
     \node[scale=2] at (7,-1) {\bf Image de pixels aléatoires};
     \node[scale=2] at (27,-1) {\bf Image avec le motif incrusté};

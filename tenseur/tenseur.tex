@@ -118,7 +118,7 @@ M_{2,1} & M_{2,2} & \cdots \\
 Il est important de maîtriser le vocabulaire lié aux tenseurs et de ne pas confondre les notions.
 
 \begin{itemize}
-  \item \defi{Dimension.} 
+  \item \defi{Dimension}. 
   \begin{itemize}
     \item C'est le nombre d'indices qu'il faut utiliser pour accéder à un élément. 
     Chaque indice correspond à un \defi{axe}.
@@ -127,7 +127,7 @@ Il est important de maîtriser le vocabulaire lié aux tenseurs et de ne pas con
     \item La commande est \ci{T.ndim}.
  \end{itemize}
   
-  \item \defi{Taille.}
+  \item \defi{Taille}.
     \begin{itemize}
       \item C'est la liste des longueurs de chaque axe.
       \item Un vecteur de longueur $3$ a pour taille $(3)$ que l'on note plutôt $(3,)$ (pour signifier que c'est bien une liste). Une matrice $3\times 4$ a pour taille $(3,4)$. Un tenseur de taille $(3,5,7,11)$ est un tenseur de dimension $4$, le premier indice $i_1$ varie de $1$ à $3$ (ou plutôt de $0$ à $2$ avec \Python), le second indice $i_2$ varie de $1$ à $5$\ldots
@@ -136,7 +136,7 @@ Il est important de maîtriser le vocabulaire lié aux tenseurs et de ne pas con
     \end{itemize}
     
   
-  \item \defi{Nombre d'éléments.}
+  \item \defi{Nombre d'éléments}.
     \begin{itemize}
       \item C'est le nombre total d'éléments nécessaire pour définir un tenseur. Cela correspond au nombre d'emplacements qu'il faut réserver dans la mémoire pour stocker le tenseur. Le nombre d'éléments d'un tenseur est le produit $\ell_1 \times \cdots \times \ell_n$ des longueurs de la taille $(\ell_1,\ldots,\ell_n)$ du tenseur.
       \item Un vecteur de longueur $3$ possède $3$ éléments, une matrice $3\times 4$ en a $12$ et un $4$-tenseur de taille $(3,5,7,11)$ en a $3\times5\times7\times 11$.
@@ -194,7 +194,7 @@ Changer la taille d'un tenseur tout en conservant le nombre d'éléments est un 
 
 \textbf{Aplatissement.} 
 C'est la mise sous la forme d'un vecteur (tenseur de dimension $1$). 
-L'instruction est \ci{T.flatten()}\index{numpy@\numpy!flatten@\ci{flatten()}} qui pour notre exemple renvoie le tenseur de taille $(18,)$ :
+L'instruction est \ci{T.flatten()}\index{numpy@\numpy!flatten@\ci{flatten()}} qui pour notre exemple du début de chapitre renvoie le tenseur de taille $(18,)$ :
 \mycenterline{\ci{[5 1 0 3 3 2 1 1 0 5 1 7 0 0 1 8 1 9]}}
 
 \textbf{Changement de taille.}
@@ -300,7 +300,7 @@ Avec \Python{} on ne peut pas écrire l'opération
 \mycenterline{\ci{y = x + 2}}
 si on n'a pas auparavant affecté une valeur à la variable \ci{x}.
 
-Ce que l'on voudrait, c'est pouvoir manipuler \ci{y} comme une variable ordinaire. Un autre point de vue est de dire que l'on veut définir la fonction $x \mapsto y = x+2$. Ainsi, on ne pourrait préciser qu'en fin de programme que la variable, ici $x$, valait en fait $7$ et donc que tout ce qui concernait $y$ l'était finalement pour $y=9$.
+Ce que l'on voudrait, c'est pouvoir manipuler \ci{y} comme une variable ordinaire. Un autre point de vue est de dire que l'on veut définir la fonction $x \mapsto y = x+2$. Ainsi, on pourrait ne préciser qu'en fin de programme que la variable, ici $x$, valait en fait $7$ et donc que tout ce qui concernait $y$ l'était finalement pour $y=9$.
 
 Voici comment faire avec \keras.
 
@@ -314,7 +314,7 @@ print(f([7]))
 
 La fonction \ci{placeholder()} réserve un emplacement mémoire pour un tenseur nommé $x$ (ici un vecteur de longueur $1$, donc un nombre), que l'on peut manipuler ensuite comme une variable.
 On définit ensuite la fonction $f : x \mapsto y = x+2$. 
-Ce n'est qu'à la fin, lorsque l'on calcule $f(7)$ que l'emplacement mémoire de \ci{x} est affectée à  la valeur \ci{[7]} et que le calcul $y=x+2$ est vraiment effectué. 
+Ce n'est qu'à la fin, lorsque l'on calcule $f(7)$ que l'emplacement mémoire de \ci{x} est affecté à  la valeur \ci{[7]} et que le calcul $y=x+2$ est vraiment effectué. 
 
 \bigskip
 Voici un autre autre exemple qui correspond au calcul $A \times X$ où $A$ est une matrice $3\times 3$ et $X$ un vecteur de taille $3$.

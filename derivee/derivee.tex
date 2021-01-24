@@ -38,7 +38,7 @@
 %--------------------------------------------------------------------
 \subsection{Définition}
 
-Soit $f : I \to \Rr$ une fonction, où $I$ est un intervalle ouvert (du type $]a,b[$) de $\Rr$. Soit $x_0 \in I$.
+Soit $f : I \to \Rr$ une fonction, où $I$ est un intervalle ouvert de $\Rr$ (par exemple du type $]a,b[$). Soit $x_0 \in I$.
 
 \begin{definition}
 La dérivée de $f$ en $x_0$, si elle existe, est le nombre
@@ -52,6 +52,7 @@ Nous noterons la dérivée de $f$ en $x_0$ indifféremment sous la forme :
 \begin{remarque*}
 Une dérivée n'existe pas toujours. Dans ce cours nous supposerons par défaut que la dérivée est bien définie, c'est-à-dire que $f$ est \defi{dérivable} en $x_0$. Nous préciserons explicitement les situations pour lesquelles ce n'est pas le cas. Comme la limite est unique, la dérivée de $f$ en $x_0$ ne peut prendre qu'une seule valeur.
 \end{remarque*}
+
 
 \begin{exemple}
 Calculons la dérivée en $x_0=1$ de la fonction $f$ définie par $f(x)=x^2$.
@@ -151,7 +152,7 @@ L'interprétation géométrique de la dérivée est essentielle !
 Le coefficient directeur de la tangente au graphe de $f$ en $x_0$ est $f'(x_0)$.
 
 Une équation de la \defi{tangente} au point $(x_0,f(x_0))$ est donc :
-\mybox{$y = (x-x_0) f'(x_0) + f(x_0)$.}
+\mybox{$y = (x-x_0) f'(x_0) + f(x_0)$}
 
 \myfigure{2}{
 \tikzinput{fig_derive02bis}
@@ -276,7 +277,7 @@ En effet, c'est cette formule qui permet de calculer les bons paramètres pour u
 Voici la formule :
 \begin{proposition}
 La dérivée de $g \circ f$ est donnée par :
-\mybox{$\big( g \circ f \big)'(x) = g'\big( f(x) \big) \cdot f'(x)$.}
+\mybox{$\big( g \circ f \big)'(x) = g'\big( f(x) \big) \cdot f'(x)$}
 \end{proposition}
 
 
@@ -292,7 +293,7 @@ $$\frac{\dd g\circ f}{\dd x}(x)  = \frac{\dd g}{\dd y}(y) \times \frac{\dd f}{\d
 Pourquoi cette formule est-elle si facile à retenir ? C'est comme si les dérivées se comportaient comme des fractions que l'on pouvait simplifier.
 Bien sûr c'est juste la notation qui permet cela.
 
-\myfigure{1}{
+\myfigure{1.1}{
 \tikzinput{fig_derive06}
 }
 
@@ -337,7 +338,7 @@ $$F'(x) =  \frac{\dd z}{\dd x}
 = \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x}
 = \frac12\frac{1}{\sqrt{y}} \times (1+\tan^2(x)).$$
 Et comme $y = \tan(x)$, on obtient :
-$$F'(x) = \frac12 \cdot \frac{1+\tan^2(x)}{\sqrt{\tan(x)}}.$$
+$$F'(x) = \frac12 \frac{1+\tan^2(x)}{\sqrt{\tan(x)}}.$$
 \end{exemple}
 
 \bigskip
@@ -366,7 +367,7 @@ Ici $u$ désigne une fonction $x \mapsto u(x)$.
 
 
 La formule de la dérivée de composition se généralise : si $x$ est une fonction de $t$, $y$ est une fonction de $x$ et $z$ est une fonction de $y$ alors :
-$$\frac{\dd z}{\dd t}  = \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x} \times \frac{\dd x}{\dd t}$$
+$$\frac{\dd z}{\dd t}  = \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x} \times \frac{\dd x}{\dd t}.$$
 
 
 % \todo{à prouver en exo mathématiciens + exercice real life temperature, altitude, pression}
@@ -433,7 +434,7 @@ Nous allons enrichir nos graphes de calcul à l'aide de la dérivée : en plus d
 }
 
 Voici trois exemples :
-\myfigure{0.8}{
+\myfigure{0.75}{
 \tikzinput{fig_derive14}
 }
 Bien sûr, il n'est pas obligatoire d'écrire la formule $[x \mapsto f'(x)]$ sous la flèche quand on connaît bien ses dérivées !
@@ -573,12 +574,12 @@ L'entrée \og{}\textbullet\fg{} tout à gauche (sur la figure ci-dessous) repré
 }
 
 
-Voici le graphe de calcul correspondant à $F(2)$ pour l'entrée $x_0=2$, complétée par les dérivées locales (entre crochets) et la dérivée globale par rapport à la variable d'entrée (entre accolades doubles) :
+Voici le graphe de calcul correspondant à $F(2)$ pour l'entrée $x_0=2$, complété par les dérivées locales (entre crochets) et la dérivée globale par rapport à la variable d'entrée (entre accolades doubles) :
 \myfigure{0.7}{
 \tikzinput{fig_derive22b}
 }
 
-La dérivée $F'(2)$ est une somme de termes calculée entre accolades  :
+La dérivée $F'(2)$ est la somme de termes, calculée entre accolades  :
 $$F'(2) = \{\{ \ln(2)\exp(2) + \frac12\exp(2) \}\} = \left(\ln(2)+\frac12\right)e^2.$$
 
 
@@ -642,7 +643,7 @@ $$ \{\{1\}\},
 Pour éviter de calculer beaucoup de produits, on remarque que chaque nouveau produit est la multiplication de la dérivée séquentielle précédente avec la dérivée locale :
 $$ \{\{1\}\},
 \qquad 
- \{\{t'\}\} = [t'] \times \{\{1\}\},
+ \{\{t'\}\} = \{\{1\}\} \times [t'],
 \qquad 
  \{\{t' \times z' \}\} =  \{\{t'\}\}\times [z'],
 \qquad 
@@ -687,8 +688,8 @@ La croissance et la dérivée sont liées par la proposition suivante.
 Soit $f : I \to \Rr$ une fonction dérivable, définie sur un intervalle $I$.
 Alors :
 \begin{itemize}
-\item $f$ est croissante sur $I$ $\iff$ $f'(x)\ge0$ pour tout $x \in I$.
-  \item $f$ est décroissante  sur $I$ $\iff$ $f'(x)\le0$ pour tout $x \in I$.  
+  \item $f$ est croissante sur $I$ $\iff$ $f'(x)\ge0$ pour tout $x \in I$,
+  \item $f$ est décroissante  sur $I$ $\iff$ $f'(x)\le0$ pour tout $x \in I$,  
   \item $f$ est constante  sur $I$ $\iff$ $f'(x) = 0$ pour tout $x \in I$.
 \end{itemize}
 \end{proposition}
@@ -835,7 +836,7 @@ Le graphe de la fonction $\sigma$ possède une forme de \og{}sigma\fg{} comme le
 }
 
 
-La fonction ressemble à la fonction de Heaviside mais elle à l'avantage d'être continue et dérivable. Elle propose une transition douce de $0$ à $1$, la transition étant assez linéaire 
+La fonction ressemble un peu à la fonction de Heaviside mais elle à l'avantage d'être continue et dérivable. Elle propose une transition douce de $0$ à $1$, la transition étant assez linéaire 
 autour de $0$.
 
 Étudions en détails cette fonction.
@@ -940,7 +941,7 @@ $$E(x) = ax^2+bx+c \quad \text{ avec } a = 6,\  b = -22,\  c = 27.$$
 \tikzinput{fig_mini03}
 }
 
-La courbe d'erreur est donc une parabole, la valeur la plus petite possible est atteinte en $x_0 = -b/2a = \frac{22}{12}=1.83\ldots$ qui correspond au sommet de la parabole.
+La courbe d'erreur est donc une parabole, la valeur la plus petite possible est atteinte en $x_0 = -\frac{b}{2a} = \frac{22}{12}=1.83\ldots$ qui correspond au sommet de la parabole.
 Pour cette valeur $x_0$, on trouve $E(x_0)=\frac{41}{6} = 6.83\ldots$ et tout autre paramètre $x\in\Rr$ vérifie $E(x) \ge E(x_0)$.
 
 Voici la configuration minimale avec $M_0 = (x_0,x_0)$.
@@ -1006,7 +1007,7 @@ Prenons le cas d'un minimum local en $x_0$.
 \end{proof}
 
 
-Reprenons, l'exemple de notre fonction $E(x) = 6x^2-22x+27$, et plus généralement celui d'une fonction $E(x) = ax^2+bx+c$, alors $E'(x)=2ax+b$. Le seul point en lequel la dérivée s'annule est $x_0 = -\frac{b}{2a}$ qui correspond bien au sommet de la parabole et est la valeur en laquelle la fonction $E$ atteint son minimum (ou bien son maximum si on avait $a<0$). Sur cet exemple le minimum local est aussi un minimum global.
+Reprenons l'exemple de notre fonction $E(x) = 6x^2-22x+27$, et plus généralement celui d'une fonction $E(x) = ax^2+bx+c$, alors $E'(x)=2ax+b$. Le seul point en lequel la dérivée s'annule est $x_0 = -\frac{b}{2a}$ qui correspond bien au sommet de la parabole et est la valeur en laquelle la fonction $E$ atteint son minimum (ou bien son maximum si on avait $a<0$). Sur cet exemple le minimum local est aussi un minimum global.
 
 On termine avec un autre exemple un peu plus sophistiqué.
 
@@ -1074,7 +1075,7 @@ Nous avons vu que le nombre dérivé $f'(x_0)$ permet d'approcher les valeurs de
 Soit $f : I \to \Rr$ une fonction dérivable, c'est-à-dire telle que $f'(x)$ existe pour tout $x \in I$. Nous notons $f'$ ou $x \mapsto f'(x)$ ou $\frac{\dd f}{\dd x}$ la fonction dérivée. 
 
 \begin{definition}
-La \defi{dérivée seconde} en $x_0$ (si elle existe) est la dérivée de la fonction $f'$, c'est-à-dire :
+La \defi{dérivée seconde} en $x_0$ (si elle existe) est la dérivée de la fonction $f'$ en $x_0$, c'est-à-dire :
 $$(f')'(x_0).$$
 Nous noterons ce nombre $f''(x_0)$ ou bien $\frac{\dd^2 f}{\dd x^2}(x_0)$.
 \end{definition}
@@ -1236,7 +1237,7 @@ On cherche une valeur approchée de $\sqrt[3]{100}$.
   \item On part de $x_0=10$ par exemple.
   
   \item On calcule $f(x_0) = 900$ et $f'(x_0) = 300$. Par la formule de récurrence :
-  $$x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = 7$$
+  $$x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} =10-\frac{900}{300} = 7$$
   
   \item On calcule $f(x_1) = f(7) = 243$, $f'(x_1) = f'(7) = 147$ et donc
   $$x_2 = x_1 - \frac{f(x_1)}{f'(x_1)} = \frac{262}{49} = 5.3469\ldots$$ 

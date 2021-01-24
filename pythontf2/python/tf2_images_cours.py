@@ -28,8 +28,7 @@ modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(10, activation='softmax'))
 
-mysgd = optimizers.SGD(lr = 0.1, decay=1e-6, momentum=0.9, nesterov=True)
-modele.compile(loss='categorical_crossentropy', optimizer=mysgd, metrics=['accuracy'])
+modele.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Partie C. Apprentissage
 

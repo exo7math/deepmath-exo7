@@ -6,6 +6,7 @@
 \draw[ultra thick,red] (-3,0) -- (0,0) -- (2,2);
 
 \node at (2,2)[right]{$y=x$};
+\node at (-2,0)[below]{$y=0$};
 
 \fill[red] (0,0) circle (1pt);
 \fill[red] (1,0) circle (1pt);

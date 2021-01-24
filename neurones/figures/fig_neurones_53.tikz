@@ -1,7 +1,7 @@
 \begin{tikzpicture}[scale=1]
 
 \draw[->,>=latex, very thick,gray] (-6.5,0)--(6,0) node[below] {$x$};
-\draw[->,>=latex, very thick, gray] (0,-4.5)--(0,6) node[left] {$y$};
+\draw[->,>=latex, very thick, gray] (0,-5.5)--(0,6) node[left] {$y$};
 \draw[gray,thin] (-6,-5) grid (5,5);
 
 \draw[thick,dashed] (4,1)--(-2,3);
@@ -11,5 +11,9 @@
 \clip (-6,-5) rectangle (5,5);
 \filldraw[red,ultra thick,fill=red!50,opacity=0.5] (-7,-6)--(-6,-5)--(-1,-2) -- (-2,3) -- (-7,5) -- cycle;
 \end{scope}
+
+\node at (0,0) [scale=0.7,below left] {$0$};
+\node at (1,0) [scale=0.7,below right] {$1$};
+\node at (0,1) [scale=0.7,above left] {$1$};
 
 \end{tikzpicture}

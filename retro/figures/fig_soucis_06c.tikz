@@ -1,4 +1,4 @@
-\begin{tikzpicture}
+﻿\begin{tikzpicture}
 
 \draw[->,>=latex, gray] (-0.5,0)--(7.5,0) node[below] {$x$};
 \draw[->,>=latex, gray] (0,-0.5)--(0,5.5) node[left] {$y$};
@@ -30,10 +30,10 @@
 % \draw[red,ultra thick] (0,0.55) -- (7,3.9); % node[black, right]{$y=ax+b$};
 
 \draw[red,ultra thick] (0,4) 
-.. controls (0.5,1.8) .. (A)
-.. controls (2.2,0.5) .. (B)
+.. controls (0.5,1.9) .. (A)
+.. controls (2.1,0.4) .. (B)
 .. controls (3.6,3.2) .. (C)
-.. controls (5,1) .. (D)
-.. controls (6.25,4) .. (6.5,5);
+.. controls (5,0.9) .. (D)
+.. controls (6.15,4) .. (6.4,5);
 
 \end{tikzpicture}

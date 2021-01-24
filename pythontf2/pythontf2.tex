@@ -17,7 +17,7 @@
 
 
 
-\objectifs{Jusqu'ici nous avons travaillé dur pour comprendre en détails la rétropropagation du gradient. Les exemples que nous avons vus reposaient essentiellement sur des réseaux simples. En complément des illustrations mathématiques étudiées, il est temps de découvrir des exemples de la vie courante comme de la reconnaissance d'image ou de texte. Nous profitons de la librairie \tensorflow/\keras{} qui en quelques lignes nous permet d'importer des données, de construire un réseau de neurones à plusieurs couches, d'effectuer la descente de gradient et de valider les résultats.}
+\objectifs{Jusqu'ici nous avons travaillé dur pour comprendre en détails la rétropropagation du gradient. Les exemples que nous avons vus reposaient essentiellement sur des réseaux simples. En complément des illustrations mathématiques étudiées, il est temps de découvrir des exemples de la vie courante comme la reconnaissance d'image ou de texte. Nous profitons de la librairie \tensorflow/\keras{} qui en quelques lignes nous permet d'importer des données, de construire un réseau de neurones à plusieurs couches, d'effectuer une descente de gradient et de valider les résultats.}
 
 
 
@@ -70,7 +70,7 @@ Plus en détails :
 Ces données sont accessibles très simplement avec \tensorflow/\keras{} :
 \begin{lstlisting}
 from tensorflow.keras.datasets import mnist
-(X_train_data, Y_train_data), (X_test_data, Y_test_data) = mnist.load_data()
+(X_train_data,Y_train_data),(X_test_data,Y_test_data) = mnist.load_data()
 \end{lstlisting} 
 
 Il faut passer un peu de temps à comprendre et à manipuler les données.
@@ -146,7 +146,7 @@ from tensorflow.keras.datasets import mnist
 from tensorflow.keras.utils import to_categorical
 
 # Téléchargement des données
-(X_train_data, Y_train_data), (X_test_data, Y_test_data) = mnist.load_data()
+(X_train_data,Y_train_data),(X_test_data,Y_test_data) = mnist.load_data()
 
 N = X_train_data.shape[0]  # N = 60 000 données
 
@@ -154,8 +154,8 @@ N = X_train_data.shape[0]  # N = 60 000 données
 X_train = np.reshape(X_train_data,(N,784))  # vecteur image
 X_train = X_train/255  # normalisation
 
-# Données d'apprentissage Y
-Y_train = to_categorical(Y_train_data, num_classes=10) # vers une liste de taille 10
+# Données d'apprentissage Y vers une liste de taille 10
+Y_train = to_categorical(Y_train_data, num_classes=10) 
 
 # Données de test
 X_test = np.reshape(X_test_data,(X_test_data.shape[0],784))
@@ -190,7 +190,7 @@ modele.fit(X_train, Y_train, batch_size=32, epochs=40)
 ### Partie D - Résultats
 
 resultat = modele.evaluate(X_test, Y_test, verbose=0)
-print('Valeur de la fonction erreur sur les données de test (loss):', resultat[0])
+print('Valeur de l''erreur sur les données de test (loss):', resultat[0])
 print('Précision sur les données de test (accuracy):', resultat[1])
 \end{lstlisting} 
 
@@ -336,7 +336,7 @@ L'entrée et la sortie sont de dimension $1$.
 La fonction associée au réseau est donc $F : \Rr \to \Rr$.
 On souhaite calculer les poids du réseau de sorte que $F(x) \simeq f(x)$, pour tout $x\in[0,5]$.
 
-\myfigure{0.78}{
+\myfigure{0.75}{
   \tikzinput{fig_tf2_02}
 }
 
@@ -432,7 +432,7 @@ Voici le comportement de l'erreur au fil des époques.
 \includegraphics[scale=\myscale,scale=0.5]{figures/unevar-fonction-erreur}
 \end{center}
 
-L'erreur n'est pas partout une fonction décroissante, c'est le cas lorsque lorsque le taux d'apprentissage est trop grand. D'où l'intérêt de faire diminuer ce taux d'apprentissage au fil des époques à l'aide du paramètre $\alpha$.
+L'erreur n'est pas partout une fonction décroissante, c'est le cas lorsque le taux d'apprentissage est trop grand. D'où l'intérêt de faire diminuer ce taux d'apprentissage au fil des époques à l'aide du paramètre $\alpha$.
 
 Pour terminer, comparons l'évolution des erreurs selon trois méthodes différentes de descente de gradient :
 \begin{itemize}
@@ -505,14 +505,14 @@ Le nombre de neurones $p$ de la dernière couche (appelée couche de sortie) dé
 \end{itemize}
 
 
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.5\textwidth}
 \myfigure{0.7}{\tikzinput{fig_activation_relu}}  
 \end{minipage}
 \begin{minipage}{0.45\textwidth}
 \myfigure{0.7}{\tikzinput{fig_activation_linear}}  
 \end{minipage}
 
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.5\textwidth}
 \myfigure{0.6}{\tikzinput{fig_activation_sigmoid}}  
 \end{minipage}
 \begin{minipage}{0.45\textwidth}
@@ -610,10 +610,10 @@ qui fournit un résumé chiffré du réseau avec le nombre de couches, le nombre
 On peut vouloir mesurer d'autres choses que la fonction d'erreur.
 Par exemple l'option  de la fonction \ci{compile()} : 
 \mycenterline{\ci{metrics=['accuracy']}}
-va en plus compter la précision du modèle (sous la forme d'un pourcentage de réussite).
+va en plus mémoriser la précision du modèle (sous la forme d'un pourcentage de réussite).
 Par exemple, si on doit classer des images en deux catégories (chat/$0$ et chien/$1$) alors la fonction d'erreur est un outil indispensable pour notre problème, mais le résultat est mesuré concrètement par le pourcentage d'images correctement identifiées.
 
-Note : pourquoi ne pas prendre la précision comme fonction d'erreur puisque c'est ce qui nous intéresse ? Tout simplement parce que ce n'est pas un fonction différentiable, il n'y donc pas de méthode de gradient pour la minimiser.
+Note : pourquoi ne pas prendre la précision comme fonction d'erreur puisque c'est ce qui nous intéresse ? Tout simplement parce que ce n'est pas un fonction différentiable, il n'y a donc pas de méthode de gradient pour la minimiser.
 
 
 %--------------------------------------------------------------------
@@ -678,7 +678,7 @@ Si tout va bien, l'erreur sur les données de test devrait être proche de l'err
 
 La commande \ci{modele.get_weights()}\index{tf@\tensorflow/\keras!get-weights@\ci{get_weights()}} renvoie tous les poids du réseau.
 Les poids sont renvoyés sous la forme d'une liste [coefficients de la couche 1, biais de la couche 1, coefficients de la couche 2, \ldots].
-On peut aussi travailler couche par couche (voir \og{}Python : tensorflow avec keras - partie 1\fg{}) : 
+On peut aussi travailler couche par couche (voir \og{}Python : tensorflow avec keras - partie 1\fg{}).
 
 \begin{itemize}
   \item Les biais sont donnés sous la forme d'un vecteur (un nombre pour chaque neurone).
@@ -792,7 +792,7 @@ for k in range(1000):
 # Partie D. Visualisation
 
 sortie_produite = modele.predict(entree)
-ZZ = sortie_produite.reshape(Z.shape)  # sortie produite aux bonnes dimensions
+ZZ = sortie_produite.reshape(Z.shape)  # sortie aux bonnes dimensions
 
 # Affichage
 import matplotlib.pyplot as plt
@@ -887,9 +887,10 @@ Noter qu'avec ce codage on perd pas mal d'information par rapport à la critique
 
 from tensorflow.keras.datasets import imdb
 
-nb_mots_total = 1000   # On ne garde que les n=1000 mots les plus fréquents  
-(X_train_data, Y_train), (X_test_data, Y_test) = imdb.load_data(num_words=
-                                                                nb_mots_total)
+# On ne garde que les n=1000 mots les plus fréquents
+nb_mots_total = 1000     
+(X_train_data, Y_train), (X_test_data, Y_test) = 
+                       imdb.load_data(num_words = nb_mots_total)
 
 # Partie A bis. Afficher d'un texte
 
@@ -996,7 +997,7 @@ Plus en détails :
 
 from tensorflow.keras.datasets import cifar10
 
-(X_train_data, Y_train_data), (X_test_data, Y_test_data) = cifar10.load_data()
+(X_train_data,Y_train_data),(X_test_data,Y_test_data)=cifar10.load_data()
 
 num_classes = 10
 labels =  ['airplane','automobile','bird','cat','deer',
@@ -1018,10 +1019,8 @@ modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(10, activation='softmax'))
 
-mysgd = optimizers.SGD(lr = 0.1, decay=1e-6, momentum=0.9, nesterov=True)
-modele.compile(loss='categorical_crossentropy',
-               optimizer=mysgd,
-               metrics=['accuracy'])
+modele.compile(loss='categorical_crossentropy', 
+               optimizer='adam', metrics=['accuracy'])
 
 # Partie C. Apprentissage
 

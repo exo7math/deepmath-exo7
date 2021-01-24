@@ -15,7 +15,7 @@
 
 \insertvideo{2JnyMQpaRMU}{partie 5.4. Théorie avec plusieurs neurones}
 
-\insertvideo{ReLK3O4wyuA}{partie 5.5. Théorème d'approximation universel}
+\insertvideo{ReLK3O4wyuA}{partie 5.5. Théorème d'approximation universelle}
 
 
 \objectifs{Le cerveau humain est composé de plus de $80$ milliards de neurones. Chaque neurone reçoit des signaux électriques d'autres neurones et réagit en envoyant un nouveau signal à ses neurones voisins.
@@ -77,7 +77,7 @@ Voici ce que fait un perceptron linéaire de poids $a_1,\ldots,a_n$ et de foncti
 On peut donc définir ce qu'est un perceptron. Un \defi{perceptron linéaire} à $n$ variables et de fonction d'activation la fonction marche de Heaviside est la donnée de $n$ coefficients réels $a_1,\ldots,a_n$ auxquels est associée la fonction $F : \Rr \to \Rr$ définie par $F = H \circ f$, c'est-à-dire :
 $$\begin{cases}
 F(x_1,\ldots,x_n) = 1 & \text{ si } a_1 x_1 + a_2 x_2 + \cdots + a_n x_n \ge 0, \\
-F(x,\ldots,x_n) = 0  & \text{ sinon.} \\
+F(x_1,\ldots,x_n) = 0  & \text{ sinon.} \\
 \end{cases}$$
 
 
@@ -256,7 +256,7 @@ la sortie vaut $0.8$, cela signifie \og{}c'est bien un chat avec $80\%$ de certi
 Voici un neurone à deux entrées muni de la fonction d'activation sigmoïde définie par $\sigma(x) = \frac{1}{1+e^{-x}}$.
 
 \begin{center}
-\begin{minipage}{0.35\textwidth}
+\begin{minipage}{0.45\textwidth}
 \myfigure{0.5}{
 \tikzinput{fig_neurones_20}
 }
@@ -314,7 +314,7 @@ Puis on calcule $F(1.77,79) = \sigma(-2.64) \simeq 0.07$. Selon notre modèle ce
 Autre exemple : $(t,p)=(1.65,67)$. On calcule $F(1.65,67) \simeq 0.76$.
 Une personne mesurant $1.65$m et pesant $67$kg est probablement une femme (car la valeur de $F$ est plus proche de $1$ que de $0$).
 
-Malgré les données fictives, cet exemple met en évidence le problème de la superposition et de l'utilité d'avoir une sortie plus riche que  \og{}oui\fg{} ou \og{}non\fg{}. On peut aussi discuter de la pertinence de la frontière, car la séparation par une droite ne semble pas la mieux adaptée.  En fait, le poids varie en fonction du carré de la taille (les zones ont une forme de banane). 
+Malgré les données fictives, cet exemple met en évidence le problème de la superposition et de l'utilité d'avoir une sortie plus riche que  \og{}oui\fg{} ou \og{}non\fg{}. On peut aussi discuter de la pertinence de la frontière, car la séparation par une droite ne semble pas la mieux adaptée.  En fait, le poids varie en fonction du carré de la taille (les zones ont une forme de parabole). 
 \end{exemple}
 
 
@@ -371,7 +371,7 @@ Graphiquement, on représente toutes les configurations associées à \og{}$x$ O
 
 
 Peut-on réaliser l'opération \og{}$x$ OU $y$\fg{} par un perceptron ? 
-Oui ! Cela revient à séparer les rond bleus des carrés rouges.
+Oui ! Cela revient à séparer les ronds bleus des carrés rouges.
 C'est possible avec le perceptron de poids $a=1$, $b=1$, $c=-1$.
 Par exemple, si $x=0$ et $y=1$ alors, on calcule $1\cdot0+1\cdot1-1 = 0 \ge0$. Composée avec la fonction marche de Heaviside, la fonction $F(x,y)$
 définie par le perceptron renvoie dans ce cas $1$ (\og{}vrai\fg{}).
@@ -488,7 +488,7 @@ où $a_1,\ldots,a_n$ sont des réels (non tous nuls) et $a_0$ est aussi un réel
 \end{definition}
 
 
-Le but d'un perceptron affine est de séparer deux ensembles. Par exemple deux ensembles $A$ et $B$ sont séparés par une droite, deux ensembles de l'espace sont séparés par un plan.
+Le but d'un perceptron affine est de séparer deux ensembles. Par exemple deux ensembles $A$ et $B$ du plan seront séparés par une droite, deux ensembles de l'espace sont séparés par un plan.
 
 \begin{definition}
 Deux ensembles $A$ et $B$ sont \defi{linéairement séparables} s'il existe un hyperplan qui sépare $A$ de $B$. Plus précisément, s'il existe des réels  $a_0,a_1,\ldots,a_n$ tels que $a_1 x_1 + a_2 x_2 + \cdots + a_n x_n + a_0 \ge 0$ pour tout $(x_1,\ldots,x_n) \in A$ et $a_1 x_1 + a_2 x_2 + \cdots + a_n x_n + a_0 < 0$ pour tout $(x_1,\ldots,x_n) \in B$.
@@ -509,7 +509,7 @@ Si $f(x_1,\ldots,x_n) \ge 0$, alors après activation $F(x_1,\ldots,x_n)=1$, sin
 
 
 \begin{exemple}
-Réaliser \og{}$x$ OU $y$ OU $z$\fg{} revient à séparer par un plan le rond bleu des carrés rouges du cube suivant. Trouver l'équation d'un de ces plans donne les poids du perceptron qui conviennent. 
+Réaliser \og{}$x$ OU $y$ OU $z$\fg{} revient à séparer par un plan le rond bleu des carrés rouges du cube suivant. Trouver l'équation d'un de ces plans donne donc les poids du perceptron qui conviennent. 
 
 \begin{center}
 \begin{minipage}{0.60\textwidth}
@@ -610,7 +610,7 @@ Voici un réseau de neurones à deux couches : $2$ neurones (perceptrons linéai
   }
   
   
-  \item Si $(x,y)=(3,2)$ alors $s_1=4$, par contre $s_2=0$ car $(-3)\cdot3+2\cdot2 = -5 <0$ et la fonction ReLU renvoie $0$ (on dit que le neurone ne s'active pas). Les entrées du dernier neurone sont donc $s_1=4$ et $s_2=0$, ce neurone calcule $4\cdot 4 + 5\cdot0-1=15\ge0$ et après la fonction d'activation renvoie $1$. 
+  \item Si $(x,y)=(3,2)$ alors $s_1=4$, par contre $s_2=0$ car $(-3)\cdot3+2\cdot2 = -5 <0$ et la fonction ReLU renvoie $0$ (on dit que le neurone ne s'active pas). Les entrées du dernier neurone sont donc $s_1=4$ et $s_2=0$, ce neurone calcule $4\cdot 4 + 5\cdot0-1=15\ge0$ et, après la fonction d'activation, renvoie $1$. 
   Donc $F(3,2)=1$.
   
   \item Vérifier que pour $(x,y)=(\frac1{10},\frac1{10})$ le premier neurone s'active, le second ne s'active pas (il renvoie $0$) et le dernier neurone renvoie $0$. Ainsi $F(\frac1{10},\frac1{10})=0$.
@@ -660,6 +660,8 @@ Trouver $(x,y,z)$ tel que $Y_1=1$ et $Y_2=7$ (commencer par déterminer les vale
 
 \'Etudions quelques exemples plus en détails. Au lieu de calculer la sortie $F(x,y)$ pour des valeurs données, nous allons calculer $F(x,y)$ quelque soit $(x,y)$.
 
+\vspace*{-1ex}
+
 \begin{exemple}
 Voici un réseau de $3$ neurones : deux sur la première couche et un sur la seconde. La fonction d'activation est partout la fonction marche de Heaviside.
 Combien vaut la fonction associée $F$ selon l'entrée $(x,y)$ ?
@@ -684,6 +686,8 @@ C'est pourquoi l'ensemble des points pour lesquels $F$ vaut $1$ est l'intersecti
   } 
 
 \end{exemple}
+
+\medskip
 
 \begin{exemple}
 On reprend la même architecture que l'exemple précédent, mais en changeant les poids du neurone de sortie qui réalise cette fois l'opération \og{}OU\fg{}.
@@ -777,7 +781,7 @@ Activation ReLU
 
 Nous avons vu qu'un seul neurone ne permet pas de réaliser la fonction associée au \og{}OU exclusif\fg{}.
 Avec plusieurs neurones c'est facile !
-Voici un réseau de neurones qui sépare le plan en trois parties, le secteur central en lequel la fonction associée au réseau vaut $0$, alors que la fonction vaut $1$ partout ailleurs (y compris sur la frontière rouge).
+Voici un réseau de neurones qui sépare le plan en trois parties, le secteur central en lequel la fonction associée au réseau vaut $0$, alors que la fonction vaut $1$ partout ailleurs (y compris sur la frontière\couleurnb{ rouge}).
 \myfigure{0.7}{
 \tikzinput{fig_neurones_54}
 }
@@ -822,7 +826,7 @@ $$\Int(A) \qquad \Fr(A) \qquad \Ext(A).$$
 
 \begin{definition}
 Un ensemble $A$ est dit \defi{réalisable par un réseau de neurones} s'il existe un réseau de neurones $\mathcal{R}$ (d'unique fonction d'activation la fonction marche de Heaviside) tel que
-la fonction $F : \Rr^2 \to \Rr$ associé à $\mathcal{R}$ vérifie :
+la fonction $F : \Rr^2 \to \Rr$ associée à $\mathcal{R}$ vérifie :
 $$F(x,y) = 1 \quad \text{ pour tout } (x,y) \in \Int(A)$$
 et
 $$F(x,y) = 0 \quad \text{ pour tout } (x,y) \in \Ext(A).$$
@@ -958,13 +962,13 @@ C'est un résultat théorique qui ne dit en rien comment choisir la structure du
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Théorème d'approximation universel}
+\section{Théorème d'approximation universelle}
 
 Nous allons maintenant prouver qu'un réseau de neurones bien construit peut approcher n'importe quelle fonction. 
 
 Dans cette section nous partirons d'une seule entrée $x \in \Rr$, avec une seule sortie $y = F(x) \in \Rr$. Les réseaux de neurones de cette section produisent donc des fonctions $F : \Rr \to \Rr$.
 
-L'objectif est donc le suivant : on nous donne une fonction $f : [a,b] \to \Rr$ et nous devons trouver un réseau, tel que la fonction $F$ associée à ce réseau soit proche de $f$ :
+L'objectif est le suivant : on nous donne une fonction $f : [a,b] \to \Rr$ et nous devons trouver un réseau, tel que la fonction $F$ associée à ce réseau soit proche de $f$ :
 $$F(x) \simeq f(x) \qquad \text{ pour tout } x \in [a,b].$$
 
 Pour paramétrer le réseau nous allons bien sûr fixer des poids, mais avant cela choisissons les fonctions d'activation :
@@ -1196,13 +1200,13 @@ Si on veut les valeurs exactes aux bornes des marches, il faut éventuellement a
 \end{proof}
 
 %--------------------------------------------------------------------
-\subsection{Théorème d'approximation universel (une variable)}
+\subsection{Théorème d'approximation universelle (une variable)}
 
-\index{theoreme@théorème d'approximation universel}
+\index{theoreme@théorème d'approximation universelle}
 
 Nous pouvons maintenant énoncer le résultat théorique le plus important de ce chapitre.
 
-\begin{theoreme}[Théorème d'approximation universel]
+\begin{theoreme}[Théorème d'approximation universelle]
 Toute fonction continue $f : [a,b] \to \Rr$ peut être approchée d'aussi près que l'on veut par une fonction $F : [a,b] \to \Rr$ réalisée par un réseau de neurones.
 \end{theoreme}
 
@@ -1210,11 +1214,11 @@ Plusieurs commentaires importants.
 \begin{itemize}
   \item Tout d'abord rappelons que nous réalisons nos neurones avec des fonctions d'activation $H$ (marche de Heaviside) sauf pour le neurone de sortie qui a pour fonction d'activation l'identité.
   
-  \item Les hypothèses sont importantes : $f$ est continue et définie sur un intervalle borné. Si une des hypothèses venait à manquer l'énoncé serait faux.
+  \item Les hypothèses sont importantes : $f$ est continue et définie sur un intervalle fermé et borné. Si une des hypothèses venait à manquer l'énoncé serait faux.
   
   \item Bien que l'énoncé ne le dise pas, on peut concrètement réaliser à la main un réseau qui approche la fonction $f$ (voir le chapitre suivant). Cependant, ce n'est pas l'esprit des réseaux de neurones.
   
-  \item Que signifie \og{}approcher d'aussi près que l'on veut la fonction $f$\fg{} ? C'est dire que pour chaque $\epsilon>0$, il existe une fonction en escalier $F$, telle que :
+  \item Que signifie \og{}approcher d'aussi près que l'on veut la fonction $f$\fg{} ? C'est dire que pour chaque $\epsilon>0$, il existe une fonction $F$ (ici issue d'un réseau de neurones), telle que :
   $$\text{pour tout } x \in [a,b] \qquad | f(x)-F(x) | < \epsilon.$$
   C'est l'\defi{approximation uniforme} des fonctions.
   
@@ -1235,11 +1239,11 @@ Remarque : la preuve se rapproche de la construction de l'intégrale. Pour calcu
 
 
 %--------------------------------------------------------------------
-\subsection{Théorème d'approximation universel (deux variables et plus)}
+\subsection{Théorème d'approximation universelle (deux variables et plus)}
 
 Ce que nous avons fait pour une variable, nous pouvons le faire pour deux variables (ou plus).
 
-\begin{theoreme}[Théorème d'approximation universel]
+\begin{theoreme}[Théorème d'approximation universelle]
 Toute fonction continue $f : [a,b]\times [a,b] \to \Rr$ peut être approchée d'aussi près que l'on veut par une fonction $F : [a,b]\times [a,b] \to \Rr$ réalisée par un réseau de neurones.
 \end{theoreme}
 

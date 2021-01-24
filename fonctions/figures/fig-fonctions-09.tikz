@@ -16,7 +16,7 @@
 % \fill [blue] (4.5,4.5,4) circle (3pt);
 
 \draw[<-,>=latex,thick] (4.1,3.1,4) to[in=190,out=-10] (5,2,0) node[right] {plan $(y=y_0)$};
-\draw[<-,>=latex,thick] (3.5,3,4) to[in=180,out=-30] (5,1,0) node[right] {tranche à $(y=x_0)$};
+\draw[<-,>=latex,thick] (3.5,3,4) to[in=180,out=-30] (5,1,0) node[right] {tranche à $(y=y_0)$};
 
 
 % Partie 1 - Plan x=cst

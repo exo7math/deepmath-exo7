@@ -1,0 +1,25 @@
+ssh -p 8524 bodin@math-argos.univ-lille1.fr
+
+!akaiyeeG9
+
+ssh  bodin@mathcalc1.univ-lille1.fr
+
+sftp bodin@mathcalc1.univ-lille1.fr
+
+/usr/local/Anaconda/anaconda3/bin/conda list
+
+/usr/local/Anaconda/anaconda3/bin/python3 art3.py
+
+/usr/local/Anaconda/anaconda3/bin/conda search tensorflow
+/usr/local/Anaconda/anaconda3/bin/conda install tensorflow
+
+/usr/local/Anaconda/anaconda3/bin/python3 -c 'import tensorflow as tf; print(tf.__version__)'
+
+python3 -c 'import tensorflow as tf; print(tf.__version__)'
+
+/usr/local/Anaconda/anaconda3/bin/python3 art3.py
+
+import tensorflow as tf
+print(tf.__version__)
+
+commande 'nohup' to logout without killing the process: nohup my_command &
