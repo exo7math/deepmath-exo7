@@ -1019,7 +1019,8 @@ modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(10, activation='softmax'))
 
-modele.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+modele.compile(loss='categorical_crossentropy', 
+               optimizer='adam', metrics=['accuracy'])
 
 # Partie C. Apprentissage
 
