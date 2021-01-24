@@ -338,7 +338,7 @@ $$F'(x) =  \frac{\dd z}{\dd x}
 = \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x}
 = \frac12\frac{1}{\sqrt{y}} \times (1+\tan^2(x)).$$
 Et comme $y = \tan(x)$, on obtient :
-$$F'(x) = \frac12 \cdot \frac{1+\tan^2(x)}{\sqrt{\tan(x)}}.$$
+$$F'(x) = \frac12 \frac{1+\tan^2(x)}{\sqrt{\tan(x)}}.$$
 \end{exemple}
 
 \bigskip
@@ -367,7 +367,7 @@ Ici $u$ désigne une fonction $x \mapsto u(x)$.
 
 
 La formule de la dérivée de composition se généralise : si $x$ est une fonction de $t$, $y$ est une fonction de $x$ et $z$ est une fonction de $y$ alors :
-$$\frac{\dd z}{\dd t}  = \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x} \times \frac{\dd x}{\dd t}$$
+$$\frac{\dd z}{\dd t}  = \frac{\dd z}{\dd y} \times \frac{\dd y}{\dd x} \times \frac{\dd x}{\dd t}.$$
 
 
 % \todo{à prouver en exo mathématiciens + exercice real life temperature, altitude, pression}
@@ -688,8 +688,8 @@ La croissance et la dérivée sont liées par la proposition suivante.
 Soit $f : I \to \Rr$ une fonction dérivable, définie sur un intervalle $I$.
 Alors :
 \begin{itemize}
-\item $f$ est croissante sur $I$ $\iff$ $f'(x)\ge0$ pour tout $x \in I$.
-  \item $f$ est décroissante  sur $I$ $\iff$ $f'(x)\le0$ pour tout $x \in I$.  
+  \item $f$ est croissante sur $I$ $\iff$ $f'(x)\ge0$ pour tout $x \in I$,
+  \item $f$ est décroissante  sur $I$ $\iff$ $f'(x)\le0$ pour tout $x \in I$,  
   \item $f$ est constante  sur $I$ $\iff$ $f'(x) = 0$ pour tout $x \in I$.
 \end{itemize}
 \end{proposition}
@@ -1007,7 +1007,7 @@ Prenons le cas d'un minimum local en $x_0$.
 \end{proof}
 
 
-Reprenons, l'exemple de notre fonction $E(x) = 6x^2-22x+27$, et plus généralement celui d'une fonction $E(x) = ax^2+bx+c$, alors $E'(x)=2ax+b$. Le seul point en lequel la dérivée s'annule est $x_0 = -\frac{b}{2a}$ qui correspond bien au sommet de la parabole et est la valeur en laquelle la fonction $E$ atteint son minimum (ou bien son maximum si on avait $a<0$). Sur cet exemple le minimum local est aussi un minimum global.
+Reprenons l'exemple de notre fonction $E(x) = 6x^2-22x+27$, et plus généralement celui d'une fonction $E(x) = ax^2+bx+c$, alors $E'(x)=2ax+b$. Le seul point en lequel la dérivée s'annule est $x_0 = -\frac{b}{2a}$ qui correspond bien au sommet de la parabole et est la valeur en laquelle la fonction $E$ atteint son minimum (ou bien son maximum si on avait $a<0$). Sur cet exemple le minimum local est aussi un minimum global.
 
 On termine avec un autre exemple un peu plus sophistiqué.
 
@@ -1075,7 +1075,7 @@ Nous avons vu que le nombre dérivé $f'(x_0)$ permet d'approcher les valeurs de
 Soit $f : I \to \Rr$ une fonction dérivable, c'est-à-dire telle que $f'(x)$ existe pour tout $x \in I$. Nous notons $f'$ ou $x \mapsto f'(x)$ ou $\frac{\dd f}{\dd x}$ la fonction dérivée. 
 
 \begin{definition}
-La \defi{dérivée seconde} en $x_0$ (si elle existe) est la dérivée de la fonction $f'$, c'est-à-dire :
+La \defi{dérivée seconde} en $x_0$ (si elle existe) est la dérivée de la fonction $f'$ en $x_0$, c'est-à-dire :
 $$(f')'(x_0).$$
 Nous noterons ce nombre $f''(x_0)$ ou bien $\frac{\dd^2 f}{\dd x^2}(x_0)$.
 \end{definition}

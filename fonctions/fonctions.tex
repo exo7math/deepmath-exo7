@@ -18,7 +18,7 @@
 
 
 \objectifs{Dans ce chapitre, nous allons nous concentrer sur les fonctions de deux variables et la visualisation de leur graphe et de leurs lignes de niveau. 
-La compréhension géométrique des fonctions de deux variables est fondamentale pour comprendre les techniques qui seront rencontrées plus tard avec un plus grand nombre de variables.}
+La compréhension géométrique des fonctions de deux variables est fondamentale pour assimiler les techniques qui seront rencontrées plus tard avec un plus grand nombre de variables.}
 
 
 De nombreux phénomènes dépendent de plusieurs paramètres, par exemple le volume d'un gaz dépend de la température et de la pression; l'altitude $z$ d'un terrain dépend des coordonnées $(x,y)$ du lieu.
@@ -88,7 +88,7 @@ Voici quelques exemples.
 \begin{enumerate}
   \item $f(x,y,z) = ax+by+cz+d$. Cette fonction $f$ est une fonction affine ($a,b,c,d$ sont des constantes).
    \item $f(x,y,z) = x^2+y^2+z^2$ qui donne la distance au carré entre un point $M(x,y,z)$ et l'origine $O(0,0,0)$.
-   \item Le volume d'un cône à base rectangulaire dépend des côtés $a$ et $b$ de la base et de la hauteur $h$ :
+   \item Le volume d'un cône à base rectangulaire dépend des longueurs des côtés $a$ et $b$ de la base et de la hauteur $h$ :
    $$V = f(a,b,h) = \frac13 abh.$$
    
    \myfigure{0.5}{
@@ -150,7 +150,7 @@ On commence par tracer quelques points à la main :
 \begin{itemize}
   \item si $(x,y) = (0,0)$ alors $f(x,y) = f(0,0) = 0$ donc le point de coordonnées $(0,0,0)$ appartient au graphe.
   \item Comme $f(1,0) = 1/e$ alors le point de coordonnées $(1,0,1/e)$ appartient au graphe.
-  \item Pour n'importe quel $y$, on a $f(0,y)=0$ donc la droite de l'espace d'équation ($y=0$ et $z=0$) est incluse dans le graphe.
+  \item Pour n'importe quel $y$, on a $f(0,y)=0$ donc la droite de l'espace d'équation ($x=0$ et $z=0$) est incluse dans le graphe.
   \item Notons $r = \sqrt{x^2+y^2}$ la distance entre le point de coordonnées $(x,y)$ et l'origine $(0,0)$ alors on a la formule $f(x,y) = x e^{-r^2}$. Pour un point éloigné de l'origine, $r$ est grand, donc  $e^{-r^2}$ est très petit, et $f(x,y)$ est très proche de $0$.
 \end{itemize}
 
@@ -235,7 +235,7 @@ Voici l'exemple d'une fonction qui admet deux minimums locaux. L'un est aussi un
 \end{exemple}
 
 
-Trouver les bons paramètres d'un réseau de neurones nous amènera à trouver le minimum d'une fonction de plusieurs (et même des centaines de) variables. Voyons un exemple en deux variables.
+Trouver les bons paramètres d'un réseau de neurones nous amènera à trouver le minimum d'une fonction de plusieurs (et même de centaines de) variables. Voyons un exemple en deux variables.
 \begin{exemple}
 Étant donnés trois points $A(1,2)$, $B(3,5)$ et $C(6,1)$, il s'agit de trouver un point $M(x,y)$ qui \og{}approche au mieux\fg{} ces trois points. Il faut expliciter une fonction à minimiser pour définir correctement le problème. Nous décidons de prendre la somme des carrés des distances.
 
@@ -285,7 +285,7 @@ Voici trois techniques pour trouver les valeurs approchées des coordonnées du 
 
 
 \textbf{Recherche au hasard.} Cela peut sembler incongru mais choisir quelques coordonnées $(x,y)$ au hasard, calculer chaque valeur $z=f(x,y)$ et comme auparavant retenir le point $(x_0,y_0)$ correspondant au $z_0$ minimal n'est pas ridicule !
-Un ordinateur peut tester plusieurs millions de points en quelques secondes. Bien sûr il y a de fortes chances de ne trouver qu'une solution approchée. C'est aussi une technique que l'on retrouvera plus tard : partir d'un point au hasard pour ensuite construire une suite de points convergeant vers un minimum. Et si cela n'est pas concluant, il faut repartir d'un autre point tiré au hasard.
+Un ordinateur peut tester plusieurs millions de points en quelques secondes. Bien sûr il y a de fortes chances de ne trouver qu'une solution approchée. C'est aussi une technique que l'on retrouvera plus tard : partir d'un point au hasard pour ensuite construire une suite de points convergeant vers un minimum. Et si cela n'est pas concluant, il faudra repartir d'un autre point tiré au hasard.
 
 \bigskip
 
@@ -293,7 +293,7 @@ Un ordinateur peut tester plusieurs millions de points en quelques secondes. Bie
 L'idée est de se ramener à des fonctions d'une seule variable. En effet, 
 pour les fonctions d'une variable, on sait qu'il faut chercher les minimums là où la dérivée s'annule.
 
-On part d'une valeur $x_0$ (au hasard !). On cherche le minimum sur la tranche $x=x_0$, c'est-à-dire que l'on cherche le minimum de la fonction d'une variable $y \mapsto f(x_0,y)$. On trouve une valeur $y_0$ qui réalise un minimum. On change alors de direction en étudiant maintenant la tranche $y=y_0$ (pour le $y_0$ que l'on vient d'obtenir), on obtient l'abscisse $x_1$ du minimum de la fonction d'une variable $x \mapsto f(x,y_0)$. On recommence depuis le début à partir de ce $x_1$. On obtient ainsi une suite de points $(x_i,y_i)$ avec des valeurs $z_i$ de plus en plus petites. On peut espérer tendre vers un minimum. %que $(x_i,y_i)$ tendent vers un minimum.
+On part d'une valeur $x_0$ (au hasard !). On cherche le minimum sur la tranche $x=x_0$, c'est-à-dire que l'on cherche le minimum de la fonction d'une variable $y \mapsto f(x_0,y)$. On trouve une valeur $y_0$ qui réalise un minimum. On change alors de direction en étudiant maintenant la tranche $y=y_0$ (pour le $y_0$ que l'on vient d'obtenir), on obtient l'abscisse $x_1$ du minimum de la fonction d'une variable $x \mapsto f(x,y_0)$. On recommence depuis le début à partir de ce $x_1$. On obtient ainsi une suite de points $(x_i,y_i)$ avec des valeurs $z_i=f(x_i,y_i)$ de plus en plus petites. On peut espérer tendre vers un minimum. %que $(x_i,y_i)$ tendent vers un minimum.
 
 
    \myfigure{1}{
@@ -314,7 +314,7 @@ On applique ces trois techniques pour chercher le minimum de $g$ en se limitant 
 
 \begin{enumerate}
 
-  \item Avec une grille $N\times N$. Par exemple pour $N=100$, on évalue $g$ en $10\,000$ points. On trouve $(x_{\min},y_{\min}) \simeq (2.91,2.97)$ pour un valeur $z_{\min} \simeq 7.84$. 
+  \item Avec une grille $N\times N$. Par exemple pour $N=100$, on évalue $g$ en $10\,000$ points. On trouve $(x_{\min},y_{\min}) \simeq (2.91,2.97)$ pour une valeur $z_{\min} \simeq 7.84$. 
   
   \item Avec un tirage aléatoire de $1000$ points, on trouve par exemple :
   $(x_{\min},y_{\min}) \simeq (2.88,2.99)$ et $z_{\min} \simeq 7.84$. Le résultat est similaire à la méthode précédente, bien qu'on ait effectué $10$ fois moins de calculs.

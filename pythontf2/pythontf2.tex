@@ -17,7 +17,7 @@
 
 
 
-\objectifs{Jusqu'ici nous avons travaillé dur pour comprendre en détails la rétropropagation du gradient. Les exemples que nous avons vus reposaient essentiellement sur des réseaux simples. En complément des illustrations mathématiques étudiées, il est temps de découvrir des exemples de la vie courante comme de la reconnaissance d'image ou de texte. Nous profitons de la librairie \tensorflow/\keras{} qui en quelques lignes nous permet d'importer des données, de construire un réseau de neurones à plusieurs couches, d'effectuer la descente de gradient et de valider les résultats.}
+\objectifs{Jusqu'ici nous avons travaillé dur pour comprendre en détails la rétropropagation du gradient. Les exemples que nous avons vus reposaient essentiellement sur des réseaux simples. En complément des illustrations mathématiques étudiées, il est temps de découvrir des exemples de la vie courante comme la reconnaissance d'image ou de texte. Nous profitons de la librairie \tensorflow/\keras{} qui en quelques lignes nous permet d'importer des données, de construire un réseau de neurones à plusieurs couches, d'effectuer une descente de gradient et de valider les résultats.}
 
 
 
@@ -432,7 +432,7 @@ Voici le comportement de l'erreur au fil des époques.
 \includegraphics[scale=\myscale,scale=0.5]{figures/unevar-fonction-erreur}
 \end{center}
 
-L'erreur n'est pas partout une fonction décroissante, c'est le cas lorsque lorsque le taux d'apprentissage est trop grand. D'où l'intérêt de faire diminuer ce taux d'apprentissage au fil des époques à l'aide du paramètre $\alpha$.
+L'erreur n'est pas partout une fonction décroissante, c'est le cas lorsque le taux d'apprentissage est trop grand. D'où l'intérêt de faire diminuer ce taux d'apprentissage au fil des époques à l'aide du paramètre $\alpha$.
 
 Pour terminer, comparons l'évolution des erreurs selon trois méthodes différentes de descente de gradient :
 \begin{itemize}
@@ -610,10 +610,10 @@ qui fournit un résumé chiffré du réseau avec le nombre de couches, le nombre
 On peut vouloir mesurer d'autres choses que la fonction d'erreur.
 Par exemple l'option  de la fonction \ci{compile()} : 
 \mycenterline{\ci{metrics=['accuracy']}}
-va en plus compter la précision du modèle (sous la forme d'un pourcentage de réussite).
+va en plus mémoriser la précision du modèle (sous la forme d'un pourcentage de réussite).
 Par exemple, si on doit classer des images en deux catégories (chat/$0$ et chien/$1$) alors la fonction d'erreur est un outil indispensable pour notre problème, mais le résultat est mesuré concrètement par le pourcentage d'images correctement identifiées.
 
-Note : pourquoi ne pas prendre la précision comme fonction d'erreur puisque c'est ce qui nous intéresse ? Tout simplement parce que ce n'est pas un fonction différentiable, il n'y donc pas de méthode de gradient pour la minimiser.
+Note : pourquoi ne pas prendre la précision comme fonction d'erreur puisque c'est ce qui nous intéresse ? Tout simplement parce que ce n'est pas un fonction différentiable, il n'y a donc pas de méthode de gradient pour la minimiser.
 
 
 %--------------------------------------------------------------------
@@ -1019,10 +1019,7 @@ modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(10, activation='softmax'))
 
-mysgd = optimizers.SGD(lr = 0.1, decay=1e-6, momentum=0.9, nesterov=True)
-modele.compile(loss='categorical_crossentropy',
-               optimizer=mysgd,
-               metrics=['accuracy'])
+modele.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Partie C. Apprentissage
 

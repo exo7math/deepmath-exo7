@@ -197,7 +197,7 @@ $$\begin{pmatrix}
 \end{pmatrix}.$$
 On commence par retourner $M$. 
 Pour calculer le premier coefficient de $A \star M$, on centre le motif sur le premier coefficient de $A$, puis on rajoute des zéros virtuels à gauche et en haut.
-Ensuite on calcule le produit de chaque coefficient de la matrice $M$ retournée avec les coefficients de $A$ correspondants, et on les additionne :
+Ensuite on calcule les produits  des coefficients de la matrice $M$ retournée avec les coefficients de $A$ correspondants, et on les additionne :
 $$
        0 \times {\color{green!70!black} 3}
 \ + \  0 \times {\color{green!70!black} 0}
@@ -236,7 +236,7 @@ Jusqu'à calculer entièrement la matrice $A\star M$.
   
   \item Dans la plupart de nos situations, le motif sera une matrice de taille $3 \times 3$. Par contre la matrice $A$ pourra être de très grande taille (par exemple une matrice $600 \times 400$, codant une image).
   
-  \item Cependant, si la matrice du motif a une dimension paire on rajoute des zéros virtuels à gauche ou en haut (avant de le retourner).
+  \item Cependant, si la matrice du motif possède une dimension paire on rajoute des zéros virtuels à gauche ou en haut (avant de la retourner).
 
   \myfigure{1}{
   \tikzinput{fig-convolution2d-07}
@@ -494,7 +494,7 @@ un $3$-tenseur de taille $(3, 3, k)$, c'est-à-dire un tableau à $3$ dimensions
    \myfigure{0.6}{
    \tikzinput{fig-convolution2d-3d-07d}
    } 
-Ce motif $M$ correspond donc à une couche de neurones où chaque neurone a $3\times3\times k$ arêtes. Chaque neurone est connecté localement à une zone $3\times 3$ dans un plan, mais ceci sur toute la profondeur des $k$ entrées. Le calcul de la sortie du neurone se fait en réalisant la somme de $3 \times 3 \times k$ termes. Pour réaliser une couche de neurones, la zone $3 \times 3$ se déplace dans le plan, mais s'étend toujours sur toute la profondeur.
+Ce motif $M$ correspond donc à une couche de neurones où chaque neurone possède $3\times3\times k$ arêtes. Chaque neurone est connecté localement à une zone $3\times 3$ dans un plan, mais ceci sur toute la profondeur des $k$ entrées. Le calcul de la sortie du neurone se fait en réalisant la somme de $3 \times 3 \times k$ termes. Pour réaliser une couche de neurones, la zone $3 \times 3$ se déplace dans le plan, mais s'étend toujours sur toute la profondeur.
 
    \myfigure{0.5}{
    \tikzinput{fig-convolution2d-3d-11}
@@ -860,7 +860,7 @@ Nous avions vu comment cette formule permettait de calculer le gradient par rapp
 
 
 \emph{Preuve.}
-Tour d'abord $$\frac{\partial F}{\partial a} =  \frac{\partial F}{\partial g} \cdot \frac{\partial g}{\partial a}.$$
+Tout d'abord $$\frac{\partial F}{\partial a} =  \frac{\partial F}{\partial g} \cdot \frac{\partial g}{\partial a}.$$
 Or 
 $$\frac{\partial g}{\partial a} = f_\mystar \cdot g'_\mystar$$
 car 

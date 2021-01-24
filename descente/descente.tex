@@ -1,5 +1,5 @@
-\documentclass[10pt,class=report,crop=false]{standalone}
-\usepackage[print]{../python}
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
 
 
 \begin{document}
@@ -300,7 +300,7 @@ $\delta=0.05$
 \begin{itemize}
   \item Pour $\delta = 0.9$, la suite $(a_k)$ tend bien vers $a_{\min} = 0$. Les ordonnées sont bien décroissantes mais comme $\delta$ est trop grand, la suite des points oscille de part et d'autre du minimum.
   
-  \item Pour $\delta = 1.1$, la suite $(a_k)$ diverge. Les ordonnées augmentent, la suite des points oscille et s'échappe vers le haut. Cette valeur de $\delta$ ne donne pas de convergence vers un minimum.
+  \item Pour $\delta = 1.1$, la suite $(a_k)$ diverge. Les ordonnées augmentent, la suite des points oscille et s'échappe. Cette valeur de $\delta$ ne donne pas de convergence vers un minimum.
   
   \item Pour $\delta = 0.05$, la suite $(a_k)$ tend bien vers $a_{\min}$ mais, comme $\delta$ est trop petit, il faudrait beaucoup d'itérations pour arriver à une approximation raisonnable.
   
@@ -406,7 +406,7 @@ On s'arrête lorsque $\|\grad f(P_k) \| \le \epsilon$.
   \tikzinput{fig_descente-03}
   }
   
-  On peut fixer à l'avance un pas $\delta$ commun à toutes les itérations, par exemple $\delta = 0.01$. On peut également tester à chaque itération plusieurs valeurs de $\delta$ par balayage ($\delta = 0.001$, puis $\delta=0.002$\ldots) et choisir pour $\delta_k$ celui en lequel $f$ prend la plus petite valeur.
+  On peut fixer à l'avance un pas $\delta$ commun à toutes les itérations, par exemple $\delta = 0.01$. On pourrait également tester à chaque itération plusieurs valeurs de $\delta$ par balayage ($\delta = 0.001$, puis $\delta=0.002$\ldots) et choisir pour $\delta_k$ celui en lequel $f$ prend la plus petite valeur.
   
   \item Le critère d'arrêt assure qu'en $P_k$ le gradient est très petit. Cela ne garantit pas que ce point soit proche d'un minimum local (et encore moins d'un minimum global). Souvenez-vous : en un minimum local le gradient est nul, mais ce n'est pas parce que le gradient est nul que l'on a atteint un minimum local, cela pourrait être un point-selle voire un maximum local.
   
@@ -534,11 +534,10 @@ $$A_1 = (4,1),\quad A_2 = (7,3),\quad A_3 = (8,3),\quad A_4 = (10,6),\quad A_5 =
 \tikzinput{fig-regression-03}
 }
 
-Ces $5$ points sont à peu près alignés. On calcule la meilleure droite de régression linéaire par la descente de gradient. Cela revient à minimiser la fonction $E(a,b)$ présentée ci-dessus, mais actualisée avec nos données. 
+Ces $5$ points sont à peu près alignés. On calcule la meilleure droite de régression linéaire par la descente de gradient. Cela revient par exemple à minimiser la fonction $E(a,b)$ présentée ci-dessus, mais actualisée avec nos données. 
 On fixe un pas $\delta = 0.001$.
 On ne choisit pas le point initial $(a_0,b_0)$ au hasard. Plus on part d'un point proche de la solution, plus la suite convergera rapidement. On trace la droite qui passe par le premier point $A_1$ et le dernier point $A_5$. Cette droite a pour équation $y=\frac34 x -2$ et est déjà une droite qui approche assez bien les $5$ points. Prenons cette droite comme point de départ, c'est-à-dire posons $(a_0,b_0) = (\frac34,-2)$.
-La descente de gradient conduit au bout de $1000$ itérations à $a\simeq 0.78$ et $b\simeq -2.46$,
-ce qui donne l'équation de la droite de régression linéaire.
+La descente de gradient conduit au bout de $1000$ itérations à $a\simeq 0.78$ et $b\simeq -2.46$, pour l'équation de la droite de régression linéaire.
 
 Sur le dessin ci-dessous sont tracées la droite initiale qui passe par les points $A_1$ et $A_5$ \couleurnb{(en rouge) }{}et la droite de régression linéaire\couleurnb{ (en bleu)}{}.
 
@@ -562,7 +561,7 @@ En fait, le neurone suivant a pour fonction associée $F(x) = ax+b$.
 \tikzinput{fig-regression-05}
 }
 
-Reformulons le problème de la régression linéaire ainsi : soit des données $(x_i,y_i)$, $i=1,\ldots,N$. Il s'agit de trouver un neurone, ou plus exactement des coefficients $a$ et $b$, tel que la fonction $F$ associée au neurone réalise au mieux ces données, c'est-à-dire 
+Reformulons le problème de la régression linéaire ainsi : soit des données $(x_i,y_i)$, $i=1,\ldots,N$. Il s'agit de trouver pour le type de neurone choisi les coefficients $a$ et $b$, tels que la fonction $F$ associée au neurone réalise au mieux ces données, c'est-à-dire 
 $$F(x_i) \simeq y_i.$$
 
 Vocabulaire :
@@ -580,7 +579,7 @@ Vocabulaire :
 \subsection{Régression linéaire $z=ax+by+c$}
 
 Le neurone suivant a pour fonction $F(x,y) = ax+by+c$.
-Le problème de la régression linéaire pour des données $(x_i,y_i,z_i)$,  $i=1,\ldots,N$, consiste à trouver des poids $(a,b,c)$ tels que $F(x_i,y_i) \simeq z_i$.
+Le problème de la régression linéaire pour un tel neurones et des données $(x_i,y_i,z_i)$,  $i=1,\ldots,N$, consiste à trouver des poids $(a,b,c)$ tels que $F(x_i,y_i) \simeq z_i$.
 
 \myfigure{1}{
 \tikzinput{fig-regression-06}
@@ -598,7 +597,7 @@ $$E(a,b,c) = \sum_{i=1}^N \big(z_i - (ax_i+by_i+c)\big)^2.$$
 On aura besoin de calculer le gradient de $E$ :
 $$\grad E(a,b,c) 
 = \left(\frac{\partial E}{\partial a}(a,b,c), \frac{\partial E}{\partial b}(a,b,c), \frac{\partial E}{\partial c}(a,b,c)\right).$$
-Donc 
+On a : 
 {\small
 $$\grad E(a,b,c) 
 = \left(
@@ -917,7 +916,7 @@ Pour des points $(x_i,y_i)$, $i=1,\ldots, N$, on mesure la distance globale par 
 $$E(a,b,c) = \sum_{i=1}^N E_i(a,b,c)$$
 où 
 $$E_i(a,b,c) = \big( (x_i-a)^2 + (y_i-b)^2 - c^2 \big)^2.$$
-En effet, $E_i$ mesure la distance (au carré) entre le point $(x_i,y_i)$ et le cercle $\mathcal{C}$ de centre $(a,b)$ et de rayon $c$. Donc $E_i=0$ si et seulement si $(x_i,y_i) \in \mathcal{C}$, sinon $E_i > 0$.
+En effet, $E_i$ mesure en quelque sorte la distance entre le point $(x_i,y_i)$ et le cercle $\mathcal{C}$ de centre $(a,b)$ et de rayon $c$. Donc $E_i=0$ si et seulement si $(x_i,y_i) \in \mathcal{C}$, sinon $E_i > 0$.
 
 \myfigure{1}{
 \tikzinput{fig-circulaire-01}

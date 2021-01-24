@@ -28,7 +28,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Dérivées partielles}
 
-Pour une fonction de plusieurs variables, il y a une dérivée pour chacune des variables, qu'on appelle dérivée partielle. 
+Pour une fonction de plusieurs variables, il existe une dérivée pour chacune des variables, qu'on appelle dérivée partielle. 
 
 %----------------------------------------------------
 \subsection{Définition}
@@ -136,7 +136,7 @@ $$\frac{\partial f}{\partial x_i}(x_1,\ldots,x_n) = 2x_i.$$
 \subsection{Interprétation géométrique}
 
 
-Pour une fonction d'une variable, la dérivée est la pente de la tangente au graphe de la fonction (le graphe est alors une courbe). Pour une fonction de deux variables $(x,y) \mapsto f(x,y)$, les dérivées partielles indiquent les pentes au graphe de $f$ selon certaines directions (le graphe est ici une surface). Plus précisément :
+Pour une fonction d'une variable, la dérivée est la pente de la tangente au graphe de la fonction (le graphe étant alors une courbe). Pour une fonction de deux variables $(x,y) \mapsto f(x,y)$, les dérivées partielles indiquent les pentes au graphe de $f$ selon certaines directions (le graphe étant ici une surface). Plus précisément :
 
 \begin{itemize}
   \item $\frac{\partial f}{\partial x} (x_0,y_0)$ est la pente du graphe de $f$
@@ -167,7 +167,7 @@ Sur la figure de gauche, la dérivée partielle  $\frac{\partial f}{\partial x}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Gradient}
 
-Le gradient est un vecteur dont les coordonnées sont les dérivées partielles. Il a de nombreuses applications géométriques car il donne l'équation des tangences aux courbes et surfaces de niveau. Surtout, il indique la direction dans laquelle la fonction croît le plus vite.
+Le gradient est un vecteur dont les coordonnées sont les dérivées partielles. Il a de nombreuses applications géométriques car il donne l'équation des tangences aux courbes et surfaces de niveau. Surtout, il indique la direction dans laquelle la fonction varie le plus vite.
 
 %----------------------------------------------------
 \subsection{Définition}
@@ -253,7 +253,7 @@ Trouver les tangentes à l'ellipse $\mathcal{E}$ d'équation $\frac{x^2}{a^2}+\f
 Cette ellipse $\mathcal{E}$ est la ligne de niveau $f(x,y)=1$ de la fonction
 $f(x,y) = \frac{x^2}{a^2}+\frac{y^2}{b^2}$. 
 Les dérivées partielles en $(x_0, y_0)$ sont :
-$$\frac{\partial f}{\partial x}(x_0,y_0) = \frac{2x_0}{a^2} \qquad \frac{\partial f}{\partial y}(x_0,y_0) = \frac{2y_0}{b^2}.$$
+$$\frac{\partial f}{\partial x}(x_0,y_0) = \frac{2x_0}{a^2} \qquad \text{ et } \qquad \frac{\partial f}{\partial y}(x_0,y_0) = \frac{2y_0}{b^2}.$$
 L'équation de la tangente à l'ellipse $\mathcal{E}$ en ce point est donc :
 $$\frac{2x_0}{a^2}(x-x_0)+\frac{2y_0}{b^2}(y-y_0)=0.$$
 Mais comme $\frac{x_0^2}{a^2}+\frac{y_0^2}{b^2} = 1$, l'équation de la tangente se simplifie en $\displaystyle \frac{x_0}{a^2}x + \frac{y_0}{b^2} y = 1$.
@@ -271,7 +271,7 @@ Le vecteur gradient $\grad f(x_0,y_0)$ indique la direction de plus grande pente
 \end{proposition}
 
 
-Autrement dit, si l'on veut, à partir d'un point donné $(x_0,y_0)$, passer du niveau $a$ au niveau $b>a$ le plus vite possible alors il faut démarrer en suivant la direction du gradient $\grad f(x_0,y_0)$. 
+Autrement dit, si l'on veut, à partir d'un point donné $(x_0,y_0)$ de niveau $a$, passer au niveau $b>a$ le plus vite possible alors il faut démarrer en suivant la direction du gradient $\grad f(x_0,y_0)$. 
 
 \myfigure{1}{
   \tikzinput{fig-gradient-05}
@@ -362,7 +362,7 @@ pourvu que le gradient de $f$ en ce point ne soit pas le vecteur nul.
 
 Plus généralement pour $f : \Rr^n \to \Rr$, $\grad f (x_1,\ldots,x_n)$ est orthogonal à l'espace tangent à
 l'hypersurface de niveau $f=k$ passant par le point $(x_1,\ldots,x_n)\in\Rr^n$ et 
-le vecteur gradient $\grad f(x_1,\ldots,x_n)$ indique la direction de plus grande pente à partir du point $(x_1,\ldots,x_n)$.
+ce vecteur gradient $\grad f(x_1,\ldots,x_n)$ indique la direction de plus grande pente à partir du point $(x_1,\ldots,x_n)$.
 
 
 
@@ -408,7 +408,7 @@ Soit $f : \Rr^2 \to \Rr$.
 \begin{itemize}
   \item La fonction $f$ admet un \defi{minimum local} en $(x_0,y_0)$ s'il existe un disque $D$ centré en ce point tel que 
 $$ f(x,y) \ge f(x_0,y_0) \quad \text{ pour tout } (x,y) \in D.$$
-  \item De même pour un \defi{maximum local} en $(x_0,y_0)$  pour lequel 
+  \item La fonction $f$ admet un \defi{maximum local} en $(x_0,y_0)$  pour lequel 
 $$f(x,y) \le f(x_0,y_0) \quad \text{ pour tout } (x,y) \in D.$$
   \item On parle d'un \defi{extremum local} pour un minimum ou un maximum local.
 \end{itemize}
@@ -765,7 +765,7 @@ Voici le graphe de calcul que l'on utilise (noter qu'avec ce graphe, on ne calcu
 }
 
 La dérivée s'obtient comme somme sur tous les chemins de la sortie à l'entrée.
-C'est donc un peu plus compliqué que ce l'on pense au premier abord : il faut ici faire la somme selon trois chemins différents, car l'arête sortant vers le bas de l'entrée $t$ se sépare en deux au niveau de $y$. Nous allons voir comment gérer cette difficulté dans la section suivante.
+C'est donc un peu plus compliqué que ce l'on pense au premier abord : il faut ici faire la somme selon trois chemins différents, car l'arête sortant de la variable $t$ vers la variable $y$ se sépare ensuite en deux. Nous allons voir comment gérer cette difficulté dans la section suivante.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -886,7 +886,7 @@ $$\frac{\partial F}{\partial a} = \frac{g'_\mystar}{g_\mystar} \cdot b \cdot \fr
   
   \item Il faut s'habituer au jeu d'écriture un peu ambigu, comme on le fait pour une expression $y$ qui dépend de $x$. On peut noter cette expression $y(x)$ ou bien simplement $y$, cette dernière écriture peut désigner une fonction de $x$ ou bien la valeur prise en $x$. Par exemple dans la formule du sourire  $\frac{\partial F}{\partial a}$ et $ \frac{\partial F}{\partial b}$ sont en fait les valeurs des dérivées partielles et ne sont pas vraiment considérées comme des fonctions. Dans la pratique cela ne posera pas de problème car le but est de calculer les valeurs des dérivées partielles (et pas l'expression des fonctions dérivées partielles).
   
-  \item En plus les expressions sont dérivées par rapport à différentes variables. Par exemple, si une expression $F$ dépend de $y$, et l'expression $y$ dépend de $x$, alors on peut calculer  $\frac{\partial F}{\partial y}$, mais aussi $\frac{\partial F}{\partial x}$. 
+  \item De plus, les expressions sont dérivées par rapport à différentes variables. Par exemple, si une expression $F$ dépend de $y$, et l'expression $y$ dépend de $x$, alors on peut calculer  $\frac{\partial F}{\partial y}$, mais aussi $\frac{\partial F}{\partial x}$. 
   
   \item Enfin la fonction $F$ considérée ici dépend des variables d'entrée $x_i$ mais aussi des poids $a_j$, si on suivait le formalisme introduit en section \ref{ssec:foncres}, on devrait plutôt la noter  $\widehat F$.
 \end{itemize}

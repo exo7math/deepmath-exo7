@@ -180,11 +180,11 @@ Pour un motif  $[a,b,c]$, un neurone de convolution possède trois arêtes, de p
 \tikzinput{fig-convolution1d-08}
 }
 
-La sortie est $s=xc+yb+za$. On pourrait aussi composer par une fonction d'activation $\phi$ auquel cas la sortie serait $s=\phi(xc+yb+za)$.
+La sortie est $s=xc+yb+za$. On pourrait aussi composer par une fonction d'activation $\phi$, auquel cas la sortie serait $s=\phi(xc+yb+za)$.
 
 On peut représenter une couche de convolution par un ensemble de neurones de convolution, 
 ceux-ci ayant tous les mêmes poids $[a,b,c]$ et chacun étant relié à seulement trois valeurs de l'entrée. La sortie produite est alors le produit  convolution de l'entrée par le motif $[a,b,c]$.
-Pour une entrée de longueur $n$, la couche de convolution possède $n$ neurones, chaque neurone ayant trois arêtes. Mais au total, il n'y a que trois poids différents.
+Pour une entrée de longueur $n$, la couche de convolution possède $n$ neurones, chaque neurone ayant trois arêtes (sauf les neurones de bord). Mais au total, il n'y a que trois poids différents.
 
 
 \myfigure{1}{

@@ -25,7 +25,7 @@ Dans cette partie nous continuons la partie facile : comment utiliser un réseau
 \section{Utiliser \tensorflow{} avec \keras}
 
 Le module \keras{} permet de définir facilement des réseaux de neurones en les décrivant couche par couche.
-Pour l'instant nous définissons les poids à la main, en attendant de voir plus tard comment les calculer à la machine.
+Pour l'instant nous définissons les poids à la main, en attendant de voir plus tard comment les calculer avec la machine.
 Pour commencer nous allons créer le réseau de neurones correspondant à la figure suivante :
 
 \myfigure{0.9}{
@@ -53,7 +53,7 @@ from tensorflow.keras.layers import Dense
 \subsection{Couches de neurones}
 \label{ssec:couches}
 
-On va définir l'architecture d'un réseau très simple, en le décrivant couche par couche.
+Nous allons définir l'architecture d'un réseau très simple, en le décrivant couche par couche.
 \begin{lstlisting}
 # Architecture du réseau
 modele = Sequential()
@@ -90,8 +90,8 @@ Explications :
 
   \item Pour les autres couches, le nombre d'entrées est égal au nombre de sorties de la couche précédente. Il n'est donc pas nécessaire de le préciser.
   
-  \item Pour chaque couche, il faut également préciser une fonction d'activation (c'est la même pour tous les neurones de cette couche). Plusieurs fonctions d'activation sont prédéfinies :
-  \mycenterline{\ci{'relu'} (ReLU), \quad \ci{'sigmoid'} ($\sigma$), \quad  \ci{'linear'} (identité)}
+  \item Pour chaque couche, il faut également préciser une fonction d'activation (c'est la même pour tous les neurones d'une même couche). Plusieurs fonctions d'activation sont prédéfinies :
+  \mycenterline{\ci{'relu'} (ReLU), \quad \ci{'sigmoid'} ($\sigma$), \quad  \ci{'linear'} (identité).}
   Nous verrons plus tard comment définir notre propre fonction d'activation, comme par exemple la fonction marche de Heaviside
   
   \item Notre exemple ne possède qu'une entrée et comme il n'y a qu'un seul neurone sur la dernière couche alors il n'y a qu'une seule valeur en sortie. Ainsi notre réseau va définir une fonction $F : \Rr \to \Rr$, $x \mapsto F(x)$.
@@ -114,14 +114,14 @@ Explications :
 \subsection{Les poids}
 
 Lors de la définition d'un réseau et de la structure de ses couches, des poids aléatoires sont attribués à chaque neurone. 
-La démarche habituelle est ensuite d'entraîner le réseau, automatiquement, afin qu'il trouve de \og{}bons\fg{} poids. Pour l'instant, nous continuons de fixer les poids de chaque neurone à la main. 
+La démarche habituelle est ensuite d'entraîner le réseau, automatiquement, afin qu'il trouve de \og{}bons\fg{} poids. Mais pour l'instant, nous continuons de fixer les poids de chaque neurone à la main. 
 
 La commande pour fixer les poids est \ci{set\_weights()}.\index{tf@\tensorflow/\keras!set-weights@\ci{set_weights()}} 
 
 \bigskip
 
 \begin{minipage}{0.55\textwidth}
-Voici les poids de la première couche, numérotée $0$ :
+Voici la définition des poids de la première couche, numérotée $0$ :
 \begin{lstlisting}
 # Couche 0
 coeff = np.array([[1.,-0.5]])
@@ -344,7 +344,7 @@ Ce qui change et qui est plus simple :
 \begin{itemize}
   \item La fonction 
   \mycenterline{\ci{definir_poids(modele,couche,rang,coeff,biais)}}
-  pour définir les poids d'un neurone à la main. Le neurone est identifié par sa couche, son rang dans cette couche, les coefficients (un nombre \ci{a} ou une liste de nombres \ci{[a1,a2]}, \ci{[a1,a2,a3]}, etc.) et enfin le biais (un nombre).
+  permet de définir les poids d'un neurone à la main. Le neurone est identifié par sa couche, son rang dans cette couche, les coefficients (un nombre \ci{a} ou une liste de nombres \ci{[a1,a2]}, \ci{[a1,a2,a3]}, etc.) et enfin le biais (un nombre).
 
   \item On vérifie que les poids sont corrects avec \ci{affiche_poids(modele,couche)}.
   On peut aussi fixer tous les poids à zéro avec la fonction \ci{poids_a_zeros(modele,couche)}.
