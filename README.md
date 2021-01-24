@@ -2,11 +2,10 @@
 Deepmath : Mathématiques des réseaux de neurones
 ================================================
 
-Ce livre comporte trois parties avec chacune un côté mathématiques et un côté réseaux de neurones :
+Ce livre comporte deux parties avec chacune un côté mathématiques et un côté réseaux de neurones :
 
 * analyse et réseaux de neurones
 * algèbre et convolution
-* probabilités appliquées aux réseaux
 
 
 Livre
@@ -53,16 +52,12 @@ Partie II - Algèbre - Convolution
 * Tenseurs [Chapitre](tenseur/tenseur.pdf)
 
 
-Partie III - Probabilités appliquées
+Compléments
 ------------------------------------
 
 [Vidéos](https://www.youtube.com/playlist?list=PL4Z-Jb1iAUObWRvZuQgPFUkUMP_Aycwdv)
 
-* Probabilité  [Chapitre](proba/proba.pdf)
-
-Annexe
-------
-
+* Probabilités  [Chapitre](proba/proba.pdf)
 * Annexe [Chapitre](annexe/annexe.pdf)
 
 
