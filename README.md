@@ -13,9 +13,9 @@ Livre
 
 Vous pouvez télécharger le livre sur ce site : [Livre 'Deepmath' (18 Mo)](livre-deepmath.pdf).
 
-Vous pouver obtenir une version papier sur [Amazon"](https://www.amazon.fr/dp/B08TRRNBMQ/) à prix coûtant.
+Vous pouver obtenir une version papier sur [Amazon](https://www.amazon.fr/dp/B08TRRNBMQ/) à prix coûtant.
 
-![Image Deepmath](divers/img_deepmath_medium.png "Image Deepmath")
+[![Image Deepmath](divers/img_deepmath_medium.png "Image Deepmath")](https://www.amazon.fr/dp/B08TRRNBMQ/)
 
 Vidéos
 ======
