@@ -28,7 +28,7 @@
 
 
 
- \path[thick] (I-1) edge node[pos=0.8,above,scale=0.7]{$-1$} (O);
+ \path[thick] (I-1) edge node[pos=0.8,above,scale=0.7]{$-2$} (O);
  \draw[-o,thick] (O) to node[midway,below right,scale=0.7]{$1$} ++ (-120:0.8) ;
 
 % Sortie
