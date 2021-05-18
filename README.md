@@ -23,8 +23,8 @@ Vidéos
 Tous les cours est aussi expliqué en vidéos ! [Chaîne Youtube "Deepmath"](https://www.youtube.com/channel/UCnKarYaG1VuzdWix1vBitFg/)
 
 
-Chapitre
-========
+Chapitres
+=========
 
 Partie I - Analyse - Réseaux de neurones
 ----------------------------------------
