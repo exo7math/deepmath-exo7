@@ -11,9 +11,9 @@ Ce livre comporte deux parties avec chacune un côté mathématiques et un côt�
 Livre
 =====
 
-Vous pouvez télécharger le livre sur ce site : [Livre 'Deepmath' (18 Mo)](livre-deepmath.pdf).
+Vous pouvez télécharger le livre en couleur sur ce site : [Livre 'Deepmath' (18 Mo)](livre-deepmath.pdf).
 
-Vous pouvez obtenir une version papier sur [Amazon](https://www.amazon.fr/dp/B08TRRNBMQ/) à prix coûtant.
+Vous pouvez obtenir une version papier en *noir et blanc* sur [Amazon](https://www.amazon.fr/dp/B08TRRNBMQ/) à prix coûtant.
 
 [![Image Deepmath](divers/img_deepmath_medium.png "Image Deepmath")](https://www.amazon.fr/dp/B08TRRNBMQ/)
 
