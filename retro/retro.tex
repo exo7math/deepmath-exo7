@@ -138,12 +138,12 @@ Poursuivons l'étude de notre exemple.
   avec $z_i = 0$ ou $z_i=1$.
    
   \item Comme $\sigma'(x)= \sigma(x)(1-\sigma(x))$, alors, en notant $\sigma_i = \sigma(ax_i+by_i+c)$, on a :
-  $$\frac{\partial E_i}{\partial a}(x_i,y_i) = 2 x_i  \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$
-  $$\frac{\partial E_i}{\partial b}(x_i,y_i) = 2 y_i \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$
-  $$\frac{\partial E_i}{\partial c}(x_i,y_i) = 2 \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$ 
+  $$\frac{\partial E_i}{\partial a}(a,b,c) = 2 x_i  \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$
+  $$\frac{\partial E_i}{\partial b}(a,b,c) = 2 y_i \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$
+  $$\frac{\partial E_i}{\partial c}(a,b,c) = 2 \sigma_i(1-\sigma_i)(\sigma_i - z_i)$$ 
   et par suite 
   {\small
-  $$\grad E_i(a,b,c) = \left(\frac{\partial E_i}{\partial a}(x_i,y_i), \frac{\partial E_i}{\partial b}(x_i,y_i), \frac{\partial E_i}{\partial c}(x_i,y_i) \right)
+  $$\grad E_i(a,b,c) = \left(\frac{\partial E_i}{\partial a}(a,b,c), \frac{\partial E_i}{\partial b}(a,b,c), \frac{\partial E_i}{\partial c}(a,b,c) \right)
   \qquad \text{ et  } \qquad 
   \grad E(a,b,c) = \frac 1N \sum_{i=1}^N \grad E_i.$$
   }
