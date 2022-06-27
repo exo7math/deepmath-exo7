@@ -1,7 +1,5 @@
 ssh -p 8524 bodin@math-argos.univ-lille1.fr
 
-!akaiyeeG9
-
 ssh  bodin@mathcalc1.univ-lille1.fr
 
 sftp bodin@mathcalc1.univ-lille1.fr
