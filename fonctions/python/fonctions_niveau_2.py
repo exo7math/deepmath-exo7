@@ -26,7 +26,7 @@ ax.view_init(25, -25)
 
 mes_niveaux = np.linspace(0,3,20)
 ax.plot_surface(X, Y, Z, rstride=1, cstride=1, edgecolor='none',alpha=0.9)
-ax.contour(X, Y, Z, mes_niveaux, czdir='z', offset=0,colors='black', linestyles="solid")
+ax.contour(X, Y, Z, mes_niveaux, offset=0,colors='black', linestyles="solid")
 
 
 plt.tight_layout()

@@ -31,13 +31,13 @@ ax.set_zlabel('axe z')
 ax.view_init(15, -60)
 
 # surface
-# ax.plot_surface(X, Y, Z, alpha=0.8)
+ax.plot_surface(X, Y, Z, alpha=0.8)
 
 # courbes de niveaux
 # faire surface, puis 10 niveaux, puis 20
 
 mes_niveaux = np.linspace(0.05,4,10)
-# ax.contour(X, Y, Z,mes_niveaux,colors='blue')
+ax.contour(X, Y, Z,mes_niveaux,colors='blue')
 
 
 # ligne de niveau dans le plan

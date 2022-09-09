@@ -15,14 +15,14 @@ def f(x,y):
 Z = f(X,Y)
 
 # Graphe de f - figure 3D
-# fig = plt.figure()
-# ax = plt.axes(projection='3d')
-# ax.plot_surface(X, Y, Z)
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.plot_surface(X, Y, Z)
 
-# ax.view_init(30, -135)
-# ax.view_init(5, -145)
+ax.view_init(30, -135)
+ax.view_init(5, -145)
 # plt.savefig('pythonxy-intro2.png')
-# plt.show()
+plt.show()
 
 # Lignes de niveaux de f - figure 2D
 # plt.axis('equal')
