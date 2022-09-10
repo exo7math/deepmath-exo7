@@ -14,7 +14,9 @@ modele.add(Dense(3, input_dim=2, activation='relu'))
 # Deuxième couche : 1 neurone
 modele.add(Dense(1, activation='relu'))
 
-mysgd = optimizers.SGD(lr=0.001)
+delta = 0.001 
+
+mysgd = optimizers.SGD(learning_rate=delta)
 modele.compile(loss='mean_squared_error', optimizer=mysgd)
 
 
@@ -41,34 +43,51 @@ print("Biais",poids_avant[3])
 
 X_train = np.ones((4, 2))
 Y_train = np.ones((4, 1))
+
+print(Y_train)
+
 loss = modele.train_on_batch(X_train, Y_train)
 
 poids_apres = modele.get_weights()  # Nouveau poids calculer par tf
 
-
 modele.set_weights(poids_avant) # Définis les poids à une valeur sauvegardée
+
+
 
 
 # Partie C - Le gradients
 
-# Références 'mpariente' https://stackoverflow.com/questions/51140950/
-def get_weights_grad(model, inputs, outputs):
-    """ Gets gradient of model for given inputs and outputs for all weights"""
-    grads = model.optimizer.get_gradients(model.total_loss, model.trainable_weights)
-    symb_inputs = (model._feed_inputs + model._feed_targets + model._feed_sample_weights)
-    f = K.function(symb_inputs, grads)
-    x, y, sample_weight = model._standardize_user_data(inputs, outputs)
-    output_grad = f(x + y + sample_weight)
-    return output_grad
+#### New 2022 : utilise Gradient Tape
+
+import tensorflow as tf
+
+def compute_gradient(model, X, Y):
+    # keep track of our gradients
+    with tf.GradientTape() as tape:
+        # make a prediction using the model and then calculate the loss
+        Y_pred = model(X)
+        loss = keras.losses.mean_squared_error(Y, Y_pred)
+    # calculate the gradients using our tape 
+    grads = tape.gradient(loss, model.trainable_variables)
+
+    return grads
+
+    # opt.apply_gradients(zip(grads, model.trainable_variables))
 
 
-gradient = get_weights_grad(modele, X_train, Y_train)
-print("Gradient :\n", gradient)
+gradient = compute_gradient(modele, X_train, Y_train)
+print("=== Gradient ===")
+print( [gradient[i].numpy() for i in range(len(gradient))] )
 
-# Calculs possibles
-delta = 0.001  # learning rate
-poids_calculer_alamain = [poids_avant[i] - delta*gradient[i] for i in range(len(poids_avant))]
 
-# Comparaison tensorflow/calculs à la main
-print("Poids calculer par tensorflow :\n",poids_apres)
-print("Poids calculer à la main :\n",poids_calculer_alamain)
+# # Calculs possibles
+
+# delta = 0.001  # learning rate
+N = len(Y_train)  # Il faut diviser par 1/N pour avoir le vrai gradient !!
+
+poids_calcul_alamain = [poids_avant[i] - 1/N*delta*(gradient[i].numpy()) for i in range(len(poids_avant))]
+
+
+# # Comparaison tensorflow/calculs à la main
+print("Poids calculés par tensorflow :\n",poids_apres)
+print("Poids calculés à la main :\n",poids_calcul_alamain)
