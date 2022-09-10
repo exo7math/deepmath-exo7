@@ -56,7 +56,7 @@ for k in range(30):   # Nb d'époques à la main
     # Apprentissage
     history = modele.fit(X_train, Y_train, epochs=1, batch_size=32, verbose=2)
     list_loss_train.append(history.history['loss'][0])
-    list_acc_train.append(history.history['acc'][0])
+    list_acc_train.append(history.history['accuracy'][0])
 
     # Validation sur les données de test
     score = modele.evaluate(X_test, Y_test, verbose=0)

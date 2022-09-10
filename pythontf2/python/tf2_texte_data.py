@@ -15,10 +15,10 @@ from tensorflow.keras.datasets import imdb
 
 nb_mots_total = 1000   # On ne garde que les n=1000 mots les plus fréquents 
 nb_mots_texte = 50     # Pour chaque critique on ne garde que 50 mots 
-# (X_train_data, Y_train), (X_test_data, Y_test) = imdb.load_data(num_words=nb_mots_total)
-(X_train_data, Y_train), (X_test_data, Y_test) = imdb.load_data()
+(X_train_data, Y_train), (X_test_data, Y_test) = imdb.load_data(num_words=nb_mots_total)
+# (X_train_data, Y_train), (X_test_data, Y_test) = imdb.load_data()
 
-# Partie A bis. Afficher d'un texte
+# Partie A bis. Afficher un texte
 
 # Afficher une critique et sa note 
 def affiche_texte(num):
