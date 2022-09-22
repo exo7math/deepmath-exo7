@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 # Partie A - Importer une image comme un tableau
-import imageio
+import imageio.v3 as imageio
 f = imageio.imread('image_07.png')
 
 

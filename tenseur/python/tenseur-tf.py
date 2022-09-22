@@ -12,8 +12,8 @@ A = tf.constant([[1, 2],
 print(A)
 print(type(A))
 
-# Anp = A.numpy()  # tf 2
-sess = tf.InteractiveSession()
-Anp = A.eval()
+Anp = A.numpy()  # tf 2
+# sess = tf.InteractiveSession()
+# Anp = A.eval()
 print(Anp)
 print(type(Anp))

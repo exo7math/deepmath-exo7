@@ -42,7 +42,7 @@ print('B =', B)
 # Génération d'un signal émis par radar
 # Cela peut être n'importe quoi
 
-import imageio
+import imageio.v3 as imageio
 icone = imageio.imread('smiley.png')
 
 # Transformation en gris

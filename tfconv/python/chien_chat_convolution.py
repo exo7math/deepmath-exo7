@@ -137,7 +137,7 @@ score = modele.evaluate_generator(test_set, verbose=0)
 print('Test erreur (loss) :', score[0])
 print('Test précision (accuracy) :', score[1])
 
-plt.plot(history.history['acc'])
+plt.plot(history.history['accuracy'])
 plt.savefig('tfconv-chienchat-acc.png')
 plt.show()
 

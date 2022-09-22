@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Partie A - Importer une image comme un tableau
-import imageio
+import imageio.v3 as imageio
 A = imageio.imread('image_avant.png')
 
 # Partie B - Motif de convolution
