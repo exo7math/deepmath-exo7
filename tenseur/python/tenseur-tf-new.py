@@ -41,8 +41,6 @@ with tf.GradientTape() as tape:
 
 tfgradient = tape.gradient(y, x)
 gradient = [tfgradient[i].numpy() for i in range(len(tfgradient))]
-print("Dérivées :", gradient)
-
 
 print("Point x :", x.numpy())
 print("Valeur y=f(x) :", y.numpy())
@@ -65,7 +63,7 @@ def affichage_derivee(f,a,b,epsilon=0.01):
     plt.plot(x, gradient, color='red', label="f'(x)")
     plt.legend()
     plt.tight_layout()
-    # plt.savefig('tenseur-derivee.png')
+    # plt.savefig('tenseur-derivee.png', dpi=600)
     plt.show()
     return
 
@@ -90,10 +88,10 @@ with tf.GradientTape() as tape:
 
 tfgradient = tape.gradient(z, [x, y])
 gradient = [tfgradient[i].numpy() for i in range(len(tfgradient))]
-dxZ, dyZ = gradient[0], gradient[1]
+dfx, dfy = gradient[0], gradient[1]
 # print(X)
 # print(Y)
-print("Gradient :", dxZ, dyZ)
+print("Gradient :", dfx, dfy)
 # print(gradient)
 
 
@@ -129,6 +127,6 @@ plt.axis('equal')
 step = 10  # pour éviter d'afficher toute les flèches
 plt.quiver(X[::step,::step],Y[::step,::step],dxZ[::step,::step],dyZ[::step,::step])
 plt.tight_layout()
-# # plt.savefig('tenseur-gradient.png')
-plt.show()
+# plt.savefig('tenseur-gradient.png', dpi=600)
+# plt.show()
 

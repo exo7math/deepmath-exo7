@@ -288,66 +288,25 @@ De façon plus générale, toutes les opérations dont vous pourriez avoir besoi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Tenseurs (avec \tensorflow/\keras)}
+\section{Tenseurs (avec \tensorflow)}
 
-Avec \tensorflow/\keras{} les tenseurs sont des objets beaucoup plus puissants que les tableaux \numpy. Il est en effet possible de manipuler des tenseurs sans définir leurs éléments. 
+Avec \tensorflow{} les tenseurs sont des objets beaucoup plus puissants que les tableaux \numpy. 
+%Il est en effet possible de manipuler des tenseurs sans définir leurs éléments. 
 Nous ne voyons ici que quelques fonctionnalités, les plus simples.
 
-%--------------------------------------------------------------------
-\subsection{Une case vide}
-
-Avec \Python{} on ne peut pas écrire l'opération
-\mycenterline{\ci{y = x + 2}}
-si on n'a pas auparavant affecté une valeur à la variable \ci{x}.
-
-Ce que l'on voudrait, c'est pouvoir manipuler \ci{y} comme une variable ordinaire. Un autre point de vue est de dire que l'on veut définir la fonction $x \mapsto y = x+2$. Ainsi, on pourrait ne préciser qu'en fin de programme que la variable, ici $x$, valait en fait $7$ et donc que tout ce qui concernait $y$ l'était finalement pour $y=9$.
-
-Voici comment faire avec \keras.
-
-\begin{lstlisting}
-from tensorflow.keras import backend as K
-x = K.placeholder(shape=(1,))
-y = x + 2 
-f = K.function([x],[y])
-print(f([7]))
-\end{lstlisting}
-
-La fonction \ci{placeholder()} réserve un emplacement mémoire pour un tenseur nommé $x$ (ici un vecteur de longueur $1$, donc un nombre), que l'on peut manipuler ensuite comme une variable.
-On définit ensuite la fonction $f : x \mapsto y = x+2$. 
-Ce n'est qu'à la fin, lorsque l'on calcule $f(7)$ que l'emplacement mémoire de \ci{x} est affecté à  la valeur \ci{[7]} et que le calcul $y=x+2$ est vraiment effectué. 
-
-\bigskip
-Voici un autre autre exemple qui correspond au calcul $A \times X$ où $A$ est une matrice $3\times 3$ et $X$ un vecteur de taille $3$.
-
-\begin{lstlisting}
-import numpy as np
-
-A = K.placeholder(shape=(3,3))
-X = K.placeholder(shape=(3,1))
-Y = K.dot(A,X)
-f = K.function([A, X], [Y])
-
-Aval = np.arange(1,10).reshape((3,3))
-Xval = np.arange(1,4).reshape((3,1))
-
-Yval = f([Aval, Xval])
-\end{lstlisting}
 
 %--------------------------------------------------------------------
-\subsection{Gradient}
-
-\index{gradient}
-
-On termine par une fonction de \keras{} particulièrement importante pour ce cours : la fonction gradient.
-
-\textbf{Une variable.}
+\subsection{Dérivée}
 
 Voici comment calculer la dérivée de la fonction $x \mapsto y=x^2$ en $x_0=3$.
 \begin{lstlisting}
-x = K.constant([3])
-y = x**2
-grad = K.gradients(y, x)
-print("Dérivée :", K.eval(grad[0]))
+x = tf.Variable(3.)
+with tf.GradientTape() as tape:
+    y = x**2
+
+tfgradient = tape.gradient(y, [x])
+gradient = tfgradient[0].numpy()
+print("Dérivée :", gradient)
 \end{lstlisting}
 
 
@@ -355,15 +314,19 @@ Voici comment calculer la dérivée de la fonction définie par $f(x) = 2\ln(x)+
 
 \begin{lstlisting}
 def f(x):
-	return 2*K.log(x) + K.exp(-x)
+    return 2*tf.math.log(x) + tf.math.exp(-x)
 
-X = K.arange(1,4,0.5)
-Y = f(X)
-grad = K.gradients(Y, X)
+x = tf.range(1, 4, 0.5)
+with tf.GradientTape() as tape:
+    tape.watch(x)
+    y = f(x)
 
-print("Point x :", K.eval(X))
-print("Valeur y=f(x) :", K.eval(Y))
-print("Dérivée f'(x) :", K.eval(grad[0]))
+tfgradient = tape.gradient(y, x)
+gradient = [tfgradient[i].numpy() for i in range(len(tfgradient))]
+
+print("Point x :", x.numpy())
+print("Valeur y=f(x) :", y.numpy())
+print("Dérivée f'(x) :", gradient)	
 \end{lstlisting}
 
 Ici les abscisses $x$ sont les éléments de la liste $[1., 1.5, 2., 2.5, 3., 3.5]$,
@@ -377,20 +340,29 @@ Avec plus de points, on trace le graphe de $f$ et sa dérivée $f'$ sur l'interv
 \end{center}
 
 
-\textbf{Deux variables.}
+%--------------------------------------------------------------------
+\subsection{Gradient}
+
+\index{gradient}
+
+On termine par une fonction particulièrement importante pour ce cours : la fonction gradient.
+
 
 Voici comment calculer le gradient de $f(x,y) = xy^2$ en $(x_0,y_0)= (2,3)$.
 
 \begin{lstlisting}
-x = K.constant([2])
-y = K.constant([3])
-z = x * (y**2) 
-grad = K.gradients(z, [x,y])
-dxZ = K.eval(grad[0])
-dyZ = K.eval(grad[1])
-print("Gradient :", dxZ, dyZ)
-\end{lstlisting}
+def f(x, y):
+    return x * y**2 
 
+x, y = tf.Variable(2.), tf.Variable(3.)
+with tf.GradientTape() as tape:
+    z = f(x, y)
+
+tfgradient = tape.gradient(z, [x, y])
+gradient = [tfgradient[i].numpy() for i in range(len(tfgradient))]
+dfx, dfy = gradient[0], gradient[1]
+print("Gradient :", dfx, dfy)
+\end{lstlisting}
 
 On peut ainsi tracer le gradient en chaque point du plan. Ci-dessous le gradient et les lignes de niveau de la fonction $f(x,y) = x^2-y^2$ (un point-selle).
 \begin{center}

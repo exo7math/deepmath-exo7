@@ -285,11 +285,11 @@ Problème : la taille et le poids d'une personne étant donnés, trouver un perc
 
 Au vu de la superposition des zones, il n'est pas possible de répondre avec certitude.  On construit donc un perceptron selon les idées suivantes :
 \begin{itemize}
-  \item on trace une droite qui sépare au mieux les hommes des femmes, par exemple ici la droite qui passe par les points $A(1.40,52)$ et $B(2.06,93)$ d'équation approchée $y=68x-44$ où $(x,y)=(t,p)$ représente la taille et le poids ;
+  \item on trace une droite qui sépare au mieux les hommes des femmes, par exemple ici la droite qui passe par les points $A(1.40,42)$ et $B(2.00,93)$ d'équation approchée $y=85x-77$ où $(x,y)=(t,p)$ représente la taille et le poids ;
 
   \item on choisit la fonction d'activation sigmoïde.
 \end{itemize}
-Ce qui nous permet de définir le perceptron suivant avec $a=68$, $b=-1$ et $c=-44$.
+Ce qui nous permet de définir le perceptron suivant avec $a=85$, $b=-1$ et $c=-77$.
 
 \begin{center}
 \begin{minipage}{0.35\textwidth}
@@ -308,11 +308,11 @@ Maintenant pour un couple donné $(t,p)$, le perceptron associe une valeur $F(t,
 Si $F(t,p)$ est proche de $0$ alors la personne est probablement un homme, si $F(t,p)$ est proche de $1$ c'est probablement une femme.
 
 
-Exemple : une personne mesurant $1.77$\,m et pesant $79$\,kg est-elle plutôt un homme ou une femme ? On calcule $f(1.77,79)=-2.64$ où $f(x,y)=ax+by+c$.
-Puis on calcule $F(1.77,79) = \sigma(-2.64) \simeq 0.07$. Selon notre modèle cette personne est probablement un homme (car la valeur de $F$ est proche de $0$).
+Exemple : une personne mesurant $1.77$\,m et pesant $75$\,kg est-elle plutôt un homme ou une femme ? On calcule $f(1.77,75)=-1.55$ où $f(x,y)=ax+by+c$.
+Puis on calcule $F(1.77,75) = \sigma(-1.55) \simeq 0.17$. Selon notre modèle cette personne est probablement un homme (car la valeur de $F$ est proche de $0$).
 
-Autre exemple : $(t,p)=(1.65,67)$. On calcule $F(1.65,67) \simeq 0.76$.
-Une personne mesurant $1.65$m et pesant $67$kg est probablement une femme (car la valeur de $F$ est plus proche de $1$ que de $0$).
+Autre exemple : $(t,p)=(1.67,64)$. On calcule $F(1.67,64) \simeq 0.72$.
+Une personne mesurant $1.67$m et pesant $64$kg est probablement une femme (car la valeur de $F$ est plus proche de $1$ que de $0$).
 
 Malgré les données fictives, cet exemple met en évidence le problème de la superposition et de l'utilité d'avoir une sortie plus riche que  \og{}oui\fg{} ou \og{}non\fg{}. On peut aussi discuter de la pertinence de la frontière, car la séparation par une droite ne semble pas la mieux adaptée.  En fait, le poids varie en fonction du carré de la taille (les zones ont une forme de parabole). 
 \end{exemple}

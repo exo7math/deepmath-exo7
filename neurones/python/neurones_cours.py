@@ -10,15 +10,15 @@ from math import *
 def sigma(x):
     return 1/(1+exp(-x))
 
-a = 68
+a = 85
 b = -1
-c = -44
+c = -77
 
 
 
 # Exemple 1
 print("--- Exemple ---")
-t,p = 1.77,79
+t, p = 1.77, 75
 f = a*t+b*p+c
 s = sigma(f)
 print("taille t =",t)
@@ -29,7 +29,7 @@ print("sortie  =",s)
 
 # Exemple 2
 print("--- Exemple ---")
-t,p = 1.65,67
+t, p = 1.67, 64
 f = a*t+b*p+c
 s = sigma(f)
 print("taille t =",t)

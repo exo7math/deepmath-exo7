@@ -8,10 +8,11 @@ papersize={7.5in,9.25in},
 % old Python/Scratch papersize={8.5in,11in},
 % algebre/analyse papersize={7.5in,9.25in},  
 nomarginpar, nofoot,
-margin = 0.7in,
+%margin = 0.7in, % OLD v1.0
 %old margin = 0.9in,
 %top=0.9in,
 %right=0.8in, left=0.8in, top=0.5in, bottom=0.7in,
+right=0.7in, left=0.7in, top=0.8in, bottom=0.6in,% NEW left=right, top+bottom=0.7+0.7
 bindingoffset=0.5in,
 headsep=21pt, heightrounded,
 %  showframe,
@@ -361,8 +362,8 @@ headsep=21pt, heightrounded,
 {}% Theorem head spec (can be left empty, meaning ‘normal’ )
 
 \newtheoremstyle{definitionexo7}% name
-{3pt} %{5cm plus 1cm minus 2cm}% Space above
-{3pt}% Space below
+{3pt} % space above
+{3pt} % space below
 {\upshape}% Body font
 {}% Indent amount
 {\bfseries}% Theorem head font
@@ -439,8 +440,8 @@ headsep=21pt, heightrounded,
     minimum height=1em,
     inner xsep=.8em, inner ysep=.45em,
     draw=black, thick, %rounded corners,
-    execute at begin node={\begin{varwidth}{\linewidth}\begin{center}},
-    execute at end node={\end{center}\end{varwidth}}
+    execute at begin node={\begin{varwidth}{\linewidth}},
+    execute at end node={\end{varwidth}}
   },
   inline/.style = {
     inner sep=.35em, draw=black, thick,
