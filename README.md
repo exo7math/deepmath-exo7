@@ -8,6 +8,15 @@ Ce livre comporte deux parties avec chacune un côté mathématiques et un côt�
 * algèbre et convolution
 
 
+Nouveau !
+=========
+
+Deux chapitres supplémentaires sur les grands modèles de langages :
+* ChatGPT - Partie 1 [Chapitre](chatgpt1/chatgpt1.pdf)
+* ChatGPT - Partie 2 [Chapitre](chatgpt2/chatgpt2.pdf)
+
+Ces chapitres seront bientôt intégrés au livre.
+
 Livre
 =====
 
@@ -88,7 +97,7 @@ Merci à Michel Bodin pour sa relecture.
 
 Merci à Kroum Tzanev pour ses figures de convolutions.
 
-Merci à Frédéric Sanchez pour ses remarques pertinentes.
+Merci à Laurent Briend et Frédéric Sanchez pour leurs remarques pertinentes.
 
 Ce livre est diffusé sous la licence *Creative Commons -- BY-NC-SA -- 4.0 FR*.
 
