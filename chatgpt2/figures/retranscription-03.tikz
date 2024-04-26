@@ -1,0 +1,32 @@
+\begin{tikzpicture}[scale=1]
+%\usetikzlibrary{matrix, positioning}
+
+\node (E) at (0,0) {$y = $};
+\matrix[right=of E.center, matrix of math nodes, left delimiter=(, right delimiter=)](Y){ 
+y_1 \\ y_2 \\ \vdots \\ y_n \\
+};
+
+
+
+\draw [->,>=latex, line width = 4pt,green!70!black] (3,0.2) to[bend left=15] node[midway,above]{$\psi$}node[midway,below=7pt]{retranscription} ++(4,0) ;
+
+
+\node (F) at (8,0) {$x = $};
+\matrix[right=of F.center, matrix of math nodes, left delimiter=(, right delimiter=)](X){ 
+1.021 \\ -3.205 \\ \vdots \\ -1.288 \\ \vdots \\ 0.984 \\ \vdots \\ 3.212 \\
+};
+
+\draw [->,>=latex, line width = 2pt,green!70!black] (11.5,0) to  node[midway, above, scale=0.8] {softmax} ++(2,0);
+
+
+\node (G) at (14.5,0) {$\sigma(x) = $};
+\matrix[right=of G.center, matrix of math nodes, left delimiter=(, right delimiter=)](sX){ 
+0.002 \\ 0.007 \\ \vdots \\ 0.4 \\ \vdots \\ 0.5 \\ \vdots \\ 0.003 \\
+};
+
+\node[right =20pt of sX-6-1.east,scale=0.7](L)  {ligne $i$ {\bf lion}};
+\node[right =20pt of sX-4-1.east,scale=0.7](L)  {ligne $j$ {\bf chat}};
+
+
+
+\end{tikzpicture}

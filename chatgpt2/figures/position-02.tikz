@@ -1,0 +1,61 @@
+﻿\begin{tikzpicture}[scale=2]
+
+\begin{scope}
+% Axes
+     \draw[->,>=latex,thick, gray] (-0.5,0)--(2.5,0) node[below,black] {$x$};
+     \draw[->,>=latex,thick, gray] (0,-0.5)--(0,2.5) node[right,black] {$y$};
+
+\coordinate  (P) at (20:2);
+ \coordinate (Q) at (40:2);
+
+\node[right] at (P) {$X$};
+\node[above right] at (Q) {$M(\omega)X$};
+\node[below left] at (0,0) {};
+
+\draw[very thick, blue] 
+  (0,0)--(P)
+  (0,0)--(Q)
+;
+
+\node[blue, scale=3] at (P) {.};
+\node[blue, scale=3] at (Q) {.};
+\node[scale=3] at (0,0) {.};
+
+    \draw[->, >=latex, red] (20:1.5) arc(20:40:1.5) ;
+    \node[red] at (30:1.6) {$\omega$};
+\end{scope}
+
+\begin{scope}[xshift=5cm]
+% Axes
+     \draw[->,>=latex,thick, gray] (-0.5,0)--(3,0) node[below,black] {$x$};
+     \draw[->,>=latex,thick, gray] (0,-0.5)--(0,2.5) node[right,black] {$y$};
+
+\coordinate (P) at (20:2);
+\coordinate (Q) at (80:2);
+\node[right] at (P) {$X$};
+\node[above right] at (Q) {$M(\ell\omega)X = M(\omega)^\ell X$};
+
+\node[below left] at (0,0) {};
+
+\draw[very thick, blue] 
+  (0,0)--(P)
+  (0,0)--(Q)
+;
+
+\draw[very thick, gray] 
+  (0,0)--(40:2)
+  (0,0)--(60:2)
+;
+
+\node[blue, scale=3] at (P) {.};
+\node[blue, scale=3] at (Q) {.};
+\node[scale=3] at (0,0) {.};
+
+    \draw[->, >=latex, gray] (20:1.3) arc(20:40:1.3) ;
+    \node[gray] at (30:1.2) {$\omega$};
+
+    \draw[double, ->, >=latex, red] (20:1.5) arc(20:80:1.5) ;
+    \node[red] at (50:1.6) {$\ell\omega$};
+\end{scope}
+
+\end{tikzpicture}

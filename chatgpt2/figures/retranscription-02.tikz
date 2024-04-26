@@ -1,0 +1,32 @@
+\begin{tikzpicture}[scale=1]
+%\usetikzlibrary{matrix, positioning}
+
+\node (E) at (0,0) {$y = $};
+\matrix[right=of E.center, matrix of math nodes, left delimiter=(, right delimiter=)](Y){ 
+y_1 \\ y_2 \\ \vdots \\ y_n \\
+};
+
+\node[align=center] at (1.3,-2.5) {\bf Vecteur  \\ de l'espace des \\ vecteurs tokens $\Rr^n$}; 
+
+
+\draw [->,>=latex, line width = 4pt,green!70!black] (3,0.2) to[bend left=15] node[midway,above]{$\psi$}node[midway,below=7pt]{retranscription} ++(4,0) ;
+
+
+\node (F) at (8,0) {$x = $};
+\matrix[right=of F.center, matrix of math nodes, left delimiter=(, right delimiter=)](X){ 
+x_1 \\ x_2 \\ \vdots \\ \vdots \\ x_N \\
+};
+
+\node[align=center] at (9,-2.5) {\bf Vecteur logit \\ $x \in \Rr^N$};
+
+\draw [->,>=latex, line width = 2pt,green!70!black] (11,0) to  node[midway, above] {softmax} ++(2,0);
+
+
+\node (G) at (14,0) {$\sigma(x) = $};
+\matrix[right=of G.center, matrix of math nodes, left delimiter=(, right delimiter=)](sX){ 
+\sigma_1 \\ \sigma_2 \\ \vdots \\ \vdots \\ \sigma_N \\
+};
+
+\node[align=center] at (15,-2.5) {\bf Vecteur probabilité \\ $\sigma(x) \in [0,1]^N$};
+
+\end{tikzpicture}

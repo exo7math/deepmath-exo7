@@ -1,0 +1,47 @@
+﻿\begin{tikzpicture}[scale=1]
+%\usetikzlibrary{matrix, positioning}
+
+\begin{scope}
+\node at (0,0) {\bf ␣dog};
+\node at (0,-1) {\bf Token}; 
+
+\node at (2.5,0) {3290};
+\node at (2.5,-1) {\bf Identifiant}; 
+
+
+
+
+\node (E) at (5,0) {$e_{3290} = $};
+\matrix [right=of E.east, matrix of math nodes, left delimiter=(, right delimiter=)](A){ 
+0\\ \vdots \\ 0 \\ 1 \\ 0 \\ \vdots \\ 0 \\
+  };
+
+\node[right =20pt of A-1-1.east,scale=0.5](L)  {ligne $1$};
+\node[right =20pt of A-7-1.east,scale=0.5](L)  {ligne $50257$};
+\node[below right =30pt of A-4-1.east,scale=0.6](L)  {ligne $3290$};
+
+ \draw[thick,->,>=latex,, shorten > =12pt](L.west) to[bend right] (A-4-1.west);
+
+
+\node[align=center] at (7.5,-3.5) {\bf Vecteur identifiant \\ de $\Rr^{50257}$}; 
+
+\node (V) at (15,0) {$v_{3290} = $};
+\matrix [right=of V, matrix of math nodes, left delimiter=(, right delimiter=)](A){ 
+ 0.0944 \\
+-0.0771 \\ 
+0.0346 \\
+-0.0351\\ 
+-0.0892 \\
+\vdots  \\ 
+\vdots \\ 
+  };
+
+\node[align=center] at (18.25,-3.5) {\bf Vecteur token \\ de $\Rr^{768}$}; 
+
+\draw [->,>=latex, line width = 2pt,green!70!black] (0.75,0) to ++(1,0) ;
+\draw [->,>=latex, line width = 2pt,green!70!black] (3.25,0) to ++(1,0) ;
+
+\draw [->,>=latex, line width = 4pt,red!70] (10,0.25) to[bend left=15] node[midway,above]{$\varphi$}node[midway,below=7pt]{plongement} ++(4,0) ;
+\end{scope}
+
+\end{tikzpicture}

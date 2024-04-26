@@ -1,0 +1,35 @@
+﻿\begin{tikzpicture}[scale=1]
+%\usetikzlibrary{matrix, positioning}
+
+% Phrase
+\draw[rounded corners, very thick] (-5,0) rectangle ++(10.2,16);
+\node at (0,-0.5) {\bf Transformeur};
+
+\fill[green!70!black!20] (2.5,0.5) rectangle ++ (2,13);
+\fill[green!70!black!20] (2,13) -- ++ (3,0) -- ++ (-1.5,2.5) -- cycle;
+
+\node at (3.5,1.5) [align = center] {\bf Flux \\ \bf résiduel \\ $\mathbb{R}^n \times \mathbb{R}^K$}; 
+
+\draw[rounded corners, thick, fill=blue!15] (-4.5,4) rectangle ++(6,1) node[pos=0.5, scale=0.85]{ Couche d'attention n$^\circ$ $i$};
+
+\draw[rounded corners, thick, fill=blue!5] (-4.5,7) rectangle ++(6,1) node[pos=0.5, scale=0.85]{ Couches denses n$^\circ$ $i$};
+
+\draw[rounded corners, thick, fill=blue!15] (-4.5,10) rectangle ++(6,1) node[pos=0.5, scale=0.85]{ Couche d'attention n$^\circ$ $i+1$};
+
+\node[scale=2] at (-1.5,2) {$\vdots$};
+\node[scale=2] at (-1.5,13) {$\vdots$};
+
+\node at (0,-0.5) {\bf Transformeur};
+
+\draw [->,>=latex, line width = 3pt,green!70!black] (3,2.85) to[bend left=20] node[midway,below,black, scale=0.8]{lecture} ++(-4,1) ;
+
+\draw [<-,>=latex, line width = 3pt,green!70!black] (3,5.5) to[bend right=15] node[pos=0.7,above,black, scale=0.8]{écriture} ++(-4,-0.5) ;
+
+\draw [->,>=latex, line width = 3pt,green!70!black!80] (3,6.25) to[bend left=20] ++(-3,0.75) ;
+
+\draw [<-,>=latex, line width = 3pt,green!70!black!80] (3,8.5) to[bend right=15] ++(-3,-0.5) ;
+
+\draw [->,>=latex, line width = 3pt,green!70!black!50] (3,9.25) to[bend left=20] ++(-3,0.75) ;
+
+\draw [<-,>=latex, line width = 3pt,green!70!black!50] (3,11.5) to[bend right=15] ++(-3,-0.5) ;
+\end{tikzpicture}

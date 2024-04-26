@@ -1,0 +1,20 @@
+﻿
+\begin{tikzpicture}[scale=1]
+
+\coordinate (A) at (0,0);
+\coordinate (B) at (5,1);
+\coordinate (C) at (-1,3.5);
+\coordinate (D) at (4,4);
+
+
+\fill[blue] (A) circle(2pt) node[below,black]{\bf king};
+\fill[blue] (B) circle(2pt) node[below,black]{\bf man};
+\fill[blue] (C) circle(2pt) node[below,black]{\bf queen};
+\fill[blue] (D) circle(2pt) node[below,black]{\bf woman};
+
+
+\draw[->,>=latex,very thick,red, shorten >=5pt, shorten <=5pt] (B) -- (A) node[midway,below,sloped, black]{$v_{\text{\bf king}}- v_{\text{\bf man}}$};
+
+\draw[->,>=latex,very thick,red, shorten >=5pt, shorten <=5pt] (D) -- (C) node[midway,below,sloped, black]{$v_{\text{\bf queen}}- v_{\text{\bf woman}}$};
+
+\end{tikzpicture}

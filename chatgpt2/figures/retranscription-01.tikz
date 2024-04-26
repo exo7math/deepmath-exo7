@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=1]
+
+
+% Axes
+  \draw[->,>=latex, gray] (-2,0)--(5,0); % node[below,black] {$x$};
+  \draw[->,>=latex, gray] (0,-2)--(0,5); % node[left,black] {$y$};
+%   \fill[] (0,0) circle (2pt) node[below]{$0$};
+%   \fill[] (1,0) circle (2pt) node[below]{$1$};
+%   \fill[] (0,1) circle (2pt) node[left]{$1$};
+
+  \draw[->,>=latex,line width = 2pt, blue!80] (0,0) -- (20:5) node[ right]{$v_i$ {\bf lion}};
+  \draw[->,>=latex,line width = 2pt, blue!50] (0,0) -- (50:5) node[ right]{$v_j$ {\bf chat}};
+  \draw[->,>=latex,line width = 2pt, blue!30] (0,0) -- (-20:5);
+  \draw[->,>=latex,line width = 2pt, blue!30] (0,0) -- (80:5);
+  \draw[->,>=latex,line width = 2pt, blue!30] (0,0) -- (60:5);
+  \draw[->,>=latex,line width = 2pt, blue!30] (0,0) -- (110:5);
+
+  \draw[->,>=latex,line width = 2pt, red!80] (0,0) -- (30:5) node[ right]{$y$ {\bf ?}};
+
+\end{tikzpicture}

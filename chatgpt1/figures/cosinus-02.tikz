@@ -1,0 +1,47 @@
+﻿\begin{tikzpicture}[scale=1]
+
+\begin{scope}
+  % Axes
+%  \draw[gray] (0,0) grid ++ (5,4);
+  \draw[->,>=latex, gray] (0,0)--(5.5,0); % node[below,black] {$x$};
+  \draw[->,>=latex, gray] (0,0)--(0,4.5); % node[left,black] {$y$};
+%   \fill[] (0,0) circle (2pt) node[below]{$0$};
+%   \fill[] (1,0) circle (2pt) node[below]{$1$};
+%   \fill[] (0,1) circle (2pt) node[left]{$1$};
+
+  \coordinate (X) at (1,3);
+  \coordinate (Y) at (4,2);
+
+  \draw[very thick, blue] (X) -- (Y) node[midway,sloped,above,scale=0.7] {$\|X-Y\|$};
+  \fill[red] (X) circle (2pt) node[black,below left]{$Y$};
+  \fill[red] (Y) circle (2pt) node[black,below right]{$X$};
+
+  \node[align=center] at (2.5,-1.2) {\bf Distance euclidienne \\ $\|X-Y\|$};	
+
+\end{scope}
+
+\begin{scope}[xshift=9cm]
+  % Axes
+%  \draw[gray] (0,0) grid ++ (5,4);
+  \draw[->,>=latex, gray] (0,0)--(5.5,0); % node[below,black] {$x$};
+  \draw[->,>=latex, gray] (0,0)--(0,4.5); % node[left,black] {$y$};
+%   \fill[] (0,0) circle (2pt) node[below]{$0$};
+%   \fill[] (1,0) circle (2pt) node[below]{$1$};
+%   \fill[] (0,1) circle (2pt) node[left]{$1$};
+
+  \coordinate (X) at (1,3);
+  \coordinate (Y) at (4,2);
+
+  \draw[->,>=latex,very thick, red] (0,0) -- (X) node[black,above left,scale=0.8]{$Y$};
+  \draw[->,>=latex,very thick, red] (0,0) -- (Y) node[black,below right,scale=0.8]{$X$};
+
+  \draw[blue,very thick,double] ({atan(2/4)}:2.5) arc ({atan(2/4)}:{atan(3/1)}:2.5) node[midway,above right]{$\theta$};
+   
+%node[midway,sloped,above,scale=0.7] {$\|X-Y\|$};
+
+
+  \node[align=center] at (2.5,-1.2) {\bf Similarité cosinus \\ $\cos(\theta)$};	
+
+\end{scope}
+
+\end{tikzpicture}

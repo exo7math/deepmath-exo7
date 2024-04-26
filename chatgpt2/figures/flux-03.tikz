@@ -1,0 +1,61 @@
+﻿\begin{tikzpicture}[scale=0.7]
+
+% Flux
+\fill[green!70!black!20] (2.5,0) rectangle ++ (4,16);
+\fill[green!70!black!20] (2,16) -- ++ (5,0) -- ++ (-2.5,2.5) -- cycle;
+
+%\node at (4.5,0.5) [align = center] {\bf Flux résiduel \\ $\mathbb{R}^n \times \mathbb{R}^K$}; 
+
+% Bloc
+\draw[rounded corners, thick, fill=blue!15] (-3.5,4) rectangle ++(4,2) node[pos=0.2, scale=0.75]{\bf Bloc $i$};
+
+% Flèche dessous
+\fill[orange!20, opacity=0.5] 
+(2.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-6,3) 
+-- ++ (4,0)
+  .. controls ++(0.5,-1) and ++(-0.5,1)  ..  ++(6,-3)
+-- cycle;
+
+\draw[orange!70, thick, ->, >=latex] (2.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-6,3);
+
+\draw[orange!70, thick, ->, >=latex] (6.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-6,3);
+
+% Flèche dessus
+\fill[orange!20, opacity=0.5] 
+(2.5,9) .. controls ++(-0.5,-1) and ++(0.5,1)  ..  ++(-6,-3)
+-- ++ (4,0)
+.. controls ++(0.5,1) and ++(-0.5,-1)  ..  ++(6,3)
+-- cycle;
+
+\draw[orange!70, thick, <-, >=latex] (2.5,9) .. controls ++(-0.5,-1) and ++(0.5,1)  ..  ++(-6,-3);
+
+\draw[orange!70, thick, <-, >=latex] (6.5,9) .. controls ++(-0.5,-1) and ++(0.5,1)  ..  ++(-6,-3);
+
+
+
+\node[scale=1.2] at (4.5,0.5) {$x_i$};
+\node[scale=1.2] at (-0.5,3.1) {$W_{\text{in}}^i$};
+\node[scale=1.2] at (-0.5,5) {$b_i$};
+\node[scale=1.2] at (-0.5,6.9) {$W_{\text{out}}^i$};
+\node[scale=1.2] at (4.5,9.5) {$x_{i+1} = x_i + y_i$};
+
+\begin{scope}[yshift=9cm]
+% Bloc
+\draw[rounded corners, thick, fill=blue!15] (-3.5,4) rectangle ++(4,2) node[pos=0.25, scale=0.7]{\bf Bloc $i+1$};
+
+% Flèche dessous
+\fill[orange!20, opacity=0.5] 
+(2.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-6,3) 
+-- ++ (4,0)
+  .. controls ++(0.5,-1) and ++(-0.5,1)  ..  ++(6,-3)
+-- cycle;
+
+\draw[orange!70, thick, ->, >=latex] (2.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-6,3);
+
+\draw[orange!70, thick, ->, >=latex] (6.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-6,3);
+
+\node[scale=1.2] at (-0.5,3.1) {$W_{\text{in}}^{i+1}$};
+\node[scale=1.2] at (-0.5,5) {$b_{i+1}$};
+\end{scope}
+
+\end{tikzpicture}

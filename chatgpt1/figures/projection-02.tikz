@@ -1,0 +1,46 @@
+\begin{tikzpicture}[scale=1]
+\tikzset{
+line/.style = {
+shorten <=-0mm, shorten >=-0mm
+},
+vector/.style = {
+thick,-latex
+},
+dot/.style = {
+insert path={
+  node[scale=2]{.}
+}
+},
+perp/.style = {draw,angle eccentricity=.5, angle radius=2mm},
+}
+
+% le plan
+\draw[very thick,blue!50]
+  (0,0) coordinate (P1)
+  -- ++(0,3) coordinate (P2)
+  -- ++(4,-1) coordinate (P3)
+  -- ++(0,-4) coordinate (P4)
+  -- cycle
+%  (P3) node[below left]{$\mathcal{P}$}
+;
+%les points A,B,C
+\path
+  (0.5,0.3) coordinate(A)
+  +(-0,1.7) coordinate (B)
+  +(1.5,-0.75) coordinate(C)
+;
+
+\draw[->,>=latex,blue,very thick] (A) -- (C) node[below]{$u$};
+\draw[->,>=latex,blue,very thick] (A) -- (B) node[left]{$v$};
+
+\path
+  (-3,0) coordinate (X)
+  (2,1) coordinate (P)
+;
+
+\draw[dashed] (X) -- (P);
+
+\fill[red]  (X) circle (2pt) node[below]{$x$};
+\fill (P) circle (2pt) node[below]{$\pi(x)$};
+
+\end{tikzpicture}

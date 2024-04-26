@@ -1,0 +1,38 @@
+﻿\begin{tikzpicture}[scale=1]
+%\usetikzlibrary{matrix, positioning}
+
+\matrix(V) [matrix of math nodes,left delimiter={[},right delimiter={]}]
+{
+  X & X & \phantom{XXX} & X \\
+  X & X & \phantom{XXX} & X \\
+  X & X & \phantom{XXX} & X \\
+  X & X & \phantom{XXX} & X \\
+};
+
+\fill [blue!20] (V-4-1.south west) rectangle (V-1-1.north east);
+\fill [blue!10] (V-4-2.south west) rectangle (V-1-2.north east);
+\fill [blue!3] (V-4-3.south west) rectangle (V-1-3.north east);
+\fill [blue!15] (V-4-4.south west) rectangle (V-1-4.north east);
+
+
+\node at (V-1-1) [above=4mm] {$v_1$};
+\node at (V-1-1) [above=12mm,scale=0.8]{\bf le};
+
+\node at (V-1-2) [above=4mm] {$v_2$};
+\node at (V-1-2) [above=11mm,scale=0.8]{\bf chat};
+
+\node at (V-1-3) [above=4mm] {$\cdots$};
+\node at (V-1-3) [above=10mm,scale=0.8]{\bf \ldots};
+
+\node at (V-1-4) [above=4mm] {$v_K$};
+\node at (V-1-4) [above=8mm,scale=0.8]{\bf souris};
+
+
+\node at (V.west)[left=4mm] {$V = $};
+
+
+\draw[<->, >=latex, very thick, green!70!black] ($(V-1-4.north east)+(1,0)$) -- ($(V-4-4.south east)+(1,0)$) node[midway, right]{$n$};
+
+\draw[<->, >=latex, very thick, orange!70!black] ($(V-4-1.south west)+(0,-0.5)$) -- ($(V-4-4.south east)+(0,-0.5)$) node[midway, below]{$K$};
+
+\end{tikzpicture}

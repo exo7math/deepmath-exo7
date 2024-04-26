@@ -1,0 +1,27 @@
+﻿\begin{tikzpicture}[scale=1]
+
+
+  % Axes
+%  \draw[gray] (0,0) grid ++ (5,4);
+  \draw[->,>=latex, gray] (-1,0)--(5,0); % node[below,black] {$x$};
+  \draw[->,>=latex, gray] (0,-1)--(0,5); % node[left,black] {$y$};
+%   \fill[] (0,0) circle (2pt) node[below]{$0$};
+%   \fill[] (1,0) circle (2pt) node[below]{$1$};
+%   \fill[] (0,1) circle (2pt) node[left]{$1$};
+
+  \coordinate (X) at (20:5);
+  \coordinate (Y) at (60:5);
+
+  \draw[->,>=latex,line width = 6pt, red!20] (0,0) -- (X);
+  \draw[->,>=latex,line width = 6pt, blue!20] (0,0) -- (Y);
+
+\fill[red] (20:4) circle (2pt) node[below, align=center, scale=0.8] {{\bf chat} \\ {\small très confiant}};
+\fill[red] (20:2.5) circle (2pt) node[below, align=center, scale=0.8] {{\bf chat} \\ \small confiant};
+\fill[red] (20:1) circle (2pt) node[below, align=center, scale=0.8] {{\bf chat} \\ \small peu confiant};
+
+\fill[blue] (60:4) circle (2pt) node[above left, align=center, scale=0.8] {{\bf chien} \\ \small très confiant};
+\fill[blue] (60:2.5) circle (2pt) node[above left, align=center, scale=0.8] {{\bf chien} \\ \small confiant};
+\fill[blue] (60:1) circle (2pt) node[left, align=center, scale=0.8] {{\bf chien} \\ \small  peu confiant};
+
+
+\end{tikzpicture}

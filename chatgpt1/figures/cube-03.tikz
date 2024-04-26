@@ -1,0 +1,73 @@
+﻿% https://tex.stackexchange.com/questions/598573/
+\begin{tikzpicture}[scale=0.7]
+	
+	
+\begin{scope}[thick,
+	every node/.style={circle, draw, fill, minimum size=5pt, inner sep=0pt, font=\tiny}]
+	\pgfsetxvec{\pgfpoint{0.9cm}{0.0cm}}
+	\pgfsetyvec{\pgfpoint{0.0cm}{0.9cm}}
+	
+	\foreach \point / \id / \angle in {
+		% outer cube
+		(0,0)/0001/270,
+		(0,5)/0011/90,
+		(5,0)/1001/270,
+		(5,5)/1011/90,
+		(2,2)/0101/180,
+		(2,7)/0111/90,
+		(7,2)/1101/270,
+		(7,7)/1111/90,
+		% inner cube
+		(2.5,1.5)/0000/270,
+		(2.5,3.5)/0010/90,
+		(4.5,1.5)/1000/250,
+		(4.5,3.5)/1010/120,
+		(3.5,2.5)/0100/170,
+		(3.5,4.5)/0110/180,
+		(5.5,2.5)/1100/10,
+		(5.5,4.5)/1110/0}
+	{
+		\node (\id) at \point [label=\angle:\id] {};
+	}
+	
+	% Here you have some specific nodes coloured in blue.
+	
+	\foreach \id in {0011, 0101, 1011, 1101}
+	{
+		%\node[blue] at (\id){};
+	}
+	
+	% And here some other nodes couloured in red
+	
+	\foreach \id in {0001, 0100, 1001, 1110}
+	{
+		%\node[red] at (\id){};
+	}
+	
+	\path 
+	(0011) edge (1011) edge (0111) edge (0001)
+	(1001) edge (0001) edge (1101) edge (1011)
+	(1111) edge (1101) edge (1011) edge (0111)
+	(0010) edge (1010) edge (0110) edge (0000)
+	(1000) edge (0000) edge (1100) edge (1010)
+	(1110) edge (1100) edge (1010) edge (0110);
+	
+	\path%[dashed]
+	(0101) edge (1101) edge (0001) edge (0111)
+	(0100) edge (1100) edge (0000) edge (0110);
+	
+	\path%[dotted]
+	(0000) edge (0001)
+	(0010) edge (0011)
+	(0100) edge (0101)
+	(0110) edge (0111)
+	(1000) edge (1001)
+	(1010) edge (1011)
+	(1100) edge (1101)
+	(1110) edge (1111);
+\end{scope}
+
+   every node/.style={}
+	\node at (3,-1.5) {\bf Hypercube};	
+
+\end{tikzpicture}

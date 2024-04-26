@@ -1,0 +1,71 @@
+﻿\begin{tikzpicture}[scale=1]
+ 
+\fill[fill=red!10, rounded corners=10pt] (0,-0.5) rectangle ++ (1,8);
+
+\filldraw[fill=blue!20, draw=blue,thick] (3,0.5) rectangle ++ (5,6);
+
+\filldraw[fill=green!70!black!25, draw=green!70!black, thick] (10,1) rectangle ++ (1,5);
+
+\fill[fill=green!10, rounded corners=10pt] (12,1) rectangle ++ (1,5);
+
+\filldraw[fill=red!20, draw=red, thick] (15,-0.5) rectangle ++ (1,8);
+
+\fill[fill=red!5, rounded corners=10pt] (18,-0.5) rectangle ++ (1,8);
+
+\node[scale=0.9] at (0.5,9) {\bf Entrée $X$};
+\node[scale=0.9] at (0.5,8.5) {dimension $N=500$};
+
+\node[scale=0.9] at (5.5,7) {\bf Plusieurs couches};
+%\node at (3.5,8) {$p=8$ neurones};
+
+\node[scale=0.9] at (11.5,7) {\bf Avant-dernière couche};
+\node[scale=0.9] at (11.5,6.5) {$n=50$ neurones};
+
+%\node[scale=0.7] at (12.5,7.75) {dimension $n=50$};
+
+\node[scale=0.9] at (15.5,9) {\bf Couche de sortie};
+\node[scale=0.9] at (15.5,8.5) {$N=500$ neurones};
+
+\node[scale=0.9] at (18.5,8.25) {\bf  Sortie $Y$};
+\node[scale=0.7] at (18.5,7.75) {dimension $N=500$};
+
+
+% \node at (0.5,7) {$x_1$};
+% \draw[dashed] (0.5,0.5) -- (0.5,6.5);
+% \node at (0.5,0) {$x_{784}$};
+% 
+% \node at (18.5,5.5) {$y_0$};
+% \draw[dashed] (18.5,1.8) -- (18.5,5.3);
+% \node at (18.5,1.5) {$y_9$};
+
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (1,7)--(3,1+0.7*\y);
+}
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (1,0)--(3,1+0.7*\y);
+}
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (8,6)--(10,1.5+0.6*\y);
+}
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (8,1)--(10,1.5+0.6*\y);
+}
+\foreach \y in {0,...,10}{
+  \draw[gray, thick,->,>=latex] (11,1.75+0.35*\y)--++(1,0);
+}
+
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (13,5)--(15,0+0.9*\y);
+}
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (13,2)--(15,0+0.9*\y);
+}
+\foreach \y in {0,...,20}{
+  \draw[gray, thick,->,>=latex] (16,-0.0+0.35*\y)--++(2,0);
+}
+
+\draw[->,>=latex, line width=4pt,green!70!black!50] (1,-1) to[bend right=20] node[midway,above,black]{$\varphi : \Rr^{500} \to \Rr^{50}$} (12,0.5);
+
+\draw[->,>=latex, line width=4pt,red!50] (1,-2) to[bend right=15] node[midway,below,black]{$F : \Rr^{500} \to \Rr^{500}$} (18,-0.5);
+
+\end{tikzpicture}  

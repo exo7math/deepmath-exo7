@@ -1,0 +1,82 @@
+﻿\begin{tikzpicture}[scale=1]
+%\usetikzlibrary{matrix, positioning}
+
+% Phrase
+\draw[rounded corners, very thick, fill=red!10] (-2,-0.5) rectangle ++(4,1);
+\node at (0,0) {\bf Phrase};
+
+\draw[->,>=latex, line width = 4pt,red!70] (0,0.75) -- ++ (0,1.5)node[pos=0.4, right=2ex, black] {Tokénisation};
+
+% Tokens
+\fill[fill=red!15] (-2,2.5) rectangle ++(0.5,1) node[pos=.5] {$t_1$};
+\fill[fill=red!5] (-1.5,2.5) rectangle ++(0.5,1) node[pos=.5] {$t_2$};
+\fill[fill=red!15] (-1,2.5) rectangle ++(0.5,1);
+\fill[fill=red!5] (-0.5,2.5) rectangle ++(0.5,1);
+\fill[fill=red!15] (0,2.5) rectangle ++(0.5,1) node[pos=.5] {$\cdots$};
+\fill[fill=red!5] (0.5,2.5) rectangle ++(0.5,1);
+\fill[fill=red!15] (1,2.5) rectangle ++(0.5,1);
+\fill[fill=red!5] (1.5,2.5) rectangle ++(0.5,1) node[pos=.5] {$t_K$};
+\draw[rounded corners, very thick] (-2,2.5) rectangle ++(4,1);
+\node[right] at (2.5,3) {\bf Tokens};
+
+
+\draw[->,>=latex, line width = 4pt,red!70] (0,3.75) -- ++ (0,1.5) node[pos=0.4, right=2ex, black] {Plongement};
+
+% Vecteurs du plongement
+\fill[fill=red!15] (-2,5.5) rectangle ++(0.5,1) node[pos=.5] {$v_1$};
+\fill[fill=red!5] (-1.5,5.5) rectangle ++(0.5,1) node[pos=.5] {$v_2$};
+\fill[fill=red!15] (-1,5.5) rectangle ++(0.5,1);
+\fill[fill=red!5] (-0.5,5.5) rectangle ++(0.5,1);
+\fill[fill=red!15] (0,5.5) rectangle ++(0.5,1) node[pos=.5] {$\cdots$};
+\fill[fill=red!5] (0.5,5.5) rectangle ++(0.5,1);
+\fill[fill=red!15] (1,5.5) rectangle ++(0.5,1);
+\fill[fill=red!5] (1.5,5.5) rectangle ++(0.5,1) node[pos=.5] {$v_K$};
+\draw[rounded corners, very thick] (-2,5.5) rectangle ++(4,1);
+\node[right] at (2.5,6) {\bf Vecteurs de $\mathbb{R}^n$};
+
+\draw[->,>=latex, line width = 4pt,red!70] (0,6.75) -- ++ (0,1.5)node[pos=0.4, right=2ex, black] {Entrée};
+
+% Transformers
+\foreach \i in {0,...,5}{
+\fill[blue!15] (-2,8.5+0.5*\i) rectangle ++(4,0.25);
+\fill[blue!5] (-2,8.5+0.25+0.5*\i) rectangle ++(4,0.25);
+}
+\node[scale=0.5] at (0,8.5+0.125) {Couche d'attention};
+\node[scale=0.5] at (0,8.5+0.125+0.25) {Couches denses};
+\node[scale=0.5] at (0,8.5+0.125+0.5) {Couche d'attention};
+\node[scale=0.5] at (0,8.5+0.125+0.75) {Couches denses};
+\node[scale=1] at (0,8.5+1.5) {$\vdots$};
+\node[scale=1] at (0,8.5+2.25) {$\vdots$};
+
+\draw[rounded corners, very thick] (-2,8.5) rectangle ++(4,3);
+
+\node[right] at (2.5,10) {\bf Transformeur};
+
+\draw[->,>=latex, line width = 4pt,red!70] (0,11.75) -- ++ (0,1.5) node[pos=0.4, right=2ex, black] {Sortie};
+
+% Vecteur sortie
+\draw[rounded corners, very thick, fill=red!10] (-2,13.5) rectangle ++(4,1);
+\node at (0,14) {$w \in \mathbb{R}^n$};
+
+\draw[->,>=latex, line width = 4pt,red!70] (0,14.75) -- ++ (0,1.5) node[pos=0.4, right=2ex, black] {Retranscription};
+
+\node[right] at (2.5,14) {\bf Vecteur sortie};
+
+% Logit/probabilités
+
+\foreach \i in {0,...,9}{
+\fill[blue!15] (-2+0.4*\i,16.5) rectangle ++(0.2,1);
+\fill[blue!5] (-2+0.2+0.4*\i,16.5) rectangle ++(0.2,1);
+}
+
+\draw[rounded corners, very thick] (-2,16.5) rectangle ++(4,1);
+
+\node[scale=0.7] at (-1.8,17) {$p_1$};
+\node[scale=0.7] at (-1.5,17) {$p_2$};
+\node[] at (-0.5,17) {$\cdots$};
+\node[] at (0.5,17) {$\cdots$};
+\node[scale=0.7] at (1.8,17) {$p_N$};
+
+\node[right] at (2.5,17) {\bf Probabilités};
+
+\end{tikzpicture}

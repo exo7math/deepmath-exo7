@@ -1,0 +1,24 @@
+﻿
+\begin{tikzpicture}[scale=1]
+
+\begin{scope}[rotate=10]
+
+
+\draw[blue!50, thick] (-1,0) -- (5,0);
+\draw[->,>=latex,very thick,blue] (0,0) -- +(1,0) node[midway,below]{$u$};
+
+\coordinate (X) at (3,2);
+\coordinate (H) at (3,0);
+
+\draw[dashed] (X) -- (H);
+
+\draw[->,>=latex,very thick,red!50] (0,0) -- (X) node[above left]{$x$};
+\fill[red] (X) circle(2pt);
+
+
+\fill (H) circle(2pt);
+\node at (H) [below]{$p(x)$};
+
+\end{scope}
+
+\end{tikzpicture}

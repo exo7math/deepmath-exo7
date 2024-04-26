@@ -1,0 +1,80 @@
+﻿\begin{tikzpicture}[scale=1]
+
+% Flux
+\fill[green!70!black!20] (2.5,0) rectangle ++ (4,10);
+\fill[green!70!black!20] (2,10) -- ++ (5,0) -- ++ (-2.5,2.5) -- cycle;
+
+%\node at (4.5,0.5) [align = center] {\bf Flux résiduel \\ $\mathbb{R}^n \times \mathbb{R}^K$}; 
+
+% Bloc
+\draw[rounded corners, thick] (-7.5,4) rectangle ++(8,2); % node[pos=0.5, scale=0.85]{\bf Bloc $i$};
+
+% Têtes
+\draw[rounded corners, thick, fill=blue!10] (-7.25,4.25) rectangle ++(1,1.5) node[pos=0.5, scale=0.85]{$h_1$};
+\draw[rounded corners, thick, fill=blue!10] (-7.25+1.25,4.25) rectangle ++(1,1.5) node[pos=0.5, scale=0.85]{$h_2$};
+\draw[rounded corners, thick, fill=blue!5] (-7.25+2.5,4.25) rectangle ++(1,1.5) node[pos=0.5, scale=0.85]{$\cdots$};
+\draw[rounded corners, thick, fill=blue!5] (-7.25+5.25,4.25) rectangle ++(1,1.5) node[pos=0.5, scale=0.85]{$\cdots$};
+\draw[rounded corners, thick, fill=blue!10] (-7.25+6.5,4.25) rectangle ++(1,1.5) node[pos=0.5, scale=0.85]{$h_{n/r}$};
+
+% Flèche dessous fin
+\fill[orange!10, opacity=0.5] 
+(2.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-3,3) 
+-- ++ (0.75,0)
+  .. controls ++(0.5,-1) and ++(-0.5,1)  ..  ++(6.25,-3)
+-- cycle;
+
+\draw[orange!50, thick, ->, >=latex] (2.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-3,3);
+
+\draw[orange!50, thick, ->, >=latex] (6.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-6.25,3);
+
+% Flèche dessus fin
+\fill[orange!10, opacity=0.5] 
+(2.5,9) .. controls ++(-0.5,-1) and ++(0.5,1)  ..  ++(-3.25,-3)
+-- ++ (1,0)
+.. controls ++(0.5,1) and ++(-0.5,-1)  ..  ++(6.25,3)
+-- cycle;
+
+\draw[orange!50, thick, <-, >=latex] (2.5,9) .. controls ++(-0.5,-1) and ++(0.5,1)  ..  ++(-3.25,-3);
+
+\draw[orange!50, thick, <-, >=latex] (6.5,9) .. controls ++(-0.5,-1) and ++(0.5,1)  ..  ++(-6.25,-3);
+
+
+
+% Flèche dessous 1
+\fill[orange!20, opacity=0.5] 
+(2.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-9.75,3) 
+-- ++ (1,0)
+  .. controls ++(0.5,-1) and ++(-0.5,1)  ..  ++(12.75,-3)
+-- cycle;
+
+\draw[orange!70, thick, ->, >=latex] (2.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-9.75,3);
+
+\draw[orange!70, thick, ->, >=latex] (6.5,1)  .. controls ++(-0.5,1) and ++(0.5,-1)  ..  ++(-12.75,3);
+
+% Flèche dessus 1
+\fill[orange!20, opacity=0.5] 
+(2.5,9) .. controls ++(-0.5,-1) and ++(0.5,1)  ..  ++(-9.75,-3)
+-- ++ (1,0)
+.. controls ++(0.5,1) and ++(-0.5,-1)  ..  ++(12.75,3)
+-- cycle;
+
+\draw[orange!70, thick, <-, >=latex] (2.5,9) .. controls ++(-0.5,-1) and ++(0.5,1)  ..  ++(-9.75,-3);
+
+\draw[orange!70, thick, <-, >=latex] (6.5,9) .. controls ++(-0.5,-1) and ++(0.5,1)  ..  ++(-12.75,-3);
+
+
+
+
+\node[scale=0.8] at (-6.5,6.9) {$W_{\text{out}}^{(1)}$};
+%\node[scale=0.8] at (-5.5,6.9) {$W_{\text{out}}^{(2)}$};
+
+\node[scale=0.8] at (-0,6.9) {$W_{\text{out}}^{(n/r)}$};
+
+\node[scale=0.8] at (-6.5,3.1) {$W_{\text{in}}^{(1)}$};
+\node[scale=0.8] at (-0,3.1) {$W_{\text{in}}^{(n/r)}$};
+
+
+\node[scale=1.2] at (4.5,0.5) {$x_i$};
+\node[scale=1.2] at (4.5,9.5) {$x_{i+1}$};
+
+\end{tikzpicture}

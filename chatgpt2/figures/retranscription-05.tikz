@@ -1,0 +1,61 @@
+﻿\begin{tikzpicture}[scale=1]
+ 
+\fill[fill=red!10, rounded corners=10pt] (0,-0.5) rectangle ++ (1,8);
+
+\filldraw[fill=green!70!black!25, draw=green!70!black, thick] (3,1) rectangle ++ (2,5);
+
+\fill[fill=green!10, rounded corners=10pt] (6.5,1) rectangle ++ (1,5);
+
+\filldraw[fill=red!20, draw=red, thick] (9.5,0) rectangle ++ (2,7);
+
+\fill[fill=red!5, rounded corners=10pt] (13,0) rectangle ++ (1,7);
+
+\node[scale=0.9] at (0.5,8.5) {\bf Entrée};
+\node[scale=0.7] at (0.5,8) {dimension $N$};
+
+\node[scale=0.9, align=center] at (4,6.75) {\bf Une couche \\ de $n$ neurones};
+%\node at (3.5,8) {$p=8$ neurones};
+
+\node[scale=0.9, align=center] at (10.5,7.75) {\bf Une couche \\ de $N$ neurones};
+
+\node[scale=0.7] at (7,6.5) {dimension $n$};
+\node[scale=0.7] at (13.5,7.5) {dimension $N$};
+
+\node[scale=0.9] at (13.5,8) {\bf  Sortie};
+
+
+
+% \node at (0.5,7) {$x_1$};
+% \draw[dashed] (0.5,0.5) -- (0.5,6.5);
+% \node at (0.5,0) {$x_{784}$};
+% 
+% \node at (18.5,5.5) {$y_0$};
+% \draw[dashed] (18.5,1.8) -- (18.5,5.3);
+% \node at (18.5,1.5) {$y_9$};
+
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (1,7)--(3,1+0.7*\y);
+}
+\foreach \y in {0,...,7}{
+  \draw[gray, thick] (1,0)--(3,1+0.7*\y);
+}
+\foreach \y in {2,...,13}{
+  \draw[gray, thick,->,>=latex] (5,0.75+0.35*\y)--++(1.5,0);
+}
+
+\foreach \y in {1,...,7}{
+  \draw[gray, thick] (9.5,6)--(7.5,1.2+0.6*\y);
+}
+\foreach \y in {1,...,7}{
+  \draw[gray, thick] (9.5,1)--(7.5,1.2+0.6*\y);
+}
+\foreach \y in {-1,...,16}{
+  \draw[gray, thick,->,>=latex] (11.5,0.85+0.35*\y)--++(1.5,0);
+}
+
+
+\draw[->,>=latex, line width=4pt,green!70!black!50] (1,-0.75) to[bend right=20] node[midway,below,black,align=center]{$\varphi : \Rr^{N} \to \Rr^{n}$\\plongement} (7,0.5);
+
+\draw[->,>=latex, line width=4pt,red!50] (7.2,0.25) to[bend right=25] node[midway,below,black,align=center]{$\psi : \Rr^{n} \to \Rr^{N}$\\retranscription} (13.5,-0.25);
+
+\end{tikzpicture}  

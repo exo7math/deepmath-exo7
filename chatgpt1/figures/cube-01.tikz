@@ -1,0 +1,6 @@
+﻿\begin{tikzpicture}[scale=1, cube/.style={very thick,black}]
+
+	\draw[cube] (0,0) -- (0,2) -- (2,2) -- (2,0) -- cycle;
+
+  \node at (1,-0.5) {\bf Carré};	
+\end{tikzpicture}
