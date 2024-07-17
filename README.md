@@ -29,7 +29,7 @@ Vous pouvez obtenir une version papier en *noir et blanc* sur [Amazon](https://w
 Vidéos
 ======
 
-Tous les cours est aussi expliqué en vidéos ! [Chaîne Youtube "Deepmath"](https://www.youtube.com/channel/UCnKarYaG1VuzdWix1vBitFg/)
+Tout le cours est aussi expliqué en vidéos ! [Chaîne Youtube "Deepmath"](https://www.youtube.com/channel/UCnKarYaG1VuzdWix1vBitFg/)
 
 
 Chapitres
