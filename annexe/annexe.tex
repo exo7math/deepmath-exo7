@@ -30,6 +30,8 @@
   
   \item \textbf{\emph{Deep learning}.} À partir des années 2000 et surtout après 2010 les réseaux de neurones font des progrès fulgurants grâce à l'apprentissage profond. Yann Le Cun démontre l'efficacité des couches de convolution pour la reconnaissance des chiffres. On réalise et entraîne alors des réseaux ayant de plus en plus de couches grâce à des progrès matériels (par exemple le calcul sur les processeurs graphiques GPU) mais surtout grâce aux couches de convolution qui extraient des caractéristiques abstraites des images.  
   
+  \item \textbf{ChatGPT}. En 2022, le public découvre ChatGPT avec la génération automatique de textes extrêmement pertinents. Ces modèles de langage sont basés sur des couches d'attention et deviennent vite des outils indispensables au quotidien : explication de concepts, analyse de documents, production de code informatique, etc.
+  
   \item \textbf{Présent et avenir.} Les réseaux de neurones s'appliquent à de nombreux domaines : la reconnaissance d'images (par exemple la détection de cancer sur une radiographie), les transports (par exemple la conduite autonome des voitures), les jeux (les ordinateurs battent les champions du monde d'échecs, de go et des jeux vidéos les plus complexes), l'écriture (classement, résumé, traduction)\ldots{} 
   Il persiste cependant une certaine méfiance vis à vis des décisions prises par une machine (sentence de justice, diagnostic médical, publicité ciblée). Une meilleure compréhension du fonctionnement des réseaux de neurones par tous est donc indispensable !
 \end{itemize}
@@ -48,13 +50,15 @@
   
   \item Le livre \emph{Deep learning/L'apprentissage profond} par Goodfellow, Bengio, Courville contient des concepts plus avancés. Il est disponible en anglais et en français. Une version gratuite est consultable ici :
   \mycenterline{\href{https://www.deeplearningbook.org/}{deeplearningbook.org}}
+  
+  \item Concernant ChatGPT, l'article fondateur est 
+  \href{https://arxiv.org/pdf/1706.03762.pdf}{\emph{Attention is all you need}}, des explications mathématiques se trouvent dans
+  \href{https://transformer-circuits.pub/2021/framework/index.html}{\emph{A mathematical framework for transformer circuits}}.
+  
+  \item Vous trouverez des sites qui proposent de tester différents modèles en affichant de façon interactive les tokens et leur probabilité. Par exemple :
+  \mycenterline{\href{https://fr.vittascience.com/ia/}{fr.vittascience.com/ia/}}
  
-  \item Vous pouvez récupérer l'intégralité des codes \Python{} ainsi que tous les fichiers sources sur la page \emph{GitHub} d'Exo7 :
-  \href{https://github.com/exo7math/deepmath-exo7}{\og{}GitHub : Deepmath\fg{}}.
-  
-  En particulier vous trouvez sur ce site le module \ci{keras_facile} qui vous aide à définir facilement des poids pour un réseau simple.
-  
-  
+ 
   
   \item Un peu de pub pour les livres Exo7 :  
   \begin{itemize}
@@ -74,27 +78,60 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Ce qu'il faut pour utiliser tensorflow/keras}
 
-Les activités de ce livre sont écrite pour \Python{}, version 3.
-Cependant il faut installer un certain nombre de modules complémentaires qui ne sont pas nécessairement présents par défaut.
-\begin{itemize}
-  \item \ci{tensorflow} qui contient le sous-module \ci{keras},
-  \item \ci{numpy} pour les tableaux,
-  \item \ci{matplotlib} pour l'affichage de graphiques,
-  \item \ci{scipy} pour la convolution,  
-  \item \ci{ioimage} pour gérer la lecture et l'écriture d'images.
- 
-\end{itemize}  
 
-Un module s'installe simplement par :
-\mycenterline{\ci{pip install mon_module}}
+Vous pouvez récupérer l'intégralité des codes \Python{} ainsi que tous les fichiers sources sur la page \emph{GitHub} d'Exo7 :
+\mycenterline{
+\href{https://github.com/exo7math/deepmath-exo7}{\og{}GitHub : Deepmath\fg{}}
+}
+
+En particulier vous trouvez sur ce site le module \ci{keras_facile} qui vous aide à définir facilement des poids pour un réseau simple.
 
 
-Il existe des distributions \Python{} (du type \ci{conda}) qui contiennent les principaux modules scientifiques et permettent aussi de créer des \og{}environnements\fg{} afin de gérer plusieurs versions
-de \Python{} et de ses modules.
+\medskip
 
 Pour ceux qui souhaitent ne rien installer, il est possible d'utiliser \tensorflow{} en ligne :
 \mycenterline{\href{https://colab.research.google.com/notebooks/welcome.ipynb}{Google Colab}}
 
+\medskip
+
+
+Les activités de ce livre sont écrites pour \Python{} (version 3.12).
+Cependant il faut installer un certain nombre de modules complémentaires qui ne sont pas nécessairement présents par défaut. 
+
+\begin{itemize}
+  \item \ci{tensorflow} (version 2.18) qui contient le sous-module \ci{keras} (version 3.10),
+  \item \ci{numpy} pour les tableaux,
+  \item \ci{matplotlib} pour l'affichage de graphiques,
+  \item \ci{scipy} pour la convolution,  
+  \item \ci{ioimage} pour gérer la lecture et l'écriture d'images.
+\end{itemize}  
+
+Pour les chapitres concernant ChatGPT :
+\begin{itemize}
+	\item \ci{pytorch} (version 2.6) est un équivalent de tensorflow,
+	\item \ci{transformers} (version 4.52) gère les LLM,
+	\item \ci{ntlk} pour la linguistique,
+	\item \ci{bertviz} pour la visualisation des têtes d'attention.
+\end{itemize} 
+
+\medskip
+
+Un module s'installe simplement par :
+\mycenterline{\ci{pip install mon_module}}
+
+Cependant, il est fortement préférable d'utiliser un gestionnaire d'environnements du type \ci{conda} afin de gérer plusieurs versions de \Python{} et de ses modules.
+Voici comment créer et activer un environnement \ci{deepmath} afin d’exécuter les scripts de ce livre :
+\mycenterline{\ci{conda create --name deepmath python=3.12 tensorflow keras numpy matplotlib}}
+
+\smallskip
+
+\mycenterline{\ci{conda activate deepmath}}
+
+
+\medskip
+
+Pour des calculs plus rapides, on profite des processeurs graphiques GPU. Pour cela il faut installer les logiciels \ci{CUDA} et \ci{cuDNN} sur sa machine. Si on souhaite faire les calculs uniquement avec le CPU, on peut ajouter l'instruction suivante en tête du programme : 
+\mycenterline{\ci{os.environ["CUDA_VISIBLE_DEVICES"] = "-1"}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -122,6 +159,18 @@ La plupart des références à propos des réseaux de neurones sont en anglais. 
  
 \medskip
 
+\textbf{ChatGPT.} 
+
+\begin{itemize}
+	\item grand modèle de langage/\emph{LLM Large Language Model}
+	\item jeton/\emph{token}	
+	\item plongement/\emph{embedding}
+	\item retranscription/\emph{unembedding}
+	\item flux résiduel/\emph{residual stream}
+	\item sous-bloc d'attention/\emph{attention head}
+\end{itemize} 
+
+\medskip
 \textbf{Mathématiques.}
 
 \begin{itemize}

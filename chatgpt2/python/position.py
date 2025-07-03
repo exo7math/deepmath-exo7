@@ -35,7 +35,7 @@ def exemple_position():
     print(P.T)
     return
 
-# exemple_position()
+exemple_position()
 
 def exemple_position_bis():
     P = position_matrix(K=4, n=6, p=100)
@@ -45,7 +45,7 @@ def exemple_position_bis():
         print(P[k, :])
     return
 
-# exemple_position_bis()
+exemple_position_bis()
 
 
 
@@ -85,7 +85,7 @@ def exemple_rotation():
 
     return
 
-# exemple_rotation()
+exemple_rotation()
 
 
 ### Partie C : Visualisation
@@ -130,7 +130,7 @@ def plot_kcst():
     plt.show()
     return
 
-# plot_kcst()
+plot_kcst()
 
 
 def plot_icst():
@@ -158,7 +158,7 @@ def plot_icst():
     plt.show()
     return
 
-# plot_icst()
+plot_icst()
 
 
 def plot_surface():
@@ -174,7 +174,7 @@ def plot_surface():
     # plt.savefig("position-surface.png", dpi=600)
     return
 
-# plot_surface()
+plot_surface()
 
 
 
@@ -202,4 +202,4 @@ def exemple_digits():
     print("Python :", bin(k))
     return
 
-# exemple_digits()
+exemple_digits()

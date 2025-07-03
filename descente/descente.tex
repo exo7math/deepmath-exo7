@@ -211,7 +211,7 @@ $$f(a) = a^2+1.$$
 Il s'agit de trouver la valeur en laquelle $f$ atteint son minimum, c'est clairement $a_{\min}=0$ pour lequel $f(a_{\min})=1$. Retrouvons ceci par la descente de gradient.
 
 Partant d'une valeur $a_0$ quelconque, la formule de récurrence est :
-$$a_{k+1} = a_k - \delta \grad f(a)$$
+$$a_{k+1} = a_k - \delta \grad f(a_k)$$
 où $\delta$ est le pas, choisi assez petit, et $\grad f(a) = f'(a) = 2a$.
 Autrement dit :
 $$a_{k+1} = a_k - 2 \delta a_k.$$
@@ -412,7 +412,7 @@ On s'arrête lorsque $\|\grad f(P_k) \| \le \epsilon$.
   
     Dans la pratique, on ne définira pas de seuil d'erreur $\epsilon$, mais un nombre d'itérations fixé à l'avance.
   
-  \item Il est important de calculer $\grad f(a_1,\ldots,a_n)$ rapidement. On pourrait bien sûr calculer une approximation de chacune des dérivées partielles $\frac{\partial f}{\partial a_i}(a_1,\ldots,a_n)$ comme un limite. Mais pour gagner en temps et en précision, on préfère que ce calcul soit fait à l'aide de son expression exacte. 
+  \item Il est important de calculer $\grad f(a_1,\ldots,a_n)$ rapidement. On pourrait bien sûr calculer une approximation de chacune des dérivées partielles $\frac{\partial f}{\partial a_i}(a_1,\ldots,a_n)$ comme une limite. Mais pour gagner en temps et en précision, on préfère que ce calcul soit fait à l'aide de son expression exacte. 
   
 \end{itemize}
 \end{remarque*}
@@ -503,7 +503,7 @@ Voici les valeurs successives $(a_k,b_k)$ obtenues par la méthode de descente d
 $$
 \begin{array}{c|c|c|c}
 k & (a_k,b_k) & \grad E(a_k,b_k) & E(a_k,b_k) \\ \hline
-0 & (0, 1) & (-72 -20) &  38 \\
+0 & (0, 1) & (-72, -20) &  38 \\
 1 & (1.44, 1.4) & (49.60, 5.44) &  18.96 \\
 2 & (0.44, 1.29) & (-31.50, -11.08) & 10.28 \\
 3 & (1.07, 1.51) & (22.44, 0.32) &  6.24 \\
@@ -537,7 +537,7 @@ $$A_1 = (4,1),\quad A_2 = (7,3),\quad A_3 = (8,3),\quad A_4 = (10,6),\quad A_5 =
 Ces $5$ points sont à peu près alignés. On calcule la meilleure droite de régression linéaire par la descente de gradient. Cela revient par exemple à minimiser la fonction $E(a,b)$ présentée ci-dessus, mais actualisée avec nos données. 
 On fixe un pas $\delta = 0.001$.
 On ne choisit pas le point initial $(a_0,b_0)$ au hasard. Plus on part d'un point proche de la solution, plus la suite convergera rapidement. On trace la droite qui passe par le premier point $A_1$ et le dernier point $A_5$. Cette droite a pour équation $y=\frac34 x -2$ et est déjà une droite qui approche assez bien les $5$ points. Prenons cette droite comme point de départ, c'est-à-dire posons $(a_0,b_0) = (\frac34,-2)$.
-La descente de gradient conduit au bout de $1000$ itérations à $a\simeq 0.78$ et $b\simeq -2.46$, pour l'équation de la droite de régression linéaire.
+La descente de gradient conduit au bout de $10\,000$ itérations à $a\simeq 0.78$ et $b\simeq -2.46$, pour l'équation de la droite de régression linéaire.
 
 Sur le dessin ci-dessous sont tracées la droite initiale qui passe par les points $A_1$ et $A_5$ \couleurnb{(en rouge) }{}et la droite de régression linéaire\couleurnb{ (en bleu)}{}.
 
@@ -613,7 +613,7 @@ Trois points appartiennent nécessairement à un plan. Nous cherchons donc l'éq
 La fonction d'erreur est :
 $$E(a,b,c) = 
 \big(3 - c\big)^2
-+ \big(4 - (4a+c)\big)^2
++ \big(4 - (a+c)\big)^2
 + \big(5 - (b+c)\big)^2.$$
 La descente de gradient appliquée à cette fonction avec un pas $\delta = 0.2$ et
 des valeurs initiales $(a_0,b_0,c_0)=(0,0,0)$ conduit à une suite $(a_k,b_k,c_k)$ qui tend vers $(a,b,c) = (1,2,3)$. Le plan recherché est donc $z=x+2y+3$.

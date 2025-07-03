@@ -25,7 +25,8 @@ def exemple1():
 	print("\n--- Exemple 1 : un seul neurone ---")
 	# Architecture du réseau
 	modele = Sequential()
-	modele.add(Dense(1, input_dim=1, activation=heaviside, name='Couche_0'))
+	modele.add(Input(shape=(1,)))  # Entrée de dimension 1
+	modele.add(Dense(1, activation=heaviside, name='Couche_0'))
 
 	# Définition des poids neurone par neurone
 	definir_poids(modele,0,0,-0.5,1)  # definir_poids(modele,couche,rang,coeff,biais)
@@ -52,7 +53,8 @@ def exemple2():
 	print("\n--- Exemple 2 : 2+1 neurones ---")
 	# Architecture du réseau
 	modele = Sequential()
-	modele.add(Dense(2, input_dim=1, activation=heaviside, name='Couche_0'))
+	modele.add(Input(shape=(1,)))  # Entrée de dimension 1
+	modele.add(Dense(2, activation=heaviside, name='Couche_0'))
 	modele.add(Dense(1, activation='linear', name='Couche_1'))
 
 
@@ -65,9 +67,8 @@ def exemple2():
 
 	# Evaluation
 	# entree = [7.0]
-	# entree = np.array([7.0])
 
-	entree = 0
+	entree = [0.0]
 	sortie = evaluation(modele,entree)
 	print("\n=== Evaluation ===")
 	print('Entrée :',entree)
@@ -101,7 +102,8 @@ def exemple3():
 	# Architecture du réseau
 	modele = Sequential()
 
-	modele.add(Dense(2*n,input_dim=1,activation=heaviside))
+	modele.add(Input(shape=(1,)))  # Entrée de dimension 1
+	modele.add(Dense(2*n, activation=heaviside))
 	modele.add(Dense(1,activation='linear'))
 
 	# poids_a_zeros(modele,0)
@@ -116,6 +118,6 @@ def exemple3():
 	return
 
 
-# exemple1()
+exemple1()
 # exemple2()
-exemple3()
+# exemple3()

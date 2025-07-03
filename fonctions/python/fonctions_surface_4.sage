@@ -13,9 +13,9 @@ print(f.expand())
 fx = diff(f,x)
 fy = diff(f,y)
 sol = solve([fx==0,fy==0],(x,y),solution_dict=True)
-print 'x,y = ', sol[0]
+print ('x,y = ', sol[0])
 z = f(sol[0])
-print ' z =', z
+print ('z =', z)
 # x == 10/3, y == 8/3, z == 64/3
 
 

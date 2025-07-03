@@ -2,7 +2,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 ### Partie A - Les données
 
@@ -30,9 +30,10 @@ Y_test = to_categorical(Y_test_data, num_classes=10)
 
 p = 8
 modele = Sequential()
+modele.add(Input(shape=(784,)))  # Entrée de dimension 784 (28x28 pixels)
 
-# Première couche : p neurones (entrée de dimension 784 = 28x28)
-modele.add(Dense(p, input_dim=784, activation='sigmoid'))
+# Première couche : p neurones
+modele.add(Dense(p, activation='sigmoid'))
 
 # Deuxième couche : p neurones
 modele.add(Dense(p, activation='sigmoid'))

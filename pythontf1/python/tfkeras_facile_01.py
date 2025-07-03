@@ -6,7 +6,8 @@
 from keras_facile import *
 
 modele = Sequential()
-modele.add(Dense(2, input_dim=1, activation='relu'))
+modele.add(Input(shape=(1,)))  # Entrée de dimension 1
+modele.add(Dense(2, activation='relu'))
 modele.add(Dense(1, activation='relu'))
 
 modele.summary()

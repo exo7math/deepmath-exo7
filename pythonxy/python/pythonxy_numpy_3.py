@@ -76,7 +76,7 @@ print(X[10:20])  # éléments de rang 10 à 19
 print(X[:10])    # éléments  de rang début à 9
 print(X[90:])    # éléments de rang 90 jusqu'à la fin
 
-# Ajouter un élément à un vecteur (c'est trop l'esprit de numpy)
+# Ajouter un élément à un vecteur (c'est pas trop l'esprit de numpy)
 X = np.arange(0,5,0.5)
 Y = np.append(X,8.5)
 print(X)

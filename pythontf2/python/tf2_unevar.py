@@ -2,7 +2,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 import matplotlib.pyplot as plt
 # COPIER-COLLER A PARTIR D'ICI
 
@@ -25,7 +25,8 @@ Y_train = Y.reshape(-1,1)
 modele = Sequential()
 
 p = 10
-modele.add(Dense(p, input_dim=1, activation='tanh'))
+modele.add(Input(shape=(1,)))  # Entrée de dimension 1
+modele.add(Dense(p, activation='tanh'))
 modele.add(Dense(p, activation='tanh'))
 modele.add(Dense(p, activation='tanh'))
 modele.add(Dense(p, activation='tanh'))
@@ -36,14 +37,14 @@ modele.add(Dense(1, activation='linear'))
 
 # Méthode de gradient : descente de gradient classique
 weights = modele.get_weights()  # Sauvegarder les poids
-mysgd = optimizers.SGD(lr=0.001)
+mysgd = optimizers.SGD(learning_rate=0.001)
 modele.compile(loss='mean_squared_error', optimizer=mysgd)
 history_sgd = modele.fit(X_train, Y_train, epochs=4000, batch_size=N)
 
 
 # Méthode de gradient : descente de gradient classique améliorée
 modele.set_weights(weights)  
-mysgd = optimizers.SGD(lr=0.001, decay=1e-7, momentum=0.9, nesterov=True)
+mysgd = optimizers.SGD(learning_rate=0.001, decay=1e-7, momentum=0.9, nesterov=True)
 modele.compile(loss='mean_squared_error', optimizer=mysgd)
 history_nesterov = modele.fit(X_train, Y_train, epochs=4000, batch_size=N)
 

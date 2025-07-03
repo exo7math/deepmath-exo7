@@ -27,16 +27,14 @@ plt.show()
 
 ########### Vue 3D ###########
 
-# from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.mplot3d import Axes3D
 
-# fig = plt.figure()
-# ax = plt.axes(projection='3d')
-# ax.view_init(50, -50)
-# ax.plot_surface(X, Y, Z, alpha=1)
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.view_init(50, -50)
+ax.plot_surface(X, Y, Z, alpha=1)
 # plt.savefig('pythonxy-niveau-3d-2.png')
-# plt.show()
-
-
+plt.show()
 
 ax.plot_surface(X, Y, Z,cmap=plt.cm.CMRmap)
 

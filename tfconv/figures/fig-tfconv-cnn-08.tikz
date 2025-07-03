@@ -1,4 +1,4 @@
-\begin{tikzpicture}[scale=1,yscale=1.3,xscale=0.9,yslant=.35,nodes={font=},z={([yslant=-.5]1,0)}]
+﻿\begin{tikzpicture}[scale=1,yscale=1.3,xscale=0.9,yslant=.35,nodes={font=},z={([yslant=-.5]1,0)}]
 
 
 %\begin{tikzpicture}[scale=0.5,yscale=1.3,xscale=0.9,yslant=.35,nodes={font=\bfseries\sffamily\huge},z={([yslant=-.5]1,0)}]
@@ -63,7 +63,7 @@
 
 
 % Arrow
-\draw[->, >=latex, gray!30, line width=2] (\size/2,\size/2,\position+2*\numfilter*\filtersep+1)  -- ++(-1,-1,2) node[midway, right=1ex, black,scale=0.8]{Max-pooling};
+\draw[->, >=latex, gray!30, line width=2] (\size/2,\size/2,\position+2*\numfilter*\filtersep+1)  -- ++(-1,-1,2) node[midway, above right=1ex, black,scale=0.8]{Max-pooling};
 
 %%%%%%%%%%%%%%%%%%
 % Max-pooling 2x2
@@ -79,7 +79,7 @@
 \node[below=2ex,scale=0.8] at (-\size/2,-\size/2,\position+\numfilter*\filtersep) {$(16,16,64)$};
 
 % Arrow
-\draw[->, >=latex, gray!30, line width=2] (\size/2,\size/2,\position+2*\numfilter*\filtersep+0.75)  -- ++(0,0,3) node[midway, above=2ex, black,scale=0.8]{Conv64};
+\draw[->, >=latex, gray!30, line width=2] (\size/2,\size/2,\position+2*\numfilter*\filtersep+0.75)  -- ++(0,0,3) node[midway, above=1ex, black,scale=0.8]{Conv64};
 
 %%%%%%%%%%%%%%%%%%
 % Conv64
@@ -143,7 +143,7 @@
 \fill[orange!80] (0,\i,\position) circle(0.15);
 }
 
-\node[below=2ex,scale=0.8] at (0,-\size-2,\position) {vecteur $16\,384$};
+\node[below=2ex,scale=0.8] at (0,-\size-2,\position) {vecteur $4096$};
 
 % Arrow
 \draw[->, >=latex, gray!30, line width=2] (\size/2,\size/2,\position-1)  -- ++(0,0,3) node[midway, above=2ex, black,scale=0.8]{Dense};

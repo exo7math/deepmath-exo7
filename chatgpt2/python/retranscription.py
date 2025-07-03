@@ -13,7 +13,7 @@ def exemple1():
     print(softmax(x))
     
 
-# exemple1()
+exemple1()
 
 
 # Part B. Moindres carrés

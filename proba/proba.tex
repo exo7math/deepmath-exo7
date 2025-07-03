@@ -25,7 +25,7 @@
 
 %--------------------------------------------------------------------
 \subsection{La fonction $\sigma$}
-
+\index{sigmoide@sigmoïde}
 On souhaite pouvoir distinguer une image d'un chat (valeur $0$) de celle d'un chien (valeur $1$). La première idée serait d'utiliser la fonction marche de Heaviside qui répondrait très clairement à la question, mais nous allons voir que la fonction $\sigma$ est plus appropriée.
 
 \begin{minipage}{0.45\textwidth}
@@ -80,22 +80,28 @@ Une solution est d'obtenir $k$ valeurs $(x_1,\ldots,x_k)$. On rattache $(x_1,\ld
 \end{itemize}
 
 \textbf{Argmax.}
-La fonction argmax renvoie le rang pour lequel le maximum est atteint.
+La fonction argmax\index{argmax} renvoie le rang pour lequel le maximum est atteint.
 Par exemple si $X = (x_1,x_2,x_3,x_4,x_5) = (3,1,8,6,0)$ alors 
 $\operatorname{argmax}(X)$ vaut $3$, car le maximum $x_3 = 8$ est atteint au rang $3$.
 Cela correspond donc à la catégorie $(0,0,1,0,0)$.
 
-\textbf{Softmax.}
+\textbf{Softmax.}\index{softmax}
 Pour $X = (x_1,x_2,\ldots,x_k)$ on note
 $$\sigma_i (X) = \frac{e^{x_i}}{ e^{x_1} + e^{x_2} + \cdots + e^{x_k}}.$$
+On définit alors la fonction $\operatorname{softmax}$ par :
+$$\begin{array}{rcl}
+\operatorname{softmax} \colon \Rr^k & \longrightarrow & [0,1]^k \subset \Rr^k \\
+X &\longmapsto & \big(\sigma_1(X), \sigma_2(X), \dots, \sigma_k(X)\big)
+\end{array}
+$$
 
 \begin{proposition}
 Pour chaque $i=1,\ldots,k$ on a 
 $0 < \sigma_i(X) \le 1$ et 
-$$\sigma_1(X) + \sigma_2(X) + \cdots + \sigma_k(X)=1.$$
+$$\sigma_1(X) + \sigma_2(X) + \cdots + \sigma_k(X) = 1.$$
 \end{proposition}
 
-Comme la somme des $\sigma_i(X)$ vaut $1$, on interprète la valeur $\sigma_i(X)$ comme une probabilité $p_i$.
+Comme la somme des $\sigma_i(X)$ vaut $1$, on interprète chaque composante $\sigma_i(X)$ comme une probabilité $p_i$.
 Par exemple avec $X = (3,1,8,6,0)$ alors
 $$
 p_1 = \sigma_1(X) \simeq 0.0059 \quad
@@ -103,8 +109,30 @@ p_2 = \sigma_2(X) \simeq 0.0008 \quad
 p_3 \simeq 0.8746 \quad
 p_4 \simeq 0.1184 \quad
 p_5 \simeq 0.0003$$
-
+C'est-à-dire $\operatorname{softmax}(X) \simeq ( 0.0059, 0.0008, 0.8746, 0.1184, 0.0003)$.
 On note que la valeur maximale est obtenue au rang $3$. On obtient aussi ce rang $3$ en composant par la fonction argmax.
+
+\medskip
+
+Pour la rétropropagation on a besoin de calculer le gradient de chacune des fonctions $\sigma_i : \Rr^k \to \Rr$.
+On rappelle que :
+\[
+\grad \sigma_i(X) = 
+\begin{pmatrix} 
+\frac{\partial \sigma_i}{\partial x_1}(X) \\ 
+\vdots \\ 
+\frac{\partial \sigma_i}{\partial x_k}(X)
+\end{pmatrix}.
+\]
+Chaque composante de ce gradient est donnée par :
+\[
+\frac{\partial \sigma_i}{\partial x_j}(X) =
+\begin{cases}
+	\sigma_i(X)(1 - \sigma_i(X)) & \text{si } i = j, \\
+	- \sigma_i(X) \sigma_j(X) & \text{si } i \ne j.
+\end{cases}
+\]
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -171,7 +199,7 @@ $$E = \frac{1}{4} \big( (\ln(1+1)-\ln(2+1))^2+ (\ln(5+1)-\ln(4+1))^2 + \cdots  +
 Pour illustrer les propos précédents, il est à noter que l'erreur absolue moyenne vaut $E' \simeq 2.25$ et que l'écart entre $y_4=100$
 et $\widetilde y_4 = 105$ contribue à $55\%$ de cette erreur.
 Tandis que pour l'erreur logarithmique moyenne, l'écart entre $y_4=100$
-et $\widetilde y_4 = 105$ contribue à $15\%$ de l'erreur $E$. Selon l'origine des données, on peut considérer normal d'avoir une plus grande erreur sur de plus grandes valeurs.
+et $\widetilde y_4 = 105$ contribue à moins de $1\%$ de l'erreur $E$. Selon l'origine des données, on peut considérer normal d'avoir une plus grande erreur sur de plus grandes valeurs.
 \end{exemple}   
 
     
@@ -233,6 +261,8 @@ $$y \mapsto \frac{y - y_{\min}}{y_{\max} - y_{\min}}(a-b) + b.$$
 
 %--------------------------------------------------------------------
 \subsection{Loi de Gauss}
+
+\index{loi de Gauss}
 
 Cependant pour certaines données, nous n'avons pas connaissance de leurs valeurs extrêmes.
 Prenons l'exemple de la taille de personnes. Voici la répartition du nombre de femmes en fonction de leur taille.

@@ -33,7 +33,7 @@ def example1():
 
     return
 
-# example1()
+example1()
 
 def example2():
     """ Probability distribution over the next word """

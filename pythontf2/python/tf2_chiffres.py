@@ -5,7 +5,7 @@ from tensorflow import keras
 # from tensorflow.keras import backend as K
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 import matplotlib.pyplot as plt
 
@@ -42,8 +42,10 @@ p = 8
 
 modele = Sequential()
 
-# Première couche : p neurones (entrée de dimension 2)
-modele.add(Dense(p, input_dim=784, activation='sigmoid'))
+modele.add(Input(shape=(784,)))  # Entrée de dimension 784 (28x28 pixels)
+
+# Première couche : p neurones
+modele.add(Dense(p, activation='sigmoid'))
 
 # Deuxième couche : q neurones
 modele.add(Dense(p, activation='sigmoid'))

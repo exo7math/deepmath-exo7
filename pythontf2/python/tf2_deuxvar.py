@@ -2,7 +2,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 # Partie A. Données
 
@@ -26,7 +26,8 @@ sortie = Z.reshape(-1, 1)
 modele = Sequential()
 
 p = 10
-modele.add(Dense(p, input_dim=2, activation='relu'))
+modele.add(Input(shape=(2,)))  # Entrée de dimension 2
+modele.add(Dense(p, activation='relu'))
 modele.add(Dense(p, activation='relu'))
 modele.add(Dense(p, activation='relu'))
 modele.add(Dense(1, activation='linear'))
@@ -34,7 +35,7 @@ modele.add(Dense(1, activation='linear'))
 
 # Méthode de gradient : descente de gradient stochastique avec taux d'apprentissage donné
 # Fonction d'erreur : erreur moyenne quadratique
-mysgd = optimizers.SGD(lr=0.01)
+mysgd = optimizers.SGD(learning_rate=0.01)
 modele.compile(loss='mean_squared_error', optimizer=mysgd)
 
 # Affiche un résumé

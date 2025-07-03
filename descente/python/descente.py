@@ -127,16 +127,22 @@ def graphique_descente_1var(f, grad_f, X0, delta=0.1, nmax=10):
         plt.scatter(x, 0, color='red')
     
     for i in range(len(liste_X)-1):    # flèches
-        plt.arrow(liste_X[i],0, *(-delta*liste_grad[i]),0, linewidth=2, color='orange', length_includes_head=True, head_width=0.05, head_length=0.1)
+        x = liste_X[i][0]
+        y = 0
+        vx = -delta*liste_grad[i][0]
+        vy = 0
+        # print("x, y, vx, vy", x, y, vx, vy)
+        plt.arrow(x, y, vx, vy, linewidth=2, color='orange', length_includes_head=True, head_width=0.05, head_length=0.1)
 
     # 3. Points et gradients sur le graphe
     for x in liste_X:    # points
         plt.scatter(x, f(x), color='red')
     
     for i in range(len(liste_X)-1):    # flèches
-        x = liste_X[i]
-        xx = liste_X[i+1]
-        plt.arrow(*x, *f(x), *(xx-x), *(f(xx)-f(x)), linewidth=2, color='orange', length_includes_head=True, head_width=0.05, head_length=0.1)
+        x = liste_X[i][0]
+        xx = liste_X[i+1][0]
+        # print("x, f(x), xx, f(xx)", x, f(x), xx, f(xx))
+        plt.arrow(x, f(x), (xx-x), (f(xx)-f(x)), linewidth=2, color='orange', length_includes_head=True, head_width=0.05, head_length=0.1)
 
     # 4. affichage
     plt.scatter(0,0, color='blue')  # minimum

@@ -5,7 +5,7 @@ from tensorflow import keras
 # from tensorflow.keras import backend as K
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Conv2D, Flatten
+from tensorflow.keras.layers import Input, Dense, Conv2D, Flatten
 
 import matplotlib.pyplot as plt
 
@@ -44,8 +44,10 @@ print(Y_train_data[0])
 
 modele = Sequential()
 
+modele.add(Input(shape=(28,28,1)))
+
 # Première couche de convolution : 32 neurones, convolution 3x3, activation relu
-modele.add(Conv2D(32, kernel_size=3, padding='same', activation='relu', input_shape=(28,28,1)))
+modele.add(Conv2D(32, kernel_size=3, padding='same', activation='relu'))
 
 # Deuxième couche de convolution : 16 neurones
 modele.add(Conv2D(16, kernel_size=3, padding='same', activation='relu'))
@@ -67,7 +69,7 @@ print(modele.summary())
 
 
 # Calcul des poids
-modele.fit(X_train, Y_train, batch_size=32, epochs=5, verbose=1)
+modele.fit(X_train, Y_train, batch_size=32, epochs=1, verbose=1)
 
 
 

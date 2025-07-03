@@ -11,22 +11,23 @@ from collections import Counter, defaultdict
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Télécharcher les données (à faire une seule fois)
+# nltk.download('reuters')
+# nltk.download('punkt_tab')
 
 # Où sont les données ?
-# (elles doivent avoir été téléchargées avant par la commande nltk.download())
-# nltk.download()
-
 nltk.data.path.append("../../nltk_data/")
+
 
 # The Reuters Corpus contains 10,788 news documents totaling 1.3 million words. 
 def explore_reuters():
     """ Exploration du corpus Reuters """
-    # print("Nombre de catégories : ", len(reuters.categories())) # 90
-    # print("Nombre de documents : ", len(reuters.fileids()))     # 10788
-    # print("Nombre de mots : ", len(reuters.words()))            # 1720901
-    # print("Nombre de phrases : ", len(reuters.sents()))         # 54716
-    # print("Nombre de mots par phrase : ", len(reuters.words())/len(reuters.sents())) # 31.4
-    # print("Nombre de mots par document : ", len(reuters.words())/len(reuters.fileids())) # 159.5
+    print("Nombre de catégories : ", len(reuters.categories())) # 90
+    print("Nombre de documents : ", len(reuters.fileids()))     # 10788
+    print("Nombre de mots : ", len(reuters.words()))            # 1720901
+    print("Nombre de phrases : ", len(reuters.sents()))         # 54716
+    print("Nombre de mots par phrase : ", len(reuters.words())/len(reuters.sents())) # 31.4
+    print("Nombre de mots par document : ", len(reuters.words())/len(reuters.fileids())) # 159.5
     i = 0
     for sentence in reuters.sents():
         print(" ".join(sentence))
@@ -37,7 +38,7 @@ def explore_reuters():
     return
 
 # Test
-# explore_reuters()
+explore_reuters()
 
 
 #### Un seul mot ####
@@ -65,13 +66,13 @@ def un_seul_mot():
     print("Mots les plus fréquents : ", Counter(occcur).most_common(10))
     
     # Affichage graphique des occurrences des 50 mots les plus fréquents
-    # plt.figure(figsize=(15, 5))
-    # nb = 50
-    # plt.plot(range(nb), [x[1] for x in Counter(occcur).most_common(nb)])
-    # plt.xticks(range(nb), [x[0] for x in Counter(occcur).most_common(nb)], rotation=90)
-    # plt.tight_layout()
-    # # plt.savefig("linguistique-01.png", dpi=600)
-    # plt.show()
+    plt.figure(figsize=(15, 5))
+    nb = 50
+    plt.plot(range(nb), [x[1] for x in Counter(occcur).most_common(nb)])
+    plt.xticks(range(nb), [x[0] for x in Counter(occcur).most_common(nb)], rotation=90)
+    plt.tight_layout()
+    # plt.savefig("linguistique-01.png", dpi=600)
+    plt.show()
 
     # Affichage graphique des occurrences normalisé des premiers mots les plus fréquents
     plt.figure(figsize=(15, 5))
@@ -91,7 +92,7 @@ def un_seul_mot():
     return occcur
 
 # Test
-# occcur = un_seul_mot()
+occcur = un_seul_mot()
 
 
 #### Deux mots ####
@@ -201,8 +202,8 @@ def generation_phrase(occur, mot_init, nb_mots_max=15, nb_mots_choix = 10, T=1.0
 
 
 # Test
-# for _ in range(5):
-#     print(generation_phrase(occur2, "the", nb_mots_choix = 20, T=1.0))
+for _ in range(5):
+    print(generation_phrase(occur2, "the", nb_mots_choix = 20, T=1.0))
 
 
 #### Trois mots ####
@@ -224,7 +225,7 @@ def trois_mots():
     return occur
 
 # Test
-# occur3 = trois_mots()
+occur3 = trois_mots()
 
 
 def generation_phrase2(occur, mot_init1, mot_init2, nb_mots_max=10, nb_mots_choix=10, T=0.1):
@@ -253,6 +254,6 @@ def generation_phrase2(occur, mot_init1, mot_init2, nb_mots_max=10, nb_mots_choi
     return " ".join(phrase)
 
 # Test
-# for _ in range(5):
-#     print(generation_phrase2(occur3, "that", "company", nb_mots_max=15, nb_mots_choix=20, T=1))
+for _ in range(5):
+    print(generation_phrase2(occur3, "that", "company", nb_mots_max=15, nb_mots_choix=20, T=1))
 

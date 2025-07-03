@@ -20,8 +20,8 @@ def f(x,y):
 
 Z = f(X,Y)
 
-Z = f(2.88, 2.99)
-print('Z =',Z)
+Ztest = f(2.88, 2.99)
+print('Z =', Ztest)
 
 # Minimum sur la grille
 print(VX)

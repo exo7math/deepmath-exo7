@@ -57,11 +57,11 @@ print("Résultat sous forme de liste :", Y_train[0])
 # Affichage d'un chiffre (données de test)
 def affiche_chiffre_test(i):
     plt.imshow(X_test_data[i], cmap='Greys')
-    # plt.title('Attendu %d' % Y_test_data[i])
+    plt.title('Attendu %d' % Y_test_data[i])
     plt.tight_layout()
     # plt.savefig('tf2-chiffre-test-%d.png' %i)
     plt.show()
     return
 
-# for i in range(10):
-    # affiche_chiffre_test(i)
+for i in range(5):
+    affiche_chiffre_test(i)

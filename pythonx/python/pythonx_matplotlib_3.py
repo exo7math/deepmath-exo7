@@ -18,7 +18,7 @@ plt.axis('equal')   # repère orthonormé
 plt.grid()          # grille 
 plt.xlim(a,b)       # bornes de l'axe des x
 plt.plot(X,Y)
-plt.savefig('pythonx-amorti.png')
+# plt.savefig('pythonx-amorti.png')
 plt.show()
 
 

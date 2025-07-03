@@ -5,10 +5,14 @@ from collections import Counter, defaultdict
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Télécharcher les données (à faire une seule fois)
+# nltk.download('reuters')
+# nltk.download('punkt_tab')
 
 # Où sont les données ?
-# (elles doivent avoir été téléchargées avant par la commande nltk.download())
-nltk.data.path.append("../../nltk_data/")
+nltk.data.path.append("/home/arnaud/Exo7/deepmath/nltk_data/")
+
+# nltk.data.path.append("../../nltk_data/")
 
 
 #### Un seul mot ####
@@ -40,7 +44,7 @@ def un_seul_mot(verbose=False):
     return occcur
 
 # Test
-# occcur = un_seul_mot(verbose=False)
+occcur = un_seul_mot(verbose=True)
 
 #### Deux mots ####
 
@@ -66,7 +70,7 @@ def deux_mots(verbose=False):
     return occur
 
 # Test
-# occur = deux_mots(verbose=True)
+occur = deux_mots(verbose=True)
 
 
 ###############################################
@@ -159,4 +163,4 @@ def exemple_simple():
     return
 
 
-# exemple_simple()
+exemple_simple()

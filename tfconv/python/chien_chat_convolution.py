@@ -7,7 +7,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Conv2D, Flatten, MaxPooling2D, Dropout
+from tensorflow.keras.layers import Input, Dense, Conv2D, Flatten, MaxPooling2D, Dropout
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 from tensorflow.keras.models import load_model
@@ -16,9 +16,9 @@ from tensorflow.keras.models import load_model
 
 # A télécharger sur https://www.kaggle.com/c/dogs-vs-cats/data
 # après inscription
-
-train_directory = '/home/arnaud/Exo7/deepmath/chiens-vs-chats/donnees/train'
-test_directory = '/home/arnaud/Exo7/deepmath/chiens-vs-chats/donnees/test'
+monrepertoire = '/home/arnaud/Exo7/deepmath/chiens-vs-chats'  # A adapter !!
+train_directory = monrepertoire + '/donnees/train'
+test_directory = monrepertoire + '/donnees/test'
 image_width = 64
 image_height = 64
 nb_train_images = 20000
@@ -74,16 +74,9 @@ def affiche_images():
 
 modele = Sequential()
 
-# Première couche de convolution : 32 neurones, convolution 3x3, activation relu
-modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu', input_shape=(image_width,image_height,3)))
+modele.add(Input(shape=(image_width, image_height, 3)))
 
-# Mise en commun (pooling)
-modele.add(MaxPooling2D(pool_size=(2, 2)))
-
-# Dropout
-modele.add(Dropout(0.5))
-
-# Deuxième couche de convolution : 32 neurones
+# Première couche de convolution : 64 neurones, convolution 3x3, activation relu
 modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu'))
 
 # Mise en commun (pooling)
@@ -92,7 +85,16 @@ modele.add(MaxPooling2D(pool_size=(2, 2)))
 # Dropout
 modele.add(Dropout(0.5))
 
-# Troisième couche de convolution : 32 neurones
+# Deuxième couche de convolution : 64 neurones
+modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu'))
+
+# Mise en commun (pooling)
+modele.add(MaxPooling2D(pool_size=(2, 2)))
+
+# Dropout
+modele.add(Dropout(0.5))
+
+# Troisième couche de convolution : 64 neurones
 modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu'))
 
 # Mise en commun (pooling)
@@ -123,22 +125,22 @@ print(modele.summary())
 # modele.load_weights('weights_chien_chat.h5')
 
 # modele.fit(X_train, Y_train, epochs=1, batch_size=32)
-history = modele.fit_generator(training_set,
-                        steps_per_epoch = nb_train_images // 32,
-                        epochs = 1)
+history = modele.fit(training_set,
+                    steps_per_epoch = nb_train_images // 32,
+                    epochs = 10)
 
 # Sauvegarde
-modele.save_weights(filepath='weights_chien_chat.h5')
+# modele.save_weights(filepath='chien_chat.weights.h5')
 
 
 # Partie D. Résultats
 
-score = modele.evaluate_generator(test_set, verbose=0)
+score = modele.evaluate(test_set, verbose=0)
 print('Test erreur (loss) :', score[0])
 print('Test précision (accuracy) :', score[1])
 
 plt.plot(history.history['accuracy'])
-plt.savefig('tfconv-chienchat-acc.png')
+# plt.savefig('tfconv-chienchat-acc.png')
 plt.show()
 
 
@@ -169,7 +171,7 @@ test_set = test_datagen.flow_from_directory(test_directory,
 
 def affiche_images_test():
     plt.axis('off')
-    X, Y = test_set.next()  # a test batch 
+    X, Y = next(test_set)  # a test batch 
     # X = images, Y = categories chat/chien
     Y_predict = modele.predict(X)    
     for i in range(9):
@@ -188,7 +190,7 @@ def affiche_images_test():
         plt.title(animal)
         plt.imshow(image, interpolation='nearest')
     plt.tight_layout()
-    plt.savefig('tfconv-chienchat-test.png')
+    # plt.savefig('tfconv-chienchat-test.png')
     plt.show()
 
     return

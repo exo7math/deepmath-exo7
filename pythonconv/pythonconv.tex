@@ -79,7 +79,7 @@ C'est un bon exercice de programmer sa propre fonction qui calcule la convolutio
 }  
 
   
-  \item \emph{Convolution étendue.} On rajoute deux rangées de zéros virtuels autour de la matrice $A$. Si $A$ est de taille $n\times p$ et $M$ est de taille $3\times 3$ alors pour cette convolution la matrice $B$ est taille $(n+2) \times (p+2)$.
+  \item \emph{Convolution étendue.} On rajoute deux rangées de zéros virtuels autour de la matrice $A$. Si $A$ est de taille $n\times p$ et $M$ est de taille $3\times 3$ alors pour cette convolution la matrice $B$ est de taille $(n+2) \times (p+2)$.
   
   \mycenterline{\ci{B2 = signal.convolve2d(A, M, mode='full')}}
 
@@ -157,7 +157,7 @@ def max_pooling(A,k):
     return D
 \end{lstlisting}
 
-On ne cherche pas expliquer les détails de la fonction. Cependant, on suppose que $n$ et $p$ sont des multiples de $k$ (sinon il faudrait adapter la fonction).
+On ne cherche pas à expliquer les détails de la fonction. Cependant, on suppose que $n$ et $p$ sont des multiples de $k$ (sinon il faudrait adapter la fonction).
 
 
 Par exemple, le max-pooling de taille $k=2$ avec

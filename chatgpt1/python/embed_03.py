@@ -41,7 +41,7 @@ def exemple1():
 
     return
 
-# exemple1()
+exemple1()
 
 
 def exemple2():
@@ -82,7 +82,7 @@ def exemple2():
 
     return list_mot_token
 
-# exemple2()
+exemple2()
 
 
 ## Part B - Embedding : exploration
@@ -117,7 +117,7 @@ def exemple3():
     return
 
 
-# exemple3()
+exemple3()
 
 
 # Part C - Embedding de mots
@@ -152,7 +152,7 @@ def exemple4():
 
     return
 
-# exemple4()
+exemple4()
 
 
 ## Part D - Mots
@@ -242,7 +242,7 @@ def exemple5():
 
     plt.show()
     
-# exemple5()
+exemple5()
 
 ## Part E - Projections à la main sur un plan
 
@@ -283,7 +283,7 @@ def exemple6():
 
     return
 
-# exemple6()
+exemple6()
 
 
 ## Part F - Analyse en composantes principales ##
@@ -374,7 +374,7 @@ def exemple8():
 
     return
 
-# exemple8()
+exemple8()
 
 
 
@@ -406,7 +406,7 @@ def exemple9():
 
     return
 
-# exemple9()
+exemple9()
 
 ## Part G - King - Man + Woman = Queen
 
@@ -437,7 +437,7 @@ def exemple10():
 
     return
 
-# exemple10()
+exemple10()
 
 ## Part H - Mots les plus proches
 
@@ -485,7 +485,7 @@ def exemple11():
 
     return
 
-# exemple11()
+exemple11()
 
 
 

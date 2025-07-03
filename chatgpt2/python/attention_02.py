@@ -29,3 +29,5 @@ html_head_view = head_view(attention, tokens, layer=my_layer, heads=[my_head], h
 
 with open("head_view.html", 'w') as file:
     file.write(html_head_view.data)
+
+# THEN OPEN THE FILE head_view.html IN YOUR BROWSER!!!

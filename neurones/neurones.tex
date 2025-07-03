@@ -1,6 +1,7 @@
 \documentclass[11pt,class=report,crop=false]{standalone}
 \usepackage[screen]{../python}
 
+
 \begin{document}
 
 %====================================================================
@@ -660,20 +661,16 @@ Existe-t-il $(x,y,z)$ tel que $Y_2$ soit nul, mais pas $Y_1$ ?
 %--------------------------------------------------------------------
 \subsection{Exemples}
 
-
 \'Etudions quelques exemples plus en détails. Au lieu de calculer la sortie $F(x,y)$ pour des valeurs données, nous allons calculer $F(x,y)$ quelque soit $(x,y)$.
 
-\vspace*{-1ex}
+\vspace*{-1.5ex}
 
 \begin{exemple}
 Voici un réseau de $3$ neurones : deux sur la première couche et un sur la seconde. La fonction d'activation est partout la fonction marche de Heaviside.
 Combien vaut la fonction associée $F$ selon l'entrée $(x,y)$ ?
-
 \myfigure{0.8}{
   \tikzinput{fig_neurones_46}
   } 
-
-
 On commence par calculer les sorties des neurones de la première couche.
 Pour le premier neurone la sortie $s_1$ dépend du signe de $-x+3y$.
 Si $-x+3y \ge 0$ alors $s_1(x,y)=1$, sinon $s_1(x,y)=0$. Donc pour les points $(x,y)$ situés au-dessus de la droite d'équation $-x+3y=0$, on a $s_1(x,y)=1$.
@@ -1163,8 +1160,8 @@ On réalise des doubles créneaux en superposant les premières couches de chaqu
 On peut aussi calculer la valeur de la fonction $F$ de la façon suivante ($s_i$ représente la sortie du neurone numéro $i$ de la première couche) :
 $$F(x) = \underbrace{4s_1+4s_2-4}_{\text{vaut $4$ ou $0$}} + \underbrace{6s_3+6s_4-6}_{\text{vaut $6$ ou $0$}} = 
 \begin{cases}
-4 & \text{ si } x \in [2,3[ \\
-6 & \text{ si } x \in [5,10[ \\
+4 & \text{ si } x \in [2,3] \\
+6 & \text{ si } x \in [5,10] \\
 0 & \text {sinon}
 \end{cases}
 $$

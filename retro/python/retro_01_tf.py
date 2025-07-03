@@ -3,17 +3,18 @@ from tensorflow import keras
 from tensorflow.keras import backend as K
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 from keras_facile import *
 
 
 modele = Sequential()
+modele.add(Input(shape=(2,)))  # 2 entrées
 
-# Un neurone à 2 entrées 
-modele.add(Dense(1, input_dim=2, activation='sigmoid'))
+# Un neurone  
+modele.add(Dense(1, activation='sigmoid'))
 
-sgd = optimizers.SGD(lr=1)
+sgd = optimizers.SGD(learning_rate=1.0)
 modele.compile(loss='mean_squared_error', optimizer=sgd)
 
 # poids_a_zeros(modele,0)  # tous les poids à zéros
@@ -59,7 +60,8 @@ affiche_poids(modele,0)
 # print(weight_grads)
 # 
 
-modele.fit(X_train, Y_train, epochs=1, batch_size=len(X_train), verbose = 1)
+# epochs est ici le nombre d'itérations de la descente de gradient
+modele.fit(X_train, Y_train, epochs=10, batch_size=len(X_train), verbose = 1)
 affiche_poids(modele,0)
 
 # loss = model.train_on_batch(X_train, Y_train)  # renvoie l'erreur avant l'application du gradient
@@ -72,7 +74,7 @@ affiche_poids(modele,0)
 # poids_a_zeros(modele,0)  # tous les poids à zéros
 
 # definir_poids(modele,0,0,[1,-1],0)  # couche, rang, [coeffs], biais 
-# lr = K.eval(sgd.lr)  # learning rate
+# lr = K.eval(sgd.learning_rate)  # learning rate
 
 # for i in range(10):
 #     poids_avant = modele.get_weights()

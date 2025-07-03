@@ -33,7 +33,7 @@ ax.set_zlabel('axe z')
 ax.view_init(35, -50)
 ax.plot_surface(X, Y, Z)
 plt.tight_layout()
-plt.savefig('neurones-surface-3.png')
+# plt.savefig('neurones-surface-3.png')
 
 
 plt.show()

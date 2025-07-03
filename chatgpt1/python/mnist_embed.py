@@ -5,8 +5,8 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import backend as K
 from tensorflow.keras import optimizers
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Conv2D, Flatten, MaxPooling2D, Dropout
+from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.layers import Input, Dense, Conv2D, Flatten, MaxPooling2D, Dropout
 
 
 
@@ -48,8 +48,10 @@ Y_test = to_categorical(Y_test_data, num_classes=10)
 
 modele = Sequential()
 
+modele.add(Input(shape=(28,28,1)))  # forme de l'image d'entrée
+
 # Première couche de convolution : 16 neurones, convolution 3x3, activation relu
-modele.add(Conv2D(16, kernel_size=3, padding='same', activation='relu', input_shape=(28,28,1)))
+modele.add(Conv2D(16, kernel_size=3, padding='same', activation='relu'))
 modele.add(MaxPooling2D(pool_size=(2, 2)))
 
 # Deuxième couche de convolution : 8 neurones
@@ -90,8 +92,7 @@ print('Test accuracy:', score[1])
 
 # Dernière couche avant softmax et la sortie
 # Fonction qui prend en entrée une image et renvoie la sortie de la couche (dans un espace de dimension 392)
-func = K.function([modele.input], [modele.layers[-2].output])
-
+intermediate_model = Model(inputs=modele.inputs, outputs=modele.layers[-2].output)
 
 ### Partie D - Visualisation
 
@@ -117,13 +118,13 @@ def pca(X, k=2):
 
 def plongement_chiffres():
     nbsamples = 150   # nb de chiffres à afficher
-    YY = func(X_test[0:nbsamples])
+    YY = intermediate_model.predict(X_test[0:nbsamples])  # <-- correction ici
     # print(type(YY[0]))
 
     ten_colors = ['lightblue', 'orange', 'purple', 'green', 'red', 'lime', 'pink', 'gray', 'olive', 'cyan']
 
     # Affichage 2D
-    Z, _, _, _ = pca(YY[0], k=2)
+    Z, _, _, _ = pca(YY, k=2)
 
     for i in range(nbsamples):
         plt.scatter(Z[i, 0], Z[i, 1], c=ten_colors[Y_test_data[i]])
@@ -141,7 +142,7 @@ def plongement_chiffres():
 
 
     # Affichage 3D
-    Z, _, _, _ = pca(YY[0], k=3)
+    Z, _, _, _ = pca(YY, k=3)
 
     from mpl_toolkits.mplot3d import Axes3D
     fig = plt.figure()

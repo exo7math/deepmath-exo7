@@ -6,7 +6,8 @@
 from keras_facile import *
 
 modele = Sequential()
-modele.add(Dense(3, input_dim=2, activation='sigmoid'))
+modele.add(Input(shape=(2,)))  # Entrée de dimension 2
+modele.add(Dense(3, activation='sigmoid'))
 modele.add(Dense(1, activation='sigmoid'))
 
 # Poids de la couche 0

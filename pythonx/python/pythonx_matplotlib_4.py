@@ -16,7 +16,7 @@ for k in range(1,5):
 	plt.plot(X,Y, label="k={}".format(k))
 
 plt.legend()
-plt.savefig('pythonx-sigma.png')
+# plt.savefig('pythonx-sigma.png')
 plt.show()
 
 

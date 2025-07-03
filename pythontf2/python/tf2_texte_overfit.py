@@ -6,7 +6,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 
 # Partie A. Données
@@ -35,7 +35,8 @@ X_test = vectorisation_critiques(X_test_data)
 modele = Sequential()
 
 p = 5
-modele.add(Dense(p, input_dim=nb_mots_total, activation='relu'))
+modele.add(Input(shape=(nb_mots_total,)))  # Entrée de dimension nb_mots_total
+modele.add(Dense(p, activation='relu'))
 modele.add(Dense(p, activation='relu'))
 modele.add(Dense(p, activation='relu'))
 modele.add(Dense(1, activation='sigmoid'))

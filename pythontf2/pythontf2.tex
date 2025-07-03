@@ -138,7 +138,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 ### Partie A - Les données
 
@@ -167,8 +167,10 @@ Y_test = to_categorical(Y_test_data, num_classes=10)
 p = 8
 modele = Sequential()
 
-# Première couche : p neurones (entrée de dimension 784 = 28x28)
-modele.add(Dense(p, input_dim=784, activation='sigmoid'))
+modele.add(Input(shape=(784,)))  # Entrée de dimension 784 (28x28 pixels)
+
+# Première couche : p neurones
+modele.add(Dense(p, activation='sigmoid'))
 
 # Deuxième couche : p neurones
 modele.add(Dense(p, activation='sigmoid'))
@@ -362,14 +364,15 @@ Y_train = Y.reshape(-1,1)
 modele = Sequential()
 
 p = 10
-modele.add(Dense(p, input_dim=1, activation='tanh'))
+modele.add(Input(shape=(1,)))  # Entrée de dimension 1
+modele.add(Dense(p, activation='tanh'))
 modele.add(Dense(p, activation='tanh'))
 modele.add(Dense(p, activation='tanh'))
 modele.add(Dense(p, activation='tanh'))
 modele.add(Dense(1, activation='linear'))
 
 # Méthode de gradient : descente de gradient classique améliorée
-mysgd = optimizers.SGD(lr=0.001, decay=1e-7, momentum=0.9, nesterov=True)
+mysgd = optimizers.SGD(learning_rate=0.001, decay=1e-7, momentum=0.9, nesterov=True)
 modele.compile(loss='mean_squared_error', optimizer=mysgd)
 print(modele.summary())
 
@@ -395,7 +398,7 @@ plt.show()
 
 On a personnalisé la méthode de descente de gradient par la commande 
 \mycenterline{\ci{
-mysgd = optimizers.SGD(lr=0.001, decay=1e-7, momentum=0.9, nesterov=True)
+mysgd = optimizers.SGD(learning_rate=0.001, decay=1e-7, momentum=0.9, nesterov=True)
 }}
 et on demande à utiliser ces paramètres dans la ligne suivante :
 \mycenterline{\ci{
@@ -404,7 +407,7 @@ modele.compile(loss='mean_squared_error', optimizer=mysgd)
 
 La fonction d'erreur est ici l'erreur quadratique moyenne.
 Notre méthode de gradient débute avec un taux d'apprentissage 
-$\delta = 0.001$ (variable \ci{lr} pour \emph{learning rate}).
+$\delta = 0.001$ (variable \ci{learning_rate}).
 Ce taux d'apprentissage va diminuer à chaque étape de la descente de gradient selon un paramètre $\alpha = 10^{-7}$ (option \ci{decay}, voir la section 2 du chapitre \og{}Descente de gradient\fg{}).
 Enfin, on utilise un moment (\emph{momentum}) et l'accélération de Nesterov (voir la section 4 du chapitre \og{}Descente de gradient\fg{}).
 
@@ -466,16 +469,15 @@ Pour l'instant nous ne travaillons qu'avec un seul type d'architecture de résea
 Avec \tensorflow/\keras, il suffit de déclarer le modèle du réseau en ajoutant une à une les couches.
 \begin{lstlisting} 
 modele = Sequential()
-modele.add(Dense(N1, input_dim=n, activation='...'))   # première couche
+modele.add(Input(shape=(n,)))                          # entrée de dimension n
+modele.add(Dense(N1, activation='...'))                # première couche
 modele.add(Dense(N2, activation='...'))                # deuxième couche
 ...
 modele.add(Dense(p, activation='...'))                 # dernière couche
 \end{lstlisting}
-La fonction \ci{add()} prend en entrée le nombre $N_i$ de neurones sur cette couche, ainsi que la fonction d'activation des neurones de cette couche.
-
-Pour la première couche (appelée couche d'entrée), il faut également indiquer la dimension des données en entrée par l'option \ci{input_dim=n} où $n$ est la dimension de chaque donnée d'entrée.
+On commence par indiquer la dimension des données en entrée par l'instruction \ci{Input(shape=(n,))} où $n$ est la dimension de chaque donnée d'entrée.
+La fonction \ci{add(Dense())} prend en entrée le nombre $N_i$ de neurones sur cette couche, ainsi que la fonction d'activation des neurones de cette couche.
 Le nombre de neurones $p$ de la dernière couche (appelée couche de sortie) détermine la dimension de chaque donnée de sortie. Ainsi un réseau ayant des entrées de dimension $n$, et $p$ neurones en sortie, détermine une fonction $F : \Rr^n \to \Rr^p$.
-
 
 
 %--------------------------------------------------------------------
@@ -567,13 +569,13 @@ Il faut préciser quelle méthode va être utilisée pour minimiser la fonction 
   \item \textbf{Descente de gradient personnalisée améliorée.}
   Par exemple 
   \mycenterline{\ci{
-  mysgd = optimizers.SGD(lr=0.001, decay=1e-7, momentum=0.9, nesterov=True)
+  mysgd = optimizers.SGD(learning_rate=0.001, decay=1e-7, momentum=0.9, nesterov=True)
   }}
   puis un appel par l'option \ci{optimizer=mysgd}.
  
   Les paramètres sont :
   \begin{itemize} 
-    \item le taux d'apprentissage $\delta$ (variable \ci{lr}),
+    \item le taux d'apprentissage $\delta$ (variable \ci{learning_rate}),
     \item le taux $\alpha$ de décroissance de $\delta$ (option \ci{decay}),
     \item le moment (\ci{momentum}),
     \item et l'utilisation ou pas de l'accélération de Nesterov.
@@ -772,13 +774,14 @@ sortie = Z.reshape(-1, 1)
 
 modele = Sequential()
 p = 10
-modele.add(Dense(p, input_dim=2, activation='relu'))
+modele.add(Input(shape=(2,)))  # Entrée de dimension 2
+modele.add(Dense(p, activation='relu'))
 modele.add(Dense(p, activation='relu'))
 modele.add(Dense(p, activation='relu'))
 modele.add(Dense(1, activation='linear'))
 
 # Méthode de gradient : descente de gradient classique
-mysgd = optimizers.SGD(lr=0.01)
+mysgd = optimizers.SGD(learning_rate=0.01)
 modele.compile(loss='mean_squared_error', optimizer=mysgd)
 print(modele.summary())
 
@@ -860,12 +863,12 @@ Voici trois (fausses) critiques :
   \item On code une phrase comme une liste d'indices de mots.
   Le mot \og{}\emph{film}\fg{} est remplacé par $1$, le mot \og{}\emph{bon}\fg{} par $2$,\ldots{} jusqu'à  \og{}\emph{super}\fg{}. Les autres mots ne sont pas pris en compte.
   Par exemple la critique \og{}\emph{bon film à voir absolument}\fg{} devient la liste d'indices 
-  $[2, 1, 4]$. Les deux autres critiques deviennent $[9, 3]$ et $[1, 2]$.
+  $[2, 1, 4]$. Les deux autres critiques deviennent $[9, 6, 3]$ et $[1, 2]$.
     
   \item On transforme ensuite chaque liste en un vecteur de taille fixe $n=10$ de coordonnées $0$ ou $1$. On place un $1$ en position $i$ si le mot numéro $i$ apparaît dans la critique.
   Ainsi la phrase \og{}\emph{bon film à voir absolument}\fg{}, codée en $[2, 1, 4]$ devient le vecteur
   $X = (1, 1, 0, 1, 0, 0, 0, 0, 0, 0) \in \Rr^{10}$.
-  La phrase codée $[9, 3]$ donne le vecteur $X'=(0, 0, 1, 0, 0, 0, 0, 0, 1, 0)$.
+  La phrase codée $[9, 6, 3]$ donne le vecteur $X'=(0, 0, 1, 0, 0, 1, 0, 0, 1, 0)$.
   
 
 \myfigure{1}{
@@ -924,7 +927,8 @@ X_test = vectorisation_critiques(X_test_data)
 
 modele = Sequential()
 p = 5
-modele.add(Dense(p, input_dim=nb_mots_total, activation='relu'))
+modele.add(Input(shape=(nb_mots_total,)))  # Entrée de dimension nb_mots_total
+modele.add(Dense(p, activation='relu'))
 modele.add(Dense(p, activation='relu'))
 modele.add(Dense(p, activation='relu'))
 modele.add(Dense(1, activation='sigmoid'))
@@ -1013,7 +1017,8 @@ X_train = X_train/255
 modele = Sequential()
 
 p = 30
-modele.add(Dense(p, input_dim=32*32*3, activation='sigmoid'))
+modele.add(Input(shape=(32*32*3,)))  # Entrée de dimension 32*32*3
+modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))

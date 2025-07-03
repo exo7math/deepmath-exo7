@@ -20,8 +20,8 @@ def exemple1():
     X0 = np.array([2])
     # mon_delta = 0.2
     mon_delta = 0.9
-    mon_delta = 1.1
-    mon_delta = 0.05
+    # mon_delta = 1.1
+    # mon_delta = 0.05
     affiche_descente(f, grad_f, X0, delta=mon_delta, nmax=11)
     graphique_descente_1var(f, grad_f, X0, delta=mon_delta, nmax=11)    
 

@@ -106,7 +106,7 @@ import matplotlib.pyplot as plt
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Conv2D, Flatten
+from tensorflow.keras.layers import Input, Dense, Conv2D, Flatten
 
 ### Partie A - Création des données
 from tensorflow.keras.datasets import mnist
@@ -128,9 +128,10 @@ Y_test = to_categorical(Y_test_data, num_classes=10)
 ### Partie B - Réseau de neurones
 modele = Sequential()
 
-# Première couche de convolution : 32 neurones, motif 3x3, activ. relu
-modele.add(Conv2D(32, kernel_size=3, padding='same', activation='relu',
-                      input_shape=(28,28,1)))
+modele.add(Input(shape=(28,28,1)))
+
+# Première couche de convolution : 32 neurones, convolution 3x3, activation relu
+modele.add(Conv2D(32, kernel_size=3, padding='same', activation='relu'))
 
 # Deuxième couche de convolution : 16 neurones
 modele.add(Conv2D(16, kernel_size=3, padding='same', activation='relu'))
@@ -244,9 +245,11 @@ Sans les deux couches de pooling, il y aurait $767\,946$ poids.
 \begin{lstlisting}
 modele = Sequential()
 
-# Première couche de convolution : 64 neurones, motif 3x3, activ. relu
-modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu',
-                      input_shape=(32,32,3)))
+# Entrée du réseau : 32x32 pixels, 3 canaux (RGB)
+modele.add(Input(shape=(32,32,3)))
+
+# Première couche de convolution : 64 neurones, convolution 3x3, activation relu
+modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu'))
 
 # Deuxième couche de convolution : 64 neurones
 modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu'))
@@ -354,7 +357,7 @@ De plus, comme les photos représentent une grande quantité de données, nous a
 \subsection{Modèle}
 
 On alterne : couche de convolution, pooling et dropout.
-Il y a $206\,685$ poids à calculer.
+Il y a $206\,785$ poids à calculer.
 
 \myfigure{0.35}{
 \tikzinput{fig-tfconv-bloc-03}
@@ -369,7 +372,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense,Conv2D,Flatten,MaxPooling2D,Dropout
+from tensorflow.keras.layers import Input, Dense,Conv2D,Flatten,MaxPooling2D,Dropout
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # Partie A. Données
@@ -394,9 +397,9 @@ training_set = train_datagen.flow_from_directory(train_directory,
 
 # Partie B. Réseau 
 modele = Sequential()
+modele.add(Input(shape=(image_width, image_height, 3)))
 
-modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu', 
-                      input_shape=(image_width,image_height,3)))
+modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu'))
 modele.add(MaxPooling2D(pool_size=(2, 2)))
 modele.add(Dropout(0.5))
 
@@ -417,9 +420,9 @@ modele.compile(loss='binary_crossentropy',
                metrics=['accuracy'])
 
 # Partie C. Apprentissage
-history = modele.fit_generator(training_set,
-                        steps_per_epoch = nb_train_images // 32,
-                        epochs = 10)
+history = modele.fit(training_set,
+                     steps_per_epoch = nb_train_images // 32,
+                     epochs = 10)
 
 \end{lstlisting}
 
@@ -448,7 +451,7 @@ On montre ci-dessus des images de test avec deux photos mal identifiées, peut-�
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Que voit un réseau de neurones ?}
 
-Une des difficultés des réseaux de neurones est qu'ils agissent comme une \og{}boîte noire\fg{}. Une fois bien paramétrés, ils répondent efficacement à un problème. Mais même avec plus $99\%$ de bonnes décisions, l'utilisateur peut avoir un doute sur la réponse donnée par une machine (en particulier pour une question médicale, la conduite autonome\ldots). Il est donc intéressant d'inspecter le fonctionnement interne d'un réseau déjà paramétré en essayant de comprendre ce que font les couches intermédiaires.
+Une des difficultés des réseaux de neurones est qu'ils agissent comme une \og{}boîte noire\fg{}. Une fois bien paramétrés, ils répondent efficacement à un problème. Mais même avec plus de $99\%$ de bonnes décisions, l'utilisateur peut avoir un doute sur la réponse donnée par une machine (en particulier pour une question médicale, la conduite autonome\ldots). Il est donc intéressant d'inspecter le fonctionnement interne d'un réseau déjà paramétré en essayant de comprendre ce que font les couches intermédiaires.
 
 
 %--------------------------------------------------------------------

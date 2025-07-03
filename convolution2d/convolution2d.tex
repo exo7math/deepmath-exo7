@@ -522,7 +522,7 @@ Si l'entrée $\mathcal{A}$ est de taille $(n,p,k)$ alors la sortie est de taille
    \myfigure{0.6}{
    \tikzinput{fig-convolution2d-3d-07e}
    } 
-Noter que sur cette figure chaque motif $M_i$ est représenté par carré $3\times3$, alors qu'en fait chacun devrait être une boîte en $3$ dimensions de taille $3\times 3\times k$.
+Noter que sur cette figure chaque motif $M_i$ est représenté par un carré $3\times3$, alors qu'en fait chacun devrait être une boîte en $3$ dimensions de taille $3\times 3\times k$.
 
 \bigskip
 
@@ -563,7 +563,7 @@ Ci-dessous un pooling de taille $3$ transforme une matrice $9\times 9$ en une ma
 
 \bigskip
 \textbf{Dropout.}\index{dropout} 
-Le \defi{dropout} (décrochage ou abandon en français) est une technique pour améliorer l'apprentissage d'un réseau et en particulier pour prévenir le sur-apprentissage. L'idée est de désactiver certains neurones d'une couche lors des étapes de l'apprentissage. Ces neurones sont choisis au hasard et sont désactivés temporairement pour une itération (par exemple on peut choisir à chaque itération de désactiver un neurone avec une probabilité $\frac12$). Cela signifie que l'on retire toute arête entrante et toute arête sortante de ces neurones, ce qui revient à mettre les poids à zéro tant pour l'évaluation que pour la rétropropagation. Lors de l'itération, suivante on choisit de nouveau au hasard les neurones à désactiver.
+Le \defi{dropout} (décrochage ou abandon en français) est une technique pour améliorer l'apprentissage d'un réseau et en particulier pour prévenir le sur-apprentissage. L'idée est de désactiver certains neurones d'une couche lors des étapes de l'apprentissage. Ces neurones sont choisis au hasard et sont désactivés temporairement pour une itération (par exemple on peut choisir à chaque itération de désactiver un neurone avec une probabilité $\frac12$). Cela signifie que l'on retire toute arête entrante et toute arête sortante de ces neurones, ce qui revient à mettre les poids à zéro tant pour l'évaluation que pour la rétropropagation. Lors de l'itération suivante on choisit de nouveau au hasard les neurones à désactiver.
 Voir le chapitre \og{}Probabilités\fg{} pour plus de détails. 
 
    \myfigure{0.5}{

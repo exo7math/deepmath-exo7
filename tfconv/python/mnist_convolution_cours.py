@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Conv2D, Flatten
+from tensorflow.keras.layers import Input, Dense, Conv2D, Flatten
 
 ### Partie A - Création des données
 from tensorflow.keras.datasets import mnist
@@ -25,8 +25,10 @@ Y_test = to_categorical(Y_test_data, num_classes=10)
 ### Partie B - Réseau de neurones
 modele = Sequential()
 
+modele.add(Input(shape=(28,28,1)))
+
 # Première couche de convolution : 32 neurones, convolution 3x3, activation relu
-modele.add(Conv2D(32, kernel_size=3, padding='same', activation='relu', input_shape=(28,28,1)))
+modele.add(Conv2D(32, kernel_size=3, padding='same', activation='relu'))
 
 # Deuxième couche de convolution : 16 neurones
 modele.add(Conv2D(16, kernel_size=3, padding='same', activation='relu'))

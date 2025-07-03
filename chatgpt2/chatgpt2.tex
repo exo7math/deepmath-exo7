@@ -2,7 +2,6 @@
 \usepackage[screen]{../python}
 
 
-
 \begin{document}
 
 %====================================================================
@@ -19,7 +18,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Architecture}
-
+\vspace{-2ex}
 %--------------------------------------------------------------------
 \subsection{Architecture globale et couches du réseau}
 
@@ -27,7 +26,7 @@
 \begin{center}
 	\begin{minipage}{0.49\textwidth}
 		\small	
-		\myfigure{0.7}{
+		\myfigure{0.7*0.90}{
 			\tikzinput{gpt-01}
 		}
 	\end{minipage}
@@ -42,18 +41,18 @@
 %--------------------------------------------------------------------
 \subsection{Nouveaux concepts}
 
-Les notions de tokenisation et de plongement ont été étudiées au chapitre précédent. Dans cette seconde partie nous nous concentrons sur la notion de transformeur qui est le c\oe ur de réseau et est constituée d'une alternance de couches d'attention et de couches denses. Ces couches sont liées entre elle via le flux résiduel. En sortie du réseau, on obtient un vecteur $w\in \Rr^n$ qu'il faut interpréter comme la liste des mots les plus probables pour compléter la phrase via une opération de retranscription (c'est en quelque sorte l'opération inverse du plongement).
+Les notions de tokenisation et de plongement ont été étudiées au chapitre précédent. Dans cette seconde partie nous nous concentrons sur la notion de transformeur qui est le c\oe ur du réseau et est constituée d'une alternance de couches d'attention et de couches denses. Ces couches sont liées entre elle via le flux résiduel. En sortie du réseau, on obtient un vecteur $w\in \Rr^n$ qu'il faut interpréter comme la liste des mots les plus probables pour compléter la phrase via une opération de retranscription (c'est en quelque sorte l'opération inverse du plongement).
 
 \begin{itemize}
-	\item \textbf{Transformeur}. (\emph{Transformer.}) C'est la succession de deux types de couches qui regroupe le principal travail du réseau.
+	\item \textbf{Transformeur}.\index{transformeur} (\emph{Transformer.}) C'est la succession de deux types de couches qui regroupe le principal travail du réseau.
 	En entrée on a les vecteurs tokens de $\Rr^n$, $v_1$, $v_2$, \ldots, $v_K$ de la phrase initiale que l'on regroupe comme les colonnes d'une matrice $x_1 \in M_{n,K}$. Chaque couche d'attention et chaque couche dense transforme 
 	une matrice $x_i$ en une matrice $x_{i+1}$ de même taille, autrement dit les vecteurs tokens sont modifiés à chaque couche
 	
-	\item \textbf{Couche d'attention.} Une couche d'attention est composée de plusieurs têtes d'attention. Chaque tête d'attention attribue pour un mot de la phrase un coefficient aux autres mots importants pour comprendre le sens de ce mot. Au lieu de se concentrer seulement sur les derniers mots pour la prédiction du mot suivant, ce mécanisme permet de porter son attention à des mots situés bien avant dans le texte (et d'oublier les mots moins importants).
+	\item \textbf{Couche d'attention.}\index{attention} Une couche d'attention est composée de plusieurs têtes d'attention. Chaque tête d'attention attribue pour un mot de la phrase un coefficient aux autres mots importants pour comprendre le sens de ce mot. Au lieu de se concentrer seulement sur les derniers mots pour la prédiction du mot suivant, ce mécanisme permet de porter son attention à des mots situés bien avant dans le texte (et d'oublier les mots moins importants).
 	
 	\item \textbf{Couches denses.} (\emph{MLP}, \emph{Multi-Layer Perceptron.}) Chacune de ces couches est en fait composée de plusieurs sous-couches denses de neurones. On renvoie aux chapitres précédents pour la présentation de ces couches denses que l'on ne réexpliquera pas ici. La dernière sous-couche a $n$ neurones et renvoie donc un vecteur de $\Rr^n$ pour chacun des tokens, c'est-à-dire une matrice de $M_{n,K}$ pour la liste de nos tokens.
 	
-	\item \textbf{Flux résiduel.} (\emph{Residual stream.})
+	\item \textbf{Flux résiduel.}\index{flux@flux résiduel} (\emph{Residual stream.})
 	Le flux résiduel est une sorte de zone mémoire qui est actualisée après le passage de chaque couche. Il s'agit en fait d'une (très grande) matrice $x_i \in M_{n,K}$ dont les colonnes correspondent aux vecteurs tokens. Chaque couche transforme cette matrice $x_i$ en une matrice $x_{i+1}$. On verra que le choix d'une grande valeur $n$ pour la  dimension permet de stocker dans les vecteurs la position du token dans la phrase et permet aussi d'envoyer de l'information d'une couche à une autre.
 	
 \end{itemize}
@@ -74,9 +73,9 @@ Ce modèle et ses poids sont accessibles publiquement et permet de tester compl�
 \subsection{Retranscription et plongement}
 
 La \defi{retranscription} est l'opération inverse du plongement. Il s'agit d'obtenir un mot, plus précisément un token, à partir d'un vecteur de $\Rr^n$.
-Le vocable \emph{retranscription} est la traduction officieuse du terme \emph{unembedding}.
+Le vocable \emph{retranscription}\index{retranscription} est la traduction officieuse du terme \emph{unembedding}.
 
-Rappelons que le \defi{plongement} (\emph{embedding}) est une application linéaire 
+Rappelons que le \defi{plongement}\index{plongement} (\emph{embedding}) est une application linéaire 
 $\varphi : \Rr^N \to \Rr^n$ définie par $y = \varphi(x) = Ax$
 où :
 \begin{itemize}
@@ -88,7 +87,7 @@ Enfin, on rappelle que la base canonique de $\Rr^N$ joue un rôle particulier pu
 
 La retranscription correspond donc à une fonction $\psi : \Rr^n \to \Rr^N$ qui serait une sorte de réciproque de $\varphi$. À un vecteur $y \in \Rr^n$ (qui n'a pas de signification compréhensible pour un humain), on calcule $x = \psi(y)$ qui correspond à un token, ou plus précisément à une liste de probabilités de chaque token.
 
-Le vecteur $x = (x_1, \ldots, x_N) \in \Rr^N$ s'appelle le vecteur \defi{logit}, ses coordonnées $x_i$ sont des nombres réels qu'il reste difficile à interpréter.
+Le vecteur $x = (x_1, \ldots, x_N) \in \Rr^N$ s'appelle le vecteur \defi{logit}\index{logit}, ses coordonnées $x_i$ sont des nombres réels qu'il reste difficile à interpréter.
 La direction de $x$ correspond au token à obtenir (la norme de $x$ correspond généralement à la confiance que l'on a dans notre résultat). On pourrait chercher quel vecteur identifiant $e_i$ est le plus proche de $x$ (selon la similarité cosinus) afin d'identifier le token numéro $i$ à retranscrire.
 
 On va procéder différemment. On applique à $x$ la fonction softmax, pour obtenir
@@ -111,7 +110,7 @@ Voici un exemple graphique, imaginons que l'on ait transcrit la phrase \og{}\mot
 
 Les coordonnées de $y$ n'ont pas de signification tangible, ni celles de $x = \Psi(y)$ obtenu par retranscription. Ce n'est qu'une fois appliquée la fonction softmax, que l'on peut interpréter le $i$-ème coefficient $p_i$ de $\sigma(x)$ comme la probabilité que le mot codé par $y$ soit le token numéro $i$. Ici le concept \og{}gros félin\fg{} est la combinaison du token \mot{lion} (à 50\%) et du token \mot{chat} (à 40\%), les autres tokens étant peu significatifs.
 
-\myfigure{0.75}{
+\myfigure{0.7}{
 	\tikzinput{retranscription-03}
 }
 	
@@ -151,7 +150,7 @@ x = \begin{pmatrix}
 \end{pmatrix}\in [0,1]^{50\,257}
 \]
 La plupart des coefficients $\sigma_i$ de $\sigma(x)$ sont proches de zéro. Il faut identifier les valeurs les plus fortes parmi les $50\,257$ probabilités $\sigma_i$.
-Voici le top 5 avec le token correspondant :
+Voici le top 5, avec le token correspondant :
 \begin{center}
 \begin{tabular}{lll}
 token id & token & probabilité (en \%) \\ \hline
@@ -192,7 +191,7 @@ Mais dans notre situation $N$ est très supérieur à $n$, donc la matrice $A$ n
 
 Pour un $y \in \Rr^n$ donné, il s'agit donc de trouver $x \in \Rr^N$ tel que $Ax = y$. Mais comme $N$ est très supérieur à $n$, il existe une infinité de tels vecteurs $x$ (les solutions forment un sous-espace affine de dimension $N-n$). Nous allons chercher la solution $x$ qui vérifie $Ax=y$ et telle que sa norme $\| x \|_2$ soit la plus petite possible. 
 
-Nous supposons que la matrice $A$ est de rang $n$ (c'est une hypothèse très raisonnable, qui signifie que les $N$ vecteurs colonnes de $A$ engendrent tout l'espace vectoriel $\Rr^n$). Sous cette hypothèse, la matrice $A A^T \in M_{n,n}$ est inversible, on rappelle que $A^T \in M_{N,n} $ désigne la matrice transposée de $A \in M_{n,N}$ (les lignes et les colonnes sont interverties).
+Nous supposons que la matrice $A$ est de rang $n$ (c'est une hypothèse très raisonnable, qui signifie que les $N$ vecteurs colonnes de $A$ engendrent tout l'espace vectoriel $\Rr^n$). Sous cette hypothèse, la matrice $A A^T \in M_{n,n}$ est inversible. On rappelle que $A^T \in M_{N,n} $ désigne la matrice transposée de $A \in M_{n,N}$ (les lignes et les colonnes sont interverties).
 Dans ces conditions nous avons le résultat suivant :
 \begin{proposition}
 	 Soit $ B = A^T \, (A A^T) ^{-1}$.
@@ -202,7 +201,7 @@ Dans ces conditions nous avons le résultat suivant :
 
 Il faut bien faire attention que nous ne sommes pas dans le cas le plus fréquent de la méthode des moindres carrés d'un système sur-dimensionné pour lequel on aurait $n \ge N$. Ici le système linéaire $Ax=y$ est sous-dimensionné car $N \ge n$.
 
-Ici il est très facile de vérifier que $x_{\min}$ est solution de $Ax=y$ (montrer que la norme est minimale demande une petite preuve).
+Il est facile de vérifier que $x_{\min}$ est solution de $Ax=y$ (montrer que la norme est minimale demande une petite preuve).
 Géométriquement, le sous-espace affine $Ax=y$ est parallèle au sous-espace vectoriel $Ax=0$. Le vecteur $x_{\min}$ solution est la projection orthogonale du vecteur nul $0$ sur ce sous-espace affine.
 
 \myfigure{1}{
@@ -285,6 +284,8 @@ Les deux couches que l'on vient de construire sont le début et la fin d'un rés
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Flux résiduel}
 
+\index{flux@flux résiduel}
+
 %--------------------------------------------------------------------
 \subsection{Motivation}
 
@@ -364,7 +365,7 @@ $ W_{\text{in}}^{i+1} \cdot W_{\text{out}}^i$.
 %--------------------------------------------------------------------
 \subsection{Calculs}
 
-Il est plus intéressant de se rendre compte qu'un bloc $i$ peut assez facilement transmettre des informations à n'importe quel bloc $j$ situé après ($j > i$).
+Il est intéressant de se rendre compte qu'un bloc $i$ peut assez facilement transmettre des informations à n'importe quel bloc $j$ situé après ($j > i$).
 En jouant sur les sous-espaces de $\Rr^n$, on va voir comment on pourrait envoyer un vecteur de la sortie du bloc $i$ vers l'entrée du bloc $j$ via le produit :
 $$W_{\text{in}}^{j} \cdot W_{\text{out}}^i.$$
 
@@ -403,11 +404,12 @@ Notons $\Rr^p \subset \Rr^n$ le sous-espace vectoriel correspondant au bloc en h
 On s'intéresse maintenant uniquement au sous-espace $\Rr^p$ :
 \begin{itemize}
 	\item Le bloc $1$ va ajouter un vecteur du type $u_2 = X u_1$ sur le sous-espace $\Rr^p$ du flux résiduel.
+	
 	\item Le bloc $2$ ne va pas modifier le sous-espace $\Rr^p$ du flux résiduel, du fait de la matrice nulle comme premier bloc de $W_{\text{out}}^2$, ainsi le flux résiduel ne change pas $u_3 = u_2$.
-	\item Ainsi le bloc $3$ reçoit le vecteur $u_3 = u_2 = X u_1$, exactement comme si le bloc $2$ n'existait pas.
+	\item Ainsi le bloc $3$ lit depuis le flux résiduel le vecteur $u_3 = u_2 = X u_1$ (et reçoit donc en entrée $Zu_3=Zu_2=ZXu_1$), exactement comme si le bloc $2$ n'existait pas.
 \end{itemize}
 
-Bien sûr ici nous avons conçu à priori la structure qui permet de passer d'un bloc à un bloc futur. Dans la réalité c'est l'apprentissage qui détermine les coefficients des matrices qui sont des poids du réseau et il est sûrement difficile de comprendre quelles informations passent d'un bloc à l'autre sur un réseau entraîné.
+Bien sûr, ici nous avons conçu à priori la structure qui permet de passer d'un bloc à un bloc futur. Dans la réalité c'est l'apprentissage qui détermine les coefficients des matrices qui sont des poids du réseau et il est sûrement difficile de comprendre quelles informations passent d'un bloc à l'autre sur un réseau entraîné.
 
 
 %--------------------------------------------------------------------
@@ -424,10 +426,12 @@ Le vecteur sortie $w_{\text{sortie}} \in \Rr^n$ est ensuite transformé en une l
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Plongement de position}
 
+\index{plongement}
+
 %--------------------------------------------------------------------
 \subsection{Motivation}
 
-Les règles de syntaxe et de grammaire ne sont pas expliquées à l'avance dans les grands modèles récents de langages.
+Les règles de syntaxe et de grammaire ne sont pas expliquées à l'avance dans les grands modèles de langage récents.
 On laisse le modèle découvrir ces règles tout seul par apprentissage. C'est évidemment là que la position joue un rôle primordial afin, par exemple, de comprendre la structure sujet/verbe/complément dans la phrase \og{}Le chat mange le fromage.\fg{}.
 
 Le plongement du token numéro $t$ est un vecteur $v(t) \in \Rr^n$.
@@ -444,7 +448,7 @@ Pour une phrase donnée, on commence par la découper sous la forme d'une liste 
 } 
 
 
-La matrice $V$ tient bien compte de la position des tokens dans la phrase, mais lors son passage à travers le réseau de neurones la matrice $V$ va subir de nombreuses transformations et en particulier des colonnes vont être mélangées, il n'y aura donc plus de traces de l'ordre.
+La matrice $V$ tient bien compte de la position des tokens dans la phrase, mais lors de son passage à travers le réseau de neurones la matrice $V$ va subir de nombreuses transformations et en particulier des colonnes vont être mélangées, il n'y aura donc plus de traces de l'ordre.
 On pourrait ajouter à côté de chaque vecteur token sa position dans la phrase : $(v(t_k), k)$ ; mais ce ne serait pas adapté à notre tactique qui consiste à effectuer tous les calculs dans $\Rr^n$.
 
 L'idée que l'on va mettre en œuvre est de coder la position numéro $k$ par un vecteur $w_k \in \Rr^n$.
@@ -473,13 +477,13 @@ $$\omega_i = \frac{1}{p^\frac{2i}{n}}.$$
 Pour $k \ge 0$, on définit le \defi{vecteur position} :
 \[ w_k = 
 \begin{pmatrix}
-  \cos(	\omega_0 k ) \\
-  \sin(	\omega_0 k ) \\
-  \cos(	\omega_1 k ) \\
-  \sin(	\omega_1 k ) \\
+  \cos(	k \omega_0 ) \\
+  \sin(	k \omega_0 ) \\
+  \cos(	k \omega_1 ) \\
+  \sin(	k \omega_1 ) \\
 	\vdots \\
-  \cos(	\omega_{n/2-1} k ) \\
-  \sin(	\omega_{n/2-1} k ) \\	  
+  \cos(	k \omega_{n/2-1} ) \\
+  \sin(	k \omega_{n/2-1} ) \\	  
 \end{pmatrix}
 \in \Rr^n
 \]
@@ -536,15 +540,15 @@ Dans notre formule, on retrouve le terme $k / q^i$ où ici $q = p^{\frac{2}{n}}$
 
 \textbf{Justification via la physique.}
 
-Étudions la fonction $(k,i) \mapsto \sin( i \omega_k)$ comme un signal.
+Étudions la fonction $(k,i) \mapsto \sin( k \omega_i)$ comme un signal.
 
-On peut tracer les fonctions $k \mapsto \sin( i \omega_k)$ pour différentes valeurs de $i$ fixées. Il s'agit de sinusoïdes, la valeur de la période dépend du paramètre $i$.
+On peut tracer les fonctions $k \mapsto \sin( k \omega_i)$ pour différentes valeurs de $i$ fixées. Il s'agit de sinusoïdes, la valeur de la période dépend du paramètre $i$.
 
 \begin{center}
 	\includegraphics[scale=\myscale,scale=0.4]{figures/position-icst}
 \end{center}
 
-Si on trace les fonctions $i \mapsto \sin( i \omega_k)$ pour différentes valeurs de $k$ fixées. Ce sont des fonctions oscillantes entre $-1$ et $+1$ mais les oscillations ralentissent lorsque $i$ croît. Ainsi connaissant un tel graphe on peut retrouver la valeur de $k$. Autrement dit le vecteur $w_k$ détermine  la position $k$ (assez facilement d'un point de vue numérique).
+Si on trace les fonctions $i \mapsto \sin( k \omega_i)$ pour différentes valeurs de $k$ fixées. Ce sont des fonctions oscillantes entre $-1$ et $+1$ mais les oscillations ralentissent lorsque $i$ croît. Ainsi connaissant un tel graphe on peut retrouver la valeur de $k$. Autrement dit le vecteur $w_k$ détermine  la position $k$ (assez facilement d'un point de vue numérique).
 
 \begin{center}
 	\includegraphics[scale=\myscale,scale=0.4]{figures/position-kcst}
@@ -554,7 +558,7 @@ Si on trace les fonctions $i \mapsto \sin( i \omega_k)$ pour différentes valeur
 
 \textbf{Justification via les mathématiques.}
 
-On peut considérer la fonction $(k,i) \mapsto \sin( i \omega_k)$ comme une fonction de deux variables. Ci-dessous, voici la \emph{heatmap} (les couleurs correspondent aux valeurs de la fonction). Chaque colonne correspond à une valeur de $k$, les colonnes sont suffisamment différentes les unes des autres pour pouvoir déterminer la valeur de $k$.
+On peut considérer la fonction $(k,i) \mapsto \sin( k \omega_i)$ comme une fonction de deux variables. Ci-dessous, voici la \emph{heatmap} (les couleurs correspondent aux valeurs de la fonction). Chaque colonne correspond à une valeur de $k$, les colonnes sont suffisamment différentes les unes des autres pour pouvoir déterminer la valeur de $k$.
 
 \begin{center}
 	\includegraphics[scale=\myscale,scale=0.4]{figures/position-matrix}
@@ -584,7 +588,7 @@ Appliquer $\ell$ rotations d'angle $\omega$ revient à effectuer une rotation d'
 
 
 Notons $R_1 \in M_{n,n}$ la matrice diagonale par bloc :
-
+{\small
 \[
 R_1 = 
 \begin{pmatrix}
@@ -602,6 +606,7 @@ R_\ell = R_1^\ell =
 	& & & M(\ell\omega_{n/2-1}) \\ 			
 \end{pmatrix}
 \]
+}
 
 \begin{proposition}
 \sauteligne
@@ -618,6 +623,8 @@ Conclusion : passer d'un vecteur position à la position suivante correspond à 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Produit tensoriel}
+
+\index{produit tensoriel}\index{tenseur}
 
 Un produit tensoriel de type $(1,1)$ envoie linéairement un vecteur $X$ sur un vecteur $Y$, cela correspond à l'action d'une matrice: $Y = AX$.
 L'attention, qui est à la base de ce chapitre, est fondée sur le produit tensoriel de type $(2,2)$: une matrice est transformée en une autre matrice.
@@ -643,7 +650,7 @@ Alors, pour $1 \le j \le p$:
 \begin{equation}
 	\label{eq:produittensoriel}
 	\tag{\dag}
-	C'_j = \sum_{i=1}^p a_{ij} BC_i.
+	C'_j = \sum_{i=1}^p a_{ji} BC_i.
 \end{equation}
 
 
@@ -790,7 +797,7 @@ M =
 $$
 
 Alors 
-
+{\small
 \[
 A \otimes B
 \begin{pmatrix}
@@ -813,6 +820,7 @@ A \otimes B
 (A \otimes B) \operatorname{vec}(M) 
 = \begin{pmatrix} 8 \\ 5 \\ 18 \\ 11 \end{pmatrix}.
 \]
+}
 Donc après remise en forme du vecteur $(A \otimes B) \operatorname{vec}(M)$ sous forme d'une matrice, on retrouve 
 $$
 (A \otimes B) M = 
@@ -827,6 +835,8 @@ $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Attention}
+
+\index{attention}
 
 %--------------------------------------------------------------------
 \subsection{Tri-grammes à trou}
@@ -843,7 +853,7 @@ Le mot1 joue le rôle du contexte, le mot2 sera le dernier mot de notre phrase �
 \begin{exemple}
 On veut comprendre le mot2 = \mot{signer}, dernier mot d'un texte à compléter.
 
-Si on trouve le mot \mot{appartement} (qui joue le rôle du mot1) auparavant dans le texte alors voici différente propositions pour compléter la phrase :
+Si on trouve le mot \mot{appartement} (qui joue le rôle du mot1) auparavant dans le texte alors voici différentes propositions pour compléter la phrase :
 \mycenterline{ \mot{appartement} \trou \mot{signer} 
 \begin{tabular}{|l}
 	\mot{le bail} \\
@@ -874,7 +884,7 @@ Mais si auparavant dans le texte on avait trouvé le terme \mot{guerre} ou bien 
 
 Remarque : pour nos explications nous inclurons l'article dans le mot, ainsi \mot{le chat} est considéré comme un seul mot.
 
-Ce processus de tri-grammes à trous est très efficace, surtout dans les situations pas très subtiles où il s'agit essentiellement de faire de la copie (par exemple dans du code informatique où il y a beaucoup de structures qui se répètent).
+Ce processus de tri-grammes à trou est très efficace, surtout dans les situations pas très subtiles où il s'agit essentiellement de faire de la copie (par exemple dans du code informatique où il y a beaucoup de structures qui se répètent).
 
 Par exemple :
  \mycenterline{ \mot{grand} \trou \mot{très} 
@@ -910,7 +920,7 @@ L'attention attribue une valeur d'intérêt à chaque mot :
 \end{center}
 
 Ainsi les deux mots importants sont \mot{chat} et \mot{mange}, et on compléterait naturellement la phrase par \mot{souris} (ou \mot{croquettes}) sans se préoccuper des termes \mot{petit} ou \mot{noir}.
-Remarquer qu'ici l'attention a mis en évidence le sujet et le verbe. Ces règles ne sont pas expliquées au réseau de neurones mais apprises par assimilation d'un grand corpus.	
+Remarquer qu'ici, l'attention a mis en évidence le sujet et le verbe. Ces règles ne sont pas expliquées au réseau de neurones mais apprises par assimilation d'un grand corpus.	
 \end{exemple}
 	
 	
@@ -948,7 +958,7 @@ où $W_{\text{in}}^{(j)} \in M_{r,n}$, $W_{\text{out}}^{(j)} \in M_{n,r}$ (pour 
 } 
 
 Une autre façon de faire (équivalente) serait de concaténer les fonctions $h_i$ par des sommes directes, afin de définir $H \in M_{n,n}$ par 
-$H = h_1 \oplus h_2 \oplus \cdots \oplus h_{n/r}$, c'est-à-dire $H$ est la matrice diagonale par bloc :
+$H = h_1 \oplus h_2 \oplus \cdots \oplus h_{n/r}$, c'est-à-dire $H$ est la matrice diagonale par blocs :
 $$H = \begin{pmatrix}
 	h_1 & && \\ 
 	& h_2 & &  \\
@@ -969,7 +979,7 @@ Les coefficients de $A$ ne sont pas directement des poids du réseau, pour $K = 
 
 Donnons maintenant la formule exacte de l'attention issue de l'article fondateur \emph{Attention is all you need} d'une équipe de \emph{Google} à la base du modèle \emph{GPT2} et de tous ses successeurs.
 Nous allons suivre la formalisation de l'article \emph{A mathematical framework for transformer circuits}. La construction reste assez technique et les notations nombreuses.
-Pour ces explications nous allons suivre les notations des articles cités et de la littérature ; il y aura donc des petites différences avec les sections précédentes. Cependant, on choisit ici une convention mathématique : on considère les vecteurs tokens comme des vecteurs colonnes, ainsi dans la matrice $x_i$ du flux résiduel, chaque vecteur colonne correspond à un vecteur token (la convention usuelle est que les vecteurs tokens sont les lignes de cette matrice).
+Pour ces explications nous allons suivre les notations des articles cités et de la littérature ; il y aura donc des petites différences avec les sections précédentes. Cependant, on choisit ici une convention mathématique : on considère les vecteurs tokens comme des vecteurs colonnes, ainsi dans la matrice $x_i$ du flux résiduel, chaque vecteur colonne correspond à un vecteur token (la convention usuelle informatique est que les vecteurs tokens sont les lignes de cette matrice).
 
 \bigskip
 
@@ -983,7 +993,7 @@ Après cette couche, le flux résiduel est :
 $$x_{i+1} = x_i + H_i ( x_i )$$
 où $H_i$ est une transformation qui transforme une matrice de $M_{n,K}$ en une matrice de même taille ($H_i$ dépend de la couche de $i$ et n'est pas tout à fait le même que le $H$ de la section précédente puisque il va inclure ici les matrices de plongement).
 L'attention globale $H_i$ est en fait la somme de têtes d'attention $h \in \mathcal{H}_i$ de cette couche :
-$$H (x_i)  = \sum_{h \in \mathcal{H}_i} h (x_i) $$
+$$H_i (x_i)  = \sum_{h \in \mathcal{H}_i} h (x_i) $$
 
 Chaque tête d'attention est définie par un produit tensoriel :
 $$h(x) = \big(A^{[h]} \otimes W^{[h]}_{OV} \big) x_i,$$
@@ -1001,7 +1011,7 @@ $$W_{OV} = W_O \times W_V.$$
 On note de nouveau $A \in M_{K,K}$ la matrice d'attention, alors par la formule du produit :
 \[
 A \otimes W_{OV} = A \otimes (W_O W_V) = 
-(\underbrace{W_O \otimes I}_{\text{écriture}}) \cdot 
+(\underbrace{I \otimes W_O}_{\text{écriture}}) \cdot 
 (\underbrace{A \otimes I}_{\text{attention}}) \cdot (\underbrace{I \otimes W_V}_{\text{lecture}})
 \]
 Cette écriture décompose le travail :
@@ -1022,7 +1032,9 @@ Même si la matrice $W_{OV}$ est de taille $n \times n$, ses $n^2$ coefficients 
 \textbf{Formule pour l'attention $A$.}
 
 L'action de l'attention est définie par :
-$$(A \otimes I) x = \operatorname{softmax} \big( x^T W_Q^T W_K^T x \big)$$
+\mybox{
+	$(A \otimes I) x = \operatorname{softmax} \big( x^T W_Q^T W_K x \big)$
+}
 où 
 \begin{itemize}
 	\item $x \in M_{n,K}$ est la matrice dont les colonnes sont des vecteurs tokens,
@@ -1110,7 +1122,7 @@ Pour nos explications cette phrase se décompose en quatre tokens \mot{Jeanne}, 
 
 Une fois entraîné, le réseau calcule quatre vecteurs tokens par plongement initial,
 $v_1 =  v_{\text{\mot{Jeanne}}}$, $v_2 = v_{\text{\mot{visite}}}$, $v_3$, $v_4$.
-La juxtaposition de ces quatre vecteurs colonnes, forme la matrice $x_1$ du flux résiduel :
+La juxtaposition de ces quatre vecteurs colonnes forme la matrice $x_1$ du flux résiduel :
 $$x_ 1 = \big( 
 v_{\text{\mot{Jeanne}}},
 v_{\text{\mot{visite}}}, 
@@ -1144,7 +1156,7 @@ $$q_i =  W_Q v_i \qquad \text{ et } \qquad k_i =  W_K v_i$$
 } 
 
 Pour le mot numéro $1$, \mot{Jeanne}, on calcule le produit scalaire de $q_1$ avec chaque $k_j$ pour $j=1,\ldots,4$.
-$$\alpha_j = \langle q_1 \mid k_j \rangle = q_1^T k_1$$
+$$\alpha_j = \langle q_1 \mid k_j \rangle = q_1^T k_j$$
 puis on applique la fonction softmax $\sigma$ pour obtenir 
 $$(\gamma_1, \gamma_2, \gamma_3, \gamma_4)  = \sigma(\alpha_1, \alpha_2, \alpha_3, \alpha_4)$$
 qui vérifient $\gamma_1 + \gamma_2 + \gamma_3 + \gamma_4 = 1$.
@@ -1153,23 +1165,24 @@ $$w_1 = \alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3 + \alpha_4 v_4.$$
 Par exemple :
 $$w_1 = 0.2 v_1 + 0.4 v_2 + 0.1 v_3 + 0.3 v_4.$$ 
 C'est-à-dire :
-$$w_{\text{\mot{Jeanne}}} = 0.2 v_{\text{\mot{Jeanne}}} + 0.4 v_{\text{\mot{visite}}} + 0.1 v_{\text{\mot{zoo}}} + 0.3 v_{\text{\mot{émerveillée}}}.$$ 
+$$w_1 = w_{\text{\mot{Jeanne}}} = 0.2 v_{\text{\mot{Jeanne}}} + 0.4 v_{\text{\mot{visite}}} + 0.1 v_{\text{\mot{zoo}}} + 0.3 v_{\text{\mot{émerveillée}}}.$$ 
 
 %Bien sûr au fil des couches, il n'est plus clair que le premier vecteur corresponde au premier mot.
 
 Il faut refaire ces opérations pour les mots suivants afin d'obtenir $x_2 = (w_1, w_2, w_3, w_4)$.
 
 Par exemple $q_2^T k_j$ correspond aux poids expliquant le mot \mot{visite}, on pourrait avoir :
-$$w_3 = 0.2 v_1 + 0.4 v_2 + 0.4 v_3 + 0.0 v_4.$$ 
+$$w_2 = 0.2 v_1 + 0.4 v_2 + 0.4 v_3 + 0.0 v_4.$$ 
+On a déjà décrit ce que pourraient être $w_3$ et $w_4$.
 
 \begin{center}
 \begin{tabular}{l|ccccc}
       &   & \mot{Jeanne} & \mot{visite} & \mot{zoo} & \mot{émerveillée} \\	
                   &       & $k_1$ & $k_2$ & $k_3$ & $k_4$  \\ \hline	                  
 \mot{Jeanne}      & $q_1$ & 0.2 & 0.4 & 0.1 & 0.3 \\
-\mot{visite}      & $q_2$ & 0.1 & 0.4 & 0.4 & 0.1 \\
-\mot{zoo}         & $q_3$ & 0.2 & 0.4 & 0.4 & 0.0 \\
-\mot{émerveillée} & $q_4$ & 0.1 & 0.4 & 0.4 & 0.1 \\	
+\mot{visite}      & $q_2$ & 0.2 & 0.4 & 0.4 & 0.0 \\
+\mot{zoo}         & $q_3$ & 0.1 & 0.4 & 0.4 & 0.1 \\
+\mot{émerveillée} & $q_4$ & 0.3 & 0.0 & 0.2 & 0.5 \\	
 \end{tabular}	
 \end{center}
 
@@ -1181,9 +1194,9 @@ Ainsi la matrice $h(x_1)$ est composée, ligne par ligne, des coefficients préc
 $$h(x_1) = 
 \begin{pmatrix}
 0.2 & 0.4 & 0.1 & 0.3 \\
-0.1 & 0.4 & 0.4 & 0.1 \\
 0.2 & 0.4 & 0.4 & 0.0 \\
 0.1 & 0.4 & 0.4 & 0.1 \\
+0.3 & 0.0 & 0.2 & 0.5 \\
 \end{pmatrix}
 $$
 
@@ -1254,7 +1267,7 @@ Certaines têtes d'attention font correspondre le token en cours avec lui même 
 \end{center}
 
 
-Les couches le plus hautes correspondent à des concepts plus abstraits (verbes d'actions, repérage spatio-temporel, lien entre un entier $n$ et sont suivant $n+1$, \ldots). Comme d'habitude, il est difficile d'interpréter précisément l'action de chaque objet. 
+Les couches le plus hautes correspondent à des concepts plus abstraits (verbes d'actions, repérage spatio-temporel, lien entre un entier $n$ et son suivant $n+1$, \ldots). Comme d'habitude, il est difficile d'interpréter précisément l'action de chaque objet. 
 Certaines têtes font du copier-coller, d'autres jouent le rôle inverse en interdisant les redondances. Si par exemple on souhaite compléter la phrase \og{}\mot{Il visite la France et Paris. Il commence par ...}\fg{} En voyant les termes \mot{visite}, \mot{France}, \mot{Paris} un réseau mal paramétré pourrait par exemple compléter avec \mot{Paris}, ce qui n'est pas complètement illogique mais maladroit. Certaines têtes empêchent de réutiliser un mot déjà rencontré, ainsi le réseau pourrait compléter en \mot{il commence par la tour Eiffel}.
 
 
@@ -1273,7 +1286,7 @@ Nous allons étudier la fonction d'activation GELU qui est celle choisie par \em
 L'idée de départ est que les données étudiées se répartissent souvent en suivant une loi normale (ou loi de Gauss) et pas une loi uniforme. 
 On renvoie au chapitre \og{}Probabilités\fg{}.
 
-Rappelons que la \defi{loi de Gauss centrée réduite} est définie par :
+Rappelons que la \defi{loi de Gauss centrée réduite}\index{loi de Gauss} est définie par :
 $$f(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac12 x^2}.$$
 La \defi{fonction de répartition} associée est la primitive de $f$ :
 $$\Phi(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x e^{-\frac12 t^2} \dd t$$
@@ -1289,7 +1302,7 @@ Autrement dit, $\Phi(x)$ est la probabilité de l'événement $f(X \le x)$.
 	
 \end{center}
 
-La fonction \defi{GELU} (pour \emph{Gauss Error Linear Unit}) est défini par 
+La fonction \defi{GELU}\index{GELU}\index{fonction d'activation} (pour \emph{Gauss Error Linear Unit}) est définie par 
 $$\GELU(x) = x \Phi(x)$$
 
 

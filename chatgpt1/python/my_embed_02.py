@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 from tensorflow import keras
 from tensorflow.keras import backend as K
 from tensorflow.keras import optimizers
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Conv1D, Flatten, MaxPooling1D, Dropout
+from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.layers import Input, Dense, Conv1D, Flatten, MaxPooling1D, Dropout
 
 
 
@@ -44,13 +44,14 @@ Y_train = proba
 ### Partie B - Réseau de neurones
 embed_dim = 50
 modele = Sequential()
-
+modele.add(Input(shape=(N,)))
 # modele.add(Conv1D(8, 3, activation='relu',input_shape=(N,1)))
 # modele.add(MaxPooling1D(2))
 # modele.add(Conv1D(8, 3, activation='relu'))
 # modele.add(MaxPooling1D(2))
 
-modele.add(Dense(50, input_dim=N, activation='relu'))
+
+modele.add(Dense(50, activation='relu'))
 modele.add(Dense(50, activation='relu'))
 modele.add(Dense(embed_dim, activation='relu'))
 modele.add(Flatten())
@@ -59,7 +60,7 @@ modele.add(Flatten())
 modele.add(Dense(N, activation='softmax'))
 
 # Descente de gradient
-sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.0, nesterov=True)
+# sgd = optimizers.SGD(learning_rate=0.01, decay=1e-6, momentum=0.0, nesterov=True)
 modele.compile(loss='mean_squared_error',
                #loss='categorical_crossentropy',
               optimizer='adam',  
@@ -76,13 +77,12 @@ modele.fit(X_train, Y_train, batch_size=32, epochs=1000, verbose=1)
 
 score = modele.evaluate(X_train, Y_train, verbose=1)
 print('Test loss:', score)
-# print('Test accuracy:', score[1])
+print('Test accuracy:', score[1])
 
 
 # Dernière couche avant softmax et la sortie
 # Fonction qui prend en entrée une image et renvoie la sortie de la couche (dans un espace de dimension nb_neurones)
-func = K.function([modele.input], [modele.layers[-2].output])
-
+intermediate_model = Model(inputs=modele.inputs, outputs=modele.layers[-2].output)
 
 ### Partie D - Visualisation
 
@@ -149,11 +149,11 @@ def plongements_mots():
     print(liste_mots)
 
     indices = [vocab.index(w) for w in liste_mots]
-    YY = func(X_train[indices,:])      # fonction récupérer via l'avant-dernière couche
+    YY = intermediate_model.predict(X_train[indices,:])  # fonction récupérer via l'avant-dernière couche
     # print(type(YY[0]))
 
     # Affichage 2D
-    Z, _, _, _ = pca(YY[0], k=2)
+    Z, _, _, _ = pca(YY, k=2)
 
     for i in range(nbsamples):
         plt.scatter(Z[i, 0], Z[i, 1])   
@@ -168,7 +168,7 @@ def plongements_mots():
 
 
     # Affichage 3D
-    Z, _, _, _ = pca(YY[0], k=3)
+    Z, _, _, _ = pca(YY, k=3)
 
     from mpl_toolkits.mplot3d import Axes3D
     fig = plt.figure()
@@ -183,7 +183,7 @@ def plongements_mots():
     ax.axes.zaxis.set_ticklabels([])
     ax.view_init(azim=-40, elev=20)
 
-    # plt.show()
+    plt.show()
 
     return
 

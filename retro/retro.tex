@@ -158,7 +158,7 @@ k & P_k = (a_k,b_k,c_k) & \grad E(a_k,b_k,c_k) & E(a_k,b_k,c_k) \\ \hline
 0 & (0, 1, -2)                   & (-0.077, 0.192, 0.005)       & 0.450 \\
 1 & (0.077,    0.807,    -2.005) & (-0.072,   0.213,   0.0069 ) & 0.404 \\
 2 & (0.149,    0.593,    -2.012) & (-0.094,   0.188,  -0.0062 ) & 0.355 \\
-3 & (0.244,    3 0.4,    -2.006) & (-0.120,   0.137,  -0.0237 ) & 0.313 \\
+3 & (0.244,    0.404,    -2.006) & (-0.120,   0.137,  -0.0237 ) & 0.313 \\
 4 & (0.364,    0.267,    -1.982) & (-0.090,   0.126,  -0.0240 ) & 0.282 \\
 5 & (0.455,    0.140,    -1.958) & (-0.073,   0.109,  -0.0263 ) & 0.259 \\
 6 & (0.528,    0.031,    -1.932) & (-0.059,   0.095,  -0.0278 ) & 0.242 \\
@@ -267,8 +267,8 @@ On cherche à l'aide de la machine quels poids pourraient convenir avec la fonct
 }
 
 Il y a donc $9$ coefficients à déterminer.
-La fonction d'erreur est :
-$$E = (F(0,0) - 0)^2 + (F(1,1) - 0)^2 + (F(0,1)-1)^2 + (F(1,0) - 1)^2$$
+La fonction d'erreur moyenne est :
+$$E = \frac{1}{4}\bigg( (F(0,0) - 0)^2 + (F(1,1) - 0)^2 + (F(0,1)-1)^2 + (F(1,0) - 1)^2 \bigg)$$
 sachant que $F$ et donc l'erreur $E$ dépendent des coefficients $a_1,\ldots,a_9$.
 Il s'agit de trouver ceux qui rendent l'erreur $E$ minimale.
 
@@ -419,7 +419,7 @@ On décide d'utiliser un réseau avec deux neurones sur la couche d'entrée et u
 }
 
 Il y a $7$ coefficients à déterminer.
-La fonction d'erreur $E$ est la somme des $(F(x_i)-0)^2$ pour les $x_i$ abscisses des ronds bleus et des $(F(x_i)-1)^2$ pour les $x_i$ abscisses des carrés rouges.
+La fonction d'erreur moyenne $E$ est la somme des $(F(x_i)-0)^2$ pour les $x_i$ abscisses des ronds bleus et des $(F(x_i)-1)^2$ pour les $x_i$ abscisses des carrés rouges, le tout divisé par $N=30$.
 
 \bigskip
 
@@ -640,7 +640,7 @@ $p$ & {neurones} & {poids} & {pourcentage apprentissage} & {pourcentage test} \\
 5 & 11 & 141 & 85\% & 75\% \\
 7 & 15 & 211 & 90\% & 85\% \\
 10 & 21 & 331 & 98\% & 90\% \\
-15 & 36 & 571 & 99\% & 90\% \\
+15 & 31 & 571 & 99\% & 90\% \\
 20 & 41 & 861 & 100\% & 85\% \\
 \end{tabular}
 \end{center}
@@ -816,7 +816,7 @@ Ce dernier modèle répond entièrement au problème, mais la solution proposée
 \bigskip
 
 \textbf{Exemple 2.}
-Le problème est similaire si on essaye de séparer les ronds bleus des carrés rouges de la figure de gauche ci-dessous. Une modèle simple permet à une parabole de séparer l'essentiel des ronds bleus des carrés rouges (figure centrale). On peut entraîner un modèle plus complexe pour qu'il délimite parfaitement les deux types de points, mais au prix d'une complexité non nécessairement voulue (figure de droite).
+Le problème est similaire si on essaye de séparer les ronds bleus des carrés rouges de la figure de gauche ci-dessous. Un modèle simple permet à une parabole de séparer l'essentiel des ronds bleus des carrés rouges (figure centrale). On peut entraîner un modèle plus complexe pour qu'il délimite parfaitement les deux types de points, mais au prix d'une complexité non nécessairement voulue (figure de droite).
 \myfigure{0.7}{
 \tikzinput{fig_soucis_07a}\qquad
 \tikzinput{fig_soucis_07b}\qquad

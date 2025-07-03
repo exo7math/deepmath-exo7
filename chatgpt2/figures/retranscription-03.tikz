@@ -1,5 +1,5 @@
-\begin{tikzpicture}[scale=1]
-%\usetikzlibrary{matrix, positioning}
+﻿\begin{tikzpicture}[scale=1]
+\usetikzlibrary{matrix, positioning}
 
 \node (E) at (0,0) {$y = $};
 \matrix[right=of E.center, matrix of math nodes, left delimiter=(, right delimiter=)](Y){ 
@@ -12,16 +12,16 @@ y_1 \\ y_2 \\ \vdots \\ y_n \\
 
 
 \node (F) at (8,0) {$x = $};
-\matrix[right=of F.center, matrix of math nodes, left delimiter=(, right delimiter=)](X){ 
-1.021 \\ -3.205 \\ \vdots \\ -1.288 \\ \vdots \\ 0.984 \\ \vdots \\ 3.212 \\
+\matrix[right=0.8em of F, matrix of math nodes, left delimiter=(, right delimiter=), scale=0.7](X){ 
+-1.021 \\ -3.205 \\ \vdots \\ 3.288 \\ \vdots \\ 3.984 \\ \vdots \\ 0.212 \\
 };
 
 \draw [->,>=latex, line width = 2pt,green!70!black] (11.5,0) to  node[midway, above, scale=0.8] {softmax} ++(2,0);
 
 
 \node (G) at (14.5,0) {$\sigma(x) = $};
-\matrix[right=of G.center, matrix of math nodes, left delimiter=(, right delimiter=)](sX){ 
-0.002 \\ 0.007 \\ \vdots \\ 0.4 \\ \vdots \\ 0.5 \\ \vdots \\ 0.003 \\
+\matrix[right=0.8 em of G, matrix of math nodes, left delimiter=(, right delimiter=), scale=0.7](sX){ 
+0.062 \\ 0.007 \\ \vdots \\ 0.40 \\ \vdots \\ 0.50 \\ \vdots \\ 0.153 \\
 };
 
 \node[right =20pt of sX-6-1.east,scale=0.7](L)  {ligne $i$ {\bf lion}};

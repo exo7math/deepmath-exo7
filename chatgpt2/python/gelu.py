@@ -34,8 +34,8 @@ def graphe2():
 
     return
 
-# graphe1()
-# graphe2()
+graphe1()
+graphe2()
 
 ### Partie B : GELU
 
@@ -72,8 +72,8 @@ def graphe4():
 
     return
 
-# graphe3()
-# graphe4()
+graphe3()
+graphe4()
 
 
 ### Partie C : approximation de GELU
@@ -125,7 +125,7 @@ def graphe6():
 
     return
 
-# graphe5()
-# graphe6()
+graphe5()
+graphe6()
 
     

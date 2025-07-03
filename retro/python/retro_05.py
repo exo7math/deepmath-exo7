@@ -5,7 +5,7 @@ from tensorflow import keras
 # from tensorflow.keras import backend as K
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 import matplotlib.pyplot as plt
 
@@ -29,7 +29,7 @@ def donnees(n):
     X, Y = np.meshgrid(VX, VY)
     Z = f(X, Y)
     Zbool = Z <= 0
-    Zint = Zbool.astype(np.int)
+    Zint = Zbool.astype(int)
     return X, Y, Zint
 
 
@@ -102,8 +102,10 @@ r = p
 # troisième couche (sortie) : 1 neurone 
 # activation = à voir
 
-# Première couche : p neurones (entrée de dimension 2)
-modele.add(Dense(p, input_dim=2, activation='relu'))
+modele.add(Input(shape=(2,)))  # Entrée de dimension 2
+
+# Première couche : p neurones
+modele.add(Dense(p, activation='relu'))
 
 # Deuxième couche : q neurones
 modele.add(Dense(q, activation='relu'))
@@ -133,7 +135,7 @@ print(modele.summary())
 Zpredict = modele.predict(X_train)
 Zpredict = Zpredict.reshape((n,n))
 Zbool = Zpredict >= 0.5
-Zint = Zbool.astype(np.int)
+Zint = Zbool.astype(int)
 # print(Z)
 # print(Zpredict)
 graphique_donnees(X, Y, Zint)

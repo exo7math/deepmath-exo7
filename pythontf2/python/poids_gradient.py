@@ -2,14 +2,16 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 from tensorflow.keras import backend as K
 
 modele = Sequential()
 
-# Première couche : 3 neurones (entrée de dimension 2)
-modele.add(Dense(3, input_dim=2, activation='relu'))
+modele.add(Input(shape=(2,)))  # Entrée de dimension 2
+
+# Première couche : 3 neurones
+modele.add(Dense(3, activation='relu'))
 
 # Deuxième couche : 1 neurone
 modele.add(Dense(1, activation='relu'))
@@ -66,7 +68,7 @@ def compute_gradient(model, X, Y):
     with tf.GradientTape() as tape:
         # make a prediction using the model and then calculate the loss
         Y_pred = model(X)
-        loss = keras.losses.mean_squared_error(Y, Y_pred)
+        loss = keras.losses.MeanSquaredError()(Y, Y_pred)
     # calculate the gradients using our tape 
     grads = tape.gradient(loss, model.trainable_variables)
 
@@ -83,11 +85,9 @@ print( [gradient[i].numpy() for i in range(len(gradient))] )
 # # Calculs possibles
 
 # delta = 0.001  # learning rate
-N = len(Y_train)  # Il faut diviser par 1/N pour avoir le vrai gradient !!
-
-poids_calcul_alamain = [poids_avant[i] - 1/N*delta*(gradient[i].numpy()) for i in range(len(poids_avant))]
+poids_calcul_alamain = [poids_avant[i] - delta*(gradient[i].numpy()) for i in range(len(poids_avant))]
 
 
 # # Comparaison tensorflow/calculs à la main
-print("Poids calculés par tensorflow :\n",poids_apres)
-print("Poids calculés à la main :\n",poids_calcul_alamain)
+print("Poids calculés par tensorflow :\n", poids_apres)
+print("Poids calculés à la main :\n", poids_calcul_alamain)

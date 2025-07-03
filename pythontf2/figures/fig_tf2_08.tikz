@@ -29,7 +29,7 @@
 
 %Seconde couche et sortie
 \node[output neuron] (O) at (\layersep,-1.5 cm) {};
-\node[below right=0.8ex,scale=0.7] at (O) {$\sigma$};
+\node[below right=0.8ex,scale=0.7] at (O) {};
 
 % Arrete et poids
  \path[thick] (E-1) edge node[pos=0.8,above,scale=0.7]{$1$} (I-1) ;

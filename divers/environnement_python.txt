@@ -1,0 +1,38 @@
+Environnement python pour DEEPMATH version 2.0
+==============================================
+
+conda create --name ndeepmath python=3.12 tensorflow keras numpy matplotlib
+conda activate ndeepmath
+
+	Python 3.12
+	Numpy 2.2.6
+	Matplotlib 3.10
+	Tensorflow 2.18
+	Keras 3.10
+
+
+Pour traitement des images (convolution2d)
+	conda install imageio
+	conda install scipy
+
+	Imageio 2.37
+	Scipy 1.15
+
+Installation de Cuda sur le sytème (pas avec conda)
+	Cuda 12.9
+    Cudnn 9.10 pour Cuda 12
+
+Si pas CUDA et pas volonté utiliser GPU :
+
+Il faut commencer les script avec tf par :
+
+	import os
+	os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
+
+Pour ChatGPT
+------------
+  ntlk 3.9 (linguistique)
+  pytorch 2.6 (un équivalent de tensorflow)
+  transformers 4.52 (gestion des LLM)
+  bertviz 1.4 (visualisation des têtes d'attention)

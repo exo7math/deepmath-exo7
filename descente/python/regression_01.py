@@ -125,7 +125,7 @@ def exemple4():
     return
 
 # exemple1()
-# exemple2()
-exemple_quadratique()    
+exemple2()
+# exemple_quadratique()    
 # exemple3()
 # exemple4() 

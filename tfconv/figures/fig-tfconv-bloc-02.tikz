@@ -1,4 +1,4 @@
-
+﻿
 \begin{tikzpicture}[yscale=1.3,xscale=0.9,yslant=.35,nodes={font=},z={([yslant=-.5]1,0)}]
 
 % Convolution64
@@ -61,7 +61,7 @@
     \draw[thin,fill=blue!50]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
     \draw[thin,fill=blue!50] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
     \draw[thin,fill=blue!50!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
-   \node[below=2ex,scale=0.9] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Conv. 64};
+   \node[below=2ex,scale=0.9] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Max-pooling};
 
 % Max-pooling
     \def\A{0}  % A, B, C position
@@ -73,7 +73,7 @@
     \draw[thin,fill=green!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,0)$)  -- ++ (0,\Y,0) -- ++ (0,0,\Z) -- ++ (0,-\Y,0) -- cycle;
     \draw[thin,fill=green!60!black!60] ($(\A,\B,\C) + (-\X/2,\Y/2,0)$) to ++ (\X,0,0) -- ++ (0,0,\Z) -- ++ (-\X,0,0) -- cycle;
     \draw[thin,fill=green!60!black!60]  ($(\A,\B,\C) + (-\X/2,-\Y/2,\Z)$)  -- ++ (0,\Y,0) --++ (\X,0,0) --++ (0,-\Y,0) -- cycle;
-   \node[below=2ex,scale=0.9] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Max-pooling};
+   \node[below=2ex,scale=0.9] at ($(\A-\X/2,\B-\Y/2,\C+\Z/2)$) {Conv. 64};
    
 % Applatissement
     \def\A{0}  % A, B, C position

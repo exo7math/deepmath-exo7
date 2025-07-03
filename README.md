@@ -2,20 +2,20 @@
 Deepmath : Mathématiques des réseaux de neurones
 ================================================
 
-Ce livre comporte deux parties avec chacune un côté mathématiques et un côté réseaux de neurones :
+Ce livre comporte trois parties avec chacune un côté mathématiques et un côté réseaux de neurones :
 
 * analyse et réseaux de neurones
 * algèbre et convolution
+* ChatGPT
 
 
 Nouveau !
 =========
 
-Deux chapitres supplémentaires sur les grands modèles de langages :
-* ChatGPT - Partie 1 [Chapitre](chatgpt1/chatgpt1.pdf)
-* ChatGPT - Partie 2 [Chapitre](chatgpt2/chatgpt2.pdf)
+* Version 2.0. 
+* Inclusions de deux chapitres sur ChatGPT et les  grands modèles de langages.
+* Explciations et scripts sont adaptés à Tensorflow 2.18 et Keras 3.10
 
-Ces chapitres seront bientôt intégrés au livre.
 
 Livre
 =====
@@ -62,14 +62,21 @@ Partie II - Algèbre - Convolution
 * Convolution avec Python [Chapitre](pythonconv/pythonconv.pdf)
 * Convolution avec Tensorflow/Keras [Chapitre](tfconv/tfconv.pdf)
 * Tenseurs [Chapitre](tenseur/tenseur.pdf)
+* Probabilités  [Chapitre](proba/proba.pdf)
+
+[Vidéos proba](https://www.youtube.com/playlist?list=PL4Z-Jb1iAUObWRvZuQgPFUkUMP_Aycwdv)
+
+
+Partie III - ChatGPT
+--------------------
+
+* ChatGPT - Partie 1 [Chapitre](chatgpt1/chatgpt1.pdf)
+* ChatGPT - Partie 2 [Chapitre](chatgpt2/chatgpt2.pdf)
 
 
 Compléments
 ------------------------------------
 
-[Vidéos](https://www.youtube.com/playlist?list=PL4Z-Jb1iAUObWRvZuQgPFUkUMP_Aycwdv)
-
-* Probabilités  [Chapitre](proba/proba.pdf)
 * Annexe [Chapitre](annexe/annexe.pdf)
 
 
@@ -94,10 +101,18 @@ Auteurs
 Arnaud Bodin et François Recher
 
 Merci à Michel Bodin pour sa relecture.
-
 Merci à Kroum Tzanev pour ses figures de convolutions.
-
-Merci à Laurent Briend et Frédéric Sanchez pour leurs remarques pertinentes.
+Nous remercions les lecteurs suivants pour leurs remarques pertinentes :
+	Laurent Briend, 
+	Francis Cougard,
+	Gloria Faccanoni,
+	Kévin François, 
+	Thibault Godin,
+	Alexandre Guénéguan,
+	Aziz Jedidi,
+	Éline Pot,
+	Mathieu Sanchez,
+	Frédéric Sanchez.
 
 Ce livre est diffusé sous la licence *Creative Commons -- BY-NC-SA -- 4.0 FR*.
 

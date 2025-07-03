@@ -2,7 +2,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 
 # Partie A. Données
@@ -45,14 +45,15 @@ def affiche_images(debut):
 modele = Sequential()
 
 p = 30
-modele.add(Dense(p, input_dim=32*32*3, activation='sigmoid'))
+modele.add(Input(shape=(32*32*3,)))  # Entrée de dimension 32*32*3
+modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(10, activation='softmax'))
 
 # Méthode de gradient : descente de gradient stochastique avec taux d'apprentissage donné
-# mysgd = optimizers.SGD(lr = 0.1, decay=1e-6, momentum=0.9, nesterov=True)
+# mysgd = optimizers.SGD(learning_rate = 0.1, decay=1e-6, momentum=0.9, nesterov=True)
 # modele.compile(loss='categorical_crossentropy', optimizer=mysgd, metrics=['accuracy'])
 
 modele.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
@@ -62,7 +63,7 @@ print(modele.summary())
 
 
 # Partie C. Apprentissage
-modele.fit(X_train, Y_train, epochs=1, batch_size=32)
+modele.fit(X_train, Y_train, epochs=5, batch_size=32)
 
 
 

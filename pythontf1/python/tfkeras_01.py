@@ -5,14 +5,15 @@ import numpy as np
 
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 
 # Architecture du réseau
 modele = Sequential()
 
 # Couches de neurones
-modele.add(Dense(2, input_dim=1, activation='relu'))
+modele.add(Input(shape=(1,)))  # Entrée de dimension 1
+modele.add(Dense(2, activation='relu'))
 modele.add(Dense(1, activation='relu'))
 
 
@@ -42,11 +43,8 @@ entree = np.array([[3.0]])
 sortie = modele.predict(entree)
 print('Entrée :',entree,'Sortie :',sortie)
 
-# print(np.linspace(0,1,3))
-# # Entrée/Sortie : une liste de valeurs
+# Entrée/Sortie : une liste de valeurs
 # entree = np.array([[1.0], [2.0], [3.0]])
-# # entree = np.linspace(0,1,3)
-# entree = [1,2,3]
 # sortie = modele.predict(entree)
 # print('Entrée :',entree)
 # print('Sortie :',sortie)

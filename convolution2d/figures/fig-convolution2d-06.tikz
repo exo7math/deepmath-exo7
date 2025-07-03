@@ -25,7 +25,7 @@ m_{13} & m_{12}  & m_{11}  \\
 \draw[->,>=latex,line width = 3pt,blue!30,scale=0.5,xshift=4cm,yshift=-0.2cm]   (0.5,-0.5) .. controls (9,2) and (-2,2) .. (6.5,-0.5);
 
  
-\node at (0,-1.5) {\bf Motif de taille $3\times 2$};
+\node at (0,-1.5) {\bf Motif de taille $3\times 3$};
 \node at (7,-1.5) {\bf Motif retourné};
 
 

@@ -6,14 +6,15 @@ import matplotlib.pyplot as plt
 
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 
 # Architecture du réseau
 modele = Sequential()
 
 # Couches de neurones
-modele.add(Dense(3, input_dim=2, activation='sigmoid'))
+modele.add(Input(shape=(2,)))  # Entrée de dimension 2
+modele.add(Dense(3, activation='sigmoid'))
 modele.add(Dense(1, activation='sigmoid'))
 
 # Couche 0 - Définir à la main les poids

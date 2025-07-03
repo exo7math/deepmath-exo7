@@ -25,7 +25,7 @@ Voici sa réponse :
 \begin{center}
 \begin{minipage}{0.9\textwidth}
 \emph{\og{}
-ChatGPT fonctionne grâce à une architecture de réseau de neurones appelée GPT (Generative Pre-trained Transformer). Cette architecture utilise des opérations linéaires et non linéaires, notamment des couches d'attention, pour traiter l'information. Le modèle est massivement pré-entraîné sur des données textuelles, utilisant des techniques mathématiques avancées telles que la rétropropagation du gradient et l'optimisation par descente de gradient.
+ChatGPT fonctionne grâce à une architecture de réseau de neurones appelée GPT\index{GPT} (Generative Pre-trained Transformer). Cette architecture utilise des opérations linéaires et non linéaires, notamment des couches d'attention, pour traiter l'information. Le modèle est massivement pré-entraîné sur des données textuelles, utilisant des techniques mathématiques avancées telles que la rétropropagation du gradient et l'optimisation par descente de gradient.
 \fg{}}
 \end{minipage}
 \end{center}
@@ -40,9 +40,9 @@ Il y a plein de termes que nous connaissons : réseau de neurones, rétropropaga
 \end{itemize}
 
 Le domaine d'étude de la génération automatique de texte s'appelle le \emph{traitement automatique du langage naturel} (NLP, \emph{Natural Language Processing}).
-Nous allons nous concentrer sur les LLM (\emph{Large Language Model}) 
+Nous allons nous concentrer sur les LLM\index{LLM} (\emph{Large Language Model}) 
 qui ont eu un grand succès ces dernières années grâce à \emph{ChatGPT} et ses variantes.
-\emph{ChatGPT} est un robot conversationnel basé sur le modèle de langage \emph{GPT3}. Dans ces chapitres nous allons en expliquer le principe général. Pour les exemples, on s’appuiera sur \emph{GPT2} (dont les paramètres sont publiquement accessibles) et sur un autre modèle appelé \emph{BERT}. On construira aussi nous-mêmes des générateurs de textes élémentaires.
+\emph{ChatGPT} est un robot conversationnel basé sur le modèle de langage \emph{GPT}. Dans ces chapitres nous allons en expliquer le principe général. Pour les exemples, on s’appuiera sur \emph{GPT2} (dont les paramètres sont publiquement accessibles) et sur un autre modèle appelé \emph{BERT}. On construira aussi nous-mêmes des générateurs de textes élémentaires.
 
 	
 Ces techniques étant nouvelles et essentiellement développées outre-atlantique nous ne chercherons pas à traduire tous les termes. Par exemple le mot \emph{token}, se traduirait dans notre contexte par \emph{portion} ou bien \emph{tronçon}. De plus, nos exemples linguistiques seront basés sur l'anglais car les ressources sont beaucoup plus facilement accessibles.
@@ -93,8 +93,8 @@ Pour construire des phrases plus variées, on utilise un paramètre appelé \emp
 
 \medskip
 	
-La variante de \emph{GPT} la plus célèbre est bien sûr \emph{ChatGPT} qui répond à vos questions.
-Nous ne discuterons pas spécifiquement de \emph{ChatGPT}, mais répondre à une question c'est comme compléter un texte.
+La variante de \emph{GPT} la plus célèbre est bien sûr \emph{ChatGPT}, dont la fonction principale est de répondre à des questions. Mais en y regardant de plus près, cette capacité n'est pas vraiment éloignée de celle que nous avons discutée : répondre à la question \mot{What's this dog ?} revient à savoir compléter la phrase \mot{This dog is ...}, c'est à dire compléter la forme affirmative de la question posée.
+
 
 %--------------------------------------------------------------------
 \subsection{Principe général}
@@ -112,7 +112,7 @@ Voici les grandes étapes qui seront étudiées dans ce chapitre ainsi que le su
 	\item \textbf{Retranscription.} (\emph{Unembedding.})
 	À la fin, en sortie du réseau, on obtient un vecteur $w \in \Rr^n$. On pourrait chercher parmi les $N= 50\,257$ vecteurs tokens, lequel est le plus proche (la distance entre deux vecteurs est définie par le produit scalaire ou la \emph{similarité cosinus}). On préfère attribuer une probabilité de correspondance à chacun des $N$ tokens et, par exemple, choisir le mot suivant parmi les $10$ plus probables.
 	
-	\item \textbf{Transformeur.} (\emph{Transformer.}) L'architecture des réseaux de neurones pour les grands modèles de langages (LLM) se nomme transformeur. En son c\oe ur on trouve deux types de couches. Le premier type est simplement composé de couches denses de neurones (MLP, \emph{Multi Layer Perceptron}, sans convolution) comme on a déjà rencontrées dans les chapitres précédents. 
+	\item \textbf{Transformeur.} (\emph{Transformer.}) L'architecture des réseaux de neurones pour les grands modèles de langage (LLM) se nomme transformeur. En son c\oe ur on trouve deux types de couches. Le premier type est simplement composé de couches denses de neurones (MLP, \emph{Multi Layer Perceptron}, sans convolution) comme on a déjà rencontrées dans les chapitres précédents. 
 	
 	\item \textbf{Attention.} 
 	Les couches de second type sont les couches d'attention qui ont fait le succès des LLM après l'article fondateur \emph{Attention is all you need} par une équipe de \emph{Google}. 
@@ -184,7 +184,7 @@ Nous allons voir comment l'étude des fréquences des mots dans les textes perme
 \subsection{La loi de Zipf-Mandelbrot}
 
 Commençons par étudier la fréquence des mots dans un (grand) texte.
-Prenons un ensemble de dépêches de l'agence \emph{Reuters} qui fournit des informations économiques et politiques. Ce \emph{corpus} est constitué de plus de $10\,000$ dépêches en anglais qui forment un total de plus $1.7$ millions de mots.
+Prenons un ensemble de dépêches de l'agence \emph{Reuters}\index{donnees@données!Reuters} qui fournit des informations économiques et politiques. Ce \emph{corpus} est constitué de plus de $10\,000$ dépêches en anglais qui forment un total de plus de $1.7$ millions de mots.
 Voici un extrait :
 \mycenterline{
 \emph{The country's oil import bill, however, fell 23 pct in the first quarter due to lower oil prices.}}
@@ -218,7 +218,7 @@ Quelle formule régit ce nombre d'occurrences ?
 Une règle simple que l'on constate est que si le mot le plus fréquent apparaît $N$ fois, alors le deuxième mot le plus fréquent apparaît $N/2$ fois, le troisième mot le plus fréquent $N/3$\ldots{} Ainsi la répartition des occurrences en fonction du rang se fait selon les termes :
 \[ 1 \qquad \frac12 \qquad \frac13 \qquad \frac14 \qquad \ldots \]
 Cette observation expérimentale se retrouve dans n'importe quel grand texte, quelle que soit sa langue.
-Elle se décline avec plus de précision dans la \defi{loi de Zipf-Mandelbrot}:
+Elle se décline avec plus de précision dans la \defi{loi de Zipf-Mandelbrot}\index{loi de Zipf-Mandelbrot}:
 \[ f_i = \frac{a}{(i+b)^c} \]
 où :
 \begin{itemize}
@@ -249,7 +249,7 @@ Retenons que les mots d'un texte n'apparaissent pas tous avec la même fréquenc
 
 La fréquence des mots d'une langue ne permet pas de générer des phrases qui paraissent naturelles. Par contre, compter les paires de mots consécutifs va nous permettre de générer des phrases pseudo-naturelles.
 
-La \defi{co-occurrence} d'une paire de mot (mot1, mot2) est le nombre de fois où mot1 est immédiatement suivi de mot2 dans un texte.
+La \defi{co-occurrence}\index{co-occurrence} d'une paire de mot (mot1, mot2) est le nombre de fois où mot1 est immédiatement suivi de mot2 dans un texte.
 Plus généralement la co-occurrence de (mot1, mot2, \ldots, mot$n$) est le nombre de fois où ces mots apparaissent en se suivant et dans cet ordre.
 
 Par exemple dans les dépêches précédentes, voici les co-occurrences les plus fortes lorsque le premier mot est \mot{the} :
@@ -296,24 +296,41 @@ Ces phrases n'ont pas de sens mais elles possèdent quand même une tonalité fa
 \bigskip
 
 Nous allons voir une façon de procéder un peu plus sophistiquée.
-Revenons d'abord sur la fonction softmax.
+Revenons d'abord sur la fonction softmax\index{softmax}.
 Pour $X = (x_1,x_2,\ldots,x_k)$ on note :
-$$\sigma_i  = \frac{e^{x_i}}{ e^{x_1} + e^{x_2} + \cdots + e^{x_k}}.$$
-On a $\sigma_1 + \sigma_2 + \cdots + \sigma_k = 1$.
-On peut interpréter les $\sigma_i$ comme des probabilités.
-La valeur de $\sigma_i$ la plus grande est obtenue pour la valeur la plus grande de $x_i$. Il s'agit d'une version \og{}lisse\fg{} de la fonction argmax (on rappelle que la fonction argmax renvoie le rang pour lequel le maximum est atteint).
+$$\sigma_i(X)  = \frac{e^{x_i}}{ e^{x_1} + e^{x_2} + \cdots + e^{x_k}}.$$
 
-Voici le graphe de $\sigma_1(x) = \frac{e^x}{e^x+e^{1-x}}$ pour $X = (x,1-x)$ et $x \in \Rr$.
+
+
+On définit alors la fonction $\operatorname{softmax}$ par :
+$$\begin{array}{rcl}
+	\operatorname{softmax} \colon \Rr^k & \longrightarrow & [0,1]^k \subset \Rr^k \\
+	X &\longmapsto & \big(\sigma_1(X), \sigma_2(X), \dots, \sigma_k(X)\big)
+\end{array}
+$$
+
+On a $\sigma_1(X) + \sigma_2(X) + \cdots + \sigma_k(X) = 1$.
+On peut donc interpréter les $\sigma_i(X)$ comme des probabilités.
+La composante \(\sigma_i(X)\) est d’autant plus grande que \(x_i\) est grand, car la fonction exponentielle amplifie les différences.  
+Ainsi, la plus grande valeur parmi les \(\sigma_i(X)\) est atteinte pour l’indice \(i\) tel que \(x_i\) est maximal.
+Il s'agit d'une version \og{}lisse\fg{} de la fonction argmax\index{argmax} (on rappelle que la fonction argmax renvoie le rang pour lequel le maximum est atteint).
+
+Nous prenons ici \(X = (x, 1 - x)\) pour visualiser le comportement de la fonction softmax dans un cas simple à deux composantes qui varient de manière complémentaire.
+Voici le graphe de $\sigma_1(x) = \frac{e^x}{e^x+e^{1-x}}$ pour $x \in \Rr$.
 \begin{center}
 	\includegraphics[scale=\myscale,scale=0.4]{figures/softmax-01}
 \end{center}
 
 \bigskip
 
-Nous allons rajouter un paramètre, appelé \defi{température}, à la fonction softmax.
+Nous allons rajouter un paramètre, appelé \defi{température}\index{temperature@température}, à la fonction softmax.
 Pour $X = (x_1,x_2,\ldots,x_k)$ et $T > 0$, on note :
-$$\sigma_{T,i}  = \frac{e^{x_i/T}}{ e^{x_1/T} + e^{x_2/T} + \cdots + e^{x_k/T} }.$$
+$$\sigma_{T,i}(X)  = \frac{e^{x_i/T}}{ e^{x_1/T} + e^{x_2/T} + \cdots + e^{x_k/T} }.$$
 On a de nouveau $\sigma_{T,1} + \sigma_{T,2} + \cdots + \sigma_{T,k} = 1$.
+Et on définit une fonction
+$\operatorname{softmax}_T : \Rr^k \to [0,1]^k$, par 
+$\operatorname{softmax}_T(X) = \big(\sigma_{T,1}(X), \dots, \sigma_{T,k}(X)\big)$.
+
 
 Voici les graphes de $\sigma_{T,1}(x) = \frac{e^{x/T}}{e^{x/T}+e^{{1-x}/T}}$ pour $X = (x,1-x)$ et quelques valeurs de $T$.
 
@@ -420,7 +437,7 @@ Commençons par établir la terminologie :
 Pour compléter un début de phrase, on va prédire une suite probable.
 La prédiction se fait mot par mot. Nous allons à l'avenir utiliser un découpage différent en utilisant des \emph{tokens}.
 
-Un \defi{token} (une \defi{portion} ou un \defi{tronçon}) est une suite de caractères qui correspond à une partie de mot. Chaque modèle de langage fait son choix de tokens. L'ensemble des tokens choisis constitue le \defi{vocabulaire}.
+Un \defi{token}\index{token} (une \defi{portion} ou un \defi{tronçon}) est une suite de caractères qui correspond à une partie de mot. Chaque modèle de langage fait son choix de tokens. L'ensemble des tokens choisis constitue le \defi{vocabulaire}.
 
 Le modèle \emph{GPT2} utilise $50\,257$ tokens, chacun est numéroté. En voici quelques uns :
 
@@ -501,7 +518,7 @@ Dans le modèle \emph{GPT2} on a $N = 50\,257$ et $n=768$.
 
 Pour le token \mot{␣cat}, dont l'identifiant est $3797$, le vecteur token débute par :
 $v_{3797} = 
-j\left(\begin{smallmatrix}
+\left(\begin{smallmatrix}
 0.0099 \\
 0.0365 \\  
 0.1640 \\
@@ -528,7 +545,7 @@ Pour nous, la tokenisation a pour principal but de fixer le nombre de mots du vo
 
 \medskip
 
-Expliquons l'algorithme BPE (\emph{Byte Pair Encoding}) qui permet d'obtenir une liste de tokens de taille voulue.
+Expliquons l'algorithme BPE (\emph{Byte Pair Encoding})\index{token} qui permet d'obtenir une liste de tokens de taille voulue.
 Les données initiales sont :
 \begin{itemize}
 	\item un texte (qui est le texte à compresser ou qui est le texte des données d'apprentissage),
@@ -610,9 +627,9 @@ La paire du vocabulaire la plus fréquente est maintenant la paire
 
 \end{itemize}
 
-Les tokens sont les éléments du vocabulaire que l'on numérote ici de $1$ à $7$.
+Les tokens sont les éléments du vocabulaire que l'on numérote ici de $1$ à $8$.
 Le texte tokenisé est alors codé sous la forme :
-\mycenterline{\ci{texte} = [6], [6], [6,3], [4,7], [7,4,5]}
+\mycenterline{\ci{texte} = [6], [6], [6,3], [4,8], [8,4,5]}
 
 \end{exemple}
 
@@ -646,7 +663,7 @@ Cependant cette représentation dans le plan ne donne qu'une idée partielle du 
 %--------------------------------------------------------------------
 \subsection{Un mot est un vecteur}
 
-\textbf{Plongement.}
+\textbf{Plongement.}\index{plongement}
 Nous allons transformer un mot (ou plus exactement un token) en un vecteur.
 Cette opération s'appelle le plongement.
 Mathématiquement cela correspond à une fonction (une application linéaire) :
@@ -696,7 +713,7 @@ $$\| X-Y \| = \sqrt{\sum_{i=1}^n (x_i - y_i)^2}.$$
 } 
 
 Mais en fait nous allons considérer les éléments de $\Rr^n$ comme des vecteurs.
-La \defi{similarité cosinus} entre $X$ et $Y$ est le cosinus de l'angle entre ces deux vecteurs :
+La \defi{similarité cosinus}\index{similarite@similarité cosinus} entre $X$ et $Y$ est le cosinus de l'angle entre ces deux vecteurs :
 $$S_{\cos}(X,Y) = \cos(\theta) = \frac{\langle X \mid Y \rangle}{\| X \| \; \| Y\| }.$$
 On a $\cos (\theta) \in [-1,1]$, ce n'est pas une distance au sens mathématique usuel.
 
@@ -791,7 +808,7 @@ Dans notre situation linguistique, la longueur du vecteur correspond à la certi
 \textbf{Pourquoi utiliser la similarité cosinus ?}
 Voici une explication sous la forme d'un exemple (fictif).
 \begin{exemple}
-Chacun de nos axes de $\Rr^n$ correspond à une catégorie, par exemple un axe pour \mot{homme}, un axe pour \mot{femme}, un axe pour \mot{enfant}, un axe pour \mot{royauté}\ldots{} (évidemment ce ne sera pas aussi simple que cela).
+Chacun de nos axes de $\Rr^n$ correspond à une catégorie, par exemple un axe pour \mot{homme}, un axe pour \mot{femme}, un axe pour \mot{enfant}, un axe pour \mot{royauté}\ldots{} (évidemment dans la réalité ce ne sera pas aussi simple).
 Dans ces coordonnées (\mot{homme}, \mot{femme}, \mot{enfant}, \mot{royauté}) de $\Rr^4$ imaginons que le mot \mot{roi} ait pour direction le vecteur 
 $X_1 = \left(\begin{smallmatrix}1\\0\\0\\1\end{smallmatrix}\right)$ 
 (c'est autant un homme qu'un symbole de royauté),
@@ -811,7 +828,7 @@ $X_2 = \left(\begin{smallmatrix}0\\1\\0\\1\end{smallmatrix}\right)$
 	\end{tabular}
 \end{center}
 
-Si dans une phrase on trouve trois fois le mot \mot{homme} et aussi les mots \mot{couronne} et \mot{château} (deux symboles de royauté), on va associer à ce texte le vecteur $Y = \left(\begin{smallmatrix}3\\0\\0\\2\end{smallmatrix}\right)$ obtenu en comptant les occurrences de chaque catégorie.
+Si dans une phrase on trouve trois fois le mot \mot{homme} et aussi le mot \mot{couronne} et le mot \mot{château} (deux symboles de royauté), on va associer à ce texte le vecteur $Y = \left(\begin{smallmatrix}3\\0\\0\\2\end{smallmatrix}\right)$ obtenu en comptant les occurrences de chaque catégorie.
 
 Calculons la similarité cosinus entre $Y$ et les $X_i$ :
 $$
@@ -827,8 +844,36 @@ Noter qu'en terme de distance euclidienne $X_1$ (pour \mot{roi}) et $Y$ (pour no
 \end{exemple}
 
 
+\begin{exemple}
+Poursuivons cet exemple. Cette fois, notre tâche est de résumer un texte par un seul mot.
+On procède de la façon suivante : chaque fois qu'on rencontre le terme \mot{roi}, on ajoute le vecteur
+$X_1 = \left(\begin{smallmatrix}1\\0\\0\\1\end{smallmatrix}\right)$,
+chaque fois qu'on rencontre le mot \mot{princesse}, on ajoute le vecteur
+$X_3 = \left(\begin{smallmatrix}0\\1\\1\\1\end{smallmatrix}\right)$, etc.
+Un long conte rempli de princesses nous donnera un vecteur de grande norme, tandis qu’un court texte sur le même sujet produira un vecteur de norme plus petite.
+Cependant, si notre processus est bien calibré, ces deux vecteurs devraient avoir (à peu près) la même direction.
+\end{exemple}
+
+
+\medskip
+
+\textbf{La malédiction de la dimension.}  
+
+Nos sens ne sont pas adaptés aux espaces de grande dimension. Si l’on prend au hasard $1000$ points dans $\Rr^{768}$, avec des coordonnées tirées uniformément dans $[0,1]$, alors la distance entre deux points quelconques sera en moyenne d’environ $11.3$, avec un écart-type de seulement $0.25$.  
+Cela signifie que presque tous les points sont situés à une distance comprise entre $11.0$ et $11.5$ les uns des autres. Il n’y a donc plus vraiment de distinction entre points proches et points éloignés. La distance euclidienne n'est donc plus pertinente.
+
+Dans notre contexte, les vecteurs représentant les textes ou les mots sont souvent \emph{très creux} : la grande majorité de leurs composantes sont nulles (ou négligeables). Par exemple, un vecteur peut n’avoir que $50$ composantes non nulles sur $768$ (bien sûr ce ne sont pas toujours les mêmes composantes nulles à chaque fois). La distance euclidienne ne permet pas de profiter de ce fait.
+
+En revanche, la similarité cosinus compare essentiellement la direction des vecteurs en ignorant implicitement les coordonnées nulles. Elle permet donc de calculer comme si on était dans l'espace des composantes non-nulles, donc de se ramener à des calculs en dimension $50$ au lieu de $768$ pour notre exemple. Ainsi la similarité cosinus permet de mieux distinguer des mots proches de mots éloignés.
+
+
+
+
+
 %--------------------------------------------------------------------
 \subsection{Projections}
+
+\index{projection}
 
 \textbf{Projections.}
 Les mots/tokens vont être plongés dans un espace $\Rr^n$ de grande dimension, par exemple avec $n=768$ ou $n=1024$. 
@@ -898,7 +943,7 @@ $v_{\text{\mot{city}}}$ des tokens \mot{animal} et \mot{city}. Puis on définit 
 Ensuite on considère la projection sur la droite dirigée par $u$ :
 pour chaque vecteur token $v_i$ on calcule le produit scalaire $\langle v_i \mid u \rangle$. Si notre modèle est correct alors plus ce produit scalaire est haut, plus le token correspond à la catégorie \og{}animaux\fg{}, plus le produit scalaire est bas, plus le token correspond à la catégorie \og{}villes\fg{}.
 
-Voici le tracé des nos mots obtenus par cette méthode :
+Voici le tracé de nos mots obtenus par cette méthode :
 
 \begin{center}
 	\includegraphics[scale=\myscale,scale=0.63]{figures/projection-droite}
@@ -912,7 +957,7 @@ On constate que le modèle sépare correctement les villes (à gauche) des anima
 
 \textbf{Projection sur un plan ou sur un espace.}
 La formule précédente s'étend naturellement en dimension $2$ et $3$.
-Considérons les vecteurs $u,v \in \Rr^n$ formant une base orthonormée (c'est-à-dire $\|u\| = 1$, $\|v\| = 1$ et $\langle u \mid v \rangle =1$), la projection orthogonale sur le plan défini par $(u,v)$ est l'application $\pi : \Rr^n \to \Rr^2$ définie par 
+Considérons les vecteurs $u,v \in \Rr^n$ formant une base orthonormée (c'est-à-dire $\|u\| = 1$, $\|v\| = 1$ et $\langle u \mid v \rangle =0$), la projection orthogonale sur le plan défini par $(u,v)$ est l'application $\pi : \Rr^n \to \Rr^2$ définie par 
 $$\pi(x) = \big(\langle x \mid u \rangle, \langle x \mid v \rangle\big).$$
 
 \myfigure{1}{ 	
@@ -938,7 +983,7 @@ Cela ne signifie pas que le modèle sépare mal ces tokens, mais juste que notre
 Revenons sur le dernier point soulevé par cet exemple avec deux analogies.
 Lorsque vous observez le ciel étoilé, ce n'est pas parce que deux étoiles vous semblent proches dans le ciel, qu'elles le sont réellement. L'une peut être beaucoup plus éloignée de la Terre que l'autre. 
 Une autre analogie est la suivante : lorsque vous regardez une radio d'un corps humain il est difficile de reconstituer la situation 3D, c'est d'ailleurs pour cela que l'on fait souvent des radios suivant plusieurs points de vue. 
-Ici, il est illusoire de vouloir comprendre un espace de dimension $768$ ou plus en n'étudiant seulement quelques projections.
+Ici, il est illusoire de vouloir comprendre un espace de dimension $768$ ou plus en n'étudiant seulement que quelques projections.
 Cependant nous allons voir comment obtenir des projections plus pertinentes que d'autres.
 
 
@@ -947,7 +992,7 @@ Cependant nous allons voir comment obtenir des projections plus pertinentes que 
 
 \textbf{Analyse en composantes principales.}
 Comment trouver une bonne projection qui mette le mieux en évidence l'étalement de nos données ? Il existe une technique statistique appelée analyse en composantes principales (\emph{pca}, \emph{principal component analysis}). 
-Nous ne cherchons pas expliquer cette méthode un peu sophistiquée, mais qui s'écrit en quelques lignes en \Python{}. Ici \ci{X} est une liste \ci{numpy} de vecteurs de $\Rr^n$, et cette fonction renvoie la projection de ces vecteurs dans le plan ($k=2$) ou l'espace ($k=3$).
+Nous ne cherchons pas à expliquer cette méthode un peu sophistiquée, mais qui s'écrit en quelques lignes en \Python{}. Ici \ci{X} est une liste \ci{numpy} de vecteurs de $\Rr^n$, et cette fonction renvoie la projection de ces vecteurs dans le plan ($k=2$) ou l'espace ($k=3$).
 
 \begin{center}
 \begin{lstlisting}
@@ -1018,6 +1063,7 @@ Ainsi, le résultat souhaité, \mot{queen}, n'arrive qu'en deuxième position. D
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Réalisation d'un plongement}
 
+\index{plongement}
 
 %--------------------------------------------------------------------
 \subsection{Plongement des chiffres}
@@ -1048,7 +1094,7 @@ qui à une image associe les valeurs de sortie de l'avant-dernière couche. C'es
 Noter que $n$ peut être choisi à la valeur que l'on souhaite, en changeant le nombre de neurones de l'avant-dernière couche.
 
 Voyons l'effet de ce plongement sur une centaine d'images de la base MNIST, après avoir appliqué une analyse en composantes principales pour obtenir une projection 2D et 3D.
-
+\index{donnees@données!MNIST}
 \begin{center}
 	\includegraphics[scale=\myscale,scale=0.5]{figures/mnist-embed-1}
 	\includegraphics[scale=\myscale,scale=0.7,trim={2cm 2cm 2cm 2cm},clip]{figures/mnist-embed-2}
@@ -1058,6 +1104,8 @@ On visualise bien les différentes catégories de chiffres, il y a cependant des
 
 %--------------------------------------------------------------------
 \subsection{Co-occurrence}
+
+\index{co-occurrence}
 
 Nous expliquons maintenant comment réaliser un plongement des tokens à partir d'un corpus. Nous allons réaliser un plongement simple mais tout de même efficace.
 
@@ -1072,12 +1120,12 @@ $j=1$ \mot{le}   & 0  & 10 & 1  & 0 \\
 $j=2$ \mot{et}   & 0  & 0  & 8  & 5 \\
 $j=3$ \mot{chat} & 6  & 2  & 0  & 0 \\
 $j=4$ \mot{chien}& 4  & 3  & 1  & 0 \\
-\emph{Total}     & \emph{10} & \emph{15} & \emph{10} & \emph{0} \\	
+\emph{Total}     & \emph{10} & \emph{15} & \emph{10} & \emph{5} \\	
 \end{tabular}
 \end{center}
 Chaque occurrence de \og{}\mot{le chat}\fg{} dans le texte correspond à la paire (\mot{le}, \mot{chat}) et contribue à $+1$ à la place $(i=1,j=3)$ de la matrice de co-occurrence. Ici dans le texte il y a eu $6$ occurrences de \og{}\mot{le chat}\fg{}.
 
-Pour obtenir la matrice des probabilités, il faut pour chaque mot$i$ calculer la probabilité que le mot suivant soit mot$j$.
+Pour obtenir la matrice des probabilités, il faut pour chaque mot$i$, calculer la probabilité que le mot suivant soit mot$j$.
 Cette probabilité $p_{ij}$ (à la colonne $i$, ligne $j$) se calcule par :
 $$p_{ij} = \frac{\text{nombre d'occurrences de la paire (mot$i$, mot$j$)}}{\text{nombre d'occurrences de mot$i$}}.$$
 	
@@ -1091,7 +1139,7 @@ $$P = \begin{pmatrix}
 
 
 \begin{exemple}
-Reprenons le corpus \emph{Reuter}. Parmi tous les mots (en minuscules, de longueur $>1$), on travaille sur le vocabulaire  des $N=500$ mots les plus fréquents qui seront nos tokens.
+Reprenons le corpus \emph{Reuters}. Parmi tous les mots (en minuscules, de longueur $>1$), on travaille sur le vocabulaire  des $N=500$ mots les plus fréquents qui seront nos tokens.
 
 Les cinq premiers mots les plus fréquents sont : 
 \mycenterline{\mot{the},\quad \mot{of},\quad \mot{to},\quad \mot{in},\quad \mot{and}.}
@@ -1132,7 +1180,7 @@ Construisons un réseau de neurones :
 	
 	\item Ensuite nous avons un réseau de neurones (plus ou moins complexe), ce réseau se termine par une couche dense de $n$ neurones, avec par exemple $n=768$ ou $n=1024$. 
 	
-	\item On ajoute enfin une couche de sortie composée de $N$ neurones (autant que la dimension d'entrée) associés à la fonction d'activation  softmax.
+	\item On ajoute enfin une couche de sortie composée de $N$ neurones (autant que la dimension d'entrée) associés à la fonction d'activation softmax.
 \end{itemize}
 
 \myfigure{0.7}{ 	
@@ -1147,7 +1195,7 @@ Une fois ce réseau entraîné, on considère la fonction $\varphi : \Rr^N \to \
 Comme pour le plongement des chiffres, le fait que le réseau soit entraîné à reconnaître le successeur d'un mot signifie que les valeurs en sortie de l'avant-dernière couche de $n$ neurones sont déjà une certaine représentation des mots. 
 
 \begin{exemple}
-Finalisons le plongement issu des dépêches \emph{Reuter}.
+Finalisons le plongement issu des dépêches \emph{Reuters}.
 On crée un réseau de neurones avec $N=500$ entrées,
 puis une ou deux couches denses ou de convolutions, suivies ensuite d'une couche dense de $n=50$ neurones (l'avant-dernière couche), puis une couche de sortie de $N=500$ neurones avec la fonction d'activation softmax.
 
@@ -1170,4 +1218,8 @@ Les plongements de \emph{BERT} ou \emph{GPT} sont évidemment bien plus performa
 Notre modèle est ici très simple, on le limite à un vocabulaire de $N=500$ mots, notre corpus n'est pas gigantesque et on ne tient compte que des paires de mots consécutifs. Mais même ainsi, on obtient des résultats intéressants.
 \end{exemple}
 
+
+\vfill
+Vous trouverez des sites qui proposent de tester différents modèles en affichant de façon interactive les tokens et leur probabilité, par exemple :
+  \mycenterline{\href{https://fr.vittascience.com/ia/}{fr.vittascience.com/ia/}}
 \end{document}

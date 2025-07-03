@@ -13,7 +13,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 
 # Fonction d'activation Heaviside

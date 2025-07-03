@@ -2,7 +2,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 import random
 
@@ -30,7 +30,7 @@ def toutes_configurations(C):
     return liste
 
 # Test
-C = 20
+C = 15   # C = 20 pour le cours
 liste = toutes_configurations(C)
 # print(liste)
 # print(len(liste),C*(C-1)*(C-2)/6)
@@ -55,9 +55,10 @@ def hauteur(config):  # différence entre le rang le plus haut et le rang le plu
 # C = 20
 p = 15
 q = p
+modele.add(Input(shape=(C,)))
 
 # Première couche : p neurones (entrée de dimension C)
-modele.add(Dense(p, input_dim=C, activation='relu'))
+modele.add(Dense(p, activation='relu'))
 
 # Seconde couche : q neurones
 modele.add(Dense(q, activation='relu'))
@@ -92,9 +93,11 @@ Y_test = np.array(liste_Y[taille_train:])
 # print(Y_test)
 
 
-# Descente de gradient
-# modele.fit(X_train, Y_train, epochs=2000, batch_size=len(X_train), verbose = 1)
-modele.fit(X_train, Y_train, epochs=4000, batch_size=100, verbose = 1)
+# Descente de gradient 
+# Il faut epochs = 4000 pour que les poids soient bien ajustés
+
+modele.fit(X_train, Y_train, epochs=500, batch_size=len(X_train), verbose = 1)
+# modele.fit(X_train, Y_train, epochs=4000, batch_size=100, verbose = 1)
 
 print(modele.summary())
 
@@ -143,7 +146,7 @@ def evaluation():
     print("Nb de données dans le test :", len(X_test))
     print("Nb de données prédite correctement :", nb_correct)
     perc = nb_correct/len(X_train)*100
-    print("Pourcentage de réussite :",round(perc))
+    print("Pourcentage de réussite :", round(perc))
 
     return
 

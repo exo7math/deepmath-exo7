@@ -1,7 +1,7 @@
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 # Partie A. Données
 
@@ -22,7 +22,8 @@ X_train = X_train/255
 modele = Sequential()
 
 p = 30
-modele.add(Dense(p, input_dim=32*32*3, activation='sigmoid'))
+modele.add(Input(shape=(32*32*3,)))  # Entrée de dimension 32*32*3
+modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))
 modele.add(Dense(p, activation='sigmoid'))

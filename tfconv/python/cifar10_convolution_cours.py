@@ -1,7 +1,10 @@
 modele = Sequential()
 
+# Entrée du réseau : 32x32 pixels, 3 canaux (RGB)
+modele.add(Input(shape=(32,32,3)))
+
 # Première couche de convolution : 64 neurones, convolution 3x3, activation relu
-modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu', input_shape=(32,32,3)))
+modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu'))
 
 # Deuxième couche de convolution : 64 neurones
 modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu'))

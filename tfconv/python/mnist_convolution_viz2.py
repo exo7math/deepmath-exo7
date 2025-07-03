@@ -5,7 +5,7 @@ from tensorflow import keras
 # from tensorflow.keras import backend as K
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Conv2D, Flatten
+from tensorflow.keras.layers import Input, Dense, Conv2D, Flatten
 
 
 from tensorflow.keras.models import Model
@@ -37,12 +37,12 @@ Y_test = to_categorical(Y_test_data, num_classes=10)
 # puis on récupère le modèle :
 model = load_model('modele_mnist_viz.h5')  
 
-my_layer = 3   # layer nb to be inspected
+my_layer = 1   # layer nb to be inspected
 
 # redefine model to output right after our hidden layer
 model = Model(inputs=model.inputs, outputs=model.layers[my_layer-1].output)
 
-num_filters = model.layers[my_layer].output_shape[3]
+num_filters = model.layers[my_layer].output.shape[-1]
 print("Nom de la sous-couche :",model.layers[my_layer].name)
 print("Nb de sous-couches :",num_filters)
 
@@ -52,7 +52,7 @@ print("Nb de sous-couches :",num_filters)
 # https://machinelearningmastery.com/how-to-visualize-filters-and-feature-maps-in-convolutional-neural-networks/
 
 # One random image : (check #56='4', #57='1', #58='9')
-img = X_test[58].reshape(1,28,28,1)
+img = X_test[56].reshape(1,28,28,1)
 # fig = plt.figure(figsize=(5,5))
 # plt.imshow(img[0,:,:,0],cmap="Greys")
 # plt.axis('off')

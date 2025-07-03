@@ -113,4 +113,4 @@ print(pre_tokenisation("ab ab abc dbac bacde"))
 
 # Il resterait à faire la tokenisation proprement dite
 # cad prendre un texte qcq et un vocabulaire calculé par pre_tokenisation et le transformer en une liste de tokens
-# puis faire l'inverse (facile) : prendre un texte tokeniser et la transformer en un texte de mots
+# puis faire l'inverse (facile) : prendre un texte tokenisé et le transformer en un texte de mots

@@ -22,7 +22,7 @@ ax.view_init(40, -60)
 
 mes_niveaux = np.linspace(1,3,10)
 ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='viridis', edgecolor='none',alpha=0.9)
-ax.contour(X, Y, Z, mes_niveaux, czdir='z', offset=1,colors='black', linestyles="solid")
+ax.contour(X, Y, Z, mes_niveaux, offset=1,colors='black', linestyles="solid")
 
 # plt.savefig('pythonxy-niveau-3d-4.png')
 plt.show()

@@ -3,7 +3,7 @@ from tensorflow import keras
 from tensorflow.keras import backend as K
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input, Dense
 
 from keras_facile import *
 
@@ -16,13 +16,15 @@ modele = Sequential()
 # seconde couche : 1 neurone
 # activation = tangente hyperbolique
 
-# Première couche : 2 neurones (entrée de dimension 2)
-modele.add(Dense(2, input_dim=2, activation='sigmoid'))
+modele.add(Input(shape=(2,)))  # 2 entrées
+
+# Première couche : 2 neurones 
+modele.add(Dense(2, activation='sigmoid'))
 
 # Seconde et dernière couche : 1 neurone
 modele.add(Dense(1, activation='sigmoid'))
 
-mysgd = optimizers.SGD(lr=1)
+mysgd = optimizers.SGD(learning_rate=1.0)
 modele.compile(loss='mean_squared_error', optimizer=mysgd)
 
 # poids_a_zeros(modele,0)  # couche 0, tous les poids à zéros
@@ -112,9 +114,9 @@ affiche_poids(modele,1)
 
 
 print("Gradient à la main par différence de poids")
-lr = K.eval(mysgd.lr)  # learning rate
+lr = K.eval(mysgd.learning_rate)  # learning rate
 
-for i in range(1):
+for i in range(10):
     poids_avant = modele.get_weights()
     loss = modele.train_on_batch(X_train, Y_train)  # renvoie l'erreur avant l'application du gradient
     poids_apres = modele.get_weights()
