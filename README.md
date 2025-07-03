@@ -14,7 +14,7 @@ Nouveau !
 
 * Version 2.0. 
 * Inclusions de deux chapitres sur ChatGPT et les  grands modèles de langages.
-* Explciations et scripts sont adaptés à Tensorflow 2.18 et Keras 3.10
+* Explciations et scripts sont adaptés à Tensorflow 2.18 et Keras 3.10.
 
 
 Livre

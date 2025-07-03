@@ -372,7 +372,8 @@ modele.add(Dense(p, activation='tanh'))
 modele.add(Dense(1, activation='linear'))
 
 # Méthode de gradient : descente de gradient classique améliorée
-mysgd = optimizers.SGD(learning_rate=0.001, decay=1e-7, momentum=0.9, nesterov=True)
+mysgd = optimizers.SGD(learning_rate=0.001, decay=1e-7, 
+                       momentum=0.9, nesterov=True)
 modele.compile(loss='mean_squared_error', optimizer=mysgd)
 print(modele.summary())
 
@@ -469,11 +470,11 @@ Pour l'instant nous ne travaillons qu'avec un seul type d'architecture de résea
 Avec \tensorflow/\keras, il suffit de déclarer le modèle du réseau en ajoutant une à une les couches.
 \begin{lstlisting} 
 modele = Sequential()
-modele.add(Input(shape=(n,)))                          # entrée de dimension n
-modele.add(Dense(N1, activation='...'))                # première couche
-modele.add(Dense(N2, activation='...'))                # deuxième couche
+modele.add(Input(shape=(n,)))                    # entrée de dimension n
+modele.add(Dense(N1, activation='...'))          # première couche
+modele.add(Dense(N2, activation='...'))          # deuxième couche
 ...
-modele.add(Dense(p, activation='...'))                 # dernière couche
+modele.add(Dense(p, activation='...'))           # dernière couche
 \end{lstlisting}
 On commence par indiquer la dimension des données en entrée par l'instruction \ci{Input(shape=(n,))} où $n$ est la dimension de chaque donnée d'entrée.
 La fonction \ci{add(Dense())} prend en entrée le nombre $N_i$ de neurones sur cette couche, ainsi que la fonction d'activation des neurones de cette couche.

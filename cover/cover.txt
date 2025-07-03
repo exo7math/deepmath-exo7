@@ -36,3 +36,6 @@ taille de coupe 7.5 x 9.25 pouces
 Absence de fond perdu
 
 couv brillante
+
+Il faut applatir le pdf du manuscrit :
+gs -sDEVICE=pdfwrite -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -sOutputFile=livre-deepmath-print-kdp.pdf livre-quantum-print.pdf

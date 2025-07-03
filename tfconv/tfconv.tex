@@ -130,7 +130,7 @@ modele = Sequential()
 
 modele.add(Input(shape=(28,28,1)))
 
-# Première couche de convolution : 32 neurones, convolution 3x3, activation relu
+# Première couche de convolution : 32 neurones, conv. 3x3, activ. relu
 modele.add(Conv2D(32, kernel_size=3, padding='same', activation='relu'))
 
 # Deuxième couche de convolution : 16 neurones
@@ -248,7 +248,7 @@ modele = Sequential()
 # Entrée du réseau : 32x32 pixels, 3 canaux (RGB)
 modele.add(Input(shape=(32,32,3)))
 
-# Première couche de convolution : 64 neurones, convolution 3x3, activation relu
+# Première couche de convolution : 64 neurones, conv. 3x3, activ. relu
 modele.add(Conv2D(64, kernel_size=3, padding='same', activation='relu'))
 
 # Deuxième couche de convolution : 64 neurones
@@ -372,7 +372,8 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras import optimizers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Input, Dense,Conv2D,Flatten,MaxPooling2D,Dropout
+from tensorflow.keras.layers import Input, Dense, Conv2D, 
+                                    Flatten, MaxPooling2D, Dropout
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # Partie A. Données
@@ -390,10 +391,10 @@ nb_train_images = 20000
 # 0 pour les chats  et 1 pour les chiens 
 train_datagen = ImageDataGenerator(rescale =1./255)
 training_set = train_datagen.flow_from_directory(train_directory,
-                                       target_size=(image_width,image_height),
-                                       batch_size= 32,
-                                       shuffle=True, seed=13,
-                                       class_mode='binary')
+                   target_size=(image_width,image_height),
+                   batch_size= 32,
+                   shuffle=True, seed=13,
+                   class_mode='binary')
 
 # Partie B. Réseau 
 modele = Sequential()
