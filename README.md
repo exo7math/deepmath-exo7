@@ -20,7 +20,7 @@ Nouveau !
 Livre
 =====
 
-Vous pouvez télécharger le livre en couleur sur ce site : [Livre 'Deepmath' (18 Mo)](livre-deepmath.pdf).
+Vous pouvez télécharger le livre en couleur sur ce site : [Livre 'Deepmath' (27 Mo)](livre-deepmath.pdf).
 
 Vous pouvez obtenir une version papier en *noir et blanc* sur [Amazon](https://www.amazon.fr/dp/B08TRRNBMQ/) à prix coûtant.
 
